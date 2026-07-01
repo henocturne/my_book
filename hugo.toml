@@ -1,0 +1,25 @@
+# 基础全局配置
+theme = "hugo-book"
+# baseURL = "docs"
+baseURL = 'https://henocturne.github.io/my_book/'
+locale = "zh-CN"
+title = "首页"
+
+[params]
+  # 侧边栏目录排序规则：weight权重排序（默认）
+  BookMenuBundle = "/"
+
+  # 开启搜索框
+  BookSearch = true
+  
+  # 深色模式切换
+  BookThemeAutoSwitch = true
+  
+  # 页面内目录TOC默认展开
+  BookToCOpen = true
+
+  # 数学公式渲染
+  math = true
+
+  # github pages
+  relativeURLs = true

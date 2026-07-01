@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>数学分析 on 首页</title>
+		<link>//localhost:1313/docs/ma/</link>
+		<description>Recent content in 数学分析 on 首页</description>
+		<generator>Hugo</generator>
+		<language>zh-CN</language>
+		
+		
+		
+		
+			<atom:link href="//localhost:1313/docs/ma/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>ch1</title>
+				<link>//localhost:1313/docs/ma/book1/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>//localhost:1313/docs/ma/book1/</guid>
+				<description>&lt;p&gt;第一章“引言”主要介绍了数学分析中的基本方法和核心概念，重点围绕求和、估计以及实数系的构造展开。以下是基于提供的源文件对第一章主要内容的总结及原文公式的整理。&lt;/p&gt;&#xA;&lt;h3 id=&#34;第一章主要内容总结&#34;&gt;&lt;strong&gt;第一章主要内容总结&lt;/strong&gt;&lt;a class=&#34;anchor&#34; href=&#34;#%e7%ac%ac%e4%b8%80%e7%ab%a0%e4%b8%bb%e8%a6%81%e5%86%85%e5%ae%b9%e6%80%bb%e7%bb%93&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xD;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;从求和谈起（§1.1）&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;探讨了自然数序列的求和方法，如高斯的算术级数求和技巧。&lt;/li&gt;&#xA;&lt;li&gt;引入了&lt;strong&gt;裂项相消法&lt;/strong&gt;，并利用此方法推导了平方和公式。&lt;/li&gt;&#xA;&lt;li&gt;通过对曲边三角形（如 $y=x^2$ 下方区域）面积的近似求和，初步展示了微积分中“以直代曲”的思想。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;比较与估计（§1.2）&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;强调了&lt;strong&gt;定量估计&lt;/strong&gt;是数学分析的核心。通过误差分析（如面积估算中的误差 $E_n$）来确定极限值的存在性。&lt;/li&gt;&#xA;&lt;li&gt;引入了&lt;strong&gt;确界原理&lt;/strong&gt;（上确界 $sup$ 和下确界 $inf$），这是实数系完备性的基本刻画。&lt;/li&gt;&#xA;&lt;li&gt;介绍了几类重要的基本不等式，包括&lt;strong&gt;三角不等式&lt;/strong&gt;、&lt;strong&gt;均值不等式&lt;/strong&gt;（AGM不等式）以及&lt;strong&gt;牛顿二项式展开&lt;/strong&gt;。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;实数系的构造（附录 §1.4）&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;介绍了利用 &lt;strong&gt;Dedekind 分割&lt;/strong&gt;从有理数构造实数的方法。&lt;/li&gt;&#xA;&lt;li&gt;通过分割定义了实数的序关系、加法和乘法运算，并证明了实数系的连续性。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;原文公式整理&#34;&gt;&lt;strong&gt;原文公式整理&lt;/strong&gt;&lt;a class=&#34;anchor&#34; href=&#34;#%e5%8e%9f%e6%96%87%e5%85%ac%e5%bc%8f%e6%95%b4%e7%90%86&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xD;&#xA;&lt;p&gt;按照原文公式后的序号整理如下：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;(1.1) 等差数列求和&lt;/strong&gt;：&#xA;$1 + 2 + \dots + n = \frac{1}{2}n(n+1)$&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;(1.2) 求和号表示&lt;/strong&gt;：&#xA;$\sum_{k=1}^n k = \frac{1}{2}n(n+1)$&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;(1.3) 平方和公式&lt;/strong&gt;：&#xA;$\sum_{k=1}^n k^2 = \frac{1}{6}n(n+1)(2n+1)$&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;(1.4) 面积估算的误差控制&lt;/strong&gt;：&#xA;$|S - \frac{1}{3}| &amp;lt; \frac{1}{2n} + \frac{1}{6n^2} &amp;lt; \frac{1}{n}$&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;(1.6) 实数构造中的逼近估计（见附录）&lt;/strong&gt;：&#xA;$0 &amp;lt; 2 - x_{n+1}^2 &amp;lt; \frac{1}{4^n}, \quad n \ge 1$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;其他重要公式源文中未加序号但核心&#34;&gt;&lt;strong&gt;其他重要公式（源文中未加序号但核心）&lt;/strong&gt;&lt;a class=&#34;anchor&#34; href=&#34;#%e5%85%b6%e4%bb%96%e9%87%8d%e8%a6%81%e5%85%ac%e5%bc%8f%e6%ba%90%e6%96%87%e4%b8%ad%e6%9c%aa%e5%8a%a0%e5%ba%8f%e5%8f%b7%e4%bd%86%e6%a0%b8%e5%bf%83&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xD;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;几何级数求和&lt;/strong&gt;：$\sum_{k=0}^{n-1} q^k = \frac{1-q^n}{1-q} \quad (q \neq 1)$&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;最大值与最小值函数&lt;/strong&gt;：&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$\max{a, b} = \frac{1}{2}(a+b+|a-b|)$&lt;/li&gt;&#xA;&lt;li&gt;$\min{a, b} = \frac{1}{2}(a+b-|a-b|)$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;三角不等式&lt;/strong&gt;：$|a+b| \le |a| + |b|$&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;均值不等式&lt;/strong&gt;：$\sqrt{ab} \le \frac{a+b}{2} \quad (a, b \ge 0)$&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;牛顿二项式公式&lt;/strong&gt;：$(a+b)^n = \sum_{k=0}^n C_n^k a^k b^{n-k}$&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+	</channel>
+</rss>
