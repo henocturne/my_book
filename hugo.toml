@@ -1,7 +1,7 @@
 # 基础全局配置
 theme = "hugo-book"
 # baseURL = "docs"
-baseURL = 'https://henocturne.github.io/my_book/'
+baseURL = 'https://henocturne.github.io/my_book'
 locale = "zh-CN"
 title = "首页"
 
