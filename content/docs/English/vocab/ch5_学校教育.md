@@ -10,7 +10,7 @@ weight: 1
 ### 一、学校教育 (Chapter 5)
 该章节涵盖了教育体系、学术研究、学科分类、考试评估以及逻辑思维等相关词汇。
 
-*   **学校等级：** primary school (小学), secondary school (中学), junior secondary school (初中), senior secondary school (高中), university (综合性大学), college (学院), institute (研究所), academy (专科院校), vocational academy (职业专科院校), research institute (科研研究所)
+*   **学校等级：** primary school (小学), secondary school (中学), junior secondary school (初中), senior secondary school (高中), university (综合性大学), college (学院), institute (研究所), academy (专科院校), vocational academy (职业专科院校), research institute (科研研究所), faculty (学院，规模最大，下辖多个系), college (学院，文理 / 独立学院), school (学院，理工 / 传媒常用), department (系，院系最小单位)
 
 *   **学生等级：** pupil (小学生), primary school student (小学生), secondary school student (中学生), high school student (高中生), fresher (大一新生), sophomore (大二学生), junior (大三学生), senior (毕业班学生), , undergraduate (本科生), postgraduate (研究生), bachelor (学士), master (硕士), doctor (博士), master candidate (硕士研究生), doctor candidate (博士研究生), PhD candidate (博士研究生), graduate (毕业生), candidate (学位候选人), alumni (校友), alumnus (男校友), alumna (女校友)
 
