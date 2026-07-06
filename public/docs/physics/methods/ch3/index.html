@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据《数学物理方法（第三版）》第三章“复变积分”的内容，按照原文公式序号整理的主要内容如下：
+一、 复变积分的定义与性质 (§3.1)#(3.1) 复变积分定义：通过黎曼和的极限定义，$\int_{C}f(z)dz=\lim_{\max|\Delta z_{k}|\rightarrow0}\sum_{k=1}^{n}f(\zeta_{k})\Delta z_{k}$。 (3.2) 实变分解：将复变积分分解为两个实变线积分的组合，$\int_{C}f(z)dz=\int_{C}(udx-vdy)&#43;i\int_{C}(vdx&#43;udy)$。 二、 Cauchy 定理与不定积分 (§3.2)#(3.3) Cauchy 定理：若 $f(z)$ 在有界闭区域 $G$ 中解析，则沿边界 $C$ 有 $\oint_{C}f(z)dz=0$。 (3.3’) 多连通区域形式：外边界积分等于各内边界积分之和（同向），$\oint_{C_{0}}f(z)dz=\sum_{i=1}^{n}\oint_{C_{i}^{(-)}}f(z)dz$。 (3.4) &amp; (3.5) 幂函数环路积分： $\oint_{C}(z-a)^{n}dz = 2\pi i$ (当 $n=-1$ 且 $C$ 包含 $a$)； $\oint_{C}(z-a)^{n}dz = 0$ (其他情形)。 (3.7) &amp; (3.8) 不定积分定义：$F(z)=\int_{z_{0}}^{z}f(\zeta)d\zeta$，在单连通解析区域内与路径无关。 (3.9) 导数关系：$F’(z) = f(z)$，即不定积分是解析函数的原函数。 (3.10) 原函数差异：同一函数的任意两个原函数之间相差一个常数。 (3.11) 牛顿-莱布尼茨公式复数版：$\int_{z_{0}}^{z}f(\zeta)d\zeta=\Phi(z)-\Phi(z_{0})$。 (3.12) &amp; (3.13) 初等函数积分：给出了 $z^n$ 和 $1/z$ 的积分计算方法。 三、 积分估值引理 (§3.3)#(3.14) 小圆弧引理：若 $(z-a)f(z)$ 趋于 $k$，则沿小圆弧积分极限为 $ik(\theta_2-\theta_1)$。 (3.15) 大圆弧引理：若 $zf(z)$ 趋于 $K$，则沿大圆弧积分极限为 $iK(\theta_2-\theta_1)$。 四、 Cauchy 积分公式 (§3.4)#(3.16) Cauchy 积分公式：$f(a)=\frac{1}{2\pi i}\oint_{C}\frac{f(z)}{z-a}dz$，说明解析函数内部值由边界值决定。 (3.18) 均值定理：解析函数在圆心的值等于圆周上函数值的平均。 (3.20) &amp; (3.21) 无界区域公式：处理区域包含无穷远点时的积分表达。 五、 高阶导数与含参量积分 (§3.5 - §3.6)#(3.22) 高阶导数公式：$f^{(n)}(z)=\frac{n!}{2\pi i}\oint_{C}\frac{f(\zeta)}{(\zeta-z)^{n&#43;1}}d\zeta$。 (3.23) Cauchy 型积分：定义了由曲线上的连续函数所构成的解析函数。 (3.24) Cauchy 型积分求导：可通过积分号下求导获得任意阶导数。 六、 Poisson 公式 (§3.7)#(3.26) - (3.35) 上半平面 Poisson 公式：通过实轴上的实部或虚部数值，唯一确定上半平面内的解析函数值。 (3.38) - (3.40) 圆内 Poisson 公式：通过圆周上的边界值确定圆内任意一点的函数值、实部及虚部。 在《数学物理方法》第三章“复变积分”中，作者通过一系列核心定理和引理建立了解析函数的积分理论。以下是按小节整理的定理与关键结论：
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/physics/methods/ch3/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="ch3_复变积分">
+	<meta property="og:description" content="\[ \] 根据《数学物理方法（第三版）》第三章“复变积分”的内容，按照原文公式序号整理的主要内容如下：
+一、 复变积分的定义与性质 (§3.1)#(3.1) 复变积分定义：通过黎曼和的极限定义，$\int_{C}f(z)dz=\lim_{\max|\Delta z_{k}|\rightarrow0}\sum_{k=1}^{n}f(\zeta_{k})\Delta z_{k}$。 (3.2) 实变分解：将复变积分分解为两个实变线积分的组合，$\int_{C}f(z)dz=\int_{C}(udx-vdy)&#43;i\int_{C}(vdx&#43;udy)$。 二、 Cauchy 定理与不定积分 (§3.2)#(3.3) Cauchy 定理：若 $f(z)$ 在有界闭区域 $G$ 中解析，则沿边界 $C$ 有 $\oint_{C}f(z)dz=0$。 (3.3’) 多连通区域形式：外边界积分等于各内边界积分之和（同向），$\oint_{C_{0}}f(z)dz=\sum_{i=1}^{n}\oint_{C_{i}^{(-)}}f(z)dz$。 (3.4) &amp; (3.5) 幂函数环路积分： $\oint_{C}(z-a)^{n}dz = 2\pi i$ (当 $n=-1$ 且 $C$ 包含 $a$)； $\oint_{C}(z-a)^{n}dz = 0$ (其他情形)。 (3.7) &amp; (3.8) 不定积分定义：$F(z)=\int_{z_{0}}^{z}f(\zeta)d\zeta$，在单连通解析区域内与路径无关。 (3.9) 导数关系：$F’(z) = f(z)$，即不定积分是解析函数的原函数。 (3.10) 原函数差异：同一函数的任意两个原函数之间相差一个常数。 (3.11) 牛顿-莱布尼茨公式复数版：$\int_{z_{0}}^{z}f(\zeta)d\zeta=\Phi(z)-\Phi(z_{0})$。 (3.12) &amp; (3.13) 初等函数积分：给出了 $z^n$ 和 $1/z$ 的积分计算方法。 三、 积分估值引理 (§3.3)#(3.14) 小圆弧引理：若 $(z-a)f(z)$ 趋于 $k$，则沿小圆弧积分极限为 $ik(\theta_2-\theta_1)$。 (3.15) 大圆弧引理：若 $zf(z)$ 趋于 $K$，则沿大圆弧积分极限为 $iK(\theta_2-\theta_1)$。 四、 Cauchy 积分公式 (§3.4)#(3.16) Cauchy 积分公式：$f(a)=\frac{1}{2\pi i}\oint_{C}\frac{f(z)}{z-a}dz$，说明解析函数内部值由边界值决定。 (3.18) 均值定理：解析函数在圆心的值等于圆周上函数值的平均。 (3.20) &amp; (3.21) 无界区域公式：处理区域包含无穷远点时的积分表达。 五、 高阶导数与含参量积分 (§3.5 - §3.6)#(3.22) 高阶导数公式：$f^{(n)}(z)=\frac{n!}{2\pi i}\oint_{C}\frac{f(\zeta)}{(\zeta-z)^{n&#43;1}}d\zeta$。 (3.23) Cauchy 型积分：定义了由曲线上的连续函数所构成的解析函数。 (3.24) Cauchy 型积分求导：可通过积分号下求导获得任意阶导数。 六、 Poisson 公式 (§3.7)#(3.26) - (3.35) 上半平面 Poisson 公式：通过实轴上的实部或虚部数值，唯一确定上半平面内的解析函数值。 (3.38) - (3.40) 圆内 Poisson 公式：通过圆周上的边界值确定圆内任意一点的函数值、实部及虚部。 在《数学物理方法》第三章“复变积分”中，作者通过一系列核心定理和引理建立了解析函数的积分理论。以下是按小节整理的定理与关键结论：">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="ch3_复变积分">
+	<meta itemprop="description" content="\[ \] 根据《数学物理方法（第三版）》第三章“复变积分”的内容，按照原文公式序号整理的主要内容如下：
+一、 复变积分的定义与性质 (§3.1)#(3.1) 复变积分定义：通过黎曼和的极限定义，$\int_{C}f(z)dz=\lim_{\max|\Delta z_{k}|\rightarrow0}\sum_{k=1}^{n}f(\zeta_{k})\Delta z_{k}$。 (3.2) 实变分解：将复变积分分解为两个实变线积分的组合，$\int_{C}f(z)dz=\int_{C}(udx-vdy)&#43;i\int_{C}(vdx&#43;udy)$。 二、 Cauchy 定理与不定积分 (§3.2)#(3.3) Cauchy 定理：若 $f(z)$ 在有界闭区域 $G$ 中解析，则沿边界 $C$ 有 $\oint_{C}f(z)dz=0$。 (3.3’) 多连通区域形式：外边界积分等于各内边界积分之和（同向），$\oint_{C_{0}}f(z)dz=\sum_{i=1}^{n}\oint_{C_{i}^{(-)}}f(z)dz$。 (3.4) &amp; (3.5) 幂函数环路积分： $\oint_{C}(z-a)^{n}dz = 2\pi i$ (当 $n=-1$ 且 $C$ 包含 $a$)； $\oint_{C}(z-a)^{n}dz = 0$ (其他情形)。 (3.7) &amp; (3.8) 不定积分定义：$F(z)=\int_{z_{0}}^{z}f(\zeta)d\zeta$，在单连通解析区域内与路径无关。 (3.9) 导数关系：$F’(z) = f(z)$，即不定积分是解析函数的原函数。 (3.10) 原函数差异：同一函数的任意两个原函数之间相差一个常数。 (3.11) 牛顿-莱布尼茨公式复数版：$\int_{z_{0}}^{z}f(\zeta)d\zeta=\Phi(z)-\Phi(z_{0})$。 (3.12) &amp; (3.13) 初等函数积分：给出了 $z^n$ 和 $1/z$ 的积分计算方法。 三、 积分估值引理 (§3.3)#(3.14) 小圆弧引理：若 $(z-a)f(z)$ 趋于 $k$，则沿小圆弧积分极限为 $ik(\theta_2-\theta_1)$。 (3.15) 大圆弧引理：若 $zf(z)$ 趋于 $K$，则沿大圆弧积分极限为 $iK(\theta_2-\theta_1)$。 四、 Cauchy 积分公式 (§3.4)#(3.16) Cauchy 积分公式：$f(a)=\frac{1}{2\pi i}\oint_{C}\frac{f(z)}{z-a}dz$，说明解析函数内部值由边界值决定。 (3.18) 均值定理：解析函数在圆心的值等于圆周上函数值的平均。 (3.20) &amp; (3.21) 无界区域公式：处理区域包含无穷远点时的积分表达。 五、 高阶导数与含参量积分 (§3.5 - §3.6)#(3.22) 高阶导数公式：$f^{(n)}(z)=\frac{n!}{2\pi i}\oint_{C}\frac{f(\zeta)}{(\zeta-z)^{n&#43;1}}d\zeta$。 (3.23) Cauchy 型积分：定义了由曲线上的连续函数所构成的解析函数。 (3.24) Cauchy 型积分求导：可通过积分号下求导获得任意阶导数。 六、 Poisson 公式 (§3.7)#(3.26) - (3.35) 上半平面 Poisson 公式：通过实轴上的实部或虚部数值，唯一确定上半平面内的解析函数值。 (3.38) - (3.40) 圆内 Poisson 公式：通过圆周上的边界值确定圆内任意一点的函数值、实部及虚部。 在《数学物理方法》第三章“复变积分”中，作者通过一系列核心定理和引理建立了解析函数的积分理论。以下是按小节整理的定理与关键结论：">
+	<meta itemprop="wordCount" content="192">
+
+<title>ch3_复变积分 • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/physics/methods/ch3/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.430c2d1eb8e1223fc86e7d64f92598d9dcb6e5e28deecb36eeb7d04b8ce503a8.js" integrity="sha256-QwwtHrjhIj/Ibn1k&#43;SWY2dy25eKN7ss27rfQS4zlA6g=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle"  />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle"  />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f4ec9b334b16a71eedae85dcb4febf9" class="toggle"  />
+    <label for="section-2f4ec9b334b16a71eedae85dcb4febf9" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85835da35f37d45548655051db89217e" class="toggle"  />
+    <label for="section-85835da35f37d45548655051db89217e" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b08e12376bdb0678587d38233bf70899" class="toggle"  />
+    <label for="section-b08e12376bdb0678587d38233bf70899" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-02b1e26558922e9d0964a04d34d3b36d" class="toggle"  />
+    <label for="section-02b1e26558922e9d0964a04d34d3b36d" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle"  />
+    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
+    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle"  />
+    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
+    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
+    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
+    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
+    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
+    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e5858fb42fa58bc7649079a63cf0925" class="toggle"  />
+    <label for="section-9e5858fb42fa58bc7649079a63cf0925" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/" class="">
+        章节格式</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bcdeea1c4906a7d66882c0d8bd479528" class="toggle"  />
+    <label for="section-bcdeea1c4906a7d66882c0d8bd479528" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-16b43cfe7b0a47d06cbca19957543a3d" class="toggle"  />
+    <label for="section-16b43cfe7b0a47d06cbca19957543a3d" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8d129ccab9957d6df97f5d65f48e81a" class="toggle"  />
+    <label for="section-a8d129ccab9957d6df97f5d65f48e81a" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle" checked />
+    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="active">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>ch3_复变积分</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-复变积分的定义与性质-31">一、 复变积分的定义与性质 (§3.1)</a></li>
+        <li><a href="#二-cauchy-定理与不定积分-32">二、 Cauchy 定理与不定积分 (§3.2)</a></li>
+        <li><a href="#三-积分估值引理-33">三、 积分估值引理 (§3.3)</a></li>
+        <li><a href="#四-cauchy-积分公式-34">四、 Cauchy 积分公式 (§3.4)</a></li>
+        <li><a href="#五-高阶导数与含参量积分-35---36">五、 高阶导数与含参量积分 (§3.5 - §3.6)</a></li>
+        <li><a href="#六-poisson-公式-37">六、 Poisson 公式 (§3.7)</a></li>
+        <li><a href="#31-复变积分">§3.1 复变积分</a></li>
+        <li><a href="#32-cauchy-定理">§3.2 Cauchy 定理</a></li>
+        <li><a href="#33-两个有用的引理">§3.3 两个有用的引理</a></li>
+        <li><a href="#34-cauchy-积分公式">§3.4 Cauchy 积分公式</a></li>
+        <li><a href="#35-解析函数的高阶导数">§3.5 解析函数的高阶导数</a></li>
+        <li><a href="#36-cauchy-型积分和含参量积分的解析性">§3.6 Cauchy 型积分和含参量积分的解析性</a></li>
+        <li><a href="#37-poisson-公式">§3.7 Poisson 公式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+<p>根据《数学物理方法（第三版）》第三章“复变积分”的内容，按照原文公式序号整理的主要内容如下：</p>
+<h3 id="一-复变积分的定义与性质-31">一、 复变积分的定义与性质 (§3.1)<a class="anchor" href="#%e4%b8%80-%e5%a4%8d%e5%8f%98%e7%a7%af%e5%88%86%e7%9a%84%e5%ae%9a%e4%b9%89%e4%b8%8e%e6%80%a7%e8%b4%a8-31">#</a></h3>
+<ul>
+<li><strong>(3.1) 复变积分定义</strong>：通过黎曼和的极限定义，$\int_{C}f(z)dz=\lim_{\max|\Delta z_{k}|\rightarrow0}\sum_{k=1}^{n}f(\zeta_{k})\Delta z_{k}$。</li>
+<li><strong>(3.2) 实变分解</strong>：将复变积分分解为两个实变线积分的组合，$\int_{C}f(z)dz=\int_{C}(udx-vdy)+i\int_{C}(vdx+udy)$。</li>
+</ul>
+<h3 id="二-cauchy-定理与不定积分-32">二、 Cauchy 定理与不定积分 (§3.2)<a class="anchor" href="#%e4%ba%8c-cauchy-%e5%ae%9a%e7%90%86%e4%b8%8e%e4%b8%8d%e5%ae%9a%e7%a7%af%e5%88%86-32">#</a></h3>
+<ul>
+<li><strong>(3.3) Cauchy 定理</strong>：若 $f(z)$ 在有界闭区域 $G$ 中解析，则沿边界 $C$ 有 $\oint_{C}f(z)dz=0$。</li>
+<li><strong>(3.3&rsquo;) 多连通区域形式</strong>：外边界积分等于各内边界积分之和（同向），$\oint_{C_{0}}f(z)dz=\sum_{i=1}^{n}\oint_{C_{i}^{(-)}}f(z)dz$。</li>
+<li><strong>(3.4) &amp; (3.5) 幂函数环路积分</strong>：
+<ul>
+<li>$\oint_{C}(z-a)^{n}dz = 2\pi i$ (当 $n=-1$ 且 $C$ 包含 $a$)；</li>
+<li>$\oint_{C}(z-a)^{n}dz = 0$ (其他情形)。</li>
+</ul>
+</li>
+<li><strong>(3.7) &amp; (3.8) 不定积分定义</strong>：$F(z)=\int_{z_{0}}^{z}f(\zeta)d\zeta$，在单连通解析区域内与路径无关。</li>
+<li><strong>(3.9) 导数关系</strong>：$F&rsquo;(z) = f(z)$，即不定积分是解析函数的原函数。</li>
+<li><strong>(3.10) 原函数差异</strong>：同一函数的任意两个原函数之间相差一个常数。</li>
+<li><strong>(3.11) 牛顿-莱布尼茨公式复数版</strong>：$\int_{z_{0}}^{z}f(\zeta)d\zeta=\Phi(z)-\Phi(z_{0})$。</li>
+<li><strong>(3.12) &amp; (3.13) 初等函数积分</strong>：给出了 $z^n$ 和 $1/z$ 的积分计算方法。</li>
+</ul>
+<h3 id="三-积分估值引理-33">三、 积分估值引理 (§3.3)<a class="anchor" href="#%e4%b8%89-%e7%a7%af%e5%88%86%e4%bc%b0%e5%80%bc%e5%bc%95%e7%90%86-33">#</a></h3>
+<ul>
+<li><strong>(3.14) 小圆弧引理</strong>：若 $(z-a)f(z)$ 趋于 $k$，则沿小圆弧积分极限为 $ik(\theta_2-\theta_1)$。</li>
+<li><strong>(3.15) 大圆弧引理</strong>：若 $zf(z)$ 趋于 $K$，则沿大圆弧积分极限为 $iK(\theta_2-\theta_1)$。</li>
+</ul>
+<h3 id="四-cauchy-积分公式-34">四、 Cauchy 积分公式 (§3.4)<a class="anchor" href="#%e5%9b%9b-cauchy-%e7%a7%af%e5%88%86%e5%85%ac%e5%bc%8f-34">#</a></h3>
+<ul>
+<li><strong>(3.16) Cauchy 积分公式</strong>：$f(a)=\frac{1}{2\pi i}\oint_{C}\frac{f(z)}{z-a}dz$，说明解析函数内部值由边界值决定。</li>
+<li><strong>(3.18) 均值定理</strong>：解析函数在圆心的值等于圆周上函数值的平均。</li>
+<li><strong>(3.20) &amp; (3.21) 无界区域公式</strong>：处理区域包含无穷远点时的积分表达。</li>
+</ul>
+<h3 id="五-高阶导数与含参量积分-35---36">五、 高阶导数与含参量积分 (§3.5 - §3.6)<a class="anchor" href="#%e4%ba%94-%e9%ab%98%e9%98%b6%e5%af%bc%e6%95%b0%e4%b8%8e%e5%90%ab%e5%8f%82%e9%87%8f%e7%a7%af%e5%88%86-35---36">#</a></h3>
+<ul>
+<li><strong>(3.22) 高阶导数公式</strong>：$f^{(n)}(z)=\frac{n!}{2\pi i}\oint_{C}\frac{f(\zeta)}{(\zeta-z)^{n+1}}d\zeta$。</li>
+<li><strong>(3.23) Cauchy 型积分</strong>：定义了由曲线上的连续函数所构成的解析函数。</li>
+<li><strong>(3.24) Cauchy 型积分求导</strong>：可通过积分号下求导获得任意阶导数。</li>
+</ul>
+<h3 id="六-poisson-公式-37">六、 Poisson 公式 (§3.7)<a class="anchor" href="#%e5%85%ad-poisson-%e5%85%ac%e5%bc%8f-37">#</a></h3>
+<ul>
+<li><strong>(3.26) - (3.35) 上半平面 Poisson 公式</strong>：通过实轴上的实部或虚部数值，唯一确定上半平面内的解析函数值。</li>
+<li><strong>(3.38) - (3.40) 圆内 Poisson 公式</strong>：通过圆周上的边界值确定圆内任意一点的函数值、实部及虚部。</li>
+</ul>
+<p>在《数学物理方法》第三章“复变积分”中，作者通过一系列核心定理和引理建立了解析函数的积分理论。以下是按小节整理的定理与关键结论：</p>
+<h3 id="31-复变积分">§3.1 复变积分<a class="anchor" href="#31-%e5%a4%8d%e5%8f%98%e7%a7%af%e5%88%86">#</a></h3>
+<p>本节主要定义了复变积分及其线性、路径加和性等基本性质。虽然没有冠以“定理”的命题，但明确了<strong>积分存在性</strong>：若曲线分段光滑且函数连续，则复变积分一定存在。</p>
+<h3 id="32-cauchy-定理">§3.2 Cauchy 定理<a class="anchor" href="#32-cauchy-%e5%ae%9a%e7%90%86">#</a></h3>
+<p>本节涵盖了解析函数理论的基石：</p>
+<ul>
+<li><strong>定理 3.1 (Cauchy 定理)</strong>：如果函数 $f(z)$ 在有界闭区域 $G$ 中解析，则沿边界 $C$ 的积分 $\oint_{C}f(z)dz=0$。</li>
+<li><strong>复变积分变形定理</strong>：解析函数沿闭合曲线的积分在区域内连续变形时保持不变。</li>
+<li><strong>路径无关推论</strong>：在有界单连通解析区域内，复变积分的值仅取决于端点，与路径无关。</li>
+<li><strong>定理 3.2 (不定积分解析性)</strong>：解析函数的不定积分 $F(z) = \int_{z_{0}}^{z}f(\zeta)d\zeta$ 也是解析函数，且其导数为被积函数本身。</li>
+</ul>
+<h3 id="33-两个有用的引理">§3.3 两个有用的引理<a class="anchor" href="#33-%e4%b8%a4%e4%b8%aa%e6%9c%89%e7%94%a8%e7%9a%84%e5%bc%95%e7%90%86">#</a></h3>
+<p>这两个引理是后续计算复杂围道积分的重要工具：</p>
+<ul>
+<li><strong>引理 3.4 (小圆弧引理)</strong>：确定了函数在奇点邻域内沿极小圆弧积分的极限值。</li>
+<li><strong>引理 3.5 (大圆弧引理)</strong>：确定了函数在无穷远点邻域内沿极大圆弧积分的极限值。</li>
+</ul>
+<h3 id="34-cauchy-积分公式">§3.4 Cauchy 积分公式<a class="anchor" href="#34-cauchy-%e7%a7%af%e5%88%86%e5%85%ac%e5%bc%8f">#</a></h3>
+<ul>
+<li><strong>Cauchy 积分公式</strong>：解析函数内部任何一点的值，都可以由其边界上的数值通过积分唯一确定。</li>
+<li><strong>均值定理</strong>：解析函数在某点的值等于以该点为圆心的圆周上函数值的算术平均值。</li>
+</ul>
+<h3 id="35-解析函数的高阶导数">§3.5 解析函数的高阶导数<a class="anchor" href="#35-%e8%a7%a3%e6%9e%90%e5%87%bd%e6%95%b0%e7%9a%84%e9%ab%98%e9%98%b6%e5%af%bc%e6%95%b0">#</a></h3>
+<ul>
+<li><strong>高阶导数存在定理</strong>：如果函数在区域内解析，则其任何阶导数均存在，且同样是解析函数。本节给出了利用边界积分表达各阶导数的通用公式。</li>
+</ul>
+<h3 id="36-cauchy-型积分和含参量积分的解析性">§3.6 Cauchy 型积分和含参量积分的解析性<a class="anchor" href="#36-cauchy-%e5%9e%8b%e7%a7%af%e5%88%86%e5%92%8c%e5%90%ab%e5%8f%82%e9%87%8f%e7%a7%af%e5%88%86%e7%9a%84%e8%a7%a3%e6%9e%90%e6%80%a7">#</a></h3>
+<ul>
+<li><strong>Cauchy 型积分性质</strong>：定义了 Cauchy 型积分，并指出其在积分曲线外是解析的，且可以进行积分号下求导。</li>
+<li><strong>定理 3.3 (含参量积分的解析性)</strong>：规定了含参量积分 $F(z)=\int_{a}^{b}f(t,z)dt$ 在复平面内保持解析性的充分条件。</li>
+</ul>
+<h3 id="37-poisson-公式">§3.7 Poisson 公式<a class="anchor" href="#37-poisson-%e5%85%ac%e5%bc%8f">#</a></h3>
+<ul>
+<li><strong>上半平面 Poisson 公式</strong>：说明若函数在上半平面解析且在无穷远趋于零，则其实轴边界值可唯一确定区域内数值。</li>
+<li><strong>圆内 Poisson 公式</strong>：说明圆周上的数值（或其实部/虚部）可唯一确定圆内任意一点的函数值。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/physics/methods/ch2/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>ch2_解析函数</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/english/vocab/" class="flex align-center">
+        <span>词汇学习</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-复变积分的定义与性质-31">一、 复变积分的定义与性质 (§3.1)</a></li>
+        <li><a href="#二-cauchy-定理与不定积分-32">二、 Cauchy 定理与不定积分 (§3.2)</a></li>
+        <li><a href="#三-积分估值引理-33">三、 积分估值引理 (§3.3)</a></li>
+        <li><a href="#四-cauchy-积分公式-34">四、 Cauchy 积分公式 (§3.4)</a></li>
+        <li><a href="#五-高阶导数与含参量积分-35---36">五、 高阶导数与含参量积分 (§3.5 - §3.6)</a></li>
+        <li><a href="#六-poisson-公式-37">六、 Poisson 公式 (§3.7)</a></li>
+        <li><a href="#31-复变积分">§3.1 复变积分</a></li>
+        <li><a href="#32-cauchy-定理">§3.2 Cauchy 定理</a></li>
+        <li><a href="#33-两个有用的引理">§3.3 两个有用的引理</a></li>
+        <li><a href="#34-cauchy-积分公式">§3.4 Cauchy 积分公式</a></li>
+        <li><a href="#35-解析函数的高阶导数">§3.5 解析函数的高阶导数</a></li>
+        <li><a href="#36-cauchy-型积分和含参量积分的解析性">§3.6 Cauchy 型积分和含参量积分的解析性</a></li>
+        <li><a href="#37-poisson-公式">§3.7 Poisson 公式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

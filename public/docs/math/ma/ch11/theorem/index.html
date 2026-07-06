@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据源文件《第十一章 多元函数的微分》，各小节下的定理、命题及核心推论整理如下：
+§11.1 方向导数和微分#命题 11.1.1：若函数 \( f: \mathbb{R}^n \rightarrow \mathbb{R} \) 的偏导数恒为零，则 \( f \) 为常值函数。 命题 11.1.2 (可微必可导)：若 \( f \) 在 \( x^0 \) 处可微，则 \( f \) 在该点处沿任何方向的方向导数都存在，且满足 \( \frac{\partial f}{\partial u}(x^0) = df(x^0)(u) \)。 命题 11.1.3 (可微的充分条件)：若多元函数 \( f \) 的每一个偏导数都在 \( z^0 \) 处连续，则 \( f \) 在 \( z^0 \) 处可微。 定理 11.1.4 (求导次序的可交换性)：若二元函数 \( f \) 的二阶混合偏导数 \( f_{xy} \) 和 \( f_{yx} \) 在 \( (x_0, y_0) \) 处连续，则在该点处 \( f_{xy}(x_0, y_0) = f_{yx}(x_0, y_0) \)。 §11.3 链式法则#定理 11.3.1 (复合求导)：设 \( f \) 在 \( x^0 \) 处可微，\( g \) 在 \( y^0 = f(x^0) \) 处可微，则复合函数 \( h = g \circ f \) 在 \( x^0 \) 处可微，且其 Jacobi 矩阵满足 \( Jh(x^0) = Jg(y^0) \cdot Jf(x^0) \)。 推论 11.3.2：给出复合函数 \( (f \circ \sigma)’(t^0) = \nabla f(x^0) \cdot \sigma’(t^0) \) 的具体分量表示形式。 命题 11.3.3：关于全微分的运算法则（和、积、商），并指出全微分具有形式不变性。 §11.4 拟微分中值定理#定理 11.4.1 (微分中值定理)：设 \( D \) 为凸集，\( f \) 在 \( D \) 中处处可微，则对于 \( x, y \in D \)，存在 \( \xi = \theta x &#43; (1-\theta)y \) 使得 \( f(x) - f(y) = \nabla f(\xi) \cdot (x - y) \)。 定理 11.4.2 (拟微分中值定理)：针对向量值函数 \( f: D \rightarrow \mathbb{R}^m \)，在相同条件下成立不等式 \( |f(x) - f(y)| \le |Jf(\xi)| \cdot |x - y| \)。 §11.5 逆映射定理和隐映射定理#定理 11.5.1 (逆映射定理)：设 \( f \) 是 \( C^k \) 映射，若在 \( x^0 \) 处的 Jacobi 矩阵 \( Jf(x^0) \) 非奇异（行列式不为零），则 \( f \) 在 \( x^0 \) 附近局部可逆，且其逆映射也是 \( C^k \) 映射。 定理 11.5.2 (隐映射定理)：给出隐方程组 \( f(x, y) = 0 \) 局部解出 \( y = \psi(x) \) 的存在性、唯一性及可微性条件，并给出隐映射的导数计算公式。 §11.6 多元函数的极值#命题 11.6.1 (达到极值的必要条件)：若 \( x^0 \) 为 \( f \) 的极值点且 \( f \) 在该点可微，则 \( \nabla f(x^0) = 0 \)（即 \( x^0 \) 是驻点）。 命题 11.6.2 (凸函数的判别)： (i) 可微函数 \( f \) 是凸函数的充要条件是 \( f(y) \ge f(x) &#43; \nabla f(x) \cdot (y - x) \)。 (ii) \( C^2 \) 函数 \( f \) 是凸函数的充要条件是其 Hesse 矩阵 \( \nabla^2 f \) 处处半正定。 定理 11.6.3 (Taylor 公式)：给出多元 \( C^{m&#43;1} \) 函数在凸域内的带有 Lagrange 余项的展开式。 推论 11.6.4：给出 Taylor 公式的 Peano 余项估计 \( R_m = o(|x-a|^m) \)。 §11.7 Lagrange 乘数法#定理 11.7.1 (Lagrange 乘数法)：在约束条件 \( \Phi(x) = 0 \) 下，若 \( x^0 \) 是 \( f \) 的条件极值点且满足 Jacobi 矩阵满秩条件，则存在乘数 \( \lambda^0 \) 使得 \( \nabla f(x^0) - \lambda^0 \cdot J\Phi(x^0) = 0 \)。 §11.8 补充材料 (选读)#引理 11.8.1 &amp; 11.8.2：描述对称矩阵的特征值与二次型在球面上极值的关系，以及正定矩阵的特征值判定。 引理 11.8.3：关于对称矩阵特征子空间的维数讨论。 定理 11.8.4：对称矩阵为正定矩阵的充要条件是其所有顺序主子式均大于零。 定理 11.8.5：若一组 \( C^1 \) 函数的 Jacobi 矩阵的秩在某点达到函数个数 \( m \)，则这组函数在该点附近彼此独立。 推论 11.8.6：描述函数组的相关性与 Jacobi 矩阵最大秩之间的关系。 ">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/math/ma/ch11/theorem/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="theorem">
+	<meta property="og:description" content="\[ \] 根据源文件《第十一章 多元函数的微分》，各小节下的定理、命题及核心推论整理如下：
+§11.1 方向导数和微分#命题 11.1.1：若函数 \( f: \mathbb{R}^n \rightarrow \mathbb{R} \) 的偏导数恒为零，则 \( f \) 为常值函数。 命题 11.1.2 (可微必可导)：若 \( f \) 在 \( x^0 \) 处可微，则 \( f \) 在该点处沿任何方向的方向导数都存在，且满足 \( \frac{\partial f}{\partial u}(x^0) = df(x^0)(u) \)。 命题 11.1.3 (可微的充分条件)：若多元函数 \( f \) 的每一个偏导数都在 \( z^0 \) 处连续，则 \( f \) 在 \( z^0 \) 处可微。 定理 11.1.4 (求导次序的可交换性)：若二元函数 \( f \) 的二阶混合偏导数 \( f_{xy} \) 和 \( f_{yx} \) 在 \( (x_0, y_0) \) 处连续，则在该点处 \( f_{xy}(x_0, y_0) = f_{yx}(x_0, y_0) \)。 §11.3 链式法则#定理 11.3.1 (复合求导)：设 \( f \) 在 \( x^0 \) 处可微，\( g \) 在 \( y^0 = f(x^0) \) 处可微，则复合函数 \( h = g \circ f \) 在 \( x^0 \) 处可微，且其 Jacobi 矩阵满足 \( Jh(x^0) = Jg(y^0) \cdot Jf(x^0) \)。 推论 11.3.2：给出复合函数 \( (f \circ \sigma)’(t^0) = \nabla f(x^0) \cdot \sigma’(t^0) \) 的具体分量表示形式。 命题 11.3.3：关于全微分的运算法则（和、积、商），并指出全微分具有形式不变性。 §11.4 拟微分中值定理#定理 11.4.1 (微分中值定理)：设 \( D \) 为凸集，\( f \) 在 \( D \) 中处处可微，则对于 \( x, y \in D \)，存在 \( \xi = \theta x &#43; (1-\theta)y \) 使得 \( f(x) - f(y) = \nabla f(\xi) \cdot (x - y) \)。 定理 11.4.2 (拟微分中值定理)：针对向量值函数 \( f: D \rightarrow \mathbb{R}^m \)，在相同条件下成立不等式 \( |f(x) - f(y)| \le |Jf(\xi)| \cdot |x - y| \)。 §11.5 逆映射定理和隐映射定理#定理 11.5.1 (逆映射定理)：设 \( f \) 是 \( C^k \) 映射，若在 \( x^0 \) 处的 Jacobi 矩阵 \( Jf(x^0) \) 非奇异（行列式不为零），则 \( f \) 在 \( x^0 \) 附近局部可逆，且其逆映射也是 \( C^k \) 映射。 定理 11.5.2 (隐映射定理)：给出隐方程组 \( f(x, y) = 0 \) 局部解出 \( y = \psi(x) \) 的存在性、唯一性及可微性条件，并给出隐映射的导数计算公式。 §11.6 多元函数的极值#命题 11.6.1 (达到极值的必要条件)：若 \( x^0 \) 为 \( f \) 的极值点且 \( f \) 在该点可微，则 \( \nabla f(x^0) = 0 \)（即 \( x^0 \) 是驻点）。 命题 11.6.2 (凸函数的判别)： (i) 可微函数 \( f \) 是凸函数的充要条件是 \( f(y) \ge f(x) &#43; \nabla f(x) \cdot (y - x) \)。 (ii) \( C^2 \) 函数 \( f \) 是凸函数的充要条件是其 Hesse 矩阵 \( \nabla^2 f \) 处处半正定。 定理 11.6.3 (Taylor 公式)：给出多元 \( C^{m&#43;1} \) 函数在凸域内的带有 Lagrange 余项的展开式。 推论 11.6.4：给出 Taylor 公式的 Peano 余项估计 \( R_m = o(|x-a|^m) \)。 §11.7 Lagrange 乘数法#定理 11.7.1 (Lagrange 乘数法)：在约束条件 \( \Phi(x) = 0 \) 下，若 \( x^0 \) 是 \( f \) 的条件极值点且满足 Jacobi 矩阵满秩条件，则存在乘数 \( \lambda^0 \) 使得 \( \nabla f(x^0) - \lambda^0 \cdot J\Phi(x^0) = 0 \)。 §11.8 补充材料 (选读)#引理 11.8.1 &amp; 11.8.2：描述对称矩阵的特征值与二次型在球面上极值的关系，以及正定矩阵的特征值判定。 引理 11.8.3：关于对称矩阵特征子空间的维数讨论。 定理 11.8.4：对称矩阵为正定矩阵的充要条件是其所有顺序主子式均大于零。 定理 11.8.5：若一组 \( C^1 \) 函数的 Jacobi 矩阵的秩在某点达到函数个数 \( m \)，则这组函数在该点附近彼此独立。 推论 11.8.6：描述函数组的相关性与 Jacobi 矩阵最大秩之间的关系。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="theorem">
+	<meta itemprop="description" content="\[ \] 根据源文件《第十一章 多元函数的微分》，各小节下的定理、命题及核心推论整理如下：
+§11.1 方向导数和微分#命题 11.1.1：若函数 \( f: \mathbb{R}^n \rightarrow \mathbb{R} \) 的偏导数恒为零，则 \( f \) 为常值函数。 命题 11.1.2 (可微必可导)：若 \( f \) 在 \( x^0 \) 处可微，则 \( f \) 在该点处沿任何方向的方向导数都存在，且满足 \( \frac{\partial f}{\partial u}(x^0) = df(x^0)(u) \)。 命题 11.1.3 (可微的充分条件)：若多元函数 \( f \) 的每一个偏导数都在 \( z^0 \) 处连续，则 \( f \) 在 \( z^0 \) 处可微。 定理 11.1.4 (求导次序的可交换性)：若二元函数 \( f \) 的二阶混合偏导数 \( f_{xy} \) 和 \( f_{yx} \) 在 \( (x_0, y_0) \) 处连续，则在该点处 \( f_{xy}(x_0, y_0) = f_{yx}(x_0, y_0) \)。 §11.3 链式法则#定理 11.3.1 (复合求导)：设 \( f \) 在 \( x^0 \) 处可微，\( g \) 在 \( y^0 = f(x^0) \) 处可微，则复合函数 \( h = g \circ f \) 在 \( x^0 \) 处可微，且其 Jacobi 矩阵满足 \( Jh(x^0) = Jg(y^0) \cdot Jf(x^0) \)。 推论 11.3.2：给出复合函数 \( (f \circ \sigma)’(t^0) = \nabla f(x^0) \cdot \sigma’(t^0) \) 的具体分量表示形式。 命题 11.3.3：关于全微分的运算法则（和、积、商），并指出全微分具有形式不变性。 §11.4 拟微分中值定理#定理 11.4.1 (微分中值定理)：设 \( D \) 为凸集，\( f \) 在 \( D \) 中处处可微，则对于 \( x, y \in D \)，存在 \( \xi = \theta x &#43; (1-\theta)y \) 使得 \( f(x) - f(y) = \nabla f(\xi) \cdot (x - y) \)。 定理 11.4.2 (拟微分中值定理)：针对向量值函数 \( f: D \rightarrow \mathbb{R}^m \)，在相同条件下成立不等式 \( |f(x) - f(y)| \le |Jf(\xi)| \cdot |x - y| \)。 §11.5 逆映射定理和隐映射定理#定理 11.5.1 (逆映射定理)：设 \( f \) 是 \( C^k \) 映射，若在 \( x^0 \) 处的 Jacobi 矩阵 \( Jf(x^0) \) 非奇异（行列式不为零），则 \( f \) 在 \( x^0 \) 附近局部可逆，且其逆映射也是 \( C^k \) 映射。 定理 11.5.2 (隐映射定理)：给出隐方程组 \( f(x, y) = 0 \) 局部解出 \( y = \psi(x) \) 的存在性、唯一性及可微性条件，并给出隐映射的导数计算公式。 §11.6 多元函数的极值#命题 11.6.1 (达到极值的必要条件)：若 \( x^0 \) 为 \( f \) 的极值点且 \( f \) 在该点可微，则 \( \nabla f(x^0) = 0 \)（即 \( x^0 \) 是驻点）。 命题 11.6.2 (凸函数的判别)： (i) 可微函数 \( f \) 是凸函数的充要条件是 \( f(y) \ge f(x) &#43; \nabla f(x) \cdot (y - x) \)。 (ii) \( C^2 \) 函数 \( f \) 是凸函数的充要条件是其 Hesse 矩阵 \( \nabla^2 f \) 处处半正定。 定理 11.6.3 (Taylor 公式)：给出多元 \( C^{m&#43;1} \) 函数在凸域内的带有 Lagrange 余项的展开式。 推论 11.6.4：给出 Taylor 公式的 Peano 余项估计 \( R_m = o(|x-a|^m) \)。 §11.7 Lagrange 乘数法#定理 11.7.1 (Lagrange 乘数法)：在约束条件 \( \Phi(x) = 0 \) 下，若 \( x^0 \) 是 \( f \) 的条件极值点且满足 Jacobi 矩阵满秩条件，则存在乘数 \( \lambda^0 \) 使得 \( \nabla f(x^0) - \lambda^0 \cdot J\Phi(x^0) = 0 \)。 §11.8 补充材料 (选读)#引理 11.8.1 &amp; 11.8.2：描述对称矩阵的特征值与二次型在球面上极值的关系，以及正定矩阵的特征值判定。 引理 11.8.3：关于对称矩阵特征子空间的维数讨论。 定理 11.8.4：对称矩阵为正定矩阵的充要条件是其所有顺序主子式均大于零。 定理 11.8.5：若一组 \( C^1 \) 函数的 Jacobi 矩阵的秩在某点达到函数个数 \( m \)，则这组函数在该点附近彼此独立。 推论 11.8.6：描述函数组的相关性与 Jacobi 矩阵最大秩之间的关系。">
+	<meta itemprop="wordCount" content="407">
+
+<title>theorem • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/math/ma/ch11/theorem/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.430c2d1eb8e1223fc86e7d64f92598d9dcb6e5e28deecb36eeb7d04b8ce503a8.js" integrity="sha256-QwwtHrjhIj/Ibn1k&#43;SWY2dy25eKN7ss27rfQS4zlA6g=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle" checked />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle" checked />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f4ec9b334b16a71eedae85dcb4febf9" class="toggle" checked />
+    <label for="section-2f4ec9b334b16a71eedae85dcb4febf9" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85835da35f37d45548655051db89217e" class="toggle"  />
+    <label for="section-85835da35f37d45548655051db89217e" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b08e12376bdb0678587d38233bf70899" class="toggle"  />
+    <label for="section-b08e12376bdb0678587d38233bf70899" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-02b1e26558922e9d0964a04d34d3b36d" class="toggle" checked />
+    <label for="section-02b1e26558922e9d0964a04d34d3b36d" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="active">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle"  />
+    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
+    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle"  />
+    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
+    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
+    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
+    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
+    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
+    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e5858fb42fa58bc7649079a63cf0925" class="toggle"  />
+    <label for="section-9e5858fb42fa58bc7649079a63cf0925" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/" class="">
+        章节格式</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bcdeea1c4906a7d66882c0d8bd479528" class="toggle"  />
+    <label for="section-bcdeea1c4906a7d66882c0d8bd479528" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-16b43cfe7b0a47d06cbca19957543a3d" class="toggle"  />
+    <label for="section-16b43cfe7b0a47d06cbca19957543a3d" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8d129ccab9957d6df97f5d65f48e81a" class="toggle"  />
+    <label for="section-a8d129ccab9957d6df97f5d65f48e81a" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle"  />
+    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>theorem</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#111-方向导数和微分">§11.1 方向导数和微分</a></li>
+        <li><a href="#113-链式法则">§11.3 链式法则</a></li>
+        <li><a href="#114-拟微分中值定理">§11.4 拟微分中值定理</a></li>
+        <li><a href="#115-逆映射定理和隐映射定理">§11.5 逆映射定理和隐映射定理</a></li>
+        <li><a href="#116-多元函数的极值">§11.6 多元函数的极值</a></li>
+        <li><a href="#117-lagrange-乘数法">§11.7 Lagrange 乘数法</a></li>
+        <li><a href="#118-补充材料-选读">§11.8 补充材料 (选读)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+<p>根据源文件《第十一章 多元函数的微分》，各小节下的定理、命题及核心推论整理如下：</p>
+<h3 id="111-方向导数和微分">§11.1 方向导数和微分<a class="anchor" href="#111-%e6%96%b9%e5%90%91%e5%af%bc%e6%95%b0%e5%92%8c%e5%be%ae%e5%88%86">#</a></h3>
+<ul>
+<li><strong>命题 11.1.1</strong>：若函数 \( f: \mathbb{R}^n \rightarrow \mathbb{R} \) 的偏导数恒为零，则 \( f \) 为常值函数。</li>
+<li><strong>命题 11.1.2 (可微必可导)</strong>：若 \( f \) 在 \( x^0 \) 处可微，则 \( f \) 在该点处沿任何方向的方向导数都存在，且满足 \(  \frac{\partial f}{\partial u}(x^0) = df(x^0)(u)  \)。</li>
+<li><strong>命题 11.1.3 (可微的充分条件)</strong>：若多元函数 \( f \) 的每一个偏导数都在 \( z^0 \) 处连续，则 \( f \) 在 \( z^0 \) 处可微。</li>
+<li><strong>定理 11.1.4 (求导次序的可交换性)</strong>：若二元函数 \( f \) 的二阶混合偏导数 \( f_{xy} \) 和 \( f_{yx} \) 在 \( (x_0, y_0) \) 处连续，则在该点处 \( f_{xy}(x_0, y_0) = f_{yx}(x_0, y_0) \)。</li>
+</ul>
+<h3 id="113-链式法则">§11.3 链式法则<a class="anchor" href="#113-%e9%93%be%e5%bc%8f%e6%b3%95%e5%88%99">#</a></h3>
+<ul>
+<li><strong>定理 11.3.1 (复合求导)</strong>：设 \( f \) 在 \( x^0 \) 处可微，\( g \) 在 \( y^0 = f(x^0) \) 处可微，则复合函数 \( h = g \circ f \) 在 \( x^0 \) 处可微，且其 Jacobi 矩阵满足 \( Jh(x^0) = Jg(y^0) \cdot Jf(x^0) \)。</li>
+<li><strong>推论 11.3.2</strong>：给出复合函数 \( (f \circ \sigma)&rsquo;(t^0) = \nabla f(x^0) \cdot \sigma&rsquo;(t^0) \) 的具体分量表示形式。</li>
+<li><strong>命题 11.3.3</strong>：关于全微分的运算法则（和、积、商），并指出全微分具有形式不变性。</li>
+</ul>
+<h3 id="114-拟微分中值定理">§11.4 拟微分中值定理<a class="anchor" href="#114-%e6%8b%9f%e5%be%ae%e5%88%86%e4%b8%ad%e5%80%bc%e5%ae%9a%e7%90%86">#</a></h3>
+<ul>
+<li><strong>定理 11.4.1 (微分中值定理)</strong>：设 \( D \) 为凸集，\( f \) 在 \( D \) 中处处可微，则对于 \( x, y \in D \)，存在 \( \xi = \theta x + (1-\theta)y \) 使得 \( f(x) - f(y) = \nabla f(\xi) \cdot (x - y) \)。</li>
+<li><strong>定理 11.4.2 (拟微分中值定理)</strong>：针对向量值函数 \( f: D \rightarrow \mathbb{R}^m \)，在相同条件下成立不等式 \( |f(x) - f(y)| \le |Jf(\xi)| \cdot |x - y| \)。</li>
+</ul>
+<h3 id="115-逆映射定理和隐映射定理">§11.5 逆映射定理和隐映射定理<a class="anchor" href="#115-%e9%80%86%e6%98%a0%e5%b0%84%e5%ae%9a%e7%90%86%e5%92%8c%e9%9a%90%e6%98%a0%e5%b0%84%e5%ae%9a%e7%90%86">#</a></h3>
+<ul>
+<li><strong>定理 11.5.1 (逆映射定理)</strong>：设 \( f \) 是 \( C^k \) 映射，若在 \( x^0 \) 处的 Jacobi 矩阵 \( Jf(x^0) \) 非奇异（行列式不为零），则 \( f \) 在 \( x^0 \) 附近局部可逆，且其逆映射也是 \( C^k \) 映射。</li>
+<li><strong>定理 11.5.2 (隐映射定理)</strong>：给出隐方程组 \( f(x, y) = 0 \) 局部解出 \( y = \psi(x) \) 的存在性、唯一性及可微性条件，并给出隐映射的导数计算公式。</li>
+</ul>
+<h3 id="116-多元函数的极值">§11.6 多元函数的极值<a class="anchor" href="#116-%e5%a4%9a%e5%85%83%e5%87%bd%e6%95%b0%e7%9a%84%e6%9e%81%e5%80%bc">#</a></h3>
+<ul>
+<li><strong>命题 11.6.1 (达到极值的必要条件)</strong>：若 \( x^0 \) 为 \( f \) 的极值点且 \( f \) 在该点可微，则 \( \nabla f(x^0) = 0 \)（即 \( x^0 \) 是驻点）。</li>
+<li><strong>命题 11.6.2 (凸函数的判别)</strong>：
+<ul>
+<li>(i) 可微函数 \( f \) 是凸函数的充要条件是 \( f(y) \ge f(x) + \nabla f(x) \cdot (y - x) \)。</li>
+<li>(ii) \( C^2 \) 函数 \( f \) 是凸函数的充要条件是其 Hesse 矩阵 \( \nabla^2 f \) 处处半正定。</li>
+</ul>
+</li>
+<li><strong>定理 11.6.3 (Taylor 公式)</strong>：给出多元 \( C^{m+1} \) 函数在凸域内的带有 Lagrange 余项的展开式。</li>
+<li><strong>推论 11.6.4</strong>：给出 Taylor 公式的 Peano 余项估计 \( R_m = o(|x-a|^m) \)。</li>
+</ul>
+<h3 id="117-lagrange-乘数法">§11.7 Lagrange 乘数法<a class="anchor" href="#117-lagrange-%e4%b9%98%e6%95%b0%e6%b3%95">#</a></h3>
+<ul>
+<li><strong>定理 11.7.1 (Lagrange 乘数法)</strong>：在约束条件 \( \Phi(x) = 0 \) 下，若 \( x^0 \) 是 \( f \) 的条件极值点且满足 Jacobi 矩阵满秩条件，则存在乘数 \( \lambda^0 \) 使得 \( \nabla f(x^0) - \lambda^0 \cdot J\Phi(x^0) = 0 \)。</li>
+</ul>
+<h3 id="118-补充材料-选读">§11.8 补充材料 (选读)<a class="anchor" href="#118-%e8%a1%a5%e5%85%85%e6%9d%90%e6%96%99-%e9%80%89%e8%af%bb">#</a></h3>
+<ul>
+<li><strong>引理 11.8.1 &amp; 11.8.2</strong>：描述对称矩阵的特征值与二次型在球面上极值的关系，以及正定矩阵的特征值判定。</li>
+<li><strong>引理 11.8.3</strong>：关于对称矩阵特征子空间的维数讨论。</li>
+<li><strong>定理 11.8.4</strong>：对称矩阵为正定矩阵的充要条件是其所有顺序主子式均大于零。</li>
+<li><strong>定理 11.8.5</strong>：若一组 \( C^1 \) 函数的 Jacobi 矩阵的秩在某点达到函数个数 \( m \)，则这组函数在该点附近彼此独立。</li>
+<li><strong>推论 11.8.6</strong>：描述函数组的相关性与 Jacobi 矩阵最大秩之间的关系。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>formula</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch12/" class="flex align-center">
+        <span>ch12_多元函数的积分</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#111-方向导数和微分">§11.1 方向导数和微分</a></li>
+        <li><a href="#113-链式法则">§11.3 链式法则</a></li>
+        <li><a href="#114-拟微分中值定理">§11.4 拟微分中值定理</a></li>
+        <li><a href="#115-逆映射定理和隐映射定理">§11.5 逆映射定理和隐映射定理</a></li>
+        <li><a href="#116-多元函数的极值">§11.6 多元函数的极值</a></li>
+        <li><a href="#117-lagrange-乘数法">§11.7 Lagrange 乘数法</a></li>
+        <li><a href="#118-补充材料-选读">§11.8 补充材料 (选读)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

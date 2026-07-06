@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据源文件《第十一章 多元函数的微分》，按照您的要求对公式和定义进行整理如下：
+一、 定义整理#定义 11.1.1 (方向导数)：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R} \) 为 \( D \) 中定义的函数。对于 \( x^0 \in D \)，以及 \( \mathbb{R}^n \) 中单位向量 \( u \)，如果极限 \( \lim_{t \rightarrow 0} \frac{f(x^0 &#43; tu) - f(x^0)}{t} \) 存在，则称 \( f \) 在 \( x^0 \) 处沿方向 \( u \) 可导，此极限称为 \( f \) 沿 \( u \) 的方向导数。 定义 11.1.2 (微分)：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R} \) 为多元函数，\( x^0 \in D \)。如果存在线性映射 \( L: \mathbb{R}^n \rightarrow \mathbb{R} \)，使得在 \( x^0 \) 附近成立 \( f(x) - f(x^0) = L(x - x^0) &#43; o(|x - x^0|) \)，则称 \( f \) 在 \( x^0 \) 处可微，\( L \) 称为 \( f \) 在 \( x^0 \) 处的微分，记为 \( df(x^0) \)。 定义 11.3.1 (向量值函数的微分)：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R}^m \) 为向量值多元函数，\( x^0 \in D \)。如果存在线性映射 \( L: \mathbb{R}^n \rightarrow \mathbb{R}^m \)，使得在 \( x^0 \) 附近成立 \( f(x) - f(x^0) = L(x - x^0) &#43; o(|x - x^0|) \)，则称 \( f \) 在 \( x^0 \) 处可微。 定义 11.6.1 (极值)：设 \( D \subset \mathbb{R}^n \)，\( f: D \rightarrow \mathbb{R} \) 为多元函数，\( x^0 \in D \)。如果存在 \( \delta &gt; 0 \)，使得 \( f(x^0) \ge f(x) \)（或 \( f(x^0) \le f(x) \)），\( \forall x \in D \cap B_{\delta}(x^0) \setminus {x^0} \)，则称 \( x^0 \) 为 \( f \) 的极大（小）值点，\( f(x^0) \) 为 \( f \) 的极大（小）值。 定义 11.6.2 (凸函数)：设 \( D \subset \mathbb{R}^n \) 为凸集，\( f: D \rightarrow \mathbb{R} \) 为多元函数。如果任意 \( x \neq y \in D \)，均有 \( f(tx &#43; (1-t)y) \le tf(x) &#43; (1-t)f(y) \)，\( \forall t \in (0, 1) \)，则称 \( f \) 为 \( D \) 中的凸函数。 二、 公式整理#§11.1 方向导数和微分#(11.1)：\( \frac{\partial f}{\partial u}(x^0) = df(x^0)(u) \) —— 可微函数方向导数与微分的关系。 (11.2)：\( \nabla f(x^0) = (f_{x_1}(x^0), f_{x_2}(x^0), \dots, f_{x_n}(x^0)) \) —— 梯度的定义。 (11.3)：\( df(x^0)(v) = \nabla f(x^0) \cdot v \) —— 微分的梯度表示。 §11.2 切线和切面#(11.4)：\( N_i = (-1)^{i-1} \frac{\partial(x_1, \dots, x_{i-1}, x_{i&#43;1}, \dots, x_n)}{\partial(u_1, u_2, \dots, u_{n-1})} \) —— 超曲面法向量的分量表示。 §11.3 链式法则#(11.5)：\( Jf(x^0) = \left( \frac{\partial f_i}{\partial x_j} (x^0) \right)_{m \times n} \) —— Jacobi 矩阵的定义。 (11.6)：\( Jh(x^0) = Jg(y^0) \cdot Jf(x^0) \) —— 复合函数求导的链式法则。 (11.7)：\( f(x) - f(x^0) = Jf(x^0)(x - x^0) &#43; o(|x - x^0|) \) —— 向量值函数可微的定义式。 (11.8)：\( g(y) - g(y^0) = Jg(y^0)(y - y^0) &#43; o(|y - y^0|) \) —— 外层函数可微的定义式。 (11.9)：\( \frac{\partial h_i}{\partial x_j}(x^0) = \sum_{k=1}^m \frac{\partial g_i}{\partial y_k}(y^0) \cdot \frac{\partial f_k}{\partial x_j}(x^0) \) —— 链式法则的分量形式。 (11.10)：\( (f \circ \sigma)’(t^0) = \nabla f(x^0) \cdot \sigma’(t^0) \) —— 函数沿曲线变化的导数。 (11.11)：\( \nabla f(x) = \sum_{i=1}^n \frac{\partial f}{\partial x_i}(x) e_i \) —— 梯度场在标准基下的表示。 (11.12)：\( \omega(x) = \sum_{j=1}^n \omega_j(x) e^j \) —— 1-形式的表示。 (11.13)：\( df = \sum_{j=1}^n \frac{\partial f}{\partial x_j} dx_j \) —— 全微分的常用表示。 (11.14)：\( dh_i = \sum_{k=1}^m \frac{\partial g_i}{\partial y_k}(f) df_k \) —— 全微分形式不变性。 §11.4 拟微分中值定理#(11.15)：\( f(x) - f(y) = \nabla f(\xi) \cdot (x - y) \) —— 多元函数微分中值定理。 §11.5 逆映射定理和隐映射定理#(11.16)：\( f(x) = y \) 即 \( x = y - g(x) \) —— 逆映射存在的迭代基础方程。 (11.17)：\( |\varphi(x)| \le |y| &#43; |g(x)| &lt; \frac{\delta}{2} &#43; \frac{1}{2} |x| \le \delta \) —— 压缩映射证明中的范围控制。 (11.18)：\( y - g(h(y)) = h(y) \) —— 逆映射满足的等式。 (11.19)：\( Jh(y) = [Jf(h(y))]^{-1} \) —— 逆映射的导数公式。 §11.6 多元函数的极值#(11.20)：\( f(y) \ge f(x) &#43; \nabla f(x) \cdot (y - x) \) —— 凸函数的一阶充要条件。 (11.21)：\( \varphi(1) = \varphi(0) &#43; \varphi’(0) &#43; \frac{1}{2!} \varphi’’(0) &#43; \dots &#43; \frac{1}{m!} \varphi^{(m)}(0) &#43; R_m \) —— 一元函数 Taylor 公式应用。 §11.7 Lagrange 乘数法#(11.22)：\( \nabla f(x^0) = \sum_{i=1}^m \lambda_i^0 \nabla \varphi_i(x^0) \) —— 条件极值的必要条件（梯度线性相关）。 (11.23)：\( \nabla f(x^0) - \lambda^0 \cdot J\Phi(x^0) = 0 \) —— Lagrange 乘数法的矩阵表示。 (11.24) - (11.28)：涉及 \( J\psi \) 与 \( J_y f \) 的推导，最终得出结论公式。 §11.8 补充材料#(11.29)：\( \ell(x) = x \cdot w^T = \sum_{i=1}^n x_i w_i \) —— 线性函数的外积表示。 (11.30)：\( w_i = (-1)^{i-1} \det \begin{pmatrix} v_1^1 &amp; \dots &amp; v_{i-1}^1 &amp; v_{i&#43;1}^1 &amp; \dots &amp; v_n^1 \ \vdots &amp; &amp; \vdots &amp; \vdots &amp; &amp; \vdots \end{pmatrix} \) —— 外积向量分量的行列式计算式。 ">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/math/ma/ch11/formula/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="formula">
+	<meta property="og:description" content="\[ \] 根据源文件《第十一章 多元函数的微分》，按照您的要求对公式和定义进行整理如下：
+一、 定义整理#定义 11.1.1 (方向导数)：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R} \) 为 \( D \) 中定义的函数。对于 \( x^0 \in D \)，以及 \( \mathbb{R}^n \) 中单位向量 \( u \)，如果极限 \( \lim_{t \rightarrow 0} \frac{f(x^0 &#43; tu) - f(x^0)}{t} \) 存在，则称 \( f \) 在 \( x^0 \) 处沿方向 \( u \) 可导，此极限称为 \( f \) 沿 \( u \) 的方向导数。 定义 11.1.2 (微分)：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R} \) 为多元函数，\( x^0 \in D \)。如果存在线性映射 \( L: \mathbb{R}^n \rightarrow \mathbb{R} \)，使得在 \( x^0 \) 附近成立 \( f(x) - f(x^0) = L(x - x^0) &#43; o(|x - x^0|) \)，则称 \( f \) 在 \( x^0 \) 处可微，\( L \) 称为 \( f \) 在 \( x^0 \) 处的微分，记为 \( df(x^0) \)。 定义 11.3.1 (向量值函数的微分)：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R}^m \) 为向量值多元函数，\( x^0 \in D \)。如果存在线性映射 \( L: \mathbb{R}^n \rightarrow \mathbb{R}^m \)，使得在 \( x^0 \) 附近成立 \( f(x) - f(x^0) = L(x - x^0) &#43; o(|x - x^0|) \)，则称 \( f \) 在 \( x^0 \) 处可微。 定义 11.6.1 (极值)：设 \( D \subset \mathbb{R}^n \)，\( f: D \rightarrow \mathbb{R} \) 为多元函数，\( x^0 \in D \)。如果存在 \( \delta &gt; 0 \)，使得 \( f(x^0) \ge f(x) \)（或 \( f(x^0) \le f(x) \)），\( \forall x \in D \cap B_{\delta}(x^0) \setminus {x^0} \)，则称 \( x^0 \) 为 \( f \) 的极大（小）值点，\( f(x^0) \) 为 \( f \) 的极大（小）值。 定义 11.6.2 (凸函数)：设 \( D \subset \mathbb{R}^n \) 为凸集，\( f: D \rightarrow \mathbb{R} \) 为多元函数。如果任意 \( x \neq y \in D \)，均有 \( f(tx &#43; (1-t)y) \le tf(x) &#43; (1-t)f(y) \)，\( \forall t \in (0, 1) \)，则称 \( f \) 为 \( D \) 中的凸函数。 二、 公式整理#§11.1 方向导数和微分#(11.1)：\( \frac{\partial f}{\partial u}(x^0) = df(x^0)(u) \) —— 可微函数方向导数与微分的关系。 (11.2)：\( \nabla f(x^0) = (f_{x_1}(x^0), f_{x_2}(x^0), \dots, f_{x_n}(x^0)) \) —— 梯度的定义。 (11.3)：\( df(x^0)(v) = \nabla f(x^0) \cdot v \) —— 微分的梯度表示。 §11.2 切线和切面#(11.4)：\( N_i = (-1)^{i-1} \frac{\partial(x_1, \dots, x_{i-1}, x_{i&#43;1}, \dots, x_n)}{\partial(u_1, u_2, \dots, u_{n-1})} \) —— 超曲面法向量的分量表示。 §11.3 链式法则#(11.5)：\( Jf(x^0) = \left( \frac{\partial f_i}{\partial x_j} (x^0) \right)_{m \times n} \) —— Jacobi 矩阵的定义。 (11.6)：\( Jh(x^0) = Jg(y^0) \cdot Jf(x^0) \) —— 复合函数求导的链式法则。 (11.7)：\( f(x) - f(x^0) = Jf(x^0)(x - x^0) &#43; o(|x - x^0|) \) —— 向量值函数可微的定义式。 (11.8)：\( g(y) - g(y^0) = Jg(y^0)(y - y^0) &#43; o(|y - y^0|) \) —— 外层函数可微的定义式。 (11.9)：\( \frac{\partial h_i}{\partial x_j}(x^0) = \sum_{k=1}^m \frac{\partial g_i}{\partial y_k}(y^0) \cdot \frac{\partial f_k}{\partial x_j}(x^0) \) —— 链式法则的分量形式。 (11.10)：\( (f \circ \sigma)’(t^0) = \nabla f(x^0) \cdot \sigma’(t^0) \) —— 函数沿曲线变化的导数。 (11.11)：\( \nabla f(x) = \sum_{i=1}^n \frac{\partial f}{\partial x_i}(x) e_i \) —— 梯度场在标准基下的表示。 (11.12)：\( \omega(x) = \sum_{j=1}^n \omega_j(x) e^j \) —— 1-形式的表示。 (11.13)：\( df = \sum_{j=1}^n \frac{\partial f}{\partial x_j} dx_j \) —— 全微分的常用表示。 (11.14)：\( dh_i = \sum_{k=1}^m \frac{\partial g_i}{\partial y_k}(f) df_k \) —— 全微分形式不变性。 §11.4 拟微分中值定理#(11.15)：\( f(x) - f(y) = \nabla f(\xi) \cdot (x - y) \) —— 多元函数微分中值定理。 §11.5 逆映射定理和隐映射定理#(11.16)：\( f(x) = y \) 即 \( x = y - g(x) \) —— 逆映射存在的迭代基础方程。 (11.17)：\( |\varphi(x)| \le |y| &#43; |g(x)| &lt; \frac{\delta}{2} &#43; \frac{1}{2} |x| \le \delta \) —— 压缩映射证明中的范围控制。 (11.18)：\( y - g(h(y)) = h(y) \) —— 逆映射满足的等式。 (11.19)：\( Jh(y) = [Jf(h(y))]^{-1} \) —— 逆映射的导数公式。 §11.6 多元函数的极值#(11.20)：\( f(y) \ge f(x) &#43; \nabla f(x) \cdot (y - x) \) —— 凸函数的一阶充要条件。 (11.21)：\( \varphi(1) = \varphi(0) &#43; \varphi’(0) &#43; \frac{1}{2!} \varphi’’(0) &#43; \dots &#43; \frac{1}{m!} \varphi^{(m)}(0) &#43; R_m \) —— 一元函数 Taylor 公式应用。 §11.7 Lagrange 乘数法#(11.22)：\( \nabla f(x^0) = \sum_{i=1}^m \lambda_i^0 \nabla \varphi_i(x^0) \) —— 条件极值的必要条件（梯度线性相关）。 (11.23)：\( \nabla f(x^0) - \lambda^0 \cdot J\Phi(x^0) = 0 \) —— Lagrange 乘数法的矩阵表示。 (11.24) - (11.28)：涉及 \( J\psi \) 与 \( J_y f \) 的推导，最终得出结论公式。 §11.8 补充材料#(11.29)：\( \ell(x) = x \cdot w^T = \sum_{i=1}^n x_i w_i \) —— 线性函数的外积表示。 (11.30)：\( w_i = (-1)^{i-1} \det \begin{pmatrix} v_1^1 &amp; \dots &amp; v_{i-1}^1 &amp; v_{i&#43;1}^1 &amp; \dots &amp; v_n^1 \ \vdots &amp; &amp; \vdots &amp; \vdots &amp; &amp; \vdots \end{pmatrix} \) —— 外积向量分量的行列式计算式。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="formula">
+	<meta itemprop="description" content="\[ \] 根据源文件《第十一章 多元函数的微分》，按照您的要求对公式和定义进行整理如下：
+一、 定义整理#定义 11.1.1 (方向导数)：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R} \) 为 \( D \) 中定义的函数。对于 \( x^0 \in D \)，以及 \( \mathbb{R}^n \) 中单位向量 \( u \)，如果极限 \( \lim_{t \rightarrow 0} \frac{f(x^0 &#43; tu) - f(x^0)}{t} \) 存在，则称 \( f \) 在 \( x^0 \) 处沿方向 \( u \) 可导，此极限称为 \( f \) 沿 \( u \) 的方向导数。 定义 11.1.2 (微分)：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R} \) 为多元函数，\( x^0 \in D \)。如果存在线性映射 \( L: \mathbb{R}^n \rightarrow \mathbb{R} \)，使得在 \( x^0 \) 附近成立 \( f(x) - f(x^0) = L(x - x^0) &#43; o(|x - x^0|) \)，则称 \( f \) 在 \( x^0 \) 处可微，\( L \) 称为 \( f \) 在 \( x^0 \) 处的微分，记为 \( df(x^0) \)。 定义 11.3.1 (向量值函数的微分)：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R}^m \) 为向量值多元函数，\( x^0 \in D \)。如果存在线性映射 \( L: \mathbb{R}^n \rightarrow \mathbb{R}^m \)，使得在 \( x^0 \) 附近成立 \( f(x) - f(x^0) = L(x - x^0) &#43; o(|x - x^0|) \)，则称 \( f \) 在 \( x^0 \) 处可微。 定义 11.6.1 (极值)：设 \( D \subset \mathbb{R}^n \)，\( f: D \rightarrow \mathbb{R} \) 为多元函数，\( x^0 \in D \)。如果存在 \( \delta &gt; 0 \)，使得 \( f(x^0) \ge f(x) \)（或 \( f(x^0) \le f(x) \)），\( \forall x \in D \cap B_{\delta}(x^0) \setminus {x^0} \)，则称 \( x^0 \) 为 \( f \) 的极大（小）值点，\( f(x^0) \) 为 \( f \) 的极大（小）值。 定义 11.6.2 (凸函数)：设 \( D \subset \mathbb{R}^n \) 为凸集，\( f: D \rightarrow \mathbb{R} \) 为多元函数。如果任意 \( x \neq y \in D \)，均有 \( f(tx &#43; (1-t)y) \le tf(x) &#43; (1-t)f(y) \)，\( \forall t \in (0, 1) \)，则称 \( f \) 为 \( D \) 中的凸函数。 二、 公式整理#§11.1 方向导数和微分#(11.1)：\( \frac{\partial f}{\partial u}(x^0) = df(x^0)(u) \) —— 可微函数方向导数与微分的关系。 (11.2)：\( \nabla f(x^0) = (f_{x_1}(x^0), f_{x_2}(x^0), \dots, f_{x_n}(x^0)) \) —— 梯度的定义。 (11.3)：\( df(x^0)(v) = \nabla f(x^0) \cdot v \) —— 微分的梯度表示。 §11.2 切线和切面#(11.4)：\( N_i = (-1)^{i-1} \frac{\partial(x_1, \dots, x_{i-1}, x_{i&#43;1}, \dots, x_n)}{\partial(u_1, u_2, \dots, u_{n-1})} \) —— 超曲面法向量的分量表示。 §11.3 链式法则#(11.5)：\( Jf(x^0) = \left( \frac{\partial f_i}{\partial x_j} (x^0) \right)_{m \times n} \) —— Jacobi 矩阵的定义。 (11.6)：\( Jh(x^0) = Jg(y^0) \cdot Jf(x^0) \) —— 复合函数求导的链式法则。 (11.7)：\( f(x) - f(x^0) = Jf(x^0)(x - x^0) &#43; o(|x - x^0|) \) —— 向量值函数可微的定义式。 (11.8)：\( g(y) - g(y^0) = Jg(y^0)(y - y^0) &#43; o(|y - y^0|) \) —— 外层函数可微的定义式。 (11.9)：\( \frac{\partial h_i}{\partial x_j}(x^0) = \sum_{k=1}^m \frac{\partial g_i}{\partial y_k}(y^0) \cdot \frac{\partial f_k}{\partial x_j}(x^0) \) —— 链式法则的分量形式。 (11.10)：\( (f \circ \sigma)’(t^0) = \nabla f(x^0) \cdot \sigma’(t^0) \) —— 函数沿曲线变化的导数。 (11.11)：\( \nabla f(x) = \sum_{i=1}^n \frac{\partial f}{\partial x_i}(x) e_i \) —— 梯度场在标准基下的表示。 (11.12)：\( \omega(x) = \sum_{j=1}^n \omega_j(x) e^j \) —— 1-形式的表示。 (11.13)：\( df = \sum_{j=1}^n \frac{\partial f}{\partial x_j} dx_j \) —— 全微分的常用表示。 (11.14)：\( dh_i = \sum_{k=1}^m \frac{\partial g_i}{\partial y_k}(f) df_k \) —— 全微分形式不变性。 §11.4 拟微分中值定理#(11.15)：\( f(x) - f(y) = \nabla f(\xi) \cdot (x - y) \) —— 多元函数微分中值定理。 §11.5 逆映射定理和隐映射定理#(11.16)：\( f(x) = y \) 即 \( x = y - g(x) \) —— 逆映射存在的迭代基础方程。 (11.17)：\( |\varphi(x)| \le |y| &#43; |g(x)| &lt; \frac{\delta}{2} &#43; \frac{1}{2} |x| \le \delta \) —— 压缩映射证明中的范围控制。 (11.18)：\( y - g(h(y)) = h(y) \) —— 逆映射满足的等式。 (11.19)：\( Jh(y) = [Jf(h(y))]^{-1} \) —— 逆映射的导数公式。 §11.6 多元函数的极值#(11.20)：\( f(y) \ge f(x) &#43; \nabla f(x) \cdot (y - x) \) —— 凸函数的一阶充要条件。 (11.21)：\( \varphi(1) = \varphi(0) &#43; \varphi’(0) &#43; \frac{1}{2!} \varphi’’(0) &#43; \dots &#43; \frac{1}{m!} \varphi^{(m)}(0) &#43; R_m \) —— 一元函数 Taylor 公式应用。 §11.7 Lagrange 乘数法#(11.22)：\( \nabla f(x^0) = \sum_{i=1}^m \lambda_i^0 \nabla \varphi_i(x^0) \) —— 条件极值的必要条件（梯度线性相关）。 (11.23)：\( \nabla f(x^0) - \lambda^0 \cdot J\Phi(x^0) = 0 \) —— Lagrange 乘数法的矩阵表示。 (11.24) - (11.28)：涉及 \( J\psi \) 与 \( J_y f \) 的推导，最终得出结论公式。 §11.8 补充材料#(11.29)：\( \ell(x) = x \cdot w^T = \sum_{i=1}^n x_i w_i \) —— 线性函数的外积表示。 (11.30)：\( w_i = (-1)^{i-1} \det \begin{pmatrix} v_1^1 &amp; \dots &amp; v_{i-1}^1 &amp; v_{i&#43;1}^1 &amp; \dots &amp; v_n^1 \ \vdots &amp; &amp; \vdots &amp; \vdots &amp; &amp; \vdots \end{pmatrix} \) —— 外积向量分量的行列式计算式。">
+	<meta itemprop="wordCount" content="650">
+
+<title>formula • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/math/ma/ch11/formula/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.430c2d1eb8e1223fc86e7d64f92598d9dcb6e5e28deecb36eeb7d04b8ce503a8.js" integrity="sha256-QwwtHrjhIj/Ibn1k&#43;SWY2dy25eKN7ss27rfQS4zlA6g=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle" checked />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle" checked />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f4ec9b334b16a71eedae85dcb4febf9" class="toggle" checked />
+    <label for="section-2f4ec9b334b16a71eedae85dcb4febf9" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85835da35f37d45548655051db89217e" class="toggle"  />
+    <label for="section-85835da35f37d45548655051db89217e" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b08e12376bdb0678587d38233bf70899" class="toggle" checked />
+    <label for="section-b08e12376bdb0678587d38233bf70899" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="active">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-02b1e26558922e9d0964a04d34d3b36d" class="toggle"  />
+    <label for="section-02b1e26558922e9d0964a04d34d3b36d" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle"  />
+    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
+    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle"  />
+    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
+    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
+    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
+    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
+    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
+    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e5858fb42fa58bc7649079a63cf0925" class="toggle"  />
+    <label for="section-9e5858fb42fa58bc7649079a63cf0925" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/" class="">
+        章节格式</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bcdeea1c4906a7d66882c0d8bd479528" class="toggle"  />
+    <label for="section-bcdeea1c4906a7d66882c0d8bd479528" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-16b43cfe7b0a47d06cbca19957543a3d" class="toggle"  />
+    <label for="section-16b43cfe7b0a47d06cbca19957543a3d" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8d129ccab9957d6df97f5d65f48e81a" class="toggle"  />
+    <label for="section-a8d129ccab9957d6df97f5d65f48e81a" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle"  />
+    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>formula</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-定义整理">一、 定义整理</a></li>
+        <li><a href="#二-公式整理">二、 公式整理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+<p>根据源文件《第十一章 多元函数的微分》，按照您的要求对公式和定义进行整理如下：</p>
+<h3 id="一-定义整理">一、 定义整理<a class="anchor" href="#%e4%b8%80-%e5%ae%9a%e4%b9%89%e6%95%b4%e7%90%86">#</a></h3>
+<ul>
+<li><strong>定义 11.1.1 (方向导数)</strong>：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R} \) 为 \( D \) 中定义的函数。对于 \( x^0 \in D \)，以及 \( \mathbb{R}^n \) 中单位向量 \( u \)，如果极限 \( \lim_{t \rightarrow 0} \frac{f(x^0 + tu) - f(x^0)}{t} \) 存在，则称 \( f \) 在 \( x^0 \) 处沿方向 \( u \) <strong>可导</strong>，此极限称为 \( f \) 沿 \( u \) 的<strong>方向导数</strong>。</li>
+<li><strong>定义 11.1.2 (微分)</strong>：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R} \) 为多元函数，\( x^0 \in D \)。如果存在线性映射 \( L: \mathbb{R}^n \rightarrow \mathbb{R} \)，使得在 \( x^0 \) 附近成立 \( f(x) - f(x^0) = L(x - x^0) + o(|x - x^0|) \)，则称 \( f \) 在 \( x^0 \) 处<strong>可微</strong>，\( L \) 称为 \( f \) 在 \( x^0 \) 处的<strong>微分</strong>，记为 \( df(x^0) \)。</li>
+<li><strong>定义 11.3.1 (向量值函数的微分)</strong>：设 \( D \subset \mathbb{R}^n \) 为开集，\( f: D \rightarrow \mathbb{R}^m \) 为向量值多元函数，\( x^0 \in D \)。如果存在线性映射 \( L: \mathbb{R}^n \rightarrow \mathbb{R}^m \)，使得在 \( x^0 \) 附近成立 \( f(x) - f(x^0) = L(x - x^0) + o(|x - x^0|) \)，则称 \( f \) 在 \( x^0 \) 处<strong>可微</strong>。</li>
+<li><strong>定义 11.6.1 (极值)</strong>：设 \( D \subset \mathbb{R}^n \)，\( f: D \rightarrow \mathbb{R} \) 为多元函数，\( x^0 \in D \)。如果存在 \( \delta &gt; 0 \)，使得 \( f(x^0) \ge f(x) \)（或 \( f(x^0) \le f(x) \)），\( \forall x \in D \cap B_{\delta}(x^0) \setminus {x^0} \)，则称 \( x^0 \) 为 \( f \) 的<strong>极大（小）值点</strong>，\( f(x^0) \) 为 \( f \) 的<strong>极大（小）值</strong>。</li>
+<li><strong>定义 11.6.2 (凸函数)</strong>：设 \( D \subset \mathbb{R}^n \) 为凸集，\( f: D \rightarrow \mathbb{R} \) 为多元函数。如果任意 \( x \neq y \in D \)，均有 \( f(tx + (1-t)y) \le tf(x) + (1-t)f(y) \)，\( \forall t \in (0, 1) \)，则称 \( f \) 为 \( D \) 中的<strong>凸函数</strong>。</li>
+</ul>
+<hr>
+<h3 id="二-公式整理">二、 公式整理<a class="anchor" href="#%e4%ba%8c-%e5%85%ac%e5%bc%8f%e6%95%b4%e7%90%86">#</a></h3>
+<h4 id="111-方向导数和微分">§11.1 方向导数和微分<a class="anchor" href="#111-%e6%96%b9%e5%90%91%e5%af%bc%e6%95%b0%e5%92%8c%e5%be%ae%e5%88%86">#</a></h4>
+<ul>
+<li><strong>(11.1)</strong>：\( \frac{\partial f}{\partial u}(x^0) = df(x^0)(u) \) —— <strong>可微函数方向导数与微分的关系</strong>。</li>
+<li><strong>(11.2)</strong>：\( \nabla f(x^0) = (f_{x_1}(x^0), f_{x_2}(x^0), \dots, f_{x_n}(x^0)) \) —— <strong>梯度的定义</strong>。</li>
+<li><strong>(11.3)</strong>：\( df(x^0)(v) = \nabla f(x^0) \cdot v \) —— <strong>微分的梯度表示</strong>。</li>
+</ul>
+<h4 id="112-切线和切面">§11.2 切线和切面<a class="anchor" href="#112-%e5%88%87%e7%ba%bf%e5%92%8c%e5%88%87%e9%9d%a2">#</a></h4>
+<ul>
+<li><strong>(11.4)</strong>：\( N_i = (-1)^{i-1} \frac{\partial(x_1, \dots, x_{i-1}, x_{i+1}, \dots, x_n)}{\partial(u_1, u_2, \dots, u_{n-1})} \) —— <strong>超曲面法向量的分量表示</strong>。</li>
+</ul>
+<h4 id="113-链式法则">§11.3 链式法则<a class="anchor" href="#113-%e9%93%be%e5%bc%8f%e6%b3%95%e5%88%99">#</a></h4>
+<ul>
+<li><strong>(11.5)</strong>：\( Jf(x^0) = \left( \frac{\partial f_i}{\partial x_j} (x^0) \right)_{m \times n} \) —— <strong>Jacobi 矩阵的定义</strong>。</li>
+<li><strong>(11.6)</strong>：\( Jh(x^0) = Jg(y^0) \cdot Jf(x^0) \) —— <strong>复合函数求导的链式法则</strong>。</li>
+<li><strong>(11.7)</strong>：\( f(x) - f(x^0) = Jf(x^0)(x - x^0) + o(|x - x^0|) \) —— <strong>向量值函数可微的定义式</strong>。</li>
+<li><strong>(11.8)</strong>：\( g(y) - g(y^0) = Jg(y^0)(y - y^0) + o(|y - y^0|) \) —— <strong>外层函数可微的定义式</strong>。</li>
+<li><strong>(11.9)</strong>：\( \frac{\partial h_i}{\partial x_j}(x^0) = \sum_{k=1}^m \frac{\partial g_i}{\partial y_k}(y^0) \cdot \frac{\partial f_k}{\partial x_j}(x^0) \) —— <strong>链式法则的分量形式</strong>。</li>
+<li><strong>(11.10)</strong>：\( (f \circ \sigma)&rsquo;(t^0) = \nabla f(x^0) \cdot \sigma&rsquo;(t^0) \) —— <strong>函数沿曲线变化的导数</strong>。</li>
+<li><strong>(11.11)</strong>：\( \nabla f(x) = \sum_{i=1}^n \frac{\partial f}{\partial x_i}(x) e_i \) —— <strong>梯度场在标准基下的表示</strong>。</li>
+<li><strong>(11.12)</strong>：\( \omega(x) = \sum_{j=1}^n \omega_j(x) e^j \) —— <strong>1-形式的表示</strong>。</li>
+<li><strong>(11.13)</strong>：\( df = \sum_{j=1}^n \frac{\partial f}{\partial x_j} dx_j \) —— <strong>全微分的常用表示</strong>。</li>
+<li><strong>(11.14)</strong>：\( dh_i = \sum_{k=1}^m \frac{\partial g_i}{\partial y_k}(f) df_k \) —— <strong>全微分形式不变性</strong>。</li>
+</ul>
+<h4 id="114-拟微分中值定理">§11.4 拟微分中值定理<a class="anchor" href="#114-%e6%8b%9f%e5%be%ae%e5%88%86%e4%b8%ad%e5%80%bc%e5%ae%9a%e7%90%86">#</a></h4>
+<ul>
+<li><strong>(11.15)</strong>：\( f(x) - f(y) = \nabla f(\xi) \cdot (x - y) \) —— <strong>多元函数微分中值定理</strong>。</li>
+</ul>
+<h4 id="115-逆映射定理和隐映射定理">§11.5 逆映射定理和隐映射定理<a class="anchor" href="#115-%e9%80%86%e6%98%a0%e5%b0%84%e5%ae%9a%e7%90%86%e5%92%8c%e9%9a%90%e6%98%a0%e5%b0%84%e5%ae%9a%e7%90%86">#</a></h4>
+<ul>
+<li><strong>(11.16)</strong>：\( f(x) = y \) 即 \( x = y - g(x) \) —— <strong>逆映射存在的迭代基础方程</strong>。</li>
+<li><strong>(11.17)</strong>：\( |\varphi(x)| \le |y| + |g(x)| &lt; \frac{\delta}{2} + \frac{1}{2} |x| \le \delta \) —— <strong>压缩映射证明中的范围控制</strong>。</li>
+<li><strong>(11.18)</strong>：\( y - g(h(y)) = h(y) \) —— <strong>逆映射满足的等式</strong>。</li>
+<li><strong>(11.19)</strong>：\( Jh(y) = [Jf(h(y))]^{-1} \) —— <strong>逆映射的导数公式</strong>。</li>
+</ul>
+<h4 id="116-多元函数的极值">§11.6 多元函数的极值<a class="anchor" href="#116-%e5%a4%9a%e5%85%83%e5%87%bd%e6%95%b0%e7%9a%84%e6%9e%81%e5%80%bc">#</a></h4>
+<ul>
+<li><strong>(11.20)</strong>：\( f(y) \ge f(x) + \nabla f(x) \cdot (y - x) \) —— <strong>凸函数的一阶充要条件</strong>。</li>
+<li><strong>(11.21)</strong>：\( \varphi(1) = \varphi(0) + \varphi&rsquo;(0) + \frac{1}{2!} \varphi&rsquo;&rsquo;(0) + \dots + \frac{1}{m!} \varphi^{(m)}(0) + R_m \) —— <strong>一元函数 Taylor 公式应用</strong>。</li>
+</ul>
+<h4 id="117-lagrange-乘数法">§11.7 Lagrange 乘数法<a class="anchor" href="#117-lagrange-%e4%b9%98%e6%95%b0%e6%b3%95">#</a></h4>
+<ul>
+<li><strong>(11.22)</strong>：\( \nabla f(x^0) = \sum_{i=1}^m \lambda_i^0 \nabla \varphi_i(x^0) \) —— <strong>条件极值的必要条件（梯度线性相关）</strong>。</li>
+<li><strong>(11.23)</strong>：\( \nabla f(x^0) - \lambda^0 \cdot J\Phi(x^0) = 0 \) —— <strong>Lagrange 乘数法的矩阵表示</strong>。</li>
+<li><strong>(11.24) - (11.28)</strong>：涉及 \( J\psi \) 与 \( J_y f \) 的推导，最终得出结论公式。</li>
+</ul>
+<h4 id="118-补充材料">§11.8 补充材料<a class="anchor" href="#118-%e8%a1%a5%e5%85%85%e6%9d%90%e6%96%99">#</a></h4>
+<ul>
+<li><strong>(11.29)</strong>：\( \ell(x) = x \cdot w^T = \sum_{i=1}^n x_i w_i \) —— <strong>线性函数的外积表示</strong>。</li>
+<li><strong>(11.30)</strong>：\( w_i = (-1)^{i-1} \det \begin{pmatrix} v_1^1 &amp; \dots &amp; v_{i-1}^1 &amp; v_{i+1}^1 &amp; \dots &amp; v_n^1 \ \vdots &amp; &amp; \vdots &amp; \vdots &amp; &amp; \vdots \end{pmatrix} \) —— <strong>外积向量分量的行列式计算式</strong>。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>definition</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="flex align-center">
+        <span>theorem</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-定义整理">一、 定义整理</a></li>
+        <li><a href="#二-公式整理">二、 公式整理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

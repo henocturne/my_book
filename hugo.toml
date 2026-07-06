@@ -3,7 +3,7 @@ theme = "hugo-book"
 # baseURL = "docs"
 baseURL = 'https://henocturne.github.io/my_book'
 locale = "zh-CN"
-title = "首页"
+title = "知识库"
 
 [params]
   # 侧边栏目录排序规则：weight权重排序（默认）

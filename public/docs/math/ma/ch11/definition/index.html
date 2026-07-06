@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据源文件《第十一章 多元函数的微分》，该章节定义并使用了大量用于描述高维空间微分性质的数学符号。以下是这些符号的分类总结：
+1. 基础空间与映射符号#\( \mathbb{R}^n \)：\( n \) 维欧氏空间。 \( D \)：通常指 \( \mathbb{R}^n \) 中的开集，作为函数的定义域。 \( f: D \rightarrow \mathbb{R} \) 或 \( f: D \rightarrow \mathbb{R}^m \)：定义在 \( D \) 上的多元函数或向量值映射。 2. 导数与微分相关符号#\( \frac{\partial f}{\partial u}(x^0) \)：函数 \( f \) 在点 \( x^0 \) 处沿单位向量 \( u \) 的方向导数。 \( \frac{\partial f}{\partial x_i} \) 或 \( f_{x_i} \)：函数 \( f \) 对变量 \( x_i \) 的偏导数。 \( \frac{\partial^2 f}{\partial x_i \partial x_j} \) 或 \( f_{x_i x_j} \)：二阶偏导数（当 \( i=j \) 时为二阶导数）。 \( df(x^0) \)：函数 \( f \) 在 \( x^0 \) 处的微分，是一个线性映射。 \( dx_j \)：自变量 \( x_j \) 的微分，在对偶基下等同于线性映射 \( e^j \)。 \( df = \sum_{j=1}^n \frac{\partial f}{\partial x_j} dx_j \)：全微分的计算表达式。 \( D^\alpha f \)：使用多重指标 \( \alpha = (\alpha_1, \dots, \alpha_n) \) 表示的高阶偏导数，其中 \( |\alpha| = \sum \alpha_i \) 为阶数。 3. 场论与矩阵符号#\( \nabla f(x^0) \)：函数 \( f \) 在 \( x^0 \) 处的梯度，定义为向量 \( (f_{x_1}(x^0), \dots, f_{x_n}(x^0)) \)。 \( Jf(x^0) \)：映射 \( f \) 在 \( x^0 \) 处的 Jacobi 矩阵（或称雅可比矩阵）。 \( \nabla^2 f \) 或 \( \text{Hess}(f) \)：Hesse 矩阵（或称海森矩阵），由二阶偏导数构成的对称矩阵。 \( \Delta \)：Laplace 算子（拉普拉斯算子），如在平面上 \( \Delta u = u_{xx} &#43; u_{yy} \)。 \( v^1 \times v^2 \times \dots \times v^{n-1} \)：\( n-1 \) 个向量的外积，产生一个与其正交的法向量。 4. 几何对象相关符号#\( \sigma(t) = (x_1(t), \dots, x_n(t)) \)：一条参数曲线。 \( \sigma’(t_0) \)：曲线在 \( t_0 \) 处的切向量。 \( \varphi(u, v) \)：参数曲面的映射表示。 \( N = \varphi_u \times \varphi_v \)：曲面的法向量。 \( \vec{n} \)：曲面的单位法向量。 5. 其他重要符号#\( C^k(D) \)：指在区域 \( D \) 上具有 \( k \) 阶连续偏导数的函数类；若对所有 \( k \) 均成立，则记为 \( C^\infty(D) \)（光滑函数）。 \( R_m \)：Taylor 公式展开中的余项（如 Lagrange 余项或 Peano 余项）。 \( \lambda \) 或 \( \lambda_i \)：Lagrange 乘数，用于求解约束条件下的极值问题。 ">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/math/ma/ch11/definition/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="definition">
+	<meta property="og:description" content="\[ \] 根据源文件《第十一章 多元函数的微分》，该章节定义并使用了大量用于描述高维空间微分性质的数学符号。以下是这些符号的分类总结：
+1. 基础空间与映射符号#\( \mathbb{R}^n \)：\( n \) 维欧氏空间。 \( D \)：通常指 \( \mathbb{R}^n \) 中的开集，作为函数的定义域。 \( f: D \rightarrow \mathbb{R} \) 或 \( f: D \rightarrow \mathbb{R}^m \)：定义在 \( D \) 上的多元函数或向量值映射。 2. 导数与微分相关符号#\( \frac{\partial f}{\partial u}(x^0) \)：函数 \( f \) 在点 \( x^0 \) 处沿单位向量 \( u \) 的方向导数。 \( \frac{\partial f}{\partial x_i} \) 或 \( f_{x_i} \)：函数 \( f \) 对变量 \( x_i \) 的偏导数。 \( \frac{\partial^2 f}{\partial x_i \partial x_j} \) 或 \( f_{x_i x_j} \)：二阶偏导数（当 \( i=j \) 时为二阶导数）。 \( df(x^0) \)：函数 \( f \) 在 \( x^0 \) 处的微分，是一个线性映射。 \( dx_j \)：自变量 \( x_j \) 的微分，在对偶基下等同于线性映射 \( e^j \)。 \( df = \sum_{j=1}^n \frac{\partial f}{\partial x_j} dx_j \)：全微分的计算表达式。 \( D^\alpha f \)：使用多重指标 \( \alpha = (\alpha_1, \dots, \alpha_n) \) 表示的高阶偏导数，其中 \( |\alpha| = \sum \alpha_i \) 为阶数。 3. 场论与矩阵符号#\( \nabla f(x^0) \)：函数 \( f \) 在 \( x^0 \) 处的梯度，定义为向量 \( (f_{x_1}(x^0), \dots, f_{x_n}(x^0)) \)。 \( Jf(x^0) \)：映射 \( f \) 在 \( x^0 \) 处的 Jacobi 矩阵（或称雅可比矩阵）。 \( \nabla^2 f \) 或 \( \text{Hess}(f) \)：Hesse 矩阵（或称海森矩阵），由二阶偏导数构成的对称矩阵。 \( \Delta \)：Laplace 算子（拉普拉斯算子），如在平面上 \( \Delta u = u_{xx} &#43; u_{yy} \)。 \( v^1 \times v^2 \times \dots \times v^{n-1} \)：\( n-1 \) 个向量的外积，产生一个与其正交的法向量。 4. 几何对象相关符号#\( \sigma(t) = (x_1(t), \dots, x_n(t)) \)：一条参数曲线。 \( \sigma’(t_0) \)：曲线在 \( t_0 \) 处的切向量。 \( \varphi(u, v) \)：参数曲面的映射表示。 \( N = \varphi_u \times \varphi_v \)：曲面的法向量。 \( \vec{n} \)：曲面的单位法向量。 5. 其他重要符号#\( C^k(D) \)：指在区域 \( D \) 上具有 \( k \) 阶连续偏导数的函数类；若对所有 \( k \) 均成立，则记为 \( C^\infty(D) \)（光滑函数）。 \( R_m \)：Taylor 公式展开中的余项（如 Lagrange 余项或 Peano 余项）。 \( \lambda \) 或 \( \lambda_i \)：Lagrange 乘数，用于求解约束条件下的极值问题。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="definition">
+	<meta itemprop="description" content="\[ \] 根据源文件《第十一章 多元函数的微分》，该章节定义并使用了大量用于描述高维空间微分性质的数学符号。以下是这些符号的分类总结：
+1. 基础空间与映射符号#\( \mathbb{R}^n \)：\( n \) 维欧氏空间。 \( D \)：通常指 \( \mathbb{R}^n \) 中的开集，作为函数的定义域。 \( f: D \rightarrow \mathbb{R} \) 或 \( f: D \rightarrow \mathbb{R}^m \)：定义在 \( D \) 上的多元函数或向量值映射。 2. 导数与微分相关符号#\( \frac{\partial f}{\partial u}(x^0) \)：函数 \( f \) 在点 \( x^0 \) 处沿单位向量 \( u \) 的方向导数。 \( \frac{\partial f}{\partial x_i} \) 或 \( f_{x_i} \)：函数 \( f \) 对变量 \( x_i \) 的偏导数。 \( \frac{\partial^2 f}{\partial x_i \partial x_j} \) 或 \( f_{x_i x_j} \)：二阶偏导数（当 \( i=j \) 时为二阶导数）。 \( df(x^0) \)：函数 \( f \) 在 \( x^0 \) 处的微分，是一个线性映射。 \( dx_j \)：自变量 \( x_j \) 的微分，在对偶基下等同于线性映射 \( e^j \)。 \( df = \sum_{j=1}^n \frac{\partial f}{\partial x_j} dx_j \)：全微分的计算表达式。 \( D^\alpha f \)：使用多重指标 \( \alpha = (\alpha_1, \dots, \alpha_n) \) 表示的高阶偏导数，其中 \( |\alpha| = \sum \alpha_i \) 为阶数。 3. 场论与矩阵符号#\( \nabla f(x^0) \)：函数 \( f \) 在 \( x^0 \) 处的梯度，定义为向量 \( (f_{x_1}(x^0), \dots, f_{x_n}(x^0)) \)。 \( Jf(x^0) \)：映射 \( f \) 在 \( x^0 \) 处的 Jacobi 矩阵（或称雅可比矩阵）。 \( \nabla^2 f \) 或 \( \text{Hess}(f) \)：Hesse 矩阵（或称海森矩阵），由二阶偏导数构成的对称矩阵。 \( \Delta \)：Laplace 算子（拉普拉斯算子），如在平面上 \( \Delta u = u_{xx} &#43; u_{yy} \)。 \( v^1 \times v^2 \times \dots \times v^{n-1} \)：\( n-1 \) 个向量的外积，产生一个与其正交的法向量。 4. 几何对象相关符号#\( \sigma(t) = (x_1(t), \dots, x_n(t)) \)：一条参数曲线。 \( \sigma’(t_0) \)：曲线在 \( t_0 \) 处的切向量。 \( \varphi(u, v) \)：参数曲面的映射表示。 \( N = \varphi_u \times \varphi_v \)：曲面的法向量。 \( \vec{n} \)：曲面的单位法向量。 5. 其他重要符号#\( C^k(D) \)：指在区域 \( D \) 上具有 \( k \) 阶连续偏导数的函数类；若对所有 \( k \) 均成立，则记为 \( C^\infty(D) \)（光滑函数）。 \( R_m \)：Taylor 公式展开中的余项（如 Lagrange 余项或 Peano 余项）。 \( \lambda \) 或 \( \lambda_i \)：Lagrange 乘数，用于求解约束条件下的极值问题。">
+	<meta itemprop="wordCount" content="268">
+
+<title>definition • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/math/ma/ch11/definition/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.430c2d1eb8e1223fc86e7d64f92598d9dcb6e5e28deecb36eeb7d04b8ce503a8.js" integrity="sha256-QwwtHrjhIj/Ibn1k&#43;SWY2dy25eKN7ss27rfQS4zlA6g=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle" checked />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle" checked />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f4ec9b334b16a71eedae85dcb4febf9" class="toggle" checked />
+    <label for="section-2f4ec9b334b16a71eedae85dcb4febf9" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85835da35f37d45548655051db89217e" class="toggle" checked />
+    <label for="section-85835da35f37d45548655051db89217e" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="active">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b08e12376bdb0678587d38233bf70899" class="toggle"  />
+    <label for="section-b08e12376bdb0678587d38233bf70899" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-02b1e26558922e9d0964a04d34d3b36d" class="toggle"  />
+    <label for="section-02b1e26558922e9d0964a04d34d3b36d" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle"  />
+    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
+    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle"  />
+    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
+    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
+    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
+    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
+    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
+    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e5858fb42fa58bc7649079a63cf0925" class="toggle"  />
+    <label for="section-9e5858fb42fa58bc7649079a63cf0925" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/" class="">
+        章节格式</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bcdeea1c4906a7d66882c0d8bd479528" class="toggle"  />
+    <label for="section-bcdeea1c4906a7d66882c0d8bd479528" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-16b43cfe7b0a47d06cbca19957543a3d" class="toggle"  />
+    <label for="section-16b43cfe7b0a47d06cbca19957543a3d" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8d129ccab9957d6df97f5d65f48e81a" class="toggle"  />
+    <label for="section-a8d129ccab9957d6df97f5d65f48e81a" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle"  />
+    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>definition</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-基础空间与映射符号">1. 基础空间与映射符号</a></li>
+        <li><a href="#2-导数与微分相关符号">2. 导数与微分相关符号</a></li>
+        <li><a href="#3-场论与矩阵符号">3. 场论与矩阵符号</a></li>
+        <li><a href="#4-几何对象相关符号">4. 几何对象相关符号</a></li>
+        <li><a href="#5-其他重要符号">5. 其他重要符号</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><p><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+根据源文件《第十一章 多元函数的微分》，该章节定义并使用了大量用于描述高维空间微分性质的数学符号。以下是这些符号的分类总结：</p>
+<h3 id="1-基础空间与映射符号">1. 基础空间与映射符号<a class="anchor" href="#1-%e5%9f%ba%e7%a1%80%e7%a9%ba%e9%97%b4%e4%b8%8e%e6%98%a0%e5%b0%84%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>\( \mathbb{R}^n \)</strong>：\( n \) 维欧氏空间。</li>
+<li><strong>\( D \)</strong>：通常指 \( \mathbb{R}^n \) 中的开集，作为函数的定义域。</li>
+<li><strong>\( f: D \rightarrow \mathbb{R} \) 或 \( f: D \rightarrow \mathbb{R}^m \)</strong>：定义在 \( D \) 上的多元函数或向量值映射。</li>
+</ul>
+<h3 id="2-导数与微分相关符号">2. 导数与微分相关符号<a class="anchor" href="#2-%e5%af%bc%e6%95%b0%e4%b8%8e%e5%be%ae%e5%88%86%e7%9b%b8%e5%85%b3%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>\( \frac{\partial f}{\partial u}(x^0) \)</strong>：函数 \( f \) 在点 \( x^0 \) 处沿单位向量 \( u \) 的<strong>方向导数</strong>。</li>
+<li><strong>\( \frac{\partial f}{\partial x_i} \) 或 \( f_{x_i} \)</strong>：函数 \( f \) 对变量 \( x_i \) 的<strong>偏导数</strong>。</li>
+<li><strong>\( \frac{\partial^2 f}{\partial x_i \partial x_j} \) 或 \( f_{x_i x_j} \)</strong>：<strong>二阶偏导数</strong>（当 \( i=j \) 时为二阶导数）。</li>
+<li><strong>\( df(x^0) \)</strong>：函数 \( f \) 在 \( x^0 \) 处的<strong>微分</strong>，是一个线性映射。</li>
+<li><strong>\( dx_j \)</strong>：自变量 \( x_j \) 的微分，在对偶基下等同于线性映射 \( e^j \)。</li>
+<li><strong>\( df = \sum_{j=1}^n \frac{\partial f}{\partial x_j} dx_j \)</strong>：<strong>全微分</strong>的计算表达式。</li>
+<li><strong>\( D^\alpha f \)</strong>：使用<strong>多重指标</strong> \( \alpha = (\alpha_1, \dots, \alpha_n) \) 表示的高阶偏导数，其中 \( |\alpha| = \sum \alpha_i \) 为阶数。</li>
+</ul>
+<h3 id="3-场论与矩阵符号">3. 场论与矩阵符号<a class="anchor" href="#3-%e5%9c%ba%e8%ae%ba%e4%b8%8e%e7%9f%a9%e9%98%b5%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>\( \nabla f(x^0) \)</strong>：函数 \( f \) 在 \( x^0 \) 处的<strong>梯度</strong>，定义为向量 \( (f_{x_1}(x^0), \dots, f_{x_n}(x^0)) \)。</li>
+<li><strong>\( Jf(x^0) \)</strong>：映射 \( f \) 在 \( x^0 \) 处的 <strong>Jacobi 矩阵</strong>（或称雅可比矩阵）。</li>
+<li><strong>\( \nabla^2 f \) 或 \( \text{Hess}(f) \)</strong>：<strong>Hesse 矩阵</strong>（或称海森矩阵），由二阶偏导数构成的对称矩阵。</li>
+<li><strong>\( \Delta \)</strong>：<strong>Laplace 算子</strong>（拉普拉斯算子），如在平面上 \( \Delta u = u_{xx} + u_{yy} \)。</li>
+<li><strong>\( v^1 \times v^2 \times \dots \times v^{n-1} \)</strong>：\( n-1 \) 个向量的<strong>外积</strong>，产生一个与其正交的法向量。</li>
+</ul>
+<h3 id="4-几何对象相关符号">4. 几何对象相关符号<a class="anchor" href="#4-%e5%87%a0%e4%bd%95%e5%af%b9%e8%b1%a1%e7%9b%b8%e5%85%b3%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>\( \sigma(t) = (x_1(t), \dots, x_n(t)) \)</strong>：一条<strong>参数曲线</strong>。</li>
+<li><strong>\( \sigma&rsquo;(t_0) \)</strong>：曲线在 \( t_0 \) 处的<strong>切向量</strong>。</li>
+<li><strong>\( \varphi(u, v) \)</strong>：<strong>参数曲面</strong>的映射表示。</li>
+<li><strong>\( N = \varphi_u \times \varphi_v \)</strong>：曲面的<strong>法向量</strong>。</li>
+<li><strong>\( \vec{n} \)</strong>：曲面的<strong>单位法向量</strong>。</li>
+</ul>
+<h3 id="5-其他重要符号">5. 其他重要符号<a class="anchor" href="#5-%e5%85%b6%e4%bb%96%e9%87%8d%e8%a6%81%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>\( C^k(D) \)</strong>：指在区域 \( D \) 上具有 \( k \) 阶连续偏导数的函数类；若对所有 \( k \) 均成立，则记为 \( C^\infty(D) \)（光滑函数）。</li>
+<li><strong>\( R_m \)</strong>：Taylor 公式展开中的<strong>余项</strong>（如 Lagrange 余项或 Peano 余项）。</li>
+<li><strong>\( \lambda \) 或 \( \lambda_i \)</strong>：<strong>Lagrange 乘数</strong>，用于求解约束条件下的极值问题。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch11/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>ch11_多元函数的微分</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="flex align-center">
+        <span>formula</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-基础空间与映射符号">1. 基础空间与映射符号</a></li>
+        <li><a href="#2-导数与微分相关符号">2. 导数与微分相关符号</a></li>
+        <li><a href="#3-场论与矩阵符号">3. 场论与矩阵符号</a></li>
+        <li><a href="#4-几何对象相关符号">4. 几何对象相关符号</a></li>
+        <li><a href="#5-其他重要符号">5. 其他重要符号</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

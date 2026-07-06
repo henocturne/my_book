@@ -2,4 +2,5 @@
 title: "知识库首页"
 weight: 1
 ---
-欢迎进入我的知识库
+{{< katex display=true >}}
+{{< /katex >}}

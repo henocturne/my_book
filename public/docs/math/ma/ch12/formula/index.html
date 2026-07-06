@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据源文件《第十三章 多元函数的积分》，按照您的要求对定义和公式进行整理如下：
+一、 定义整理#定义 12.1.1 (矩形中的 Riemann 积分)：假设 \( f: I \rightarrow \mathbb{R} \) 为矩形 \( I \) 中定义的函数。如果存在实数 \( A \)，使得任给 \( \varepsilon &gt; 0 \)，均存在 \( \delta &gt; 0 \)，当分割的模 \( |\pi| &lt; \delta \) 时，有 \( |\sum_{i,j} f(\xi_{ij})\sigma(I_{ij}) - A| &lt; \varepsilon, \forall \xi_{ij} \in I_{ij} \)，则称 \( f \) 在 \( I \) 中 Riemann 可积，记为 \( A = \iint_I f(x, y) dx dy \)。 定义 12.1.2 (零测集)：设 \( A \subset \mathbb{R}^2 \) 为平面点集。如果任给 \( \varepsilon &gt; 0 \)，存在至多可数个闭矩形 \( {I_i} \)，使得 \( A \subset \bigcup_{i \ge 1} I_i \)，且 \( \sum_{i \ge 1} \sigma(I_i) &lt; \varepsilon \)，则称 \( A \) 为零测集。 定义 12.1.3 (可求面积集)：设 \( A \) 为有界集合，\( I \) 为包含 \( A \) 的矩形。如果 \( A \) 的特征函数 \( \chi_A \) 在 \( I \) 中可积，则称 \( A \) 为可求面积集，其面积 \( \sigma(A) \) 定义为 \( \chi_A \) 在 \( I \) 中的积分。 定义 12.1.4 (一般集合上的积分)：设 \( A \) 为可求面积的有界集合，\( f: A \rightarrow \mathbb{R} \) 为 \( A \) 中定义的有界函数。将 \( f \) 零延拓为 \( f_A \)。如果 \( f_A \) 在包含 \( A \) 的矩形 \( I \) 中可积，则称 \( f \) 在 \( A \) 中可积，其积分定义为 \( \int_A f = \int_I f_A \)。 定义 12.2.1 (\( n \) 维矩形中的 Riemann 积分)：设 \( f: I \rightarrow \mathbb{R} \) 为 \( n \) 维矩形 \( I \) 中定义的函数。如果存在实数 \( A \)，使得任给 \( \varepsilon &gt; 0 \)，均存在 \( \delta &gt; 0 \)，当分割的模 \( |\pi| &lt; \delta \) 时，有 \( |\sum_{i_1 \dots i_n} f(\xi_{i_1 \dots i_n})\nu(I_{i_1 \dots i_n}) - A| &lt; \varepsilon \)，则称 \( f \) 在 \( I \) 中 Riemann 可积。 定义 12.5.1 (穷竭)：设 \( {D_i} \) 为 \( \mathbb{R}^n \) 中一列可求体积的有界集合，满足：(1) \( \bar{D_i} \subset int D_{i&#43;1}, \forall i \ge 1 \)；(2) \( \bigcup_{i \ge 1} D_i = \mathbb{R}^n \)，则称 \( {D_i} \) 为 \( \mathbb{R}^n \) 的一个穷竭。 二、 公式整理#(12.1)：\( \omega_{2k} = \frac{\pi^k}{k!}, \quad \omega_{2k-1} = \frac{2^k \pi^{k-1}}{(2k-1)!!} \) 内容：给出 \( 2k \) 维和 \( 2k-1 \) 维单位球体体积 \( \omega_n \) 的具体计算数值。 (12.2)：\( 2^n n^{-n/2} \le \omega_n \le 2^n \) 内容：\( n \) 维单位球体体积 \( \omega_n \) 的简单上下界估计。 (12.3)：\( \nu(\varphi(A)) = |\det \varphi| \nu(A) \) 内容：描述可求体积集合 \( A \) 在线性变换 \( \varphi \) 作用下体积的变化规律。 (12.4)：\( \int_{\varphi(A)} f = \int_A f \circ \varphi |\det J\varphi| \) 内容：重积分的变量替换公式，将坐标变换下的积分通过 Jacobi 行列式进行转换。 (12.5)：\( \int_{A_n} \sin^{n-2} \theta_1 \sin^{n-3} \theta_2 \dots \sin \theta_{n-2} d\theta_1 d\theta_2 \dots d\theta_{n-1} = n \omega_n \) 内容：涉及 \( n \) 维球面坐标积分的一个恒等式，常用于计算高维球体体积。 (12.6)：\( \omega_n = \frac{2\pi^{n/2}}{n\Gamma(\frac{n}{2})} = \frac{\pi^{n/2}}{\Gamma(\frac{n}{2} &#43; 1)} \) 内容：利用 Gamma 函数表示的 \( n \) 维单位球体体积的统一公式。 ">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/math/ma/ch12/formula/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="formula">
+	<meta property="og:description" content="\[ \] 根据源文件《第十三章 多元函数的积分》，按照您的要求对定义和公式进行整理如下：
+一、 定义整理#定义 12.1.1 (矩形中的 Riemann 积分)：假设 \( f: I \rightarrow \mathbb{R} \) 为矩形 \( I \) 中定义的函数。如果存在实数 \( A \)，使得任给 \( \varepsilon &gt; 0 \)，均存在 \( \delta &gt; 0 \)，当分割的模 \( |\pi| &lt; \delta \) 时，有 \( |\sum_{i,j} f(\xi_{ij})\sigma(I_{ij}) - A| &lt; \varepsilon, \forall \xi_{ij} \in I_{ij} \)，则称 \( f \) 在 \( I \) 中 Riemann 可积，记为 \( A = \iint_I f(x, y) dx dy \)。 定义 12.1.2 (零测集)：设 \( A \subset \mathbb{R}^2 \) 为平面点集。如果任给 \( \varepsilon &gt; 0 \)，存在至多可数个闭矩形 \( {I_i} \)，使得 \( A \subset \bigcup_{i \ge 1} I_i \)，且 \( \sum_{i \ge 1} \sigma(I_i) &lt; \varepsilon \)，则称 \( A \) 为零测集。 定义 12.1.3 (可求面积集)：设 \( A \) 为有界集合，\( I \) 为包含 \( A \) 的矩形。如果 \( A \) 的特征函数 \( \chi_A \) 在 \( I \) 中可积，则称 \( A \) 为可求面积集，其面积 \( \sigma(A) \) 定义为 \( \chi_A \) 在 \( I \) 中的积分。 定义 12.1.4 (一般集合上的积分)：设 \( A \) 为可求面积的有界集合，\( f: A \rightarrow \mathbb{R} \) 为 \( A \) 中定义的有界函数。将 \( f \) 零延拓为 \( f_A \)。如果 \( f_A \) 在包含 \( A \) 的矩形 \( I \) 中可积，则称 \( f \) 在 \( A \) 中可积，其积分定义为 \( \int_A f = \int_I f_A \)。 定义 12.2.1 (\( n \) 维矩形中的 Riemann 积分)：设 \( f: I \rightarrow \mathbb{R} \) 为 \( n \) 维矩形 \( I \) 中定义的函数。如果存在实数 \( A \)，使得任给 \( \varepsilon &gt; 0 \)，均存在 \( \delta &gt; 0 \)，当分割的模 \( |\pi| &lt; \delta \) 时，有 \( |\sum_{i_1 \dots i_n} f(\xi_{i_1 \dots i_n})\nu(I_{i_1 \dots i_n}) - A| &lt; \varepsilon \)，则称 \( f \) 在 \( I \) 中 Riemann 可积。 定义 12.5.1 (穷竭)：设 \( {D_i} \) 为 \( \mathbb{R}^n \) 中一列可求体积的有界集合，满足：(1) \( \bar{D_i} \subset int D_{i&#43;1}, \forall i \ge 1 \)；(2) \( \bigcup_{i \ge 1} D_i = \mathbb{R}^n \)，则称 \( {D_i} \) 为 \( \mathbb{R}^n \) 的一个穷竭。 二、 公式整理#(12.1)：\( \omega_{2k} = \frac{\pi^k}{k!}, \quad \omega_{2k-1} = \frac{2^k \pi^{k-1}}{(2k-1)!!} \) 内容：给出 \( 2k \) 维和 \( 2k-1 \) 维单位球体体积 \( \omega_n \) 的具体计算数值。 (12.2)：\( 2^n n^{-n/2} \le \omega_n \le 2^n \) 内容：\( n \) 维单位球体体积 \( \omega_n \) 的简单上下界估计。 (12.3)：\( \nu(\varphi(A)) = |\det \varphi| \nu(A) \) 内容：描述可求体积集合 \( A \) 在线性变换 \( \varphi \) 作用下体积的变化规律。 (12.4)：\( \int_{\varphi(A)} f = \int_A f \circ \varphi |\det J\varphi| \) 内容：重积分的变量替换公式，将坐标变换下的积分通过 Jacobi 行列式进行转换。 (12.5)：\( \int_{A_n} \sin^{n-2} \theta_1 \sin^{n-3} \theta_2 \dots \sin \theta_{n-2} d\theta_1 d\theta_2 \dots d\theta_{n-1} = n \omega_n \) 内容：涉及 \( n \) 维球面坐标积分的一个恒等式，常用于计算高维球体体积。 (12.6)：\( \omega_n = \frac{2\pi^{n/2}}{n\Gamma(\frac{n}{2})} = \frac{\pi^{n/2}}{\Gamma(\frac{n}{2} &#43; 1)} \) 内容：利用 Gamma 函数表示的 \( n \) 维单位球体体积的统一公式。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="formula">
+	<meta itemprop="description" content="\[ \] 根据源文件《第十三章 多元函数的积分》，按照您的要求对定义和公式进行整理如下：
+一、 定义整理#定义 12.1.1 (矩形中的 Riemann 积分)：假设 \( f: I \rightarrow \mathbb{R} \) 为矩形 \( I \) 中定义的函数。如果存在实数 \( A \)，使得任给 \( \varepsilon &gt; 0 \)，均存在 \( \delta &gt; 0 \)，当分割的模 \( |\pi| &lt; \delta \) 时，有 \( |\sum_{i,j} f(\xi_{ij})\sigma(I_{ij}) - A| &lt; \varepsilon, \forall \xi_{ij} \in I_{ij} \)，则称 \( f \) 在 \( I \) 中 Riemann 可积，记为 \( A = \iint_I f(x, y) dx dy \)。 定义 12.1.2 (零测集)：设 \( A \subset \mathbb{R}^2 \) 为平面点集。如果任给 \( \varepsilon &gt; 0 \)，存在至多可数个闭矩形 \( {I_i} \)，使得 \( A \subset \bigcup_{i \ge 1} I_i \)，且 \( \sum_{i \ge 1} \sigma(I_i) &lt; \varepsilon \)，则称 \( A \) 为零测集。 定义 12.1.3 (可求面积集)：设 \( A \) 为有界集合，\( I \) 为包含 \( A \) 的矩形。如果 \( A \) 的特征函数 \( \chi_A \) 在 \( I \) 中可积，则称 \( A \) 为可求面积集，其面积 \( \sigma(A) \) 定义为 \( \chi_A \) 在 \( I \) 中的积分。 定义 12.1.4 (一般集合上的积分)：设 \( A \) 为可求面积的有界集合，\( f: A \rightarrow \mathbb{R} \) 为 \( A \) 中定义的有界函数。将 \( f \) 零延拓为 \( f_A \)。如果 \( f_A \) 在包含 \( A \) 的矩形 \( I \) 中可积，则称 \( f \) 在 \( A \) 中可积，其积分定义为 \( \int_A f = \int_I f_A \)。 定义 12.2.1 (\( n \) 维矩形中的 Riemann 积分)：设 \( f: I \rightarrow \mathbb{R} \) 为 \( n \) 维矩形 \( I \) 中定义的函数。如果存在实数 \( A \)，使得任给 \( \varepsilon &gt; 0 \)，均存在 \( \delta &gt; 0 \)，当分割的模 \( |\pi| &lt; \delta \) 时，有 \( |\sum_{i_1 \dots i_n} f(\xi_{i_1 \dots i_n})\nu(I_{i_1 \dots i_n}) - A| &lt; \varepsilon \)，则称 \( f \) 在 \( I \) 中 Riemann 可积。 定义 12.5.1 (穷竭)：设 \( {D_i} \) 为 \( \mathbb{R}^n \) 中一列可求体积的有界集合，满足：(1) \( \bar{D_i} \subset int D_{i&#43;1}, \forall i \ge 1 \)；(2) \( \bigcup_{i \ge 1} D_i = \mathbb{R}^n \)，则称 \( {D_i} \) 为 \( \mathbb{R}^n \) 的一个穷竭。 二、 公式整理#(12.1)：\( \omega_{2k} = \frac{\pi^k}{k!}, \quad \omega_{2k-1} = \frac{2^k \pi^{k-1}}{(2k-1)!!} \) 内容：给出 \( 2k \) 维和 \( 2k-1 \) 维单位球体体积 \( \omega_n \) 的具体计算数值。 (12.2)：\( 2^n n^{-n/2} \le \omega_n \le 2^n \) 内容：\( n \) 维单位球体体积 \( \omega_n \) 的简单上下界估计。 (12.3)：\( \nu(\varphi(A)) = |\det \varphi| \nu(A) \) 内容：描述可求体积集合 \( A \) 在线性变换 \( \varphi \) 作用下体积的变化规律。 (12.4)：\( \int_{\varphi(A)} f = \int_A f \circ \varphi |\det J\varphi| \) 内容：重积分的变量替换公式，将坐标变换下的积分通过 Jacobi 行列式进行转换。 (12.5)：\( \int_{A_n} \sin^{n-2} \theta_1 \sin^{n-3} \theta_2 \dots \sin \theta_{n-2} d\theta_1 d\theta_2 \dots d\theta_{n-1} = n \omega_n \) 内容：涉及 \( n \) 维球面坐标积分的一个恒等式，常用于计算高维球体体积。 (12.6)：\( \omega_n = \frac{2\pi^{n/2}}{n\Gamma(\frac{n}{2})} = \frac{\pi^{n/2}}{\Gamma(\frac{n}{2} &#43; 1)} \) 内容：利用 Gamma 函数表示的 \( n \) 维单位球体体积的统一公式。">
+	<meta itemprop="wordCount" content="414">
+
+<title>formula • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/math/ma/ch12/formula/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.430c2d1eb8e1223fc86e7d64f92598d9dcb6e5e28deecb36eeb7d04b8ce503a8.js" integrity="sha256-QwwtHrjhIj/Ibn1k&#43;SWY2dy25eKN7ss27rfQS4zlA6g=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle" checked />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle" checked />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f4ec9b334b16a71eedae85dcb4febf9" class="toggle"  />
+    <label for="section-2f4ec9b334b16a71eedae85dcb4febf9" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85835da35f37d45548655051db89217e" class="toggle"  />
+    <label for="section-85835da35f37d45548655051db89217e" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b08e12376bdb0678587d38233bf70899" class="toggle"  />
+    <label for="section-b08e12376bdb0678587d38233bf70899" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-02b1e26558922e9d0964a04d34d3b36d" class="toggle"  />
+    <label for="section-02b1e26558922e9d0964a04d34d3b36d" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle" checked />
+    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
+    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle" checked />
+    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="active">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
+    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
+    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
+    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
+    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
+    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e5858fb42fa58bc7649079a63cf0925" class="toggle"  />
+    <label for="section-9e5858fb42fa58bc7649079a63cf0925" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/" class="">
+        章节格式</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bcdeea1c4906a7d66882c0d8bd479528" class="toggle"  />
+    <label for="section-bcdeea1c4906a7d66882c0d8bd479528" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-16b43cfe7b0a47d06cbca19957543a3d" class="toggle"  />
+    <label for="section-16b43cfe7b0a47d06cbca19957543a3d" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8d129ccab9957d6df97f5d65f48e81a" class="toggle"  />
+    <label for="section-a8d129ccab9957d6df97f5d65f48e81a" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle"  />
+    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>formula</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-定义整理">一、 定义整理</a></li>
+        <li><a href="#二-公式整理">二、 公式整理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+<p>根据源文件《第十三章 多元函数的积分》，按照您的要求对定义和公式进行整理如下：</p>
+<h3 id="一-定义整理">一、 定义整理<a class="anchor" href="#%e4%b8%80-%e5%ae%9a%e4%b9%89%e6%95%b4%e7%90%86">#</a></h3>
+<ul>
+<li><strong>定义 12.1.1 (矩形中的 Riemann 积分)</strong>：假设 \( f: I \rightarrow \mathbb{R} \) 为矩形 \( I \) 中定义的函数。如果存在实数 \( A \)，使得任给 \( \varepsilon &gt; 0 \)，均存在 \( \delta &gt; 0 \)，当分割的模 \( |\pi| &lt; \delta \) 时，有 \( |\sum_{i,j} f(\xi_{ij})\sigma(I_{ij}) - A| &lt; \varepsilon, \forall \xi_{ij} \in I_{ij} \)，则称 \( f \) 在 \( I \) 中 <strong>Riemann 可积</strong>，记为 \( A = \iint_I f(x, y) dx dy \)。</li>
+<li><strong>定义 12.1.2 (零测集)</strong>：设 \( A \subset \mathbb{R}^2 \) 为平面点集。如果任给 \( \varepsilon &gt; 0 \)，存在至多可数个闭矩形 \( {I_i} \)，使得 \( A \subset \bigcup_{i \ge 1} I_i \)，且 \( \sum_{i \ge 1} \sigma(I_i) &lt; \varepsilon \)，则称 \( A \) 为<strong>零测集</strong>。</li>
+<li><strong>定义 12.1.3 (可求面积集)</strong>：设 \( A \) 为有界集合，\( I \) 为包含 \( A \) 的矩形。如果 \( A \) 的特征函数 \( \chi_A \) 在 \( I \) 中可积，则称 \( A \) 为<strong>可求面积集</strong>，其面积 \( \sigma(A) \) 定义为 \( \chi_A \) 在 \( I \) 中的积分。</li>
+<li><strong>定义 12.1.4 (一般集合上的积分)</strong>：设 \( A \) 为可求面积的有界集合，\( f: A \rightarrow \mathbb{R} \) 为 \( A \) 中定义的有界函数。将 \( f \) 零延拓为 \( f_A \)。如果 \( f_A \) 在包含 \( A \) 的矩形 \( I \) 中可积，则称 \( f \) 在 \( A \) 中<strong>可积</strong>，其积分定义为 \( \int_A f = \int_I f_A \)。</li>
+<li><strong>定义 12.2.1 (\( n \) 维矩形中的 Riemann 积分)</strong>：设 \( f: I \rightarrow \mathbb{R} \) 为 \( n \) 维矩形 \( I \) 中定义的函数。如果存在实数 \( A \)，使得任给 \( \varepsilon &gt; 0 \)，均存在 \( \delta &gt; 0 \)，当分割的模 \( |\pi| &lt; \delta \) 时，有 \( |\sum_{i_1 \dots i_n} f(\xi_{i_1 \dots i_n})\nu(I_{i_1 \dots i_n}) - A| &lt; \varepsilon \)，则称 \( f \) 在 \( I \) 中 <strong>Riemann 可积</strong>。</li>
+<li><strong>定义 12.5.1 (穷竭)</strong>：设 \( {D_i} \) 为 \( \mathbb{R}^n \) 中一列可求体积的有界集合，满足：(1) \( \bar{D_i} \subset int D_{i+1}, \forall i \ge 1 \)；(2) \( \bigcup_{i \ge 1} D_i = \mathbb{R}^n \)，则称 \( {D_i} \) 为 \( \mathbb{R}^n \) 的一个<strong>穷竭</strong>。</li>
+</ul>
+<hr>
+<h3 id="二-公式整理">二、 公式整理<a class="anchor" href="#%e4%ba%8c-%e5%85%ac%e5%bc%8f%e6%95%b4%e7%90%86">#</a></h3>
+<ul>
+<li><strong>(12.1)</strong>：\( \omega_{2k} = \frac{\pi^k}{k!}, \quad \omega_{2k-1} = \frac{2^k \pi^{k-1}}{(2k-1)!!} \)
+<ul>
+<li><strong>内容</strong>：给出 \( 2k \) 维和 \( 2k-1 \) 维单位球体体积 \( \omega_n \) 的具体计算数值。</li>
+</ul>
+</li>
+<li><strong>(12.2)</strong>：\( 2^n n^{-n/2} \le \omega_n \le 2^n \)
+<ul>
+<li><strong>内容</strong>：\( n \) 维单位球体体积 \( \omega_n \) 的简单上下界估计。</li>
+</ul>
+</li>
+<li><strong>(12.3)</strong>：\( \nu(\varphi(A)) = |\det \varphi| \nu(A) \)
+<ul>
+<li><strong>内容</strong>：描述可求体积集合 \( A \) 在<strong>线性变换</strong> \( \varphi \) 作用下体积的变化规律。</li>
+</ul>
+</li>
+<li><strong>(12.4)</strong>：\( \int_{\varphi(A)} f = \int_A f \circ \varphi |\det J\varphi| \)
+<ul>
+<li><strong>内容</strong>：<strong>重积分的变量替换公式</strong>，将坐标变换下的积分通过 Jacobi 行列式进行转换。</li>
+</ul>
+</li>
+<li><strong>(12.5)</strong>：\( \int_{A_n} \sin^{n-2} \theta_1 \sin^{n-3} \theta_2 \dots \sin \theta_{n-2} d\theta_1 d\theta_2 \dots d\theta_{n-1} = n \omega_n \)
+<ul>
+<li><strong>内容</strong>：涉及 \( n \) 维球面坐标积分的一个恒等式，常用于计算高维球体体积。</li>
+</ul>
+</li>
+<li><strong>(12.6)</strong>：\( \omega_n = \frac{2\pi^{n/2}}{n\Gamma(\frac{n}{2})} = \frac{\pi^{n/2}}{\Gamma(\frac{n}{2} + 1)} \)
+<ul>
+<li><strong>内容</strong>：利用 <strong>Gamma 函数</strong>表示的 \( n \) 维单位球体体积的统一公式。</li>
+</ul>
+</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>definition</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="flex align-center">
+        <span>theorem</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-定义整理">一、 定义整理</a></li>
+        <li><a href="#二-公式整理">二、 公式整理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

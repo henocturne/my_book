@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 第三章“连续函数”深入探讨了函数在一点及在区间上的分析性质，建立了函数极限与连续性的严谨理论，并定义了闭区间上连续函数的积分。以下是根据源文件整理的主要内容及原文带序号公式。
+第三章主要内容总结#函数的极限 (§3.1)：
+利用 \(\epsilon - \delta\) 语言定义了函数在有限点及无穷远处的极限。 阐述了极限的基本性质：唯一性、夹逼定理、有界性、保序性及四则运算。 确立了两个重要基本极限：\(\lim_{x \to 0} \frac{\sin x}{x} = 1\) 和 \(\lim_{x \to \infty} (1 &#43; \frac{1}{x})^x = e\) 。 引入了 Heine 定理（归结原则），将函数极限与数列极限联系起来。 无穷小（大）量 (§3.2)：
+定义了无穷小量与无穷大量的概念及其阶的比较（高阶、同阶、等价等）。 介绍了等价替换在计算极限中的应用。 连续函数 (§3.3)：
+定义了函数在一点连续、左/右连续及在区间连续的概念。 讨论了间断点的分类（第一类：跳跃、可去；第二类）。 引入了振幅的概念，用于刻画函数在一点的波动情况。 连续函数的整体性质 (§3.4)：
+证明了闭区间上连续函数的几大核心定理：最值定理、零点存在定理 (Bolzano)、介值定理。 探讨了一致连续性及其判定（Cantor 定理）。 介绍了 Lipschitz 函数和 Hölder 函数的概念。 连续函数的积分 (§3.5)：
+通过黎曼和（Riemann sum）定义了闭区间上连续函数的定积分。 确立了积分的线性性质、保序性、积分中值定理及区间可加性。 证明了重要的不等式：Young 不等式和 Hölder 不等式。 讨论了 Weierstrass 逼近定理及 Bernstein 多项式的应用。 原文公式整理#按照原文公式后的序号整理如下：
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/math/ma/ch3/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="ch03_连续函数">
+	<meta property="og:description" content="\[ \] 第三章“连续函数”深入探讨了函数在一点及在区间上的分析性质，建立了函数极限与连续性的严谨理论，并定义了闭区间上连续函数的积分。以下是根据源文件整理的主要内容及原文带序号公式。
+第三章主要内容总结#函数的极限 (§3.1)：
+利用 \(\epsilon - \delta\) 语言定义了函数在有限点及无穷远处的极限。 阐述了极限的基本性质：唯一性、夹逼定理、有界性、保序性及四则运算。 确立了两个重要基本极限：\(\lim_{x \to 0} \frac{\sin x}{x} = 1\) 和 \(\lim_{x \to \infty} (1 &#43; \frac{1}{x})^x = e\) 。 引入了 Heine 定理（归结原则），将函数极限与数列极限联系起来。 无穷小（大）量 (§3.2)：
+定义了无穷小量与无穷大量的概念及其阶的比较（高阶、同阶、等价等）。 介绍了等价替换在计算极限中的应用。 连续函数 (§3.3)：
+定义了函数在一点连续、左/右连续及在区间连续的概念。 讨论了间断点的分类（第一类：跳跃、可去；第二类）。 引入了振幅的概念，用于刻画函数在一点的波动情况。 连续函数的整体性质 (§3.4)：
+证明了闭区间上连续函数的几大核心定理：最值定理、零点存在定理 (Bolzano)、介值定理。 探讨了一致连续性及其判定（Cantor 定理）。 介绍了 Lipschitz 函数和 Hölder 函数的概念。 连续函数的积分 (§3.5)：
+通过黎曼和（Riemann sum）定义了闭区间上连续函数的定积分。 确立了积分的线性性质、保序性、积分中值定理及区间可加性。 证明了重要的不等式：Young 不等式和 Hölder 不等式。 讨论了 Weierstrass 逼近定理及 Bernstein 多项式的应用。 原文公式整理#按照原文公式后的序号整理如下：">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="ch03_连续函数">
+	<meta itemprop="description" content="\[ \] 第三章“连续函数”深入探讨了函数在一点及在区间上的分析性质，建立了函数极限与连续性的严谨理论，并定义了闭区间上连续函数的积分。以下是根据源文件整理的主要内容及原文带序号公式。
+第三章主要内容总结#函数的极限 (§3.1)：
+利用 \(\epsilon - \delta\) 语言定义了函数在有限点及无穷远处的极限。 阐述了极限的基本性质：唯一性、夹逼定理、有界性、保序性及四则运算。 确立了两个重要基本极限：\(\lim_{x \to 0} \frac{\sin x}{x} = 1\) 和 \(\lim_{x \to \infty} (1 &#43; \frac{1}{x})^x = e\) 。 引入了 Heine 定理（归结原则），将函数极限与数列极限联系起来。 无穷小（大）量 (§3.2)：
+定义了无穷小量与无穷大量的概念及其阶的比较（高阶、同阶、等价等）。 介绍了等价替换在计算极限中的应用。 连续函数 (§3.3)：
+定义了函数在一点连续、左/右连续及在区间连续的概念。 讨论了间断点的分类（第一类：跳跃、可去；第二类）。 引入了振幅的概念，用于刻画函数在一点的波动情况。 连续函数的整体性质 (§3.4)：
+证明了闭区间上连续函数的几大核心定理：最值定理、零点存在定理 (Bolzano)、介值定理。 探讨了一致连续性及其判定（Cantor 定理）。 介绍了 Lipschitz 函数和 Hölder 函数的概念。 连续函数的积分 (§3.5)：
+通过黎曼和（Riemann sum）定义了闭区间上连续函数的定积分。 确立了积分的线性性质、保序性、积分中值定理及区间可加性。 证明了重要的不等式：Young 不等式和 Hölder 不等式。 讨论了 Weierstrass 逼近定理及 Bernstein 多项式的应用。 原文公式整理#按照原文公式后的序号整理如下：">
+	<meta itemprop="wordCount" content="401">
+
+<title>ch03_连续函数 • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/math/ma/ch3/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.a8a4bb928faf7f4f6bfbcfa405dc30594922d80230756a67e2e08c0a382b17b4.js" integrity="sha256-qKS7ko&#43;vf09r&#43;8&#43;kBdwwWUki2AIwdWpn4uCMCjgrF7Q=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle" checked />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle" checked />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/math/ma/ch1/" class="">
+      ch01_引言</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/math/ma/ch2/" class="">
+      ch02_极限</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/math/ma/ch3/" class="active">
+      ch03_连续函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/math/ma/ch11/" class="">
+      ch11_多元函数的微分</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/math/ma/ch12/" class="">
+      ch12_多元函数的积分</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/math/ma/ch13/" class="">
+      ch13_曲线与曲面积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/" class="">
+      数学物理方法</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>ch03_连续函数</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第三章主要内容总结"><strong>第三章主要内容总结</strong></a></li>
+        <li><a href="#原文公式整理"><strong>原文公式整理</strong></a></li>
+        <li><a href="#31-函数的极限"><strong>§3.1 函数的极限</strong></a></li>
+        <li><a href="#32-无穷小大量"><strong>§3.2 无穷小（大）量</strong></a></li>
+        <li><a href="#33-连续函数"><strong>§3.3 连续函数</strong></a></li>
+        <li><a href="#34-连续函数的整体性质"><strong>§3.4 连续函数的整体性质</strong></a></li>
+        <li><a href="#35-连续函数的积分"><strong>§3.5 连续函数的积分</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+<p>第三章“连续函数”深入探讨了函数在一点及在区间上的分析性质，建立了函数极限与连续性的严谨理论，并定义了闭区间上连续函数的积分。以下是根据源文件整理的主要内容及原文带序号公式。</p>
+<h3 id="第三章主要内容总结"><strong>第三章主要内容总结</strong><a class="anchor" href="#%e7%ac%ac%e4%b8%89%e7%ab%a0%e4%b8%bb%e8%a6%81%e5%86%85%e5%ae%b9%e6%80%bb%e7%bb%93">#</a></h3>
+<ol>
+<li>
+<p><strong>函数的极限 (§3.1)</strong>：</p>
+<ul>
+<li>利用 <strong>\(\epsilon - \delta\)  语言</strong>定义了函数在有限点及无穷远处的极限。</li>
+<li>阐述了极限的基本性质：唯一性、夹逼定理、有界性、保序性及四则运算。</li>
+<li>确立了两个重要基本极限：\(\lim_{x \to 0} \frac{\sin x}{x} = 1\)  和 \(\lim_{x \to \infty} (1 + \frac{1}{x})^x = e\) 。</li>
+<li>引入了 <strong>Heine 定理</strong>（归结原则），将函数极限与数列极限联系起来。</li>
+</ul>
+</li>
+<li>
+<p><strong>无穷小（大）量 (§3.2)</strong>：</p>
+<ul>
+<li>定义了无穷小量与无穷大量的概念及其阶的比较（高阶、同阶、等价等）。</li>
+<li>介绍了<strong>等价替换</strong>在计算极限中的应用。</li>
+</ul>
+</li>
+<li>
+<p><strong>连续函数 (§3.3)</strong>：</p>
+<ul>
+<li>定义了函数在一点连续、左/右连续及在区间连续的概念。</li>
+<li>讨论了间断点的分类（第一类：跳跃、可去；第二类）。</li>
+<li>引入了<strong>振幅</strong>的概念，用于刻画函数在一点的波动情况。</li>
+</ul>
+</li>
+<li>
+<p><strong>连续函数的整体性质 (§3.4)</strong>：</p>
+<ul>
+<li>证明了闭区间上连续函数的几大核心定理：<strong>最值定理</strong>、<strong>零点存在定理 (Bolzano)</strong>、<strong>介值定理</strong>。</li>
+<li>探讨了<strong>一致连续性</strong>及其判定（Cantor 定理）。</li>
+<li>介绍了 Lipschitz 函数和 Hölder 函数的概念。</li>
+</ul>
+</li>
+<li>
+<p><strong>连续函数的积分 (§3.5)</strong>：</p>
+<ul>
+<li>通过黎曼和（Riemann sum）定义了闭区间上连续函数的定积分。</li>
+<li>确立了积分的线性性质、保序性、<strong>积分中值定理</strong>及区间可加性。</li>
+<li>证明了重要的不等式：<strong>Young 不等式</strong>和 <strong>Hölder 不等式</strong>。</li>
+<li>讨论了 Weierstrass 逼近定理及 Bernstein 多项式的应用。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="原文公式整理"><strong>原文公式整理</strong><a class="anchor" href="#%e5%8e%9f%e6%96%87%e5%85%ac%e5%bc%8f%e6%95%b4%e7%90%86">#</a></h3>
+<p>按照原文公式后的序号整理如下：</p>
+<ul>
+<li>
+<p><strong>(3.1) 重要极限一</strong>：
+\(\lim_{x \to 0} \frac{\sin x}{x} = 1\)</p>
+</li>
+<li>
+<p><strong>(3.2) 三角函数不等式</strong>：
+\(|\sin x| \le |x|, \quad \forall x \in \mathbb{R}\)</p>
+</li>
+<li>
+<p><strong>(3.3) 正、余弦函数的连续性</strong>：
+\(\lim_{x \to x_0} \sin x = \sin x_0, \quad \lim_{x \to x_0} \cos x = \cos x_0\)</p>
+</li>
+<li>
+<p><strong>(3.4) 常用极限公式（对数）</strong>：
+\(\lim_{x \to 0} \frac{\ln(1+x)}{x} = 1\)</p>
+</li>
+<li>
+<p><strong>(3.5) 等价无穷小替换</strong>：
+\(\ln(1+x) \sim x \quad (x \to 0)\)</p>
+</li>
+<li>
+<p><strong>(3.6) 积分均值和的差值表示</strong>：
+\(A_n(f, [a, b]) - A_{mn}(f, [a, b]) = \frac{1}{n} \sum_{i=0}^{n-1} \frac{1}{m} \sum_{j=0}^{m-1} [f(x_{i,n}) - f(x_{mi+j,mn})]\)</p>
+</li>
+<li>
+<p><strong>(3.7) 积分 Cauchy 准则的误差控制</strong>：
+\(|A_n(f, [a, b]) - A_{mn}(f, [a, b])| &lt; \frac{\epsilon}{2}\)</p>
+</li>
+<li>
+<p><strong>(3.8) 积分定义的极限形式</strong>：
+\(\lim_{n \to \infty} S_{\pi_n}(f, [a, b]) = \int_a^b f(x) dx\)</p>
+</li>
+<li>
+<p><strong>(3.9) 积分关于区间的可加性</strong>：
+\(\int_a^b f(x) dx = \int_a^c f(x) dx + \int_c^b f(x) dx\)</p>
+</li>
+<li>
+<p><strong>(3.10) 幂函数 \(\alpha = -1\)  时的积分</strong>：
+\(\int_a^b \frac{dx}{x} = \ln b - \ln a\)</p>
+</li>
+<li>
+<p><strong>(3.11) 幂函数 \(\alpha \neq -1\)  时的积分</strong>：
+\(\int_a^b x^\alpha dx = \frac{1}{\alpha+1}(b^{\alpha+1} - a^{\alpha+1})\)</p>
+</li>
+<li>
+<p><strong>(3.12) 黎曼和与积分值的误差估计</strong>：
+\(|S_{\pi, \xi}(f, [a, b]) - \int_a^b f(x) dx| &lt; (b-a)\epsilon\)</p>
+</li>
+<li>
+<p><strong>(3.13) 黎曼和的一般极限</strong>：
+\(\lim_{|\pi| \to 0} S_{\pi, \xi}(f, [a, b]) = \int_a^b f(x) dx\)</p>
+</li>
+<li>
+<p><strong>(3.14) 指数函数积分例题结果</strong>：
+\(\int_0^x e^t dt = e^x - 1\)</p>
+</li>
+<li>
+<p><strong>(3.15) 证明 Young 不等式的引理不等式</strong>：
+\(x \le \frac{x^p}{p} + \frac{1}{q} \quad (x &gt; 0)\)</p>
+</li>
+<li>
+<p><strong>(3.16) Young 不等式</strong>：
+\(ab \le \frac{a^p}{p} + \frac{b^q}{q}\)</p>
+</li>
+<li>
+<p><strong>(3.17) Hölder 不等式</strong>：
+\(a_1 b_1 + a_2 b_2 + \dots + a_n b_n \le (a_1^p + a_2^p + \dots + a_n^p)^{\frac{1}{p}} (b_1^q + b_2^q + \dots + b_n^q)^{\frac{1}{q}}\)</p>
+<p>根据源文件 <code>ch_3_连续函数.pdf</code>，第三章各小节下的所有定理、命题、推论及引理整理如下：</p>
+</li>
+</ul>
+<h3 id="31-函数的极限"><strong>§3.1 函数的极限</strong><a class="anchor" href="#31-%e5%87%bd%e6%95%b0%e7%9a%84%e6%9e%81%e9%99%90">#</a></h3>
+<ul>
+<li><strong>命题 3.1.1</strong>：函数在 \(x_0\)  处极限存在当且仅当其在 \(x_0\)  处的左极限和右极限都存在且相等。</li>
+<li><strong>命题 3.1.2（极限的唯一性）</strong>：若函数在某点极限存在，则极限值唯一。</li>
+<li><strong>命题 3.1.3（夹逼定理）</strong>：通过上下界函数的极限确定中间函数的极限。</li>
+<li><strong>命题 3.1.4（绝对值性质）</strong>：函数极限的绝对值等于其极限值的绝对值。</li>
+<li><strong>命题 3.1.5（局部有界性与保序性）</strong>：
+<ol>
+<li>若极限存在，则在某空心邻域内有界。</li>
+<li>函数值的大小关系在极限中得以保持（保序性）。</li>
+</ol>
+</li>
+<li><strong>命题（四则运算）</strong>：收敛函数的线性组合、乘积及商（分母极限不为0）的极限遵循相应的运算规则。</li>
+<li><strong>定理 3.1.6（复合函数的极限）</strong>：规定了复合函数极限存在的条件及计算方法。</li>
+<li><strong>定理 3.1.7（单调函数的极限）</strong>：单调函数在区间端点处必有单侧极限。</li>
+<li><strong>定理 3.1.8（Heine 定理/归结原则）</strong>：函数极限与数列极限的等价性判定。</li>
+<li><strong>定理 3.1.9（Cauchy 准则）</strong>：函数极限存在的充分必要条件（无需预知极限值）。</li>
+</ul>
+<h3 id="32-无穷小大量"><strong>§3.2 无穷小（大）量</strong><a class="anchor" href="#32-%e6%97%a0%e7%a9%b7%e5%b0%8f%e5%a4%a7%e9%87%8f">#</a></h3>
+<ul>
+<li><strong>定理 3.2.1（等价替换）</strong>：在极限计算中，可以用等价无穷小进行局部替换。</li>
+<li><strong>命题 3.2.2</strong>：关于无穷小（大）量在复合运算下的性质。</li>
+</ul>
+<h3 id="33-连续函数"><strong>§3.3 连续函数</strong><a class="anchor" href="#33-%e8%bf%9e%e7%bb%ad%e5%87%bd%e6%95%b0">#</a></h3>
+<ul>
+<li><strong>命题 3.3.1（连续函数的保序/保号性）</strong>：连续函数在一点处若不为0，则在附近保持符号不变。</li>
+<li><strong>命题 3.3.2（四则运算）</strong>：连续函数的和、积、商（分母不为0）仍为连续函数。</li>
+<li><strong>命题 3.3.3（复合函数的连续性）</strong>：连续函数的复合仍保持连续。</li>
+<li><strong>命题 3.3.4（绝对值与连续性）</strong>：函数连续则其绝对值函数也连续。</li>
+<li><strong>命题 3.3.5（局部有界性）</strong>：连续函数在某邻域内局部有界。</li>
+<li><strong>推论 3.3.6</strong>：闭区间上的连续函数必为有界函数。</li>
+<li><strong>命题 3.3.7</strong>：单调函数的间断点必为第一类跳跃间断点。</li>
+<li><strong>推论 3.3.8</strong>：单调函数的间断点集至多是可数的。</li>
+<li><strong>引理 3.3.9</strong>：关于振幅 \(\omega(f, I)\)  的性质刻画。</li>
+<li><strong>定理 3.3.10</strong>：函数在一点连续的等价条件（通过极限或振幅刻画）。</li>
+</ul>
+<h3 id="34-连续函数的整体性质"><strong>§3.4 连续函数的整体性质</strong><a class="anchor" href="#34-%e8%bf%9e%e7%bb%ad%e5%87%bd%e6%95%b0%e7%9a%84%e6%95%b4%e4%bd%93%e6%80%a7%e8%b4%a8">#</a></h3>
+<ul>
+<li><strong>定理 3.4.1（最值定理）</strong>：闭区间上的连续函数必能取到最大值和最小值。</li>
+<li><strong>定理 3.4.2（零点定理/Bolzano 定理）</strong>：区间端点异号的连续函数在区间内必有零点。</li>
+<li><strong>定理 3.4.3（介值定理）</strong>：连续函数必能取到介于两个不同函数值之间的任何值。</li>
+<li><strong>推论 3.4.4</strong>：闭区间连续函数的值域即为 \([m, M]\) 。</li>
+<li><strong>推论 3.4.5</strong>：连续函数将区间映射为区间。</li>
+<li><strong>命题 3.4.6</strong>：单调函数连续性与值域区间性的关系。</li>
+<li><strong>推论 3.4.7</strong>：连续函数可逆的充要条件是严格单调，且反函数也连续。</li>
+<li><strong>命题 3.4.8</strong>：一致连续函数在四则运算及复合下的性质。</li>
+<li><strong>定理 3.4.9（Cantor 定理）</strong>：闭区间上的连续函数必是一致连续的。</li>
+</ul>
+<h3 id="35-连续函数的积分"><strong>§3.5 连续函数的积分</strong><a class="anchor" href="#35-%e8%bf%9e%e7%bb%ad%e5%87%bd%e6%95%b0%e7%9a%84%e7%a7%af%e5%88%86">#</a></h3>
+<ul>
+<li><strong>引理 3.5.1</strong>：证明平均值序列 \({A_n}\)  是 Cauchy 数列，从而保证积分定义的合理性。</li>
+<li><strong>命题 3.5.2（线性叠加性质）</strong>：积分对函数线性组合的保持性。</li>
+<li><strong>命题 3.5.3（保序性）</strong>：函数值的大小关系在积分后依然保持。</li>
+<li><strong>命题 3.5.4（积分中值定理）</strong>：在一定条件下，积分值等于某点函数值与区间长度的乘积。</li>
+<li><strong>命题 3.5.5（简单的变量替换）</strong>：积分关于平移和伸缩变换的性质。</li>
+<li><strong>推论 3.5.6</strong>：黎曼和（Riemann sum）在模趋于0时的极限即为积分值。</li>
+<li><strong>命题 3.5.7（积分关于区间的可加性）</strong>：可以将积分区间拆分求和。</li>
+<li><strong>引理 3.5.8</strong>：关于黎曼和与积分值之间误差的定量估计。</li>
+<li><strong>Weierstrass 逼近定理（未编号定理）</strong>：连续函数可以用多项式一致逼近。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch2/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>ch02_极限</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch11/" class="flex align-center">
+        <span>ch11_多元函数的微分</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第三章主要内容总结"><strong>第三章主要内容总结</strong></a></li>
+        <li><a href="#原文公式整理"><strong>原文公式整理</strong></a></li>
+        <li><a href="#31-函数的极限"><strong>§3.1 函数的极限</strong></a></li>
+        <li><a href="#32-无穷小大量"><strong>§3.2 无穷小（大）量</strong></a></li>
+        <li><a href="#33-连续函数"><strong>§3.3 连续函数</strong></a></li>
+        <li><a href="#34-连续函数的整体性质"><strong>§3.4 连续函数的整体性质</strong></a></li>
+        <li><a href="#35-连续函数的积分"><strong>§3.5 连续函数的积分</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

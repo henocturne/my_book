@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据《数学物理方法（第三版）》第二章“解析函数”的内容，按照原文公式序号整理如下：
+一、 导数与 Cauchy-Riemann 条件#(2.1) 导数定义：$f^{\prime}(z) = \lim_{\Delta z\rightarrow0}\frac{f(z&#43;\Delta z)-f(z)}{\Delta z}$。 (2.2) Cauchy-Riemann 条件：$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y}, \frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}$。 (2.3) 微分表达式：$dw=f^{\prime}(z_{0})dz$ 或 $\frac{dw}{dz}|_{z=z_0}=f^{\prime}(z_0)$。 二、 解析函数的几何性质#(2.4) 正交性：解析函数的实部 $u$ 和虚部 $v$ 的等值曲线族互相正交：$\frac{\partial u}{\partial y}\frac{\partial v}{\partial y}&#43;\frac{\partial u}{\partial x}\frac{\partial v}{\partial x}=0$。 (2.5) Laplace 方程：解析函数的实部和虚部都是调和函数，满足 $\frac{\partial^{2}u}{\partial x^{2}}&#43;\frac{\partial^{2}u}{\partial y^{2}}=0$ 和 $\frac{\partial^{2}v}{\partial x^{2}}&#43;\frac{\partial^{2}v}{\partial y^{2}}=0$。 三、 初等解析函数#(2.6) 复三角函数定义：$\sin z=\frac{e^{iz}-e^{-iz}}{2i}, \cos z=\frac{e^{iz}&#43;e^{-iz}}{2}$。 (2.7) 双曲函数定义：包括 $\sinh z, \cosh z, \tanh z$ 等，由指数函数定义。 (2.8) 双曲函数恒等式：如 $\cosh^{2}z-\sinh^{2}z=1$ 等性质。 四、 保角变换下的算符变换#(2.9) Laplace 算符定义：$\nabla^{2}=\frac{\partial^{2}}{\partial x^{2}}&#43;\frac{\partial^{2}}{\partial y^{2}}$。 (2.10) 算符变换关系：在保角变换 $\zeta=f(z)$ 下，$\nabla^{2}=|f^{\prime}(z)|^{2}(\frac{\partial^{2}}{\partial\xi^{2}}&#43;\frac{\partial^{2}}{\partial\eta^{2}})$。 (2.11) 变换后的 Laplace 方程：仍保持形式不变。 (2.12) &amp; (2.13) Poisson 方程变换：变换后的非齐次项变为 $\frac{1}{|f^{\prime}(z)|^{2}}\rho$。 (2.14) 面积元变换：$dxdy=|f^{\prime}(z)|^{-2}d\xi d\eta$。 (2.15) &amp; (2.16) Helmholtz 方程变换：常数项 $k^2$ 变为 $\frac{k^{2}}{|f^{\prime}(z)|^{2}}$。 五、 多值函数#(2.17) &amp; (2.18) 根式定义：$w^{2}=z-a$ 或 $w=\sqrt{z-a}$。 (2.19) 根式的单值分支规定：$|w|=\sqrt{|z-a|}, \arg w=\frac{1}{2}\arg(z-a)$。 (2.20) 对数函数定义：$\ln z=\ln|z|&#43;i\arg z = \ln|z|&#43;i(\theta&#43;2n\pi)$。 (2.21) 对数函数导数：$\frac{d}{dz}(\ln z)=\frac{1}{z}$。 (2.22) 至 (2.24) 反三角函数：通过对数和根式定义的 $\arcsin z, \arccos z, \arctan z$。 (2.25) 一般幂函数：$z^{\alpha}=e^{\alpha \ln z}$。 在第二章中，作者通过极限、导数、解析性以及保角变换等概念，构建了复变函数微积分的基础。以下是根据各小节内容整理的核心定理与数学性质：
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/physics/methods/ch2/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="ch2_解析函数">
+	<meta property="og:description" content="\[ \] 根据《数学物理方法（第三版）》第二章“解析函数”的内容，按照原文公式序号整理如下：
+一、 导数与 Cauchy-Riemann 条件#(2.1) 导数定义：$f^{\prime}(z) = \lim_{\Delta z\rightarrow0}\frac{f(z&#43;\Delta z)-f(z)}{\Delta z}$。 (2.2) Cauchy-Riemann 条件：$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y}, \frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}$。 (2.3) 微分表达式：$dw=f^{\prime}(z_{0})dz$ 或 $\frac{dw}{dz}|_{z=z_0}=f^{\prime}(z_0)$。 二、 解析函数的几何性质#(2.4) 正交性：解析函数的实部 $u$ 和虚部 $v$ 的等值曲线族互相正交：$\frac{\partial u}{\partial y}\frac{\partial v}{\partial y}&#43;\frac{\partial u}{\partial x}\frac{\partial v}{\partial x}=0$。 (2.5) Laplace 方程：解析函数的实部和虚部都是调和函数，满足 $\frac{\partial^{2}u}{\partial x^{2}}&#43;\frac{\partial^{2}u}{\partial y^{2}}=0$ 和 $\frac{\partial^{2}v}{\partial x^{2}}&#43;\frac{\partial^{2}v}{\partial y^{2}}=0$。 三、 初等解析函数#(2.6) 复三角函数定义：$\sin z=\frac{e^{iz}-e^{-iz}}{2i}, \cos z=\frac{e^{iz}&#43;e^{-iz}}{2}$。 (2.7) 双曲函数定义：包括 $\sinh z, \cosh z, \tanh z$ 等，由指数函数定义。 (2.8) 双曲函数恒等式：如 $\cosh^{2}z-\sinh^{2}z=1$ 等性质。 四、 保角变换下的算符变换#(2.9) Laplace 算符定义：$\nabla^{2}=\frac{\partial^{2}}{\partial x^{2}}&#43;\frac{\partial^{2}}{\partial y^{2}}$。 (2.10) 算符变换关系：在保角变换 $\zeta=f(z)$ 下，$\nabla^{2}=|f^{\prime}(z)|^{2}(\frac{\partial^{2}}{\partial\xi^{2}}&#43;\frac{\partial^{2}}{\partial\eta^{2}})$。 (2.11) 变换后的 Laplace 方程：仍保持形式不变。 (2.12) &amp; (2.13) Poisson 方程变换：变换后的非齐次项变为 $\frac{1}{|f^{\prime}(z)|^{2}}\rho$。 (2.14) 面积元变换：$dxdy=|f^{\prime}(z)|^{-2}d\xi d\eta$。 (2.15) &amp; (2.16) Helmholtz 方程变换：常数项 $k^2$ 变为 $\frac{k^{2}}{|f^{\prime}(z)|^{2}}$。 五、 多值函数#(2.17) &amp; (2.18) 根式定义：$w^{2}=z-a$ 或 $w=\sqrt{z-a}$。 (2.19) 根式的单值分支规定：$|w|=\sqrt{|z-a|}, \arg w=\frac{1}{2}\arg(z-a)$。 (2.20) 对数函数定义：$\ln z=\ln|z|&#43;i\arg z = \ln|z|&#43;i(\theta&#43;2n\pi)$。 (2.21) 对数函数导数：$\frac{d}{dz}(\ln z)=\frac{1}{z}$。 (2.22) 至 (2.24) 反三角函数：通过对数和根式定义的 $\arcsin z, \arccos z, \arctan z$。 (2.25) 一般幂函数：$z^{\alpha}=e^{\alpha \ln z}$。 在第二章中，作者通过极限、导数、解析性以及保角变换等概念，构建了复变函数微积分的基础。以下是根据各小节内容整理的核心定理与数学性质：">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="ch2_解析函数">
+	<meta itemprop="description" content="\[ \] 根据《数学物理方法（第三版）》第二章“解析函数”的内容，按照原文公式序号整理如下：
+一、 导数与 Cauchy-Riemann 条件#(2.1) 导数定义：$f^{\prime}(z) = \lim_{\Delta z\rightarrow0}\frac{f(z&#43;\Delta z)-f(z)}{\Delta z}$。 (2.2) Cauchy-Riemann 条件：$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y}, \frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}$。 (2.3) 微分表达式：$dw=f^{\prime}(z_{0})dz$ 或 $\frac{dw}{dz}|_{z=z_0}=f^{\prime}(z_0)$。 二、 解析函数的几何性质#(2.4) 正交性：解析函数的实部 $u$ 和虚部 $v$ 的等值曲线族互相正交：$\frac{\partial u}{\partial y}\frac{\partial v}{\partial y}&#43;\frac{\partial u}{\partial x}\frac{\partial v}{\partial x}=0$。 (2.5) Laplace 方程：解析函数的实部和虚部都是调和函数，满足 $\frac{\partial^{2}u}{\partial x^{2}}&#43;\frac{\partial^{2}u}{\partial y^{2}}=0$ 和 $\frac{\partial^{2}v}{\partial x^{2}}&#43;\frac{\partial^{2}v}{\partial y^{2}}=0$。 三、 初等解析函数#(2.6) 复三角函数定义：$\sin z=\frac{e^{iz}-e^{-iz}}{2i}, \cos z=\frac{e^{iz}&#43;e^{-iz}}{2}$。 (2.7) 双曲函数定义：包括 $\sinh z, \cosh z, \tanh z$ 等，由指数函数定义。 (2.8) 双曲函数恒等式：如 $\cosh^{2}z-\sinh^{2}z=1$ 等性质。 四、 保角变换下的算符变换#(2.9) Laplace 算符定义：$\nabla^{2}=\frac{\partial^{2}}{\partial x^{2}}&#43;\frac{\partial^{2}}{\partial y^{2}}$。 (2.10) 算符变换关系：在保角变换 $\zeta=f(z)$ 下，$\nabla^{2}=|f^{\prime}(z)|^{2}(\frac{\partial^{2}}{\partial\xi^{2}}&#43;\frac{\partial^{2}}{\partial\eta^{2}})$。 (2.11) 变换后的 Laplace 方程：仍保持形式不变。 (2.12) &amp; (2.13) Poisson 方程变换：变换后的非齐次项变为 $\frac{1}{|f^{\prime}(z)|^{2}}\rho$。 (2.14) 面积元变换：$dxdy=|f^{\prime}(z)|^{-2}d\xi d\eta$。 (2.15) &amp; (2.16) Helmholtz 方程变换：常数项 $k^2$ 变为 $\frac{k^{2}}{|f^{\prime}(z)|^{2}}$。 五、 多值函数#(2.17) &amp; (2.18) 根式定义：$w^{2}=z-a$ 或 $w=\sqrt{z-a}$。 (2.19) 根式的单值分支规定：$|w|=\sqrt{|z-a|}, \arg w=\frac{1}{2}\arg(z-a)$。 (2.20) 对数函数定义：$\ln z=\ln|z|&#43;i\arg z = \ln|z|&#43;i(\theta&#43;2n\pi)$。 (2.21) 对数函数导数：$\frac{d}{dz}(\ln z)=\frac{1}{z}$。 (2.22) 至 (2.24) 反三角函数：通过对数和根式定义的 $\arcsin z, \arccos z, \arctan z$。 (2.25) 一般幂函数：$z^{\alpha}=e^{\alpha \ln z}$。 在第二章中，作者通过极限、导数、解析性以及保角变换等概念，构建了复变函数微积分的基础。以下是根据各小节内容整理的核心定理与数学性质：">
+	<meta itemprop="wordCount" content="263">
+
+<title>ch2_解析函数 • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/physics/methods/ch2/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.430c2d1eb8e1223fc86e7d64f92598d9dcb6e5e28deecb36eeb7d04b8ce503a8.js" integrity="sha256-QwwtHrjhIj/Ibn1k&#43;SWY2dy25eKN7ss27rfQS4zlA6g=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle"  />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle"  />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f4ec9b334b16a71eedae85dcb4febf9" class="toggle"  />
+    <label for="section-2f4ec9b334b16a71eedae85dcb4febf9" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85835da35f37d45548655051db89217e" class="toggle"  />
+    <label for="section-85835da35f37d45548655051db89217e" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b08e12376bdb0678587d38233bf70899" class="toggle"  />
+    <label for="section-b08e12376bdb0678587d38233bf70899" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-02b1e26558922e9d0964a04d34d3b36d" class="toggle"  />
+    <label for="section-02b1e26558922e9d0964a04d34d3b36d" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle"  />
+    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
+    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle"  />
+    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
+    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
+    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
+    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
+    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
+    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e5858fb42fa58bc7649079a63cf0925" class="toggle"  />
+    <label for="section-9e5858fb42fa58bc7649079a63cf0925" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/" class="">
+        章节格式</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bcdeea1c4906a7d66882c0d8bd479528" class="toggle"  />
+    <label for="section-bcdeea1c4906a7d66882c0d8bd479528" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-16b43cfe7b0a47d06cbca19957543a3d" class="toggle"  />
+    <label for="section-16b43cfe7b0a47d06cbca19957543a3d" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8d129ccab9957d6df97f5d65f48e81a" class="toggle"  />
+    <label for="section-a8d129ccab9957d6df97f5d65f48e81a" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle" checked />
+    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="active">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>ch2_解析函数</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-导数与-cauchy-riemann-条件">一、 导数与 Cauchy-Riemann 条件</a></li>
+        <li><a href="#二-解析函数的几何性质">二、 解析函数的几何性质</a></li>
+        <li><a href="#三-初等解析函数">三、 初等解析函数</a></li>
+        <li><a href="#四-保角变换下的算符变换">四、 保角变换下的算符变换</a></li>
+        <li><a href="#五-多值函数">五、 多值函数</a></li>
+        <li><a href="#21-复变函数的极限和连续">§2.1 复变函数的极限和连续</a></li>
+        <li><a href="#22-可导与可微">§2.2 可导与可微</a></li>
+        <li><a href="#23-解析函数">§2.3 解析函数</a></li>
+        <li><a href="#24-初等函数">§2.4 初等函数</a></li>
+        <li><a href="#25-解析函数的保角性">§2.5 解析函数的保角性</a></li>
+        <li><a href="#26-多值函数">§2.6 多值函数</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+<p>根据《数学物理方法（第三版）》第二章“解析函数”的内容，按照原文公式序号整理如下：</p>
+<h3 id="一-导数与-cauchy-riemann-条件">一、 导数与 Cauchy-Riemann 条件<a class="anchor" href="#%e4%b8%80-%e5%af%bc%e6%95%b0%e4%b8%8e-cauchy-riemann-%e6%9d%a1%e4%bb%b6">#</a></h3>
+<ul>
+<li><strong>(2.1) 导数定义</strong>：$f^{\prime}(z) = \lim_{\Delta z\rightarrow0}\frac{f(z+\Delta z)-f(z)}{\Delta z}$。</li>
+<li><strong>(2.2) Cauchy-Riemann 条件</strong>：$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y}, \frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}$。</li>
+<li><strong>(2.3) 微分表达式</strong>：$dw=f^{\prime}(z_{0})dz$ 或 $\frac{dw}{dz}|_{z=z_0}=f^{\prime}(z_0)$。</li>
+</ul>
+<h3 id="二-解析函数的几何性质">二、 解析函数的几何性质<a class="anchor" href="#%e4%ba%8c-%e8%a7%a3%e6%9e%90%e5%87%bd%e6%95%b0%e7%9a%84%e5%87%a0%e4%bd%95%e6%80%a7%e8%b4%a8">#</a></h3>
+<ul>
+<li><strong>(2.4) 正交性</strong>：解析函数的实部 $u$ 和虚部 $v$ 的等值曲线族互相正交：$\frac{\partial u}{\partial y}\frac{\partial v}{\partial y}+\frac{\partial u}{\partial x}\frac{\partial v}{\partial x}=0$。</li>
+<li><strong>(2.5) Laplace 方程</strong>：解析函数的实部和虚部都是调和函数，满足 $\frac{\partial^{2}u}{\partial x^{2}}+\frac{\partial^{2}u}{\partial y^{2}}=0$ 和 $\frac{\partial^{2}v}{\partial x^{2}}+\frac{\partial^{2}v}{\partial y^{2}}=0$。</li>
+</ul>
+<h3 id="三-初等解析函数">三、 初等解析函数<a class="anchor" href="#%e4%b8%89-%e5%88%9d%e7%ad%89%e8%a7%a3%e6%9e%90%e5%87%bd%e6%95%b0">#</a></h3>
+<ul>
+<li><strong>(2.6) 复三角函数定义</strong>：$\sin z=\frac{e^{iz}-e^{-iz}}{2i}, \cos z=\frac{e^{iz}+e^{-iz}}{2}$。</li>
+<li><strong>(2.7) 双曲函数定义</strong>：包括 $\sinh z, \cosh z, \tanh z$ 等，由指数函数定义。</li>
+<li><strong>(2.8) 双曲函数恒等式</strong>：如 $\cosh^{2}z-\sinh^{2}z=1$ 等性质。</li>
+</ul>
+<h3 id="四-保角变换下的算符变换">四、 保角变换下的算符变换<a class="anchor" href="#%e5%9b%9b-%e4%bf%9d%e8%a7%92%e5%8f%98%e6%8d%a2%e4%b8%8b%e7%9a%84%e7%ae%97%e7%ac%a6%e5%8f%98%e6%8d%a2">#</a></h3>
+<ul>
+<li><strong>(2.9) Laplace 算符定义</strong>：$\nabla^{2}=\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}$。</li>
+<li><strong>(2.10) 算符变换关系</strong>：在保角变换 $\zeta=f(z)$ 下，$\nabla^{2}=|f^{\prime}(z)|^{2}(\frac{\partial^{2}}{\partial\xi^{2}}+\frac{\partial^{2}}{\partial\eta^{2}})$。</li>
+<li><strong>(2.11) 变换后的 Laplace 方程</strong>：仍保持形式不变。</li>
+<li><strong>(2.12) &amp; (2.13) Poisson 方程变换</strong>：变换后的非齐次项变为 $\frac{1}{|f^{\prime}(z)|^{2}}\rho$。</li>
+<li><strong>(2.14) 面积元变换</strong>：$dxdy=|f^{\prime}(z)|^{-2}d\xi d\eta$。</li>
+<li><strong>(2.15) &amp; (2.16) Helmholtz 方程变换</strong>：常数项 $k^2$ 变为 $\frac{k^{2}}{|f^{\prime}(z)|^{2}}$。</li>
+</ul>
+<h3 id="五-多值函数">五、 多值函数<a class="anchor" href="#%e4%ba%94-%e5%a4%9a%e5%80%bc%e5%87%bd%e6%95%b0">#</a></h3>
+<ul>
+<li><strong>(2.17) &amp; (2.18) 根式定义</strong>：$w^{2}=z-a$ 或 $w=\sqrt{z-a}$。</li>
+<li><strong>(2.19) 根式的单值分支规定</strong>：$|w|=\sqrt{|z-a|}, \arg w=\frac{1}{2}\arg(z-a)$。</li>
+<li><strong>(2.20) 对数函数定义</strong>：$\ln z=\ln|z|+i\arg z = \ln|z|+i(\theta+2n\pi)$。</li>
+<li><strong>(2.21) 对数函数导数</strong>：$\frac{d}{dz}(\ln z)=\frac{1}{z}$。</li>
+<li><strong>(2.22) 至 (2.24) 反三角函数</strong>：通过对数和根式定义的 $\arcsin z, \arccos z, \arctan z$。</li>
+<li><strong>(2.25) 一般幂函数</strong>：$z^{\alpha}=e^{\alpha \ln z}$。</li>
+</ul>
+<p>在第二章中，作者通过极限、导数、解析性以及保角变换等概念，构建了复变函数微积分的基础。以下是根据各小节内容整理的核心定理与数学性质：</p>
+<h3 id="21-复变函数的极限和连续">§2.1 复变函数的极限和连续<a class="anchor" href="#21-%e5%a4%8d%e5%8f%98%e5%87%bd%e6%95%b0%e7%9a%84%e6%9e%81%e9%99%90%e5%92%8c%e8%bf%9e%e7%bb%ad">#</a></h3>
+<p>本节确立了连续函数在有界闭区域 $\overline{G}$ 上的两个核心性质：</p>
+<ul>
+<li><strong>有界性定理</strong>：若 $f(z)$ 在 $\overline{G}$ 上连续，则 $|f(z)|$ 在该区域内有界，并能达到其上界和下界。</li>
+<li><strong>一致连续性定理</strong>：在有界闭区域 $\overline{G}$ 上连续的函数在该区域内必一致连续。</li>
+</ul>
+<h3 id="22-可导与可微">§2.2 可导与可微<a class="anchor" href="#22-%e5%8f%af%e5%af%bc%e4%b8%8e%e5%8f%af%e5%be%ae">#</a></h3>
+<ul>
+<li><strong>可导的必要条件（Cauchy-Riemann 条件）</strong>：若 $f(z) = u + iv$ 在点 $z$ 可导，则其实部 $u$ 和虚部 $v$ 的偏导数必满足 $\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y}$ 和 $\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}$。</li>
+<li><strong>可导的充分条件</strong>：若 $u(x,y)$ 和 $v(x,y)$ 在点 $(x,y)$ 可微且满足 C-R 条件，则 $f(z)$ 在该点可导。</li>
+<li><strong>导数与连续性的关系</strong>：函数在某点可导必在该点连续，但连续不一定可导。</li>
+<li><strong>可微与可导等价性</strong>：在复变函数中，函数在某点可微与可导是互为充要条件的。</li>
+</ul>
+<h3 id="23-解析函数">§2.3 解析函数<a class="anchor" href="#23-%e8%a7%a3%e6%9e%90%e5%87%bd%e6%95%b0">#</a></h3>
+<ul>
+<li><strong>调和性定理</strong>：解析函数的实部 $u$ 和虚部 $v$ 都是调和函数，即它们都满足二维 Laplace 方程,。</li>
+<li><strong>共轭调和性质</strong>：解析函数的实部和虚部构成一对共轭调和函数，已知其中一个可唯一确定另一个（相差一个常数）,。</li>
+<li><strong>几何正交性</strong>：解析函数的实部等值线族 $u(x,y)=C_1$ 与虚部等值线族 $v(x,y)=C_2$ 互相正交。</li>
+</ul>
+<h3 id="24-初等函数">§2.4 初等函数<a class="anchor" href="#24-%e5%88%9d%e7%ad%89%e5%87%bd%e6%95%b0">#</a></h3>
+<p>本节主要通过性质定义了复域下的初等函数，并明确了其解析区域：</p>
+<ul>
+<li><strong>解析域判定</strong>：多项式在全平面解析；指数函数 $e^z$、正弦函数 $\sin z$ 和余弦函数 $\cos z$ 均在整个复平面 $\mathbb{C}$ 内解析,,。</li>
+<li><strong>周期性性质</strong>：复指数函数具有虚周期 $2\pi i$；双曲函数的周期性可由三角函数推导出,。</li>
+</ul>
+<h3 id="25-解析函数的保角性">§2.5 解析函数的保角性<a class="anchor" href="#25-%e8%a7%a3%e6%9e%90%e5%87%bd%e6%95%b0%e7%9a%84%e4%bf%9d%e8%a7%92%e6%80%a7">#</a></h3>
+<ul>
+<li><strong>保角映射定理</strong>：在 $f&rsquo;(z) \neq 0$ 的点，解析函数所代表的变换具有保角性（夹角保持不变）和伸缩比例的不变性。</li>
+<li><strong>Riemann 映射定理</strong>：任何有界单连通区域 $G$ 都可以通过解析函数双向单值地映射到另一个单连通区域 $G&rsquo;$。</li>
+<li><strong>算符变换定理</strong>：在保角变换 $\zeta = f(z)$ 下，二维 Laplace 方程、Poisson 方程和 Helmholtz 方程的形式保持不变,,。</li>
+</ul>
+<h3 id="26-多值函数">§2.6 多值函数<a class="anchor" href="#26-%e5%a4%9a%e5%80%bc%e5%87%bd%e6%95%b0">#</a></h3>
+<ul>
+<li><strong>单值化准则</strong>：通过在分支点（如 $z=a$ 和 $z=\infty$）之间作割线并限制宗量辐角范围，可将多值函数划分为若干单值分支，每个分支在割开的平面内是解析的,。</li>
+<li><strong>对数函数导数公式</strong>：在每一个单值分支内，对数函数均满足 $\frac{d}{dz}(\ln z) = \frac{1}{z}$。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/physics/methods/ch1/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>ch1_复数和复变函数</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/physics/methods/ch3/" class="flex align-center">
+        <span>ch3_复变积分</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-导数与-cauchy-riemann-条件">一、 导数与 Cauchy-Riemann 条件</a></li>
+        <li><a href="#二-解析函数的几何性质">二、 解析函数的几何性质</a></li>
+        <li><a href="#三-初等解析函数">三、 初等解析函数</a></li>
+        <li><a href="#四-保角变换下的算符变换">四、 保角变换下的算符变换</a></li>
+        <li><a href="#五-多值函数">五、 多值函数</a></li>
+        <li><a href="#21-复变函数的极限和连续">§2.1 复变函数的极限和连续</a></li>
+        <li><a href="#22-可导与可微">§2.2 可导与可微</a></li>
+        <li><a href="#23-解析函数">§2.3 解析函数</a></li>
+        <li><a href="#24-初等函数">§2.4 初等函数</a></li>
+        <li><a href="#25-解析函数的保角性">§2.5 解析函数的保角性</a></li>
+        <li><a href="#26-多值函数">§2.6 多值函数</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

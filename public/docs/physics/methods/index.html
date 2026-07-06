@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 数学物理方法#吴崇试#author：吴崇试 title：数学物理方法 第三版 publisher: 北京大学出版社 《数学物理方法（第三版）》全书正文共计 388 页（第 3 页至第 390 页），内容清晰地划分为复变函数和数学物理方程两个主要部分。
+下表详细列出了各章的页码范围及在全书正文中的篇幅占比：
+章节篇幅占比表#部分 章节名称 页码范围 篇幅占比（约） 第一部分：复变函数 第1章 复数和复变函数 3-12 2.6% 第2章 解析函数 13-29 4.4% 第3章 复变积分 30-47 4.6% 第4章 无穷级数 48-63 4.1% 第5章 解析函数的局域性展开 64-83 5.2% 第6章 留数定理及其应用 84-104 5.4% 第7章 $\Gamma$ 函数 105-118 3.6% 第8章 Laplace 变换 119-134 4.1% 第9章 二阶线性常微分方程的幂级数解法 135-152 4.6% 第10章 $\delta$ 函数 153-174 5.7% 第一部分小计 44.3% 第二部分：数学物理方程 第11章 数学物理方程和定解条件 175-186 3.1% 第12章 线性偏微分方程的通解 187-201 3.9% 第13章 分离变量法 202-226 6.4% 第14章 正交曲面坐标系 227-249 5.9% 第15章 球函数 250-277 7.2% 第16章 柱函数 278-303 6.7% 第17章 分离变量法总结 304-325 5.7% 第18章 积分变换的应用 326-341 4.1% 第19章 Green 函数方法 342-362 5.4% 第20章 变分法初步 363-379 4.4% 第21章 数学物理方程综述 380-390 2.8% 第二部分小计 55.7% 从数据来看，球函数 第15章和柱函数 第16章是全书篇幅最大的核心章节。
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/physics/methods/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="数学物理方法">
+	<meta property="og:description" content="\[ \] 数学物理方法#吴崇试#author：吴崇试 title：数学物理方法 第三版 publisher: 北京大学出版社 《数学物理方法（第三版）》全书正文共计 388 页（第 3 页至第 390 页），内容清晰地划分为复变函数和数学物理方程两个主要部分。
+下表详细列出了各章的页码范围及在全书正文中的篇幅占比：
+章节篇幅占比表#部分 章节名称 页码范围 篇幅占比（约） 第一部分：复变函数 第1章 复数和复变函数 3-12 2.6% 第2章 解析函数 13-29 4.4% 第3章 复变积分 30-47 4.6% 第4章 无穷级数 48-63 4.1% 第5章 解析函数的局域性展开 64-83 5.2% 第6章 留数定理及其应用 84-104 5.4% 第7章 $\Gamma$ 函数 105-118 3.6% 第8章 Laplace 变换 119-134 4.1% 第9章 二阶线性常微分方程的幂级数解法 135-152 4.6% 第10章 $\delta$ 函数 153-174 5.7% 第一部分小计 44.3% 第二部分：数学物理方程 第11章 数学物理方程和定解条件 175-186 3.1% 第12章 线性偏微分方程的通解 187-201 3.9% 第13章 分离变量法 202-226 6.4% 第14章 正交曲面坐标系 227-249 5.9% 第15章 球函数 250-277 7.2% 第16章 柱函数 278-303 6.7% 第17章 分离变量法总结 304-325 5.7% 第18章 积分变换的应用 326-341 4.1% 第19章 Green 函数方法 342-362 5.4% 第20章 变分法初步 363-379 4.4% 第21章 数学物理方程综述 380-390 2.8% 第二部分小计 55.7% 从数据来看，球函数 第15章和柱函数 第16章是全书篇幅最大的核心章节。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="website">
+
+
+	<meta itemprop="name" content="数学物理方法">
+	<meta itemprop="description" content="\[ \] 数学物理方法#吴崇试#author：吴崇试 title：数学物理方法 第三版 publisher: 北京大学出版社 《数学物理方法（第三版）》全书正文共计 388 页（第 3 页至第 390 页），内容清晰地划分为复变函数和数学物理方程两个主要部分。
+下表详细列出了各章的页码范围及在全书正文中的篇幅占比：
+章节篇幅占比表#部分 章节名称 页码范围 篇幅占比（约） 第一部分：复变函数 第1章 复数和复变函数 3-12 2.6% 第2章 解析函数 13-29 4.4% 第3章 复变积分 30-47 4.6% 第4章 无穷级数 48-63 4.1% 第5章 解析函数的局域性展开 64-83 5.2% 第6章 留数定理及其应用 84-104 5.4% 第7章 $\Gamma$ 函数 105-118 3.6% 第8章 Laplace 变换 119-134 4.1% 第9章 二阶线性常微分方程的幂级数解法 135-152 4.6% 第10章 $\delta$ 函数 153-174 5.7% 第一部分小计 44.3% 第二部分：数学物理方程 第11章 数学物理方程和定解条件 175-186 3.1% 第12章 线性偏微分方程的通解 187-201 3.9% 第13章 分离变量法 202-226 6.4% 第14章 正交曲面坐标系 227-249 5.9% 第15章 球函数 250-277 7.2% 第16章 柱函数 278-303 6.7% 第17章 分离变量法总结 304-325 5.7% 第18章 积分变换的应用 326-341 4.1% 第19章 Green 函数方法 342-362 5.4% 第20章 变分法初步 363-379 4.4% 第21章 数学物理方程综述 380-390 2.8% 第二部分小计 55.7% 从数据来看，球函数 第15章和柱函数 第16章是全书篇幅最大的核心章节。">
+	<meta itemprop="wordCount" content="120">
+
+<title>数学物理方法 • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/physics/methods/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.430c2d1eb8e1223fc86e7d64f92598d9dcb6e5e28deecb36eeb7d04b8ce503a8.js" integrity="sha256-QwwtHrjhIj/Ibn1k&#43;SWY2dy25eKN7ss27rfQS4zlA6g=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/my_book/docs/physics/methods/index.xml" title="数学物理方法" />
+
+  
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle"  />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle"  />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f4ec9b334b16a71eedae85dcb4febf9" class="toggle"  />
+    <label for="section-2f4ec9b334b16a71eedae85dcb4febf9" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85835da35f37d45548655051db89217e" class="toggle"  />
+    <label for="section-85835da35f37d45548655051db89217e" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b08e12376bdb0678587d38233bf70899" class="toggle"  />
+    <label for="section-b08e12376bdb0678587d38233bf70899" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-02b1e26558922e9d0964a04d34d3b36d" class="toggle"  />
+    <label for="section-02b1e26558922e9d0964a04d34d3b36d" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle"  />
+    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
+    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle"  />
+    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
+    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
+    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
+    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
+    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
+    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e5858fb42fa58bc7649079a63cf0925" class="toggle"  />
+    <label for="section-9e5858fb42fa58bc7649079a63cf0925" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/" class="">
+        章节格式</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bcdeea1c4906a7d66882c0d8bd479528" class="toggle"  />
+    <label for="section-bcdeea1c4906a7d66882c0d8bd479528" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-16b43cfe7b0a47d06cbca19957543a3d" class="toggle"  />
+    <label for="section-16b43cfe7b0a47d06cbca19957543a3d" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8d129ccab9957d6df97f5d65f48e81a" class="toggle"  />
+    <label for="section-a8d129ccab9957d6df97f5d65f48e81a" class="flex">
+      <a href="/my_book/docs/math/ma/ch_demo/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle" checked />
+    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="active">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>数学物理方法</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#吴崇试">吴崇试</a>
+      <ul>
+        <li><a href="#章节篇幅占比表">章节篇幅占比表</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+<h1 id="数学物理方法">数学物理方法<a class="anchor" href="#%e6%95%b0%e5%ad%a6%e7%89%a9%e7%90%86%e6%96%b9%e6%b3%95">#</a></h1>
+<h2 id="吴崇试">吴崇试<a class="anchor" href="#%e5%90%b4%e5%b4%87%e8%af%95">#</a></h2>
+<ul>
+<li>author：吴崇试</li>
+<li>title：数学物理方法 第三版</li>
+<li>publisher: 北京大学出版社</li>
+</ul>
+<p>《数学物理方法（第三版）》全书正文共计 388 页（第 3 页至第 390 页），内容清晰地划分为<strong>复变函数</strong>和<strong>数学物理方程</strong>两个主要部分。</p>
+<p>下表详细列出了各章的页码范围及在全书正文中的篇幅占比：</p>
+<h3 id="章节篇幅占比表">章节篇幅占比表<a class="anchor" href="#%e7%ab%a0%e8%8a%82%e7%af%87%e5%b9%85%e5%8d%a0%e6%af%94%e8%a1%a8">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th style="text-align: left">部分</th>
+					<th style="text-align: left">章节名称</th>
+					<th style="text-align: left">页码范围</th>
+					<th style="text-align: left">篇幅占比（约）</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left"><strong>第一部分：复变函数</strong></td>
+					<td style="text-align: left"><strong>第1章 复数和复变函数</strong></td>
+					<td style="text-align: left">3-12</td>
+					<td style="text-align: left">2.6%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第2章 解析函数</strong></td>
+					<td style="text-align: left">13-29</td>
+					<td style="text-align: left">4.4%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第3章 复变积分</strong></td>
+					<td style="text-align: left">30-47</td>
+					<td style="text-align: left">4.6%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第4章 无穷级数</strong></td>
+					<td style="text-align: left">48-63</td>
+					<td style="text-align: left">4.1%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第5章 解析函数的局域性展开</strong></td>
+					<td style="text-align: left">64-83</td>
+					<td style="text-align: left">5.2%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第6章 留数定理及其应用</strong></td>
+					<td style="text-align: left">84-104</td>
+					<td style="text-align: left">5.4%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第7章 $\Gamma$ 函数</strong></td>
+					<td style="text-align: left">105-118</td>
+					<td style="text-align: left">3.6%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第8章 Laplace 变换</strong></td>
+					<td style="text-align: left">119-134</td>
+					<td style="text-align: left">4.1%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第9章 二阶线性常微分方程的幂级数解法</strong></td>
+					<td style="text-align: left">135-152</td>
+					<td style="text-align: left">4.6%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第10章 $\delta$ 函数</strong></td>
+					<td style="text-align: left">153-174</td>
+					<td style="text-align: left">5.7%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>第一部分小计</strong></td>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>44.3%</strong></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>第二部分：数学物理方程</strong></td>
+					<td style="text-align: left"><strong>第11章 数学物理方程和定解条件</strong></td>
+					<td style="text-align: left">175-186</td>
+					<td style="text-align: left">3.1%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第12章 线性偏微分方程的通解</strong></td>
+					<td style="text-align: left">187-201</td>
+					<td style="text-align: left">3.9%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第13章 分离变量法</strong></td>
+					<td style="text-align: left">202-226</td>
+					<td style="text-align: left">6.4%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第14章 正交曲面坐标系</strong></td>
+					<td style="text-align: left">227-249</td>
+					<td style="text-align: left">5.9%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第15章 球函数</strong></td>
+					<td style="text-align: left">250-277</td>
+					<td style="text-align: left">7.2%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第16章 柱函数</strong></td>
+					<td style="text-align: left">278-303</td>
+					<td style="text-align: left">6.7%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第17章 分离变量法总结</strong></td>
+					<td style="text-align: left">304-325</td>
+					<td style="text-align: left">5.7%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第18章 积分变换的应用</strong></td>
+					<td style="text-align: left">326-341</td>
+					<td style="text-align: left">4.1%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第19章 Green 函数方法</strong></td>
+					<td style="text-align: left">342-362</td>
+					<td style="text-align: left">5.4%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第20章 变分法初步</strong></td>
+					<td style="text-align: left">363-379</td>
+					<td style="text-align: left">4.4%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>第21章 数学物理方程综述</strong></td>
+					<td style="text-align: left">380-390</td>
+					<td style="text-align: left">2.8%</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>第二部分小计</strong></td>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"></td>
+					<td style="text-align: left"><strong>55.7%</strong></td>
+			</tr>
+	</tbody>
+</table>
+<p>从数据来看，<strong>球函数 第15章</strong>和<strong>柱函数 第16章</strong>是全书篇幅最大的核心章节。</p>
+<p>您是希望深入研究这些核心章节的公式，还是先从第一部分的数学基础开始？</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch_demo/theorem/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>theorem</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/physics/methods/ch1/" class="flex align-center">
+        <span>ch1_复数和复变函数</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#吴崇试">吴崇试</a>
+      <ul>
+        <li><a href="#章节篇幅占比表">章节篇幅占比表</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
