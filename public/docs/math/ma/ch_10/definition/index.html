@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据提供的源文件《第十章 度量空间和连续映射》，该章节定义并使用了多类数学符号，主要涵盖了度量空间、线性代数基础以及集合拓扑等方面。以下是这些符号的总结：
+1. 空间与集合符号#$\mathbb{R}^n$：$n$ 维欧氏空间，由 $n$ 元有序实数组构成的集合。 $a = (a_1, a_2, \dots, a_n)$：表示 $\mathbb{R}^n$ 中的一个点或向量。 $C^0[a, b]$：闭区间 $[a, b]$ 上全体连续函数构成的向量空间。 $M_{m \times n}$：所有 $m \times n$ 实矩阵构成的向量空间。 $(X, d)$：表示一个度量空间（或距离空间），其中 $X$ 为非空集合，$d$ 为定义的度量。 $A^c$：集合 $A$ 的补集。 $S^n$：$\mathbb{R}^{n&#43;1}$ 中的单位球面。 2. 内积与范数符号#$\langle u, v \rangle$ 或 $g(u, v)$：表示向量 $u$ 与 $v$ 的内积。 $(V, \langle , \rangle)$：内积空间。 $|u|$：向量 $u$ 的范数或长度，定义为 $\sqrt{\langle u, u \rangle}$。 $\theta(u, v)$ 或 $\angle(u, v)$：向量 $u$ 与 $v$ 之间的夹角。 $\text{tr}(ST^T)$：矩阵的迹，用于定义矩阵空间中的内积。 3. 度量与距离相关符号#$d(x, y)$：点 $x$ 与 $y$ 之间的度量或距离。 $d_{max}(f, g)$：函数空间中的最大模度量。 $d_p(f, g)$：函数空间中的 $p$-度量。 $d_1$ 和 $d_\infty$：$\mathbb{R}^n$ 中特定的度量形式。 $\text{diam}(A)$：集合 $A$ 的直径，定义为集合内点对距离的上确界。 $d(x, A)$：点 $x$ 到集合 $A$ 的距离，定义为 $\inf{d(x, a) \mid a \in A}$。 4. 拓扑与极限符号#${x_n}$：度量空间中的序列或点列。 $\lim_{n \to \infty} x_n = x_0$：序列收敛于极限点 $x_0$。 $B_r(x)$：以 $x$ 为中心，$r$ 为半径的开球。 $\bar{B}_r(x)$：以 $x$ 为中心，$r$ 为半径的闭球。 $\text{int } A$ 或 $\mathring{A}$：集合 $A$ 的内部（由所有内点组成）。 $\partial A$：集合 $A$ 的边界。 $\bar{A}$：集合 $A$ 的闭包（定义为 $A \cup \partial A$）。 5. 映射与特殊函数符号#$f: X \to Y$：从度量空间 $X$ 到 $Y$ 的映射。 $f^{-1}(B)$：集合 $B$ 在映射 $f$ 下的原像。 $\chi_A(x)$：集合 $A$ 的特征函数，当 $x \in A$ 时取 1，否则取 0。 $\rho(f(a), f(a’)) \le L d(a, a’)$：用于定义 Lipschitz 映射，其中 $L$ 为常数。 ">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/math/ma/ch_10/definition/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="definition">
+	<meta property="og:description" content="\[ \] 根据提供的源文件《第十章 度量空间和连续映射》，该章节定义并使用了多类数学符号，主要涵盖了度量空间、线性代数基础以及集合拓扑等方面。以下是这些符号的总结：
+1. 空间与集合符号#$\mathbb{R}^n$：$n$ 维欧氏空间，由 $n$ 元有序实数组构成的集合。 $a = (a_1, a_2, \dots, a_n)$：表示 $\mathbb{R}^n$ 中的一个点或向量。 $C^0[a, b]$：闭区间 $[a, b]$ 上全体连续函数构成的向量空间。 $M_{m \times n}$：所有 $m \times n$ 实矩阵构成的向量空间。 $(X, d)$：表示一个度量空间（或距离空间），其中 $X$ 为非空集合，$d$ 为定义的度量。 $A^c$：集合 $A$ 的补集。 $S^n$：$\mathbb{R}^{n&#43;1}$ 中的单位球面。 2. 内积与范数符号#$\langle u, v \rangle$ 或 $g(u, v)$：表示向量 $u$ 与 $v$ 的内积。 $(V, \langle , \rangle)$：内积空间。 $|u|$：向量 $u$ 的范数或长度，定义为 $\sqrt{\langle u, u \rangle}$。 $\theta(u, v)$ 或 $\angle(u, v)$：向量 $u$ 与 $v$ 之间的夹角。 $\text{tr}(ST^T)$：矩阵的迹，用于定义矩阵空间中的内积。 3. 度量与距离相关符号#$d(x, y)$：点 $x$ 与 $y$ 之间的度量或距离。 $d_{max}(f, g)$：函数空间中的最大模度量。 $d_p(f, g)$：函数空间中的 $p$-度量。 $d_1$ 和 $d_\infty$：$\mathbb{R}^n$ 中特定的度量形式。 $\text{diam}(A)$：集合 $A$ 的直径，定义为集合内点对距离的上确界。 $d(x, A)$：点 $x$ 到集合 $A$ 的距离，定义为 $\inf{d(x, a) \mid a \in A}$。 4. 拓扑与极限符号#${x_n}$：度量空间中的序列或点列。 $\lim_{n \to \infty} x_n = x_0$：序列收敛于极限点 $x_0$。 $B_r(x)$：以 $x$ 为中心，$r$ 为半径的开球。 $\bar{B}_r(x)$：以 $x$ 为中心，$r$ 为半径的闭球。 $\text{int } A$ 或 $\mathring{A}$：集合 $A$ 的内部（由所有内点组成）。 $\partial A$：集合 $A$ 的边界。 $\bar{A}$：集合 $A$ 的闭包（定义为 $A \cup \partial A$）。 5. 映射与特殊函数符号#$f: X \to Y$：从度量空间 $X$ 到 $Y$ 的映射。 $f^{-1}(B)$：集合 $B$ 在映射 $f$ 下的原像。 $\chi_A(x)$：集合 $A$ 的特征函数，当 $x \in A$ 时取 1，否则取 0。 $\rho(f(a), f(a’)) \le L d(a, a’)$：用于定义 Lipschitz 映射，其中 $L$ 为常数。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="definition">
+	<meta itemprop="description" content="\[ \] 根据提供的源文件《第十章 度量空间和连续映射》，该章节定义并使用了多类数学符号，主要涵盖了度量空间、线性代数基础以及集合拓扑等方面。以下是这些符号的总结：
+1. 空间与集合符号#$\mathbb{R}^n$：$n$ 维欧氏空间，由 $n$ 元有序实数组构成的集合。 $a = (a_1, a_2, \dots, a_n)$：表示 $\mathbb{R}^n$ 中的一个点或向量。 $C^0[a, b]$：闭区间 $[a, b]$ 上全体连续函数构成的向量空间。 $M_{m \times n}$：所有 $m \times n$ 实矩阵构成的向量空间。 $(X, d)$：表示一个度量空间（或距离空间），其中 $X$ 为非空集合，$d$ 为定义的度量。 $A^c$：集合 $A$ 的补集。 $S^n$：$\mathbb{R}^{n&#43;1}$ 中的单位球面。 2. 内积与范数符号#$\langle u, v \rangle$ 或 $g(u, v)$：表示向量 $u$ 与 $v$ 的内积。 $(V, \langle , \rangle)$：内积空间。 $|u|$：向量 $u$ 的范数或长度，定义为 $\sqrt{\langle u, u \rangle}$。 $\theta(u, v)$ 或 $\angle(u, v)$：向量 $u$ 与 $v$ 之间的夹角。 $\text{tr}(ST^T)$：矩阵的迹，用于定义矩阵空间中的内积。 3. 度量与距离相关符号#$d(x, y)$：点 $x$ 与 $y$ 之间的度量或距离。 $d_{max}(f, g)$：函数空间中的最大模度量。 $d_p(f, g)$：函数空间中的 $p$-度量。 $d_1$ 和 $d_\infty$：$\mathbb{R}^n$ 中特定的度量形式。 $\text{diam}(A)$：集合 $A$ 的直径，定义为集合内点对距离的上确界。 $d(x, A)$：点 $x$ 到集合 $A$ 的距离，定义为 $\inf{d(x, a) \mid a \in A}$。 4. 拓扑与极限符号#${x_n}$：度量空间中的序列或点列。 $\lim_{n \to \infty} x_n = x_0$：序列收敛于极限点 $x_0$。 $B_r(x)$：以 $x$ 为中心，$r$ 为半径的开球。 $\bar{B}_r(x)$：以 $x$ 为中心，$r$ 为半径的闭球。 $\text{int } A$ 或 $\mathring{A}$：集合 $A$ 的内部（由所有内点组成）。 $\partial A$：集合 $A$ 的边界。 $\bar{A}$：集合 $A$ 的闭包（定义为 $A \cup \partial A$）。 5. 映射与特殊函数符号#$f: X \to Y$：从度量空间 $X$ 到 $Y$ 的映射。 $f^{-1}(B)$：集合 $B$ 在映射 $f$ 下的原像。 $\chi_A(x)$：集合 $A$ 的特征函数，当 $x \in A$ 时取 1，否则取 0。 $\rho(f(a), f(a’)) \le L d(a, a’)$：用于定义 Lipschitz 映射，其中 $L$ 为常数。">
+	<meta itemprop="wordCount" content="176">
+
+<title>definition • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/math/ma/ch_10/definition/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.7a3ee617b5cfb1c57ccc47c2dad708d0143a8096898307f9db940dc02724c589.js" integrity="sha256-ej7mF7XPscV8zEfC2tcI0BQ6gJaJgwf525QNwCckxYk=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle" checked />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle" checked />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b166c8658016aadf0eb4a18dd88cb0e9" class="toggle" checked />
+    <label for="section-b166c8658016aadf0eb4a18dd88cb0e9" class="flex">
+      <a href="/my_book/docs/math/ma/ch_10/" class="">
+        ch10_度量空间和连续映射</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-90521c65629a3ac7e58757d03075e969" class="toggle" checked />
+    <label for="section-90521c65629a3ac7e58757d03075e969" class="flex">
+      <a href="/my_book/docs/math/ma/ch_10/definition/" class="active">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-94b38aef27b9a2391b0593900b47e453" class="toggle"  />
+    <label for="section-94b38aef27b9a2391b0593900b47e453" class="flex">
+      <a href="/my_book/docs/math/ma/ch_10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0afc576ea8ccb4049d19bf5ed13d012a" class="toggle"  />
+    <label for="section-0afc576ea8ccb4049d19bf5ed13d012a" class="flex">
+      <a href="/my_book/docs/math/ma/ch_10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle"  />
+    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
+    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle"  />
+    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
+    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
+    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
+    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
+    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
+    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle"  />
+    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>definition</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-空间与集合符号">1. 空间与集合符号</a></li>
+        <li><a href="#2-内积与范数符号">2. 内积与范数符号</a></li>
+        <li><a href="#3-度量与距离相关符号">3. 度量与距离相关符号</a></li>
+        <li><a href="#4-拓扑与极限符号">4. 拓扑与极限符号</a></li>
+        <li><a href="#5-映射与特殊函数符号">5. 映射与特殊函数符号</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+<p>根据提供的源文件《第十章 度量空间和连续映射》，该章节定义并使用了多类数学符号，主要涵盖了度量空间、线性代数基础以及集合拓扑等方面。以下是这些符号的总结：</p>
+<h3 id="1-空间与集合符号">1. 空间与集合符号<a class="anchor" href="#1-%e7%a9%ba%e9%97%b4%e4%b8%8e%e9%9b%86%e5%90%88%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>$\mathbb{R}^n$</strong>：$n$ 维欧氏空间，由 $n$ 元有序实数组构成的集合。</li>
+<li><strong>$a = (a_1, a_2, \dots, a_n)$</strong>：表示 $\mathbb{R}^n$ 中的一个点或向量。</li>
+<li><strong>$C^0[a, b]$</strong>：闭区间 $[a, b]$ 上全体连续函数构成的向量空间。</li>
+<li><strong>$M_{m \times n}$</strong>：所有 $m \times n$ 实矩阵构成的向量空间。</li>
+<li><strong>$(X, d)$</strong>：表示一个<strong>度量空间</strong>（或距离空间），其中 $X$ 为非空集合，$d$ 为定义的度量。</li>
+<li><strong>$A^c$</strong>：集合 $A$ 的<strong>补集</strong>。</li>
+<li><strong>$S^n$</strong>：$\mathbb{R}^{n+1}$ 中的<strong>单位球面</strong>。</li>
+</ul>
+<h3 id="2-内积与范数符号">2. 内积与范数符号<a class="anchor" href="#2-%e5%86%85%e7%a7%af%e4%b8%8e%e8%8c%83%e6%95%b0%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>$\langle u, v \rangle$</strong> 或 <strong>$g(u, v)$</strong>：表示向量 $u$ 与 $v$ 的<strong>内积</strong>。</li>
+<li><strong>$(V, \langle , \rangle)$</strong>：内积空间。</li>
+<li><strong>$|u|$</strong>：向量 $u$ 的<strong>范数</strong>或长度，定义为 $\sqrt{\langle u, u \rangle}$。</li>
+<li><strong>$\theta(u, v)$</strong> 或 <strong>$\angle(u, v)$</strong>：向量 $u$ 与 $v$ 之间的<strong>夹角</strong>。</li>
+<li><strong>$\text{tr}(ST^T)$</strong>：矩阵的迹，用于定义矩阵空间中的内积。</li>
+</ul>
+<h3 id="3-度量与距离相关符号">3. 度量与距离相关符号<a class="anchor" href="#3-%e5%ba%a6%e9%87%8f%e4%b8%8e%e8%b7%9d%e7%a6%bb%e7%9b%b8%e5%85%b3%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>$d(x, y)$</strong>：点 $x$ 与 $y$ 之间的<strong>度量</strong>或距离。</li>
+<li><strong>$d_{max}(f, g)$</strong>：函数空间中的<strong>最大模度量</strong>。</li>
+<li><strong>$d_p(f, g)$</strong>：函数空间中的 <strong>$p$-度量</strong>。</li>
+<li><strong>$d_1$ 和 $d_\infty$</strong>：$\mathbb{R}^n$ 中特定的度量形式。</li>
+<li><strong>$\text{diam}(A)$</strong>：集合 $A$ 的<strong>直径</strong>，定义为集合内点对距离的上确界。</li>
+<li><strong>$d(x, A)$</strong>：点 $x$ 到集合 $A$ 的距离，定义为 $\inf{d(x, a) \mid a \in A}$。</li>
+</ul>
+<h3 id="4-拓扑与极限符号">4. 拓扑与极限符号<a class="anchor" href="#4-%e6%8b%93%e6%89%91%e4%b8%8e%e6%9e%81%e9%99%90%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>${x_n}$</strong>：度量空间中的<strong>序列</strong>或点列。</li>
+<li><strong>$\lim_{n \to \infty} x_n = x_0$</strong>：序列收敛于极限点 $x_0$。</li>
+<li><strong>$B_r(x)$</strong>：以 $x$ 为中心，$r$ 为半径的<strong>开球</strong>。</li>
+<li><strong>$\bar{B}_r(x)$</strong>：以 $x$ 为中心，$r$ 为半径的<strong>闭球</strong>。</li>
+<li><strong>$\text{int } A$</strong> 或 <strong>$\mathring{A}$</strong>：集合 $A$ 的<strong>内部</strong>（由所有内点组成）。</li>
+<li><strong>$\partial A$</strong>：集合 $A$ 的<strong>边界</strong>。</li>
+<li><strong>$\bar{A}$</strong>：集合 $A$ 的<strong>闭包</strong>（定义为 $A \cup \partial A$）。</li>
+</ul>
+<h3 id="5-映射与特殊函数符号">5. 映射与特殊函数符号<a class="anchor" href="#5-%e6%98%a0%e5%b0%84%e4%b8%8e%e7%89%b9%e6%ae%8a%e5%87%bd%e6%95%b0%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>$f: X \to Y$</strong>：从度量空间 $X$ 到 $Y$ 的映射。</li>
+<li><strong>$f^{-1}(B)$</strong>：集合 $B$ 在映射 $f$ 下的<strong>原像</strong>。</li>
+<li><strong>$\chi_A(x)$</strong>：集合 $A$ 的<strong>特征函数</strong>，当 $x \in A$ 时取 1，否则取 0。</li>
+<li><strong>$\rho(f(a), f(a&rsquo;)) \le L d(a, a&rsquo;)$</strong>：用于定义 <strong>Lipschitz 映射</strong>，其中 $L$ 为常数。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch_10/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>ch10_度量空间和连续映射</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch_10/formula/" class="flex align-center">
+        <span>formula</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-空间与集合符号">1. 空间与集合符号</a></li>
+        <li><a href="#2-内积与范数符号">2. 内积与范数符号</a></li>
+        <li><a href="#3-度量与距离相关符号">3. 度量与距离相关符号</a></li>
+        <li><a href="#4-拓扑与极限符号">4. 拓扑与极限符号</a></li>
+        <li><a href="#5-映射与特殊函数符号">5. 映射与特殊函数符号</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

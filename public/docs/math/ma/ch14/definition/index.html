@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据提供的源文件《第十四章 微分形式的积分》，本章将微积分中的梯度、散度和旋度等概念推广到了更高维度的微分形式中。以下是该章节中定义和使用的主要数学符号总结：
+1. 对偶空间与线性代数基础符号#\( V^* \)：向量空间 \( V \) 的对偶空间，由所有从 \( V \) 到实数域 \( \mathbb{R} \) 的线性函数 \( \ell \) 组成。 \( v^\flat \)：欧氏空间中的向量 \( v \) 通过标准内积对应的对偶线性函数，定义为 \( v^\flat(u) = v \cdot u \)。 \( \phi^\sharp \)：对偶空间中的线性函数 \( \phi \) 通过同构映射对应的向量，满足 \( \phi^\sharp \cdot u = \phi(u) \)。 \( {e_i} \) 与 \( {dx_i} \)：\( \mathbb{R}^n \) 的标准基与对应的对偶基（即基本 1-形式），满足 \( dx_i(e_j) = \delta_{ij} \)。 2. 微分形式（\( q \)-形式）符号#1-形式：取值在 \( (\mathbb{R}^n)^* \) 中的函数 \( \omega \)，可表示为 \( \omega = \sum w_i dx_i \)。 \( \phi \otimes \psi \)：两个线性函数的张量积，定义为 \( (\phi \otimes \psi)(u, v) = \phi(u)\psi(v) \)。 \( \phi \wedge \psi \)：两个线性函数的外积（楔积），定义为 \( \phi \wedge \psi = \phi \otimes \psi - \psi \otimes \phi \)。 \( \wedge^q( \mathbb{R}^n )^* \)：所有反对称 \( q \) 次线性型构成的向量空间，其维度为 \( C_n^q \)。 \( q \)-形式：取值在 \( \wedge^q(\mathbb{R}^n)^* \) 中的场，记作 \( \omega = \sum_{i_1 &lt; \dots &lt; i_q} w_{i_1 \dots i_q} dx_{i_1} \wedge \dots \wedge dx_{i_q} \)。 \( dx = dx_1 \wedge dx_2 \wedge \dots \wedge dx_n \)：\( \mathbb{R}^n \) 中的体积形式。 3. 运算与算子符号#\( \wedge \) (楔积算子)：用于将 \( p \)-形式和 \( q \)-形式组合成 \( (p&#43;q) \)-形式，满足反交换律 \( \omega \wedge \eta = (-1)^{pq} \eta \wedge \omega \)。 \( \varphi^* \) (拉回映射)：由可微映射 \( \varphi \) 诱导的将微分形式从目标空间**“拉回”**到定义域空间的运算。 \( d \) (外微分算子)：将 \( q \)-形式映射为 \( (q&#43;1) \)-形式的算子，满足 \( d^2 = 0 \)。 \( * \) (Hodge 星算子)：将 \( q \)-形式映射为 \( (n-q) \)-形式的同构算子。 \( \delta \) (共微分算子)：利用 Hodge 星算子定义的将微分形式次数降低一次的算子，定义为 \( \delta \omega = (-1)^{n(q-1)&#43;1} * d * \omega \)。 \( \Delta = d\delta &#43; \delta d \)：Hodge-Laplace 算子。 4. 积分与拓扑符号#\( \int_{\sigma} \omega \)：微分形式 \( \omega \) 沿路径 \( \sigma \) 的积分（第二型曲线积分）。 \( \int_{\Omega} \eta \)：\( n \)-形式 \( \eta \) 在 \( n \) 维正则区域 \( \Omega \) 上的重积分。 \( \partial \Omega \)：区域 \( \Omega \) 的边界。 \( \text{supp } f \)：函数 \( f \) 的支集，即函数值非零点的闭包。 \( H_{dR}^q(D) \)：区域 \( D \) 的 \( q \) 次 de Rham 上同调群，定义为 \( q \) 次闭形式空间与恰当形式空间之商。 5. 物理场相关符号（Maxwell 方程组）#\( E \) 与 \( B \)：电场与磁场向量。 \( \rho \) 与 \( J \)：电荷密度与电流密度。 \( F \)：电磁场 2-形式，通过电场和磁场分量定义，满足 \( dF = 0 \) 对应 Gauss 磁定律和 Faraday 定律。 \( M \)：与 \( F \) 相关的对偶形式，满足 \( dM = -\mu_0 J^* \) 对应电场 Gauss 定律和 Ampère-Maxwell 定律。 ">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/math/ma/ch14/definition/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="definition">
+	<meta property="og:description" content="\[ \] 根据提供的源文件《第十四章 微分形式的积分》，本章将微积分中的梯度、散度和旋度等概念推广到了更高维度的微分形式中。以下是该章节中定义和使用的主要数学符号总结：
+1. 对偶空间与线性代数基础符号#\( V^* \)：向量空间 \( V \) 的对偶空间，由所有从 \( V \) 到实数域 \( \mathbb{R} \) 的线性函数 \( \ell \) 组成。 \( v^\flat \)：欧氏空间中的向量 \( v \) 通过标准内积对应的对偶线性函数，定义为 \( v^\flat(u) = v \cdot u \)。 \( \phi^\sharp \)：对偶空间中的线性函数 \( \phi \) 通过同构映射对应的向量，满足 \( \phi^\sharp \cdot u = \phi(u) \)。 \( {e_i} \) 与 \( {dx_i} \)：\( \mathbb{R}^n \) 的标准基与对应的对偶基（即基本 1-形式），满足 \( dx_i(e_j) = \delta_{ij} \)。 2. 微分形式（\( q \)-形式）符号#1-形式：取值在 \( (\mathbb{R}^n)^* \) 中的函数 \( \omega \)，可表示为 \( \omega = \sum w_i dx_i \)。 \( \phi \otimes \psi \)：两个线性函数的张量积，定义为 \( (\phi \otimes \psi)(u, v) = \phi(u)\psi(v) \)。 \( \phi \wedge \psi \)：两个线性函数的外积（楔积），定义为 \( \phi \wedge \psi = \phi \otimes \psi - \psi \otimes \phi \)。 \( \wedge^q( \mathbb{R}^n )^* \)：所有反对称 \( q \) 次线性型构成的向量空间，其维度为 \( C_n^q \)。 \( q \)-形式：取值在 \( \wedge^q(\mathbb{R}^n)^* \) 中的场，记作 \( \omega = \sum_{i_1 &lt; \dots &lt; i_q} w_{i_1 \dots i_q} dx_{i_1} \wedge \dots \wedge dx_{i_q} \)。 \( dx = dx_1 \wedge dx_2 \wedge \dots \wedge dx_n \)：\( \mathbb{R}^n \) 中的体积形式。 3. 运算与算子符号#\( \wedge \) (楔积算子)：用于将 \( p \)-形式和 \( q \)-形式组合成 \( (p&#43;q) \)-形式，满足反交换律 \( \omega \wedge \eta = (-1)^{pq} \eta \wedge \omega \)。 \( \varphi^* \) (拉回映射)：由可微映射 \( \varphi \) 诱导的将微分形式从目标空间**“拉回”**到定义域空间的运算。 \( d \) (外微分算子)：将 \( q \)-形式映射为 \( (q&#43;1) \)-形式的算子，满足 \( d^2 = 0 \)。 \( * \) (Hodge 星算子)：将 \( q \)-形式映射为 \( (n-q) \)-形式的同构算子。 \( \delta \) (共微分算子)：利用 Hodge 星算子定义的将微分形式次数降低一次的算子，定义为 \( \delta \omega = (-1)^{n(q-1)&#43;1} * d * \omega \)。 \( \Delta = d\delta &#43; \delta d \)：Hodge-Laplace 算子。 4. 积分与拓扑符号#\( \int_{\sigma} \omega \)：微分形式 \( \omega \) 沿路径 \( \sigma \) 的积分（第二型曲线积分）。 \( \int_{\Omega} \eta \)：\( n \)-形式 \( \eta \) 在 \( n \) 维正则区域 \( \Omega \) 上的重积分。 \( \partial \Omega \)：区域 \( \Omega \) 的边界。 \( \text{supp } f \)：函数 \( f \) 的支集，即函数值非零点的闭包。 \( H_{dR}^q(D) \)：区域 \( D \) 的 \( q \) 次 de Rham 上同调群，定义为 \( q \) 次闭形式空间与恰当形式空间之商。 5. 物理场相关符号（Maxwell 方程组）#\( E \) 与 \( B \)：电场与磁场向量。 \( \rho \) 与 \( J \)：电荷密度与电流密度。 \( F \)：电磁场 2-形式，通过电场和磁场分量定义，满足 \( dF = 0 \) 对应 Gauss 磁定律和 Faraday 定律。 \( M \)：与 \( F \) 相关的对偶形式，满足 \( dM = -\mu_0 J^* \) 对应电场 Gauss 定律和 Ampère-Maxwell 定律。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="definition">
+	<meta itemprop="description" content="\[ \] 根据提供的源文件《第十四章 微分形式的积分》，本章将微积分中的梯度、散度和旋度等概念推广到了更高维度的微分形式中。以下是该章节中定义和使用的主要数学符号总结：
+1. 对偶空间与线性代数基础符号#\( V^* \)：向量空间 \( V \) 的对偶空间，由所有从 \( V \) 到实数域 \( \mathbb{R} \) 的线性函数 \( \ell \) 组成。 \( v^\flat \)：欧氏空间中的向量 \( v \) 通过标准内积对应的对偶线性函数，定义为 \( v^\flat(u) = v \cdot u \)。 \( \phi^\sharp \)：对偶空间中的线性函数 \( \phi \) 通过同构映射对应的向量，满足 \( \phi^\sharp \cdot u = \phi(u) \)。 \( {e_i} \) 与 \( {dx_i} \)：\( \mathbb{R}^n \) 的标准基与对应的对偶基（即基本 1-形式），满足 \( dx_i(e_j) = \delta_{ij} \)。 2. 微分形式（\( q \)-形式）符号#1-形式：取值在 \( (\mathbb{R}^n)^* \) 中的函数 \( \omega \)，可表示为 \( \omega = \sum w_i dx_i \)。 \( \phi \otimes \psi \)：两个线性函数的张量积，定义为 \( (\phi \otimes \psi)(u, v) = \phi(u)\psi(v) \)。 \( \phi \wedge \psi \)：两个线性函数的外积（楔积），定义为 \( \phi \wedge \psi = \phi \otimes \psi - \psi \otimes \phi \)。 \( \wedge^q( \mathbb{R}^n )^* \)：所有反对称 \( q \) 次线性型构成的向量空间，其维度为 \( C_n^q \)。 \( q \)-形式：取值在 \( \wedge^q(\mathbb{R}^n)^* \) 中的场，记作 \( \omega = \sum_{i_1 &lt; \dots &lt; i_q} w_{i_1 \dots i_q} dx_{i_1} \wedge \dots \wedge dx_{i_q} \)。 \( dx = dx_1 \wedge dx_2 \wedge \dots \wedge dx_n \)：\( \mathbb{R}^n \) 中的体积形式。 3. 运算与算子符号#\( \wedge \) (楔积算子)：用于将 \( p \)-形式和 \( q \)-形式组合成 \( (p&#43;q) \)-形式，满足反交换律 \( \omega \wedge \eta = (-1)^{pq} \eta \wedge \omega \)。 \( \varphi^* \) (拉回映射)：由可微映射 \( \varphi \) 诱导的将微分形式从目标空间**“拉回”**到定义域空间的运算。 \( d \) (外微分算子)：将 \( q \)-形式映射为 \( (q&#43;1) \)-形式的算子，满足 \( d^2 = 0 \)。 \( * \) (Hodge 星算子)：将 \( q \)-形式映射为 \( (n-q) \)-形式的同构算子。 \( \delta \) (共微分算子)：利用 Hodge 星算子定义的将微分形式次数降低一次的算子，定义为 \( \delta \omega = (-1)^{n(q-1)&#43;1} * d * \omega \)。 \( \Delta = d\delta &#43; \delta d \)：Hodge-Laplace 算子。 4. 积分与拓扑符号#\( \int_{\sigma} \omega \)：微分形式 \( \omega \) 沿路径 \( \sigma \) 的积分（第二型曲线积分）。 \( \int_{\Omega} \eta \)：\( n \)-形式 \( \eta \) 在 \( n \) 维正则区域 \( \Omega \) 上的重积分。 \( \partial \Omega \)：区域 \( \Omega \) 的边界。 \( \text{supp } f \)：函数 \( f \) 的支集，即函数值非零点的闭包。 \( H_{dR}^q(D) \)：区域 \( D \) 的 \( q \) 次 de Rham 上同调群，定义为 \( q \) 次闭形式空间与恰当形式空间之商。 5. 物理场相关符号（Maxwell 方程组）#\( E \) 与 \( B \)：电场与磁场向量。 \( \rho \) 与 \( J \)：电荷密度与电流密度。 \( F \)：电磁场 2-形式，通过电场和磁场分量定义，满足 \( dF = 0 \) 对应 Gauss 磁定律和 Faraday 定律。 \( M \)：与 \( F \) 相关的对偶形式，满足 \( dM = -\mu_0 J^* \) 对应电场 Gauss 定律和 Ampère-Maxwell 定律。">
+	<meta itemprop="wordCount" content="369">
+
+<title>definition • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/math/ma/ch14/definition/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.671334a4aa7d9e738dcb850888926bf5029ea708bd71e6d9eaa5581b6fda6e53.js" integrity="sha256-ZxM0pKp9nnONy4UIiJJr9QKepwi9cebZ6qVYG2/ablM=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle" checked />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle" checked />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fc5cfa55d848e1139b563e8620f5e431" class="toggle"  />
+    <label for="section-fc5cfa55d848e1139b563e8620f5e431" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/" class="">
+        ch10_度量空间和连续映射</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-613eecf1600fc8ec1aed4059d9771ca1" class="toggle"  />
+    <label for="section-613eecf1600fc8ec1aed4059d9771ca1" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fab5d9d8dffe0ed06370e95a4e3cd399" class="toggle"  />
+    <label for="section-fab5d9d8dffe0ed06370e95a4e3cd399" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38175d8546c9efbdf848d0fa707014e" class="toggle"  />
+    <label for="section-c38175d8546c9efbdf848d0fa707014e" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f4ec9b334b16a71eedae85dcb4febf9" class="toggle"  />
+    <label for="section-2f4ec9b334b16a71eedae85dcb4febf9" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85835da35f37d45548655051db89217e" class="toggle"  />
+    <label for="section-85835da35f37d45548655051db89217e" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b08e12376bdb0678587d38233bf70899" class="toggle"  />
+    <label for="section-b08e12376bdb0678587d38233bf70899" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-02b1e26558922e9d0964a04d34d3b36d" class="toggle"  />
+    <label for="section-02b1e26558922e9d0964a04d34d3b36d" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle"  />
+    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
+    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle"  />
+    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
+    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
+    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
+    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
+    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
+    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce7da622b982f8bb1c3e0813ea4ed157" class="toggle" checked />
+    <label for="section-ce7da622b982f8bb1c3e0813ea4ed157" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/" class="">
+        ch14_微分形式的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0dfd85251500397b39822b4751a9255e" class="toggle" checked />
+    <label for="section-0dfd85251500397b39822b4751a9255e" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/definition/" class="active">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7ba482a9f5f60848be904ee3f4583e13" class="toggle"  />
+    <label for="section-7ba482a9f5f60848be904ee3f4583e13" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-610b5d7402132ccf63c5aa7a0bf2c09e" class="toggle"  />
+    <label for="section-610b5d7402132ccf63c5aa7a0bf2c09e" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d129090741e1d58004225e7416a32890" class="toggle"  />
+    <label for="section-d129090741e1d58004225e7416a32890" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/" class="">
+        ch15_含参变量的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8fbb318062949a41ea0991e54427a97c" class="toggle"  />
+    <label for="section-8fbb318062949a41ea0991e54427a97c" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b9a0a4d0d31610f4cb977a8f4d8a3633" class="toggle"  />
+    <label for="section-b9a0a4d0d31610f4cb977a8f4d8a3633" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d4b5ef329dbb71190da272155dd07dd3" class="toggle"  />
+    <label for="section-d4b5ef329dbb71190da272155dd07dd3" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle"  />
+    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>definition</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-对偶空间与线性代数基础符号">1. 对偶空间与线性代数基础符号</a></li>
+        <li><a href="#2-微分形式-q--形式符号">2. 微分形式（\( q \)-形式）符号</a></li>
+        <li><a href="#3-运算与算子符号">3. 运算与算子符号</a></li>
+        <li><a href="#4-积分与拓扑符号">4. 积分与拓扑符号</a></li>
+        <li><a href="#5-物理场相关符号maxwell-方程组">5. 物理场相关符号（Maxwell 方程组）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><p><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+根据提供的源文件《第十四章 微分形式的积分》，本章将微积分中的梯度、散度和旋度等概念推广到了更高维度的微分形式中。以下是该章节中定义和使用的主要数学符号总结：</p>
+<h3 id="1-对偶空间与线性代数基础符号">1. 对偶空间与线性代数基础符号<a class="anchor" href="#1-%e5%af%b9%e5%81%b6%e7%a9%ba%e9%97%b4%e4%b8%8e%e7%ba%bf%e6%80%a7%e4%bb%a3%e6%95%b0%e5%9f%ba%e7%a1%80%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>\( V^* \)</strong>：向量空间 \( V \) 的<strong>对偶空间</strong>，由所有从 \( V \) 到实数域 \( \mathbb{R} \) 的线性函数 \( \ell \) 组成。</li>
+<li><strong>\( v^\flat \)</strong>：欧氏空间中的向量 \( v \) 通过标准内积对应的<strong>对偶线性函数</strong>，定义为 \( v^\flat(u) = v \cdot u \)。</li>
+<li><strong>\( \phi^\sharp \)</strong>：对偶空间中的线性函数 \( \phi \) 通过同构映射对应的<strong>向量</strong>，满足 \( \phi^\sharp \cdot u = \phi(u) \)。</li>
+<li><strong>\( {e_i} \) 与 \( {dx_i} \)</strong>：\( \mathbb{R}^n \) 的标准基与对应的<strong>对偶基</strong>（即基本 1-形式），满足 \( dx_i(e_j) = \delta_{ij} \)。</li>
+</ul>
+<h3 id="2-微分形式-q--形式符号">2. 微分形式（\( q \)-形式）符号<a class="anchor" href="#2-%e5%be%ae%e5%88%86%e5%bd%a2%e5%bc%8f-q--%e5%bd%a2%e5%bc%8f%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>1-形式</strong>：取值在 \( (\mathbb{R}^n)^* \) 中的函数 \( \omega \)，可表示为 \( \omega = \sum w_i dx_i \)。</li>
+<li><strong>\( \phi \otimes \psi \)</strong>：两个线性函数的<strong>张量积</strong>，定义为 \( (\phi \otimes \psi)(u, v) = \phi(u)\psi(v) \)。</li>
+<li><strong>\( \phi \wedge \psi \)</strong>：两个线性函数的<strong>外积（楔积）</strong>，定义为 \( \phi \wedge \psi = \phi \otimes \psi - \psi \otimes \phi \)。</li>
+<li><strong>\( \wedge^q( \mathbb{R}^n )^* \)</strong>：所有<strong>反对称 \( q \) 次线性型</strong>构成的向量空间，其维度为 \( C_n^q \)。</li>
+<li><strong>\( q \)-形式</strong>：取值在 \( \wedge^q(\mathbb{R}^n)^* \) 中的场，记作 \( \omega = \sum_{i_1 &lt; \dots &lt; i_q} w_{i_1 \dots i_q} dx_{i_1} \wedge \dots \wedge dx_{i_q} \)。</li>
+<li><strong>\( dx = dx_1 \wedge dx_2 \wedge \dots \wedge dx_n \)</strong>：\( \mathbb{R}^n \) 中的<strong>体积形式</strong>。</li>
+</ul>
+<h3 id="3-运算与算子符号">3. 运算与算子符号<a class="anchor" href="#3-%e8%bf%90%e7%ae%97%e4%b8%8e%e7%ae%97%e5%ad%90%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>\( \wedge \) (楔积算子)</strong>：用于将 \( p \)-形式和 \( q \)-形式组合成 \( (p+q) \)-形式，满足反交换律 \( \omega \wedge \eta = (-1)^{pq} \eta \wedge \omega \)。</li>
+<li><strong>\( \varphi^* \) (拉回映射)</strong>：由可微映射 \( \varphi \) 诱导的将微分形式从目标空间**“拉回”**到定义域空间的运算。</li>
+<li><strong>\( d \) (外微分算子)</strong>：将 \( q \)-形式映射为 \( (q+1) \)-形式的算子，满足 \( d^2 = 0 \)。</li>
+<li><strong>\( * \) (Hodge 星算子)</strong>：将 \( q \)-形式映射为 \( (n-q) \)-形式的同构算子。</li>
+<li><strong>\( \delta \) (共微分算子)</strong>：利用 Hodge 星算子定义的将微分形式次数降低一次的算子，定义为 \( \delta \omega = (-1)^{n(q-1)+1} * d * \omega \)。</li>
+<li><strong>\( \Delta = d\delta + \delta d \)</strong>：<strong>Hodge-Laplace 算子</strong>。</li>
+</ul>
+<h3 id="4-积分与拓扑符号">4. 积分与拓扑符号<a class="anchor" href="#4-%e7%a7%af%e5%88%86%e4%b8%8e%e6%8b%93%e6%89%91%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>\( \int_{\sigma} \omega \)</strong>：微分形式 \( \omega \) 沿路径 \( \sigma \) 的积分（第二型曲线积分）。</li>
+<li><strong>\( \int_{\Omega} \eta \)</strong>：\( n \)-形式 \( \eta \) 在 \( n \) 维正则区域 \( \Omega \) 上的重积分。</li>
+<li><strong>\( \partial \Omega \)</strong>：区域 \( \Omega \) 的<strong>边界</strong>。</li>
+<li><strong>\( \text{supp } f \)</strong>：函数 \( f \) 的<strong>支集</strong>，即函数值非零点的闭包。</li>
+<li><strong>\( H_{dR}^q(D) \)</strong>：区域 \( D \) 的 <strong>\( q \) 次 de Rham 上同调群</strong>，定义为 \( q \) 次闭形式空间与恰当形式空间之商。</li>
+</ul>
+<h3 id="5-物理场相关符号maxwell-方程组">5. 物理场相关符号（Maxwell 方程组）<a class="anchor" href="#5-%e7%89%a9%e7%90%86%e5%9c%ba%e7%9b%b8%e5%85%b3%e7%ac%a6%e5%8f%b7maxwell-%e6%96%b9%e7%a8%8b%e7%bb%84">#</a></h3>
+<ul>
+<li><strong>\( E \) 与 \( B \)</strong>：<strong>电场</strong>与<strong>磁场</strong>向量。</li>
+<li><strong>\( \rho \) 与 \( J \)</strong>：<strong>电荷密度</strong>与<strong>电流密度</strong>。</li>
+<li><strong>\( F \)</strong>：<strong>电磁场 2-形式</strong>，通过电场和磁场分量定义，满足 \( dF = 0 \) 对应 Gauss 磁定律和 Faraday 定律。</li>
+<li><strong>\( M \)</strong>：与 \( F \) 相关的对偶形式，满足 \( dM = -\mu_0 J^* \) 对应电场 Gauss 定律和 Ampère-Maxwell 定律。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch14/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>ch14_微分形式的积分</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch14/formula/" class="flex align-center">
+        <span>formula</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-对偶空间与线性代数基础符号">1. 对偶空间与线性代数基础符号</a></li>
+        <li><a href="#2-微分形式-q--形式符号">2. 微分形式（\( q \)-形式）符号</a></li>
+        <li><a href="#3-运算与算子符号">3. 运算与算子符号</a></li>
+        <li><a href="#4-积分与拓扑符号">4. 积分与拓扑符号</a></li>
+        <li><a href="#5-物理场相关符号maxwell-方程组">5. 物理场相关符号（Maxwell 方程组）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

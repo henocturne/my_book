@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据源文件《第十四章 微分形式的积分》，该章节各小节下的定理、命题、引理及推论整理如下：
+§14.1 欧氏空间中的微分形式#命题 14.1.1：设 \( D \subset \mathbb{R}^n \) 为区域，\( X \) 为 \( D \) 中的连续向量场，则 \( X \) 为保守场当且仅当沿路径积分与路径选取无关，而只依赖于路径的端点。 推论 14.1.2：设 \( \omega \) 为区域 \( D \) 中的连续 1-形式，则 \( \omega \) 为某个函数的全微分当且仅当它沿 \( D \) 中任何闭曲线积分为零。 §14.2 微分形式之间的运算#命题 14.2.1 (Poincaré 引理)：设 \( D \) 为 \( \mathbb{R}^n \) 中的凸区域，则 \( D \) 中的闭形式必为恰当形式。 §14.3 Gauss-Green 公式#引理 14.3.1 (单位分解)：设 \( K \) 为 \( \mathbb{R}^n \) 中的有界闭集，\( {V_\alpha} \) 为 \( K \) 的有限开覆盖，则存在 \( \mathbb{R}^n \) 中的光滑函数族 \( {\phi_\alpha} \)（称为单位分解），满足在 \( K \) 上之和恒为 1 且其支集包含在对应的开集中。 定理 14.3.2 (Gauss-Green 公式)：设 \( \Omega \) 为 \( \mathbb{R}^n \) 中的正则区域，\( \eta \) 为 \( \bar{\Omega} \) 中 \( C^1 \) 的 \( (n-1) \)-形式，则有：\( \int_{\Omega} d\eta = (-1)^n \int_{\partial \Omega} \eta \)。 引理 14.3.3：给出了 \( C^1 \) 函数 \( f \) 和 \( C^2 \) 映射 \( \varphi \) 下，关于 Jacobi 行列式的一个微分恒等式，用于证明 Gauss-Green 公式。 定理 14.3.4 (散度定理)：设 \( \Omega \) 为 \( \mathbb{R}^n \) 中的正则区域，\( X \) 为 \( \bar{\Omega} \) 中的 \( C^1 \) 向量场，则其散度在区域上的积分等于其沿边界单位外法向量的通量：\( \int_{\Omega} \text{div } X dx = \int_{\partial \Omega} X \cdot \vec{n} d\sigma \)。 定理 14.3.5 (平均值公式)：设 \( f \) 为 \( D \) 中的调和函数（即 \( \Delta f = 0 \)），则 \( f \) 在某点的值等于其在以该点为球心的球体上的平均值。 §14.4 不动点定理和毛球定理#引理 14.4.1：设 \( \psi: D \to \mathbb{R}^n \) 为连续向量值函数，则存在光滑向量值函数 \( \rho \) 可以在 \( D \) 上任意逼近 \( \psi \)。 引理 14.4.2：设 \( \rho: D \to \mathbb{R}^n \) 为 \( C^2 \) 向量值函数，如果当 \( x \) 在单位球面上时 \( \rho(x) = x \)，则 \( \rho \) 在区域 \( D \) 内必有零点。 定理 14.4.3 (Brouwer 不动点定理)：设 \( D \) 为 \( \mathbb{R}^n \) 中的闭球，\( \varphi: D \to D \) 为连续映射，则 \( \varphi \) 必有不动点。 定理 14.4.4 (毛球定理)：偶数维球面上的连续切向量场必有零点（形象地说，无法平滑地梳理偶数维毛球上的毛）。 ">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/math/ma/ch14/theorem/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="theorem">
+	<meta property="og:description" content="\[ \] 根据源文件《第十四章 微分形式的积分》，该章节各小节下的定理、命题、引理及推论整理如下：
+§14.1 欧氏空间中的微分形式#命题 14.1.1：设 \( D \subset \mathbb{R}^n \) 为区域，\( X \) 为 \( D \) 中的连续向量场，则 \( X \) 为保守场当且仅当沿路径积分与路径选取无关，而只依赖于路径的端点。 推论 14.1.2：设 \( \omega \) 为区域 \( D \) 中的连续 1-形式，则 \( \omega \) 为某个函数的全微分当且仅当它沿 \( D \) 中任何闭曲线积分为零。 §14.2 微分形式之间的运算#命题 14.2.1 (Poincaré 引理)：设 \( D \) 为 \( \mathbb{R}^n \) 中的凸区域，则 \( D \) 中的闭形式必为恰当形式。 §14.3 Gauss-Green 公式#引理 14.3.1 (单位分解)：设 \( K \) 为 \( \mathbb{R}^n \) 中的有界闭集，\( {V_\alpha} \) 为 \( K \) 的有限开覆盖，则存在 \( \mathbb{R}^n \) 中的光滑函数族 \( {\phi_\alpha} \)（称为单位分解），满足在 \( K \) 上之和恒为 1 且其支集包含在对应的开集中。 定理 14.3.2 (Gauss-Green 公式)：设 \( \Omega \) 为 \( \mathbb{R}^n \) 中的正则区域，\( \eta \) 为 \( \bar{\Omega} \) 中 \( C^1 \) 的 \( (n-1) \)-形式，则有：\( \int_{\Omega} d\eta = (-1)^n \int_{\partial \Omega} \eta \)。 引理 14.3.3：给出了 \( C^1 \) 函数 \( f \) 和 \( C^2 \) 映射 \( \varphi \) 下，关于 Jacobi 行列式的一个微分恒等式，用于证明 Gauss-Green 公式。 定理 14.3.4 (散度定理)：设 \( \Omega \) 为 \( \mathbb{R}^n \) 中的正则区域，\( X \) 为 \( \bar{\Omega} \) 中的 \( C^1 \) 向量场，则其散度在区域上的积分等于其沿边界单位外法向量的通量：\( \int_{\Omega} \text{div } X dx = \int_{\partial \Omega} X \cdot \vec{n} d\sigma \)。 定理 14.3.5 (平均值公式)：设 \( f \) 为 \( D \) 中的调和函数（即 \( \Delta f = 0 \)），则 \( f \) 在某点的值等于其在以该点为球心的球体上的平均值。 §14.4 不动点定理和毛球定理#引理 14.4.1：设 \( \psi: D \to \mathbb{R}^n \) 为连续向量值函数，则存在光滑向量值函数 \( \rho \) 可以在 \( D \) 上任意逼近 \( \psi \)。 引理 14.4.2：设 \( \rho: D \to \mathbb{R}^n \) 为 \( C^2 \) 向量值函数，如果当 \( x \) 在单位球面上时 \( \rho(x) = x \)，则 \( \rho \) 在区域 \( D \) 内必有零点。 定理 14.4.3 (Brouwer 不动点定理)：设 \( D \) 为 \( \mathbb{R}^n \) 中的闭球，\( \varphi: D \to D \) 为连续映射，则 \( \varphi \) 必有不动点。 定理 14.4.4 (毛球定理)：偶数维球面上的连续切向量场必有零点（形象地说，无法平滑地梳理偶数维毛球上的毛）。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="theorem">
+	<meta itemprop="description" content="\[ \] 根据源文件《第十四章 微分形式的积分》，该章节各小节下的定理、命题、引理及推论整理如下：
+§14.1 欧氏空间中的微分形式#命题 14.1.1：设 \( D \subset \mathbb{R}^n \) 为区域，\( X \) 为 \( D \) 中的连续向量场，则 \( X \) 为保守场当且仅当沿路径积分与路径选取无关，而只依赖于路径的端点。 推论 14.1.2：设 \( \omega \) 为区域 \( D \) 中的连续 1-形式，则 \( \omega \) 为某个函数的全微分当且仅当它沿 \( D \) 中任何闭曲线积分为零。 §14.2 微分形式之间的运算#命题 14.2.1 (Poincaré 引理)：设 \( D \) 为 \( \mathbb{R}^n \) 中的凸区域，则 \( D \) 中的闭形式必为恰当形式。 §14.3 Gauss-Green 公式#引理 14.3.1 (单位分解)：设 \( K \) 为 \( \mathbb{R}^n \) 中的有界闭集，\( {V_\alpha} \) 为 \( K \) 的有限开覆盖，则存在 \( \mathbb{R}^n \) 中的光滑函数族 \( {\phi_\alpha} \)（称为单位分解），满足在 \( K \) 上之和恒为 1 且其支集包含在对应的开集中。 定理 14.3.2 (Gauss-Green 公式)：设 \( \Omega \) 为 \( \mathbb{R}^n \) 中的正则区域，\( \eta \) 为 \( \bar{\Omega} \) 中 \( C^1 \) 的 \( (n-1) \)-形式，则有：\( \int_{\Omega} d\eta = (-1)^n \int_{\partial \Omega} \eta \)。 引理 14.3.3：给出了 \( C^1 \) 函数 \( f \) 和 \( C^2 \) 映射 \( \varphi \) 下，关于 Jacobi 行列式的一个微分恒等式，用于证明 Gauss-Green 公式。 定理 14.3.4 (散度定理)：设 \( \Omega \) 为 \( \mathbb{R}^n \) 中的正则区域，\( X \) 为 \( \bar{\Omega} \) 中的 \( C^1 \) 向量场，则其散度在区域上的积分等于其沿边界单位外法向量的通量：\( \int_{\Omega} \text{div } X dx = \int_{\partial \Omega} X \cdot \vec{n} d\sigma \)。 定理 14.3.5 (平均值公式)：设 \( f \) 为 \( D \) 中的调和函数（即 \( \Delta f = 0 \)），则 \( f \) 在某点的值等于其在以该点为球心的球体上的平均值。 §14.4 不动点定理和毛球定理#引理 14.4.1：设 \( \psi: D \to \mathbb{R}^n \) 为连续向量值函数，则存在光滑向量值函数 \( \rho \) 可以在 \( D \) 上任意逼近 \( \psi \)。 引理 14.4.2：设 \( \rho: D \to \mathbb{R}^n \) 为 \( C^2 \) 向量值函数，如果当 \( x \) 在单位球面上时 \( \rho(x) = x \)，则 \( \rho \) 在区域 \( D \) 内必有零点。 定理 14.4.3 (Brouwer 不动点定理)：设 \( D \) 为 \( \mathbb{R}^n \) 中的闭球，\( \varphi: D \to D \) 为连续映射，则 \( \varphi \) 必有不动点。 定理 14.4.4 (毛球定理)：偶数维球面上的连续切向量场必有零点（形象地说，无法平滑地梳理偶数维毛球上的毛）。">
+	<meta itemprop="wordCount" content="285">
+
+<title>theorem • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/math/ma/ch14/theorem/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.671334a4aa7d9e738dcb850888926bf5029ea708bd71e6d9eaa5581b6fda6e53.js" integrity="sha256-ZxM0pKp9nnONy4UIiJJr9QKepwi9cebZ6qVYG2/ablM=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle" checked />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle" checked />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fc5cfa55d848e1139b563e8620f5e431" class="toggle"  />
+    <label for="section-fc5cfa55d848e1139b563e8620f5e431" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/" class="">
+        ch10_度量空间和连续映射</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-613eecf1600fc8ec1aed4059d9771ca1" class="toggle"  />
+    <label for="section-613eecf1600fc8ec1aed4059d9771ca1" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fab5d9d8dffe0ed06370e95a4e3cd399" class="toggle"  />
+    <label for="section-fab5d9d8dffe0ed06370e95a4e3cd399" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38175d8546c9efbdf848d0fa707014e" class="toggle"  />
+    <label for="section-c38175d8546c9efbdf848d0fa707014e" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f4ec9b334b16a71eedae85dcb4febf9" class="toggle"  />
+    <label for="section-2f4ec9b334b16a71eedae85dcb4febf9" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85835da35f37d45548655051db89217e" class="toggle"  />
+    <label for="section-85835da35f37d45548655051db89217e" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b08e12376bdb0678587d38233bf70899" class="toggle"  />
+    <label for="section-b08e12376bdb0678587d38233bf70899" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-02b1e26558922e9d0964a04d34d3b36d" class="toggle"  />
+    <label for="section-02b1e26558922e9d0964a04d34d3b36d" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle"  />
+    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
+    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle"  />
+    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
+    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
+    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
+    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
+    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
+    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce7da622b982f8bb1c3e0813ea4ed157" class="toggle" checked />
+    <label for="section-ce7da622b982f8bb1c3e0813ea4ed157" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/" class="">
+        ch14_微分形式的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0dfd85251500397b39822b4751a9255e" class="toggle"  />
+    <label for="section-0dfd85251500397b39822b4751a9255e" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7ba482a9f5f60848be904ee3f4583e13" class="toggle"  />
+    <label for="section-7ba482a9f5f60848be904ee3f4583e13" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-610b5d7402132ccf63c5aa7a0bf2c09e" class="toggle" checked />
+    <label for="section-610b5d7402132ccf63c5aa7a0bf2c09e" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/theorem/" class="active">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d129090741e1d58004225e7416a32890" class="toggle"  />
+    <label for="section-d129090741e1d58004225e7416a32890" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/" class="">
+        ch15_含参变量的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8fbb318062949a41ea0991e54427a97c" class="toggle"  />
+    <label for="section-8fbb318062949a41ea0991e54427a97c" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b9a0a4d0d31610f4cb977a8f4d8a3633" class="toggle"  />
+    <label for="section-b9a0a4d0d31610f4cb977a8f4d8a3633" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d4b5ef329dbb71190da272155dd07dd3" class="toggle"  />
+    <label for="section-d4b5ef329dbb71190da272155dd07dd3" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle"  />
+    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>theorem</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#141-欧氏空间中的微分形式"><strong>§14.1 欧氏空间中的微分形式</strong></a></li>
+        <li><a href="#142-微分形式之间的运算"><strong>§14.2 微分形式之间的运算</strong></a></li>
+        <li><a href="#143-gauss-green-公式"><strong>§14.3 Gauss-Green 公式</strong></a></li>
+        <li><a href="#144-不动点定理和毛球定理"><strong>§14.4 不动点定理和毛球定理</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><p><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+根据源文件《第十四章 微分形式的积分》，该章节各小节下的定理、命题、引理及推论整理如下：</p>
+<h3 id="141-欧氏空间中的微分形式"><strong>§14.1 欧氏空间中的微分形式</strong><a class="anchor" href="#141-%e6%ac%a7%e6%b0%8f%e7%a9%ba%e9%97%b4%e4%b8%ad%e7%9a%84%e5%be%ae%e5%88%86%e5%bd%a2%e5%bc%8f">#</a></h3>
+<ul>
+<li><strong>命题 14.1.1</strong>：设 \( D \subset \mathbb{R}^n \) 为区域，\( X \) 为 \( D \) 中的连续向量场，则 <strong>\( X \) 为保守场当且仅当沿路径积分与路径选取无关</strong>，而只依赖于路径的端点。</li>
+<li><strong>推论 14.1.2</strong>：设 \( \omega \) 为区域 \( D \) 中的连续 1-形式，则 <strong>\( \omega \) 为某个函数的全微分当且仅当它沿 \( D \) 中任何闭曲线积分为零</strong>。</li>
+</ul>
+<h3 id="142-微分形式之间的运算"><strong>§14.2 微分形式之间的运算</strong><a class="anchor" href="#142-%e5%be%ae%e5%88%86%e5%bd%a2%e5%bc%8f%e4%b9%8b%e9%97%b4%e7%9a%84%e8%bf%90%e7%ae%97">#</a></h3>
+<ul>
+<li><strong>命题 14.2.1 (Poincaré 引理)</strong>：设 \( D \) 为 \( \mathbb{R}^n \) 中的<strong>凸区域</strong>，则 \( D \) 中的<strong>闭形式必为恰当形式</strong>。</li>
+</ul>
+<h3 id="143-gauss-green-公式"><strong>§14.3 Gauss-Green 公式</strong><a class="anchor" href="#143-gauss-green-%e5%85%ac%e5%bc%8f">#</a></h3>
+<ul>
+<li><strong>引理 14.3.1 (单位分解)</strong>：设 \( K \) 为 \( \mathbb{R}^n \) 中的有界闭集，\( {V_\alpha} \) 为 \( K \) 的有限开覆盖，则存在 \( \mathbb{R}^n \) 中的<strong>光滑函数族 \( {\phi_\alpha} \)（称为单位分解）</strong>，满足在 \( K \) 上之和恒为 1 且其支集包含在对应的开集中。</li>
+<li><strong>定理 14.3.2 (Gauss-Green 公式)</strong>：设 \( \Omega \) 为 \( \mathbb{R}^n \) 中的正则区域，\( \eta \) 为 \( \bar{\Omega} \) 中 \( C^1 \) 的 \( (n-1) \)-形式，则有：<strong>\( \int_{\Omega} d\eta = (-1)^n \int_{\partial \Omega} \eta \)</strong>。</li>
+<li><strong>引理 14.3.3</strong>：给出了 \( C^1 \) 函数 \( f \) 和 \( C^2 \) 映射 \( \varphi \) 下，关于 <strong>Jacobi 行列式的一个微分恒等式</strong>，用于证明 Gauss-Green 公式。</li>
+<li><strong>定理 14.3.4 (散度定理)</strong>：设 \( \Omega \) 为 \( \mathbb{R}^n \) 中的正则区域，\( X \) 为 \( \bar{\Omega} \) 中的 \( C^1 \) 向量场，则其<strong>散度在区域上的积分等于其沿边界单位外法向量的通量</strong>：\( \int_{\Omega} \text{div } X dx = \int_{\partial \Omega} X \cdot \vec{n} d\sigma \)。</li>
+<li><strong>定理 14.3.5 (平均值公式)</strong>：设 \( f \) 为 \( D \) 中的<strong>调和函数</strong>（即 \( \Delta f = 0 \)），则 \( f \) 在某点的值等于其在以该点为球心的<strong>球体上的平均值</strong>。</li>
+</ul>
+<h3 id="144-不动点定理和毛球定理"><strong>§14.4 不动点定理和毛球定理</strong><a class="anchor" href="#144-%e4%b8%8d%e5%8a%a8%e7%82%b9%e5%ae%9a%e7%90%86%e5%92%8c%e6%af%9b%e7%90%83%e5%ae%9a%e7%90%86">#</a></h3>
+<ul>
+<li><strong>引理 14.4.1</strong>：设 \( \psi: D \to \mathbb{R}^n \) 为连续向量值函数，则存在<strong>光滑向量值函数 \( \rho \) 可以在 \( D \) 上任意逼近 \( \psi \)</strong>。</li>
+<li><strong>引理 14.4.2</strong>：设 \( \rho: D \to \mathbb{R}^n \) 为 \( C^2 \) 向量值函数，如果当 \( x \) 在单位球面上时 \( \rho(x) = x \)，则 <strong>\( \rho \) 在区域 \( D \) 内必有零点</strong>。</li>
+<li><strong>定理 14.4.3 (Brouwer 不动点定理)</strong>：设 \( D \) 为 \( \mathbb{R}^n \) 中的闭球，\( \varphi: D \to D \) 为连续映射，则 <strong>\( \varphi \) 必有不动点</strong>。</li>
+<li><strong>定理 14.4.4 (毛球定理)</strong>：<strong>偶数维球面上的连续切向量场必有零点</strong>（形象地说，无法平滑地梳理偶数维毛球上的毛）。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch14/formula/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>formula</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch15/" class="flex align-center">
+        <span>ch15_含参变量的积分</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#141-欧氏空间中的微分形式"><strong>§14.1 欧氏空间中的微分形式</strong></a></li>
+        <li><a href="#142-微分形式之间的运算"><strong>§14.2 微分形式之间的运算</strong></a></li>
+        <li><a href="#143-gauss-green-公式"><strong>§14.3 Gauss-Green 公式</strong></a></li>
+        <li><a href="#144-不动点定理和毛球定理"><strong>§14.4 不动点定理和毛球定理</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

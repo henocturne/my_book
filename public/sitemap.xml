@@ -4,9 +4,17 @@
   <url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch1/</loc>
   </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch10/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch11/</loc>
+  </url><url>
     <loc>http://localhost:1313/my_book/docs/math/ma/ch12/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/ma/ch13/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch14/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch15/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch2/</loc>
   </url><url>
@@ -16,17 +24,41 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/</loc>
   </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch10/definition/</loc>
+  </url><url>
     <loc>http://localhost:1313/my_book/docs/math/ma/ch11/definition/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/math/ma/ch_demo/definition/</loc>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch12/definition/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch13/definition/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch14/definition/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch15/definition/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch10/formula/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/ma/ch11/formula/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/math/ma/ch_demo/formula/</loc>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch12/formula/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch13/formula/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch14/formula/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch15/formula/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch10/theorem/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/ma/ch11/theorem/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/math/ma/ch_demo/theorem/</loc>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch12/theorem/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch13/theorem/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch14/theorem/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/ch15/theorem/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/</loc>
   </url><url>
@@ -35,10 +67,6 @@
     <loc>http://localhost:1313/my_book/docs/physics/methods/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/</loc>
-  </url><url>
-    <loc>http://localhost:1313/my_book/docs/math/ma/ch11/</loc>
-  </url><url>
-    <loc>http://localhost:1313/my_book/docs/math/ma/ch_demo/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/english/</loc>
   </url><url>

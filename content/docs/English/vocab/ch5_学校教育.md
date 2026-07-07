@@ -35,9 +35,9 @@ weight: 1
 *   **学习过程与能力：** 
     - learn (学习), study (研究), acquire (获得), 
     - knowledge (知识), expertise (专门知识), skill (技能),
-    - literate (有读写能力的), numerate (有计算能力的), intelligent (聪明的), rational (理性的),
+    - literate (有读写能力的), numerate (有计算能力的), rational (理性的),
     - elite (精英), genius (天才), wisdom (智慧), aptitude (资质), 
-    - capable (有能力的), outstanding (杰出的), diligent (勤勉的)
+    - capable (有能力的), outstanding (杰出的),intelligent (聪明的), diligent (勤勉的)
     - degree (学位), diploma (毕业文凭), qualification (资格), 
     - submit (提交), preview (预习), review (复习), revise (修订),
     - examination/exam (考试), test (试验), quiz (测验), assignment (作业), 
@@ -46,9 +46,12 @@ weight: 1
     - 
 
 *   **分析与论证：**   
-    - identify (识别、确认), ascertain (查明、确定), verify (核验、证实), confirm (确认、佐证), recognize (辨识、认出), detect (检测、发觉), pinpoint (精准定位、查明), validate (验证、确认有效)
-    - resolve (解决、消解), solve (求解、解决), address (着手处理), tackle (应对、处理难题), remedy (补救、修正), settle (平息、解决争端), eliminate (消除、根除), rectify (纠正、修正偏差)
-    - analyse (分析、拆解), examine (审视、核查), investigate (调研、探究), dissect (细致剖析), scrutinize (仔细审视、细查), explore (探究、探索), interpret (解读、阐释), evaluate (评估、评析)
+    - ascertain (查明、确定), confirm (确认、佐证), verify (核验、证实), validate (验证、确认有效)
+    - identify (识别、确认), recognize (辨识、认出), detect (检测、发觉), pinpoint (精准定位、查明), 
+    - resolve (解决、消解), solve (求解、解决), address (着手处理), tackle (应对、处理难题), 
+    - remedy (补救、修正), settle (平息、解决争端), eliminate (消除、根除), rectify (纠正、修正偏差)
+    - investigate (调研、探究), examine (审视、核查), dissect (细致剖析), scrutinize (仔细审视、细查), 
+    - analyse (分析、拆解),  explore(探究、探索), interpret (解读、阐释), evaluate (评估、评析)
     - diagnose (诊断、判定根源), judge (评判、判断), assess (评估、判定), appraise (估量、评判), gauge (衡量、判断程度), discriminate (辨别、区分判定)
     - infer (推断、推知), speculate (推测、猜想), surmise (臆测、推测), conjecture (猜测、臆断), presume (假定、推测), suspect (揣测、怀疑推断)
     - deduce (演绎、推论), derive (推导、得出), deduct (演绎、推演), extrapolate (外推、推算), reason (逻辑推理), elicit (推导出、引出)

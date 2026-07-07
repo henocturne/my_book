@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据源文件《第十五章 含参变量的积分》，本章主要探讨了依赖于参数的积分性质，并定义了多类特殊的数学函数与物理核。以下是符号的总结：
+1. 积分与变换符号#\( I(y) \)：表示含参变量的积分，其中 \( y \) 为参数。 \( f_y(x, y) \)：被积函数对参数 \( y \) 的偏导数。 \( F(y) \)：表示积分上限和下限也含有参数的含参变量积分。 \( \hat{f}(\omega) \)：函数 \( f \) 的 Fourier 变换（傅里叶变换）。 \( f * g \)：函数 \( f \) 和 \( g \) 的卷积。 \( \xrightarrow{F} \)：表示进行 Fourier 变换的映射符号。 \( f(x_&#43;) \) 与 \( f(x_-) \)：函数 \( f \) 在点 \( x \) 处的右极限与左极限。 2. 特殊函数符号#\( \text{B}(p, q) \)：B 函数（Beta 函数），即第一类 Euler 积分，定义为 \( \int_0^1 x^{p-1}(1-x)^{q-1} dx \)。 \( \Gamma(s) \)：\( \Gamma \) 函数（Gamma 函数），即第二类 Euler 积分，定义为 \( \int_0^{&#43;\infty} x^{s-1} e^{-x} dx \)。 \( J_n(x) \)：\( n \) 阶 Bessel 函数（贝塞尔函数）。 \( \zeta(s) \)：Riemann-Zeta 函数（黎曼 Zeta 函数），定义为 \( \sum_{n=1}^\infty \frac{1}{n^s} \)。 \( \vartheta(t) \)：Theta 函数。 3. 物理应用与算子符号#\( H_t(x) \)：圆周上的热核，常用于处理热传导问题。 \( P_r(\theta) \) 或 \( P_\delta(x) \)：Poisson 核（泊松核），与 Dirichlet 问题密切相关。 \( \Delta \)：Laplace 算子（拉普拉斯算子），如在平面坐标下为 \( \Delta = \frac{\partial^2}{\partial x^2} &#43; \frac{\partial^2}{\partial y^2} \)。 \( \text{supp } f \)：函数的支集，即函数值非零点的闭包。 4. 数学常数与特殊系数#\( \gamma \)：Euler 常数（欧拉常数），定义为极限 \( \lim_{n \to \infty} (\sum_{k=1}^n \frac{1}{k} - \ln n) \)。 \( B_{2k} \)：Bernoulli 数（伯努利数），出现在 \( \Gamma \) 函数的 Stirling 公式展开中。 \( c_n \)：周期函数的 Fourier 系数。 ">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/math/ma/ch15/definition/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="definition">
+	<meta property="og:description" content="\[ \] 根据源文件《第十五章 含参变量的积分》，本章主要探讨了依赖于参数的积分性质，并定义了多类特殊的数学函数与物理核。以下是符号的总结：
+1. 积分与变换符号#\( I(y) \)：表示含参变量的积分，其中 \( y \) 为参数。 \( f_y(x, y) \)：被积函数对参数 \( y \) 的偏导数。 \( F(y) \)：表示积分上限和下限也含有参数的含参变量积分。 \( \hat{f}(\omega) \)：函数 \( f \) 的 Fourier 变换（傅里叶变换）。 \( f * g \)：函数 \( f \) 和 \( g \) 的卷积。 \( \xrightarrow{F} \)：表示进行 Fourier 变换的映射符号。 \( f(x_&#43;) \) 与 \( f(x_-) \)：函数 \( f \) 在点 \( x \) 处的右极限与左极限。 2. 特殊函数符号#\( \text{B}(p, q) \)：B 函数（Beta 函数），即第一类 Euler 积分，定义为 \( \int_0^1 x^{p-1}(1-x)^{q-1} dx \)。 \( \Gamma(s) \)：\( \Gamma \) 函数（Gamma 函数），即第二类 Euler 积分，定义为 \( \int_0^{&#43;\infty} x^{s-1} e^{-x} dx \)。 \( J_n(x) \)：\( n \) 阶 Bessel 函数（贝塞尔函数）。 \( \zeta(s) \)：Riemann-Zeta 函数（黎曼 Zeta 函数），定义为 \( \sum_{n=1}^\infty \frac{1}{n^s} \)。 \( \vartheta(t) \)：Theta 函数。 3. 物理应用与算子符号#\( H_t(x) \)：圆周上的热核，常用于处理热传导问题。 \( P_r(\theta) \) 或 \( P_\delta(x) \)：Poisson 核（泊松核），与 Dirichlet 问题密切相关。 \( \Delta \)：Laplace 算子（拉普拉斯算子），如在平面坐标下为 \( \Delta = \frac{\partial^2}{\partial x^2} &#43; \frac{\partial^2}{\partial y^2} \)。 \( \text{supp } f \)：函数的支集，即函数值非零点的闭包。 4. 数学常数与特殊系数#\( \gamma \)：Euler 常数（欧拉常数），定义为极限 \( \lim_{n \to \infty} (\sum_{k=1}^n \frac{1}{k} - \ln n) \)。 \( B_{2k} \)：Bernoulli 数（伯努利数），出现在 \( \Gamma \) 函数的 Stirling 公式展开中。 \( c_n \)：周期函数的 Fourier 系数。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="definition">
+	<meta itemprop="description" content="\[ \] 根据源文件《第十五章 含参变量的积分》，本章主要探讨了依赖于参数的积分性质，并定义了多类特殊的数学函数与物理核。以下是符号的总结：
+1. 积分与变换符号#\( I(y) \)：表示含参变量的积分，其中 \( y \) 为参数。 \( f_y(x, y) \)：被积函数对参数 \( y \) 的偏导数。 \( F(y) \)：表示积分上限和下限也含有参数的含参变量积分。 \( \hat{f}(\omega) \)：函数 \( f \) 的 Fourier 变换（傅里叶变换）。 \( f * g \)：函数 \( f \) 和 \( g \) 的卷积。 \( \xrightarrow{F} \)：表示进行 Fourier 变换的映射符号。 \( f(x_&#43;) \) 与 \( f(x_-) \)：函数 \( f \) 在点 \( x \) 处的右极限与左极限。 2. 特殊函数符号#\( \text{B}(p, q) \)：B 函数（Beta 函数），即第一类 Euler 积分，定义为 \( \int_0^1 x^{p-1}(1-x)^{q-1} dx \)。 \( \Gamma(s) \)：\( \Gamma \) 函数（Gamma 函数），即第二类 Euler 积分，定义为 \( \int_0^{&#43;\infty} x^{s-1} e^{-x} dx \)。 \( J_n(x) \)：\( n \) 阶 Bessel 函数（贝塞尔函数）。 \( \zeta(s) \)：Riemann-Zeta 函数（黎曼 Zeta 函数），定义为 \( \sum_{n=1}^\infty \frac{1}{n^s} \)。 \( \vartheta(t) \)：Theta 函数。 3. 物理应用与算子符号#\( H_t(x) \)：圆周上的热核，常用于处理热传导问题。 \( P_r(\theta) \) 或 \( P_\delta(x) \)：Poisson 核（泊松核），与 Dirichlet 问题密切相关。 \( \Delta \)：Laplace 算子（拉普拉斯算子），如在平面坐标下为 \( \Delta = \frac{\partial^2}{\partial x^2} &#43; \frac{\partial^2}{\partial y^2} \)。 \( \text{supp } f \)：函数的支集，即函数值非零点的闭包。 4. 数学常数与特殊系数#\( \gamma \)：Euler 常数（欧拉常数），定义为极限 \( \lim_{n \to \infty} (\sum_{k=1}^n \frac{1}{k} - \ln n) \)。 \( B_{2k} \)：Bernoulli 数（伯努利数），出现在 \( \Gamma \) 函数的 Stirling 公式展开中。 \( c_n \)：周期函数的 Fourier 系数。">
+	<meta itemprop="wordCount" content="182">
+
+<title>definition • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/math/ma/ch15/definition/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.671334a4aa7d9e738dcb850888926bf5029ea708bd71e6d9eaa5581b6fda6e53.js" integrity="sha256-ZxM0pKp9nnONy4UIiJJr9QKepwi9cebZ6qVYG2/ablM=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle" checked />
+    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle" checked />
+    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fc5cfa55d848e1139b563e8620f5e431" class="toggle"  />
+    <label for="section-fc5cfa55d848e1139b563e8620f5e431" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/" class="">
+        ch10_度量空间和连续映射</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-613eecf1600fc8ec1aed4059d9771ca1" class="toggle"  />
+    <label for="section-613eecf1600fc8ec1aed4059d9771ca1" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fab5d9d8dffe0ed06370e95a4e3cd399" class="toggle"  />
+    <label for="section-fab5d9d8dffe0ed06370e95a4e3cd399" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38175d8546c9efbdf848d0fa707014e" class="toggle"  />
+    <label for="section-c38175d8546c9efbdf848d0fa707014e" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f4ec9b334b16a71eedae85dcb4febf9" class="toggle"  />
+    <label for="section-2f4ec9b334b16a71eedae85dcb4febf9" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85835da35f37d45548655051db89217e" class="toggle"  />
+    <label for="section-85835da35f37d45548655051db89217e" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b08e12376bdb0678587d38233bf70899" class="toggle"  />
+    <label for="section-b08e12376bdb0678587d38233bf70899" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-02b1e26558922e9d0964a04d34d3b36d" class="toggle"  />
+    <label for="section-02b1e26558922e9d0964a04d34d3b36d" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle"  />
+    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
+    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle"  />
+    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
+    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
+    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
+    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
+    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
+    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce7da622b982f8bb1c3e0813ea4ed157" class="toggle"  />
+    <label for="section-ce7da622b982f8bb1c3e0813ea4ed157" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/" class="">
+        ch14_微分形式的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0dfd85251500397b39822b4751a9255e" class="toggle"  />
+    <label for="section-0dfd85251500397b39822b4751a9255e" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7ba482a9f5f60848be904ee3f4583e13" class="toggle"  />
+    <label for="section-7ba482a9f5f60848be904ee3f4583e13" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-610b5d7402132ccf63c5aa7a0bf2c09e" class="toggle"  />
+    <label for="section-610b5d7402132ccf63c5aa7a0bf2c09e" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d129090741e1d58004225e7416a32890" class="toggle" checked />
+    <label for="section-d129090741e1d58004225e7416a32890" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/" class="">
+        ch15_含参变量的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8fbb318062949a41ea0991e54427a97c" class="toggle" checked />
+    <label for="section-8fbb318062949a41ea0991e54427a97c" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/definition/" class="active">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b9a0a4d0d31610f4cb977a8f4d8a3633" class="toggle"  />
+    <label for="section-b9a0a4d0d31610f4cb977a8f4d8a3633" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d4b5ef329dbb71190da272155dd07dd3" class="toggle"  />
+    <label for="section-d4b5ef329dbb71190da272155dd07dd3" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle"  />
+    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch1/" class="">
+      ch1_复数和复变函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch2/" class="">
+      ch2_解析函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/methods/ch3/" class="">
+      ch3_复变积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
+    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
+    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch5 学校教育</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
+    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>definition</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-积分与变换符号">1. 积分与变换符号</a></li>
+        <li><a href="#2-特殊函数符号">2. 特殊函数符号</a></li>
+        <li><a href="#3-物理应用与算子符号">3. 物理应用与算子符号</a></li>
+        <li><a href="#4-数学常数与特殊系数">4. 数学常数与特殊系数</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><p><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+根据源文件《第十五章 含参变量的积分》，本章主要探讨了依赖于参数的积分性质，并定义了多类特殊的数学函数与物理核。以下是符号的总结：</p>
+<h3 id="1-积分与变换符号">1. 积分与变换符号<a class="anchor" href="#1-%e7%a7%af%e5%88%86%e4%b8%8e%e5%8f%98%e6%8d%a2%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>\( I(y) \)</strong>：表示<strong>含参变量的积分</strong>，其中 \( y \) 为参数。</li>
+<li><strong>\( f_y(x, y) \)</strong>：被积函数对参数 \( y \) 的<strong>偏导数</strong>。</li>
+<li><strong>\( F(y) \)</strong>：表示<strong>积分上限和下限也含有参数</strong>的含参变量积分。</li>
+<li><strong>\( \hat{f}(\omega) \)</strong>：函数 \( f \) 的 <strong>Fourier 变换</strong>（傅里叶变换）。</li>
+<li><strong>\( f * g \)</strong>：函数 \( f \) 和 \( g \) 的<strong>卷积</strong>。</li>
+<li><strong>\( \xrightarrow{F} \)</strong>：表示进行 Fourier 变换的映射符号。</li>
+<li><strong>\( f(x_+) \) 与 \( f(x_-) \)</strong>：函数 \( f \) 在点 \( x \) 处的<strong>右极限与左极限</strong>。</li>
+</ul>
+<h3 id="2-特殊函数符号">2. 特殊函数符号<a class="anchor" href="#2-%e7%89%b9%e6%ae%8a%e5%87%bd%e6%95%b0%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>\( \text{B}(p, q) \)</strong>：<strong>B 函数</strong>（Beta 函数），即第一类 Euler 积分，定义为 \( \int_0^1 x^{p-1}(1-x)^{q-1} dx \)。</li>
+<li><strong>\( \Gamma(s) \)</strong>：<strong>\( \Gamma \) 函数</strong>（Gamma 函数），即第二类 Euler 积分，定义为 \( \int_0^{+\infty} x^{s-1} e^{-x} dx \)。</li>
+<li><strong>\( J_n(x) \)</strong>：\( n \) 阶 <strong>Bessel 函数</strong>（贝塞尔函数）。</li>
+<li><strong>\( \zeta(s) \)</strong>：<strong>Riemann-Zeta 函数</strong>（黎曼 Zeta 函数），定义为 \( \sum_{n=1}^\infty \frac{1}{n^s} \)。</li>
+<li><strong>\( \vartheta(t) \)</strong>：<strong>Theta 函数</strong>。</li>
+</ul>
+<h3 id="3-物理应用与算子符号">3. 物理应用与算子符号<a class="anchor" href="#3-%e7%89%a9%e7%90%86%e5%ba%94%e7%94%a8%e4%b8%8e%e7%ae%97%e5%ad%90%e7%ac%a6%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>\( H_t(x) \)</strong>：圆周上的<strong>热核</strong>，常用于处理热传导问题。</li>
+<li><strong>\( P_r(\theta) \) 或 \( P_\delta(x) \)</strong>：<strong>Poisson 核</strong>（泊松核），与 Dirichlet 问题密切相关。</li>
+<li><strong>\( \Delta \)</strong>：<strong>Laplace 算子</strong>（拉普拉斯算子），如在平面坐标下为 \( \Delta = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} \)。</li>
+<li><strong>\( \text{supp } f \)</strong>：函数的<strong>支集</strong>，即函数值非零点的闭包。</li>
+</ul>
+<h3 id="4-数学常数与特殊系数">4. 数学常数与特殊系数<a class="anchor" href="#4-%e6%95%b0%e5%ad%a6%e5%b8%b8%e6%95%b0%e4%b8%8e%e7%89%b9%e6%ae%8a%e7%b3%bb%e6%95%b0">#</a></h3>
+<ul>
+<li><strong>\( \gamma \)</strong>：<strong>Euler 常数</strong>（欧拉常数），定义为极限 \( \lim_{n \to \infty} (\sum_{k=1}^n \frac{1}{k} - \ln n) \)。</li>
+<li><strong>\( B_{2k} \)</strong>：<strong>Bernoulli 数</strong>（伯努利数），出现在 \( \Gamma \) 函数的 Stirling 公式展开中。</li>
+<li><strong>\( c_n \)</strong>：周期函数的 <strong>Fourier 系数</strong>。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch15/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>ch15_含参变量的积分</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/math/ma/ch15/formula/" class="flex align-center">
+        <span>formula</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-积分与变换符号">1. 积分与变换符号</a></li>
+        <li><a href="#2-特殊函数符号">2. 特殊函数符号</a></li>
+        <li><a href="#3-物理应用与算子符号">3. 物理应用与算子符号</a></li>
+        <li><a href="#4-数学常数与特殊系数">4. 数学常数与特殊系数</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
