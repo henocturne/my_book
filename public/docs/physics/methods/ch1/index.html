@@ -8,38 +8,34 @@ https://github.com/alex-shpak/hugo-book
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="\[ \] 根据您提供的《数学物理方法（第三版）》第一章“复数和复变函数”的内容，按照原文公式序号整理的主要内容如下：
-一、 复数及其运算#(1.1) 复数加法：$(x_{1},y_{1})&#43;(x_{2},y_{2})=(x_{1}&#43;x_{2},y_{1}&#43;y_{2})$。 (1.2) 复数乘法：$(x_{1},y_{1})(x_{2},y_{2})=(x_{1}x_{2}-y_{1}y_{2},x_{1}y_{2}&#43;y_{1}x_{2})$。 (1.3) 复数定义：$z=(x,y)=x(1,0)&#43;y(0,1)$，其中 $x$ 为实部，$y$ 为虚部。 (1.4) 虚单位：$i\equiv(0,1)$，并满足 $i^2 = -1$。 (1.5) 代数表示：$z=x&#43;iy$。 (1.6) 复数减法：$z_{1}-z_{2}=(x_{1}-x_{2},y_{1}-y_{2})$。 (1.7) 复数除法：利用共轭复数将分母实数化：$\frac{x_1 &#43; iy_1}{x_2&#43;iy_2} = \frac{x_1x_2 &#43; y_1y_2 &#43; i(y_1x_2 - x_1y_2)}{x_2^2 &#43; y_2^2}$。 二、 复数的表示形式#(1.8) 极坐标表示：$z=x&#43;iy=r(\cos\theta&#43;i\sin\theta)$。 (1.9) 模与辐角：$r=|z|=\sqrt{x^{2}&#43;y^{2}}$，$\theta=\arg z$。 (1.10a, b) 复数相等条件：模相等且辐角相差 $2\pi$ 的整数倍。 (1.11) 极坐标乘法：模相乘，辐角相加。 (1.12) 极坐标除法：模相除，辐角相减。 (1.13) Euler 公式：$e^{i\theta}=\cos\theta&#43;i\sin\theta$。 (1.14) 指数函数性质：$e^{i\theta_{1}}\cdot e^{i\theta_{2}}=e^{i(\theta_{1}&#43;\theta_{2})}$。 (1.15) 指数表示：$z=re^{i\theta}$。 (1.11’) 指数乘法简写：$z_{1}\cdot z_{2}=r_{1}r_{2}e^{i(\theta_{1}&#43;\theta_{2})}$。 (1.12’) 指数除法简写：$\frac{z_{1}}{z_{2}}=\frac{r_{1}}{r_{2}}e^{i(\theta_{1}-\theta_{2})}$。 三、 复数序列与极限#(1.16) 聚点示例：序列 ${(-1)^{n&#43;1}\frac{n}{n&#43;1}}$ 有两个聚点 $\pm 1$。 (1.17a, b) 上、下极限不等式：关于非负实数序列乘积的上极限与下极限的性质。 在第一章中，作者主要通过定义和性质来构建复数体系。虽然文中明确标注为“定理”的内容较少，但涵盖了数个核心的数学准则。
-">
+<meta name="description" content="\[ \] definition formula theorem ">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/physics/methods/ch1/">
 	<meta property="og:site_name" content="知识库">
-	<meta property="og:title" content="ch1_复数和复变函数">
-	<meta property="og:description" content="\[ \] 根据您提供的《数学物理方法（第三版）》第一章“复数和复变函数”的内容，按照原文公式序号整理的主要内容如下：
-一、 复数及其运算#(1.1) 复数加法：$(x_{1},y_{1})&#43;(x_{2},y_{2})=(x_{1}&#43;x_{2},y_{1}&#43;y_{2})$。 (1.2) 复数乘法：$(x_{1},y_{1})(x_{2},y_{2})=(x_{1}x_{2}-y_{1}y_{2},x_{1}y_{2}&#43;y_{1}x_{2})$。 (1.3) 复数定义：$z=(x,y)=x(1,0)&#43;y(0,1)$，其中 $x$ 为实部，$y$ 为虚部。 (1.4) 虚单位：$i\equiv(0,1)$，并满足 $i^2 = -1$。 (1.5) 代数表示：$z=x&#43;iy$。 (1.6) 复数减法：$z_{1}-z_{2}=(x_{1}-x_{2},y_{1}-y_{2})$。 (1.7) 复数除法：利用共轭复数将分母实数化：$\frac{x_1 &#43; iy_1}{x_2&#43;iy_2} = \frac{x_1x_2 &#43; y_1y_2 &#43; i(y_1x_2 - x_1y_2)}{x_2^2 &#43; y_2^2}$。 二、 复数的表示形式#(1.8) 极坐标表示：$z=x&#43;iy=r(\cos\theta&#43;i\sin\theta)$。 (1.9) 模与辐角：$r=|z|=\sqrt{x^{2}&#43;y^{2}}$，$\theta=\arg z$。 (1.10a, b) 复数相等条件：模相等且辐角相差 $2\pi$ 的整数倍。 (1.11) 极坐标乘法：模相乘，辐角相加。 (1.12) 极坐标除法：模相除，辐角相减。 (1.13) Euler 公式：$e^{i\theta}=\cos\theta&#43;i\sin\theta$。 (1.14) 指数函数性质：$e^{i\theta_{1}}\cdot e^{i\theta_{2}}=e^{i(\theta_{1}&#43;\theta_{2})}$。 (1.15) 指数表示：$z=re^{i\theta}$。 (1.11’) 指数乘法简写：$z_{1}\cdot z_{2}=r_{1}r_{2}e^{i(\theta_{1}&#43;\theta_{2})}$。 (1.12’) 指数除法简写：$\frac{z_{1}}{z_{2}}=\frac{r_{1}}{r_{2}}e^{i(\theta_{1}-\theta_{2})}$。 三、 复数序列与极限#(1.16) 聚点示例：序列 ${(-1)^{n&#43;1}\frac{n}{n&#43;1}}$ 有两个聚点 $\pm 1$。 (1.17a, b) 上、下极限不等式：关于非负实数序列乘积的上极限与下极限的性质。 在第一章中，作者主要通过定义和性质来构建复数体系。虽然文中明确标注为“定理”的内容较少，但涵盖了数个核心的数学准则。">
+	<meta property="og:title" content="ch01_复数和复变函数">
+	<meta property="og:description" content="\[ \] definition formula theorem">
 	<meta property="og:locale" content="zh_CN">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="docs">
+	<meta property="og:type" content="website">
 
 
-	<meta itemprop="name" content="ch1_复数和复变函数">
-	<meta itemprop="description" content="\[ \] 根据您提供的《数学物理方法（第三版）》第一章“复数和复变函数”的内容，按照原文公式序号整理的主要内容如下：
-一、 复数及其运算#(1.1) 复数加法：$(x_{1},y_{1})&#43;(x_{2},y_{2})=(x_{1}&#43;x_{2},y_{1}&#43;y_{2})$。 (1.2) 复数乘法：$(x_{1},y_{1})(x_{2},y_{2})=(x_{1}x_{2}-y_{1}y_{2},x_{1}y_{2}&#43;y_{1}x_{2})$。 (1.3) 复数定义：$z=(x,y)=x(1,0)&#43;y(0,1)$，其中 $x$ 为实部，$y$ 为虚部。 (1.4) 虚单位：$i\equiv(0,1)$，并满足 $i^2 = -1$。 (1.5) 代数表示：$z=x&#43;iy$。 (1.6) 复数减法：$z_{1}-z_{2}=(x_{1}-x_{2},y_{1}-y_{2})$。 (1.7) 复数除法：利用共轭复数将分母实数化：$\frac{x_1 &#43; iy_1}{x_2&#43;iy_2} = \frac{x_1x_2 &#43; y_1y_2 &#43; i(y_1x_2 - x_1y_2)}{x_2^2 &#43; y_2^2}$。 二、 复数的表示形式#(1.8) 极坐标表示：$z=x&#43;iy=r(\cos\theta&#43;i\sin\theta)$。 (1.9) 模与辐角：$r=|z|=\sqrt{x^{2}&#43;y^{2}}$，$\theta=\arg z$。 (1.10a, b) 复数相等条件：模相等且辐角相差 $2\pi$ 的整数倍。 (1.11) 极坐标乘法：模相乘，辐角相加。 (1.12) 极坐标除法：模相除，辐角相减。 (1.13) Euler 公式：$e^{i\theta}=\cos\theta&#43;i\sin\theta$。 (1.14) 指数函数性质：$e^{i\theta_{1}}\cdot e^{i\theta_{2}}=e^{i(\theta_{1}&#43;\theta_{2})}$。 (1.15) 指数表示：$z=re^{i\theta}$。 (1.11’) 指数乘法简写：$z_{1}\cdot z_{2}=r_{1}r_{2}e^{i(\theta_{1}&#43;\theta_{2})}$。 (1.12’) 指数除法简写：$\frac{z_{1}}{z_{2}}=\frac{r_{1}}{r_{2}}e^{i(\theta_{1}-\theta_{2})}$。 三、 复数序列与极限#(1.16) 聚点示例：序列 ${(-1)^{n&#43;1}\frac{n}{n&#43;1}}$ 有两个聚点 $\pm 1$。 (1.17a, b) 上、下极限不等式：关于非负实数序列乘积的上极限与下极限的性质。 在第一章中，作者主要通过定义和性质来构建复数体系。虽然文中明确标注为“定理”的内容较少，但涵盖了数个核心的数学准则。">
-	<meta itemprop="wordCount" content="136">
+	<meta itemprop="name" content="ch01_复数和复变函数">
+	<meta itemprop="description" content="\[ \] definition formula theorem">
+	<meta itemprop="wordCount" content="5">
 
-<title>ch1_复数和复变函数 • 知识库</title>
+<title>ch01_复数和复变函数 • 知识库</title>
 <link rel="icon" href="/my_book/favicon.png" >
 <link rel="manifest" href="/my_book/manifest.json">
 <link rel="canonical" href="http://localhost:1313/my_book/docs/physics/methods/ch1/">
 <link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
 
 
-  <script defer type="module" src="/my_book/en.search.min.671334a4aa7d9e738dcb850888926bf5029ea708bd71e6d9eaa5581b6fda6e53.js" integrity="sha256-ZxM0pKp9nnONy4UIiJJr9QKepwi9cebZ6qVYG2/ablM=" crossorigin="anonymous"></script>
+  <script defer type="module" src="/my_book/en.search.min.7e9558efe8aad80d522f1298b7d0c413e863d7ce15ab4e52f38aba3dc55849c8.js" integrity="sha256-fpVY7&#43;iq2A1SLxKYt9DEE&#43;hj184Vq05S84q6PcVYScg=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/my_book/docs/physics/methods/ch1/index.xml" title="ch01_复数和复变函数" />
 
   
 </head>
-<body dir="ltr" class="book-kind-page book-type-docs">
+<body dir="ltr" class="book-kind-section book-type-docs">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
   <main class="container flex">
@@ -83,8 +79,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-2f1c477ec3d6b91eed56821143bca96a" class="toggle"  />
-    <label for="section-2f1c477ec3d6b91eed56821143bca96a" class="flex">
+    <input type="checkbox" id="section-abba9f480fc1b6dc0f169df3792fa60b" class="toggle"  />
+    <label for="section-abba9f480fc1b6dc0f169df3792fa60b" class="flex">
       <a href="/my_book/docs/math/" class="">
         数学</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -101,8 +97,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-b8908b4eef97c65ff63178ab3a7daa9a" class="toggle"  />
-    <label for="section-b8908b4eef97c65ff63178ab3a7daa9a" class="flex">
+    <input type="checkbox" id="section-3eadb64dade55467a37e3d8684debcbe" class="toggle"  />
+    <label for="section-3eadb64dade55467a37e3d8684debcbe" class="flex">
       <a href="/my_book/docs/math/ma/" class="">
         数学分析</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -119,8 +115,239 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-fc5cfa55d848e1139b563e8620f5e431" class="toggle"  />
-    <label for="section-fc5cfa55d848e1139b563e8620f5e431" class="flex">
+    <input type="checkbox" id="section-65eae293ed0098a0a36bdb2eb03d0d66" class="toggle"  />
+    <label for="section-65eae293ed0098a0a36bdb2eb03d0d66" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/" class="">
+        ch07 数项级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e326582fcb1d25ace94559825e37e78a" class="toggle"  />
+    <label for="section-e326582fcb1d25ace94559825e37e78a" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-092bf523737bea57e903ccfe2bcbceb0" class="toggle"  />
+    <label for="section-092bf523737bea57e903ccfe2bcbceb0" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0a8d861cd4176c22af4abdab3e8393f3" class="toggle"  />
+    <label for="section-0a8d861cd4176c22af4abdab3e8393f3" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-701bbb3362074de7a18b4e5941c35e80" class="toggle"  />
+    <label for="section-701bbb3362074de7a18b4e5941c35e80" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/" class="">
+        ch08 函数项级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f7eac4a4ad148c1436105f796711db23" class="toggle"  />
+    <label for="section-f7eac4a4ad148c1436105f796711db23" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6612181ffbe56683ffb0c6c8eb9e30e2" class="toggle"  />
+    <label for="section-6612181ffbe56683ffb0c6c8eb9e30e2" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ff6dbf3ba8565fbb1c2728f0c81dfd15" class="toggle"  />
+    <label for="section-ff6dbf3ba8565fbb1c2728f0c81dfd15" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-86b3f804a71bdd5c9dbdaa65cff2c870" class="toggle"  />
+    <label for="section-86b3f804a71bdd5c9dbdaa65cff2c870" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/" class="">
+        ch09 Fourier 分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1d04d935e6074b1669499d56fdc09e12" class="toggle"  />
+    <label for="section-1d04d935e6074b1669499d56fdc09e12" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a20297977a1e58717a639ae306c6c693" class="toggle"  />
+    <label for="section-a20297977a1e58717a639ae306c6c693" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-13c09c9bc58e29a8a78b87dac121f479" class="toggle"  />
+    <label for="section-13c09c9bc58e29a8a78b87dac121f479" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b3c49a81b4ab9113a87657d137048e67" class="toggle"  />
+    <label for="section-b3c49a81b4ab9113a87657d137048e67" class="flex">
       <a href="/my_book/docs/math/ma/ch10/" class="">
         ch10_度量空间和连续映射</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -137,8 +364,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-613eecf1600fc8ec1aed4059d9771ca1" class="toggle"  />
-    <label for="section-613eecf1600fc8ec1aed4059d9771ca1" class="flex">
+    <input type="checkbox" id="section-26d0aec27328b83fb6f555a46a562ae1" class="toggle"  />
+    <label for="section-26d0aec27328b83fb6f555a46a562ae1" class="flex">
       <a href="/my_book/docs/math/ma/ch10/definition/" class="">
         definition</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -155,8 +382,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-fab5d9d8dffe0ed06370e95a4e3cd399" class="toggle"  />
-    <label for="section-fab5d9d8dffe0ed06370e95a4e3cd399" class="flex">
+    <input type="checkbox" id="section-73bd758025cc0077778e966e1a69e66c" class="toggle"  />
+    <label for="section-73bd758025cc0077778e966e1a69e66c" class="flex">
       <a href="/my_book/docs/math/ma/ch10/formula/" class="">
         formula</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -173,8 +400,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-c38175d8546c9efbdf848d0fa707014e" class="toggle"  />
-    <label for="section-c38175d8546c9efbdf848d0fa707014e" class="flex">
+    <input type="checkbox" id="section-9f38fb7284cc7aa1fe9bfecc70455df7" class="toggle"  />
+    <label for="section-9f38fb7284cc7aa1fe9bfecc70455df7" class="flex">
       <a href="/my_book/docs/math/ma/ch10/theorem/" class="">
         theorem</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -196,8 +423,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-2f4ec9b334b16a71eedae85dcb4febf9" class="toggle"  />
-    <label for="section-2f4ec9b334b16a71eedae85dcb4febf9" class="flex">
+    <input type="checkbox" id="section-f53ea5b7f823f7c2adc420f276ae16ce" class="toggle"  />
+    <label for="section-f53ea5b7f823f7c2adc420f276ae16ce" class="flex">
       <a href="/my_book/docs/math/ma/ch11/" class="">
         ch11_多元函数的微分</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -214,8 +441,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-85835da35f37d45548655051db89217e" class="toggle"  />
-    <label for="section-85835da35f37d45548655051db89217e" class="flex">
+    <input type="checkbox" id="section-a48432f5aa3322a4d27d98a4bb888c94" class="toggle"  />
+    <label for="section-a48432f5aa3322a4d27d98a4bb888c94" class="flex">
       <a href="/my_book/docs/math/ma/ch11/definition/" class="">
         definition</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -232,8 +459,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-b08e12376bdb0678587d38233bf70899" class="toggle"  />
-    <label for="section-b08e12376bdb0678587d38233bf70899" class="flex">
+    <input type="checkbox" id="section-4cfa8f007098347bcead24699e734134" class="toggle"  />
+    <label for="section-4cfa8f007098347bcead24699e734134" class="flex">
       <a href="/my_book/docs/math/ma/ch11/formula/" class="">
         formula</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -250,8 +477,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-02b1e26558922e9d0964a04d34d3b36d" class="toggle"  />
-    <label for="section-02b1e26558922e9d0964a04d34d3b36d" class="flex">
+    <input type="checkbox" id="section-755e8b1e80b5b232c4bcd14fb421bb36" class="toggle"  />
+    <label for="section-755e8b1e80b5b232c4bcd14fb421bb36" class="flex">
       <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
         theorem</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -273,8 +500,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-2b65ed2bb07ad511e5db39828577dab2" class="toggle"  />
-    <label for="section-2b65ed2bb07ad511e5db39828577dab2" class="flex">
+    <input type="checkbox" id="section-c1ffeeb174102a68430b2e84c0806fed" class="toggle"  />
+    <label for="section-c1ffeeb174102a68430b2e84c0806fed" class="flex">
       <a href="/my_book/docs/math/ma/ch12/" class="">
         ch12_多元函数的积分</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -291,8 +518,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-808aa047fbcb41398d6224301001bd53" class="toggle"  />
-    <label for="section-808aa047fbcb41398d6224301001bd53" class="flex">
+    <input type="checkbox" id="section-b185b95fdb22770a6fa3ad4a714fc998" class="toggle"  />
+    <label for="section-b185b95fdb22770a6fa3ad4a714fc998" class="flex">
       <a href="/my_book/docs/math/ma/ch12/definition/" class="">
         definition</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -309,8 +536,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a3b48b599c0bc6104a5b402ce9518139" class="toggle"  />
-    <label for="section-a3b48b599c0bc6104a5b402ce9518139" class="flex">
+    <input type="checkbox" id="section-e79cab41e3509b0dcb9d784a5a57b73a" class="toggle"  />
+    <label for="section-e79cab41e3509b0dcb9d784a5a57b73a" class="flex">
       <a href="/my_book/docs/math/ma/ch12/formula/" class="">
         formula</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -327,8 +554,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="toggle"  />
-    <label for="section-ae4e8e32c2a67ccf99a9431af6eb18cf" class="flex">
+    <input type="checkbox" id="section-0bedb42fbccdbbbfd30b0fa271a78366" class="toggle"  />
+    <label for="section-0bedb42fbccdbbbfd30b0fa271a78366" class="flex">
       <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
         theorem</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -350,8 +577,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="toggle"  />
-    <label for="section-ba0eb9d14fa3e1e1135753fe41a5eac2" class="flex">
+    <input type="checkbox" id="section-267008b386e6253c3596df6bcf8c1117" class="toggle"  />
+    <label for="section-267008b386e6253c3596df6bcf8c1117" class="flex">
       <a href="/my_book/docs/math/ma/ch13/" class="">
         ch13_曲线积分与曲面积分</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -368,8 +595,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="toggle"  />
-    <label for="section-ed5d0cfdfaff56c927f656b3e8235eaf" class="flex">
+    <input type="checkbox" id="section-487fcbc3efa9888c2fb2aef2ce9d6613" class="toggle"  />
+    <label for="section-487fcbc3efa9888c2fb2aef2ce9d6613" class="flex">
       <a href="/my_book/docs/math/ma/ch13/definition/" class="">
         definition</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -386,8 +613,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-0fa9164551a02befa75976b7b23ab530" class="toggle"  />
-    <label for="section-0fa9164551a02befa75976b7b23ab530" class="flex">
+    <input type="checkbox" id="section-27c6a9a766be819b9f395648a0fe57a2" class="toggle"  />
+    <label for="section-27c6a9a766be819b9f395648a0fe57a2" class="flex">
       <a href="/my_book/docs/math/ma/ch13/formula/" class="">
         formula</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -404,8 +631,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-0f8d5a2231d5addf2ec7afe437699bd7" class="toggle"  />
-    <label for="section-0f8d5a2231d5addf2ec7afe437699bd7" class="flex">
+    <input type="checkbox" id="section-aec0fd22078e90437f3d050d671214b8" class="toggle"  />
+    <label for="section-aec0fd22078e90437f3d050d671214b8" class="flex">
       <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
         theorem</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -427,8 +654,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-ce7da622b982f8bb1c3e0813ea4ed157" class="toggle"  />
-    <label for="section-ce7da622b982f8bb1c3e0813ea4ed157" class="flex">
+    <input type="checkbox" id="section-7b12739449f11ae0771259ae3c8cb893" class="toggle"  />
+    <label for="section-7b12739449f11ae0771259ae3c8cb893" class="flex">
       <a href="/my_book/docs/math/ma/ch14/" class="">
         ch14_微分形式的积分</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -445,8 +672,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-0dfd85251500397b39822b4751a9255e" class="toggle"  />
-    <label for="section-0dfd85251500397b39822b4751a9255e" class="flex">
+    <input type="checkbox" id="section-3347a10040f7435f706abd75013db5c1" class="toggle"  />
+    <label for="section-3347a10040f7435f706abd75013db5c1" class="flex">
       <a href="/my_book/docs/math/ma/ch14/definition/" class="">
         definition</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -463,8 +690,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7ba482a9f5f60848be904ee3f4583e13" class="toggle"  />
-    <label for="section-7ba482a9f5f60848be904ee3f4583e13" class="flex">
+    <input type="checkbox" id="section-c77249cdb1eb6ab99cb7e97696a9a575" class="toggle"  />
+    <label for="section-c77249cdb1eb6ab99cb7e97696a9a575" class="flex">
       <a href="/my_book/docs/math/ma/ch14/formula/" class="">
         formula</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -481,8 +708,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-610b5d7402132ccf63c5aa7a0bf2c09e" class="toggle"  />
-    <label for="section-610b5d7402132ccf63c5aa7a0bf2c09e" class="flex">
+    <input type="checkbox" id="section-695007eb17d3fefd4381d35030bc67e3" class="toggle"  />
+    <label for="section-695007eb17d3fefd4381d35030bc67e3" class="flex">
       <a href="/my_book/docs/math/ma/ch14/theorem/" class="">
         theorem</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -504,8 +731,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-d129090741e1d58004225e7416a32890" class="toggle"  />
-    <label for="section-d129090741e1d58004225e7416a32890" class="flex">
+    <input type="checkbox" id="section-d4e07a5c17e48144aaef57dcb8380aea" class="toggle"  />
+    <label for="section-d4e07a5c17e48144aaef57dcb8380aea" class="flex">
       <a href="/my_book/docs/math/ma/ch15/" class="">
         ch15_含参变量的积分</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -522,8 +749,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-8fbb318062949a41ea0991e54427a97c" class="toggle"  />
-    <label for="section-8fbb318062949a41ea0991e54427a97c" class="flex">
+    <input type="checkbox" id="section-29fe5c5c1a392acf5228ab94e6ec41eb" class="toggle"  />
+    <label for="section-29fe5c5c1a392acf5228ab94e6ec41eb" class="flex">
       <a href="/my_book/docs/math/ma/ch15/definition/" class="">
         definition</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -540,8 +767,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-b9a0a4d0d31610f4cb977a8f4d8a3633" class="toggle"  />
-    <label for="section-b9a0a4d0d31610f4cb977a8f4d8a3633" class="flex">
+    <input type="checkbox" id="section-0d086c59106e09f7712f77b04265f298" class="toggle"  />
+    <label for="section-0d086c59106e09f7712f77b04265f298" class="flex">
       <a href="/my_book/docs/math/ma/ch15/formula/" class="">
         formula</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -558,9 +785,417 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-d4b5ef329dbb71190da272155dd07dd3" class="toggle"  />
-    <label for="section-d4b5ef329dbb71190da272155dd07dd3" class="flex">
+    <input type="checkbox" id="section-84b8b9cf32f30aaf6b31ff2413a2d250" class="toggle"  />
+    <label for="section-84b8b9cf32f30aaf6b31ff2413a2d250" class="flex">
       <a href="/my_book/docs/math/ma/ch15/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-334223b3b68ccc51d5b9d492351e42d4" class="toggle"  />
+    <label for="section-334223b3b68ccc51d5b9d492351e42d4" class="flex">
+      <a href="/my_book/docs/math/la/" class="">
+        高等代数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-370e196551ce18290adc72b6d9799f60" class="toggle"  />
+    <label for="section-370e196551ce18290adc72b6d9799f60" class="flex">
+      <a href="/my_book/docs/math/la/ch6/" class="">
+        ch06 线性空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0e0d25242591f8571fe404d8bcff5874" class="toggle"  />
+    <label for="section-0e0d25242591f8571fe404d8bcff5874" class="flex">
+      <a href="/my_book/docs/math/la/ch6/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9c4046dbe8cad9f987545b7dab44642f" class="toggle"  />
+    <label for="section-9c4046dbe8cad9f987545b7dab44642f" class="flex">
+      <a href="/my_book/docs/math/la/ch6/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b56ccd2781b1a8ad929731229b5b73af" class="toggle"  />
+    <label for="section-b56ccd2781b1a8ad929731229b5b73af" class="flex">
+      <a href="/my_book/docs/math/la/ch6/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cb17bb85ffcb66078f56805cf1c637b0" class="toggle"  />
+    <label for="section-cb17bb85ffcb66078f56805cf1c637b0" class="flex">
+      <a href="/my_book/docs/math/la/ch7/" class="">
+        ch07 线性变换</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cc024f6232304022ca1bf992cd31edfb" class="toggle"  />
+    <label for="section-cc024f6232304022ca1bf992cd31edfb" class="flex">
+      <a href="/my_book/docs/math/la/ch7/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-434edec3941553c6aef7031ec74ddf28" class="toggle"  />
+    <label for="section-434edec3941553c6aef7031ec74ddf28" class="flex">
+      <a href="/my_book/docs/math/la/ch7/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-12fcacd2c1ef0c8ab71838e6b58580ee" class="toggle"  />
+    <label for="section-12fcacd2c1ef0c8ab71838e6b58580ee" class="flex">
+      <a href="/my_book/docs/math/la/ch7/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-65593a2601be6e9beb9bbb22d4430ee9" class="toggle"  />
+    <label for="section-65593a2601be6e9beb9bbb22d4430ee9" class="flex">
+      <a href="/my_book/docs/math/la/ch8/" class="">
+        ch08 lambda-矩阵</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-56fcf46c4f0e8360adc34c9ad62dc8a7" class="toggle"  />
+    <label for="section-56fcf46c4f0e8360adc34c9ad62dc8a7" class="flex">
+      <a href="/my_book/docs/math/la/ch8/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b072e4f88ca20eff52acac16fd801d90" class="toggle"  />
+    <label for="section-b072e4f88ca20eff52acac16fd801d90" class="flex">
+      <a href="/my_book/docs/math/la/ch8/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c70d0989350bdbca830f36d94b03bc92" class="toggle"  />
+    <label for="section-c70d0989350bdbca830f36d94b03bc92" class="flex">
+      <a href="/my_book/docs/math/la/ch8/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e36dc7c48581b2c180b5c52d3914af26" class="toggle"  />
+    <label for="section-e36dc7c48581b2c180b5c52d3914af26" class="flex">
+      <a href="/my_book/docs/math/la/ch9/" class="">
+        ch09 欧几里得空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-489b83891f8cc3e65faa81af65044b0d" class="toggle"  />
+    <label for="section-489b83891f8cc3e65faa81af65044b0d" class="flex">
+      <a href="/my_book/docs/math/la/ch9/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-042e2f17a7db91c58191ee50972e0728" class="toggle"  />
+    <label for="section-042e2f17a7db91c58191ee50972e0728" class="flex">
+      <a href="/my_book/docs/math/la/ch9/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5b44f217aa3c6bf82186723ce6122ad0" class="toggle"  />
+    <label for="section-5b44f217aa3c6bf82186723ce6122ad0" class="flex">
+      <a href="/my_book/docs/math/la/ch9/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f9978e2571c1ce834e2f5d46ebf5e5c0" class="toggle"  />
+    <label for="section-f9978e2571c1ce834e2f5d46ebf5e5c0" class="flex">
+      <a href="/my_book/docs/math/la/ch10/" class="">
+        ch10 双线性函数与辛空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cfe65af68c1d99a1b8c8b2d7c49abf45" class="toggle"  />
+    <label for="section-cfe65af68c1d99a1b8c8b2d7c49abf45" class="flex">
+      <a href="/my_book/docs/math/la/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-61c5621f7059acbc1549d88eefb5ba5f" class="toggle"  />
+    <label for="section-61c5621f7059acbc1549d88eefb5ba5f" class="flex">
+      <a href="/my_book/docs/math/la/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0ca318ed2599c788ab3bf697d64a21c" class="toggle"  />
+    <label for="section-e0ca318ed2599c788ab3bf697d64a21c" class="flex">
+      <a href="/my_book/docs/math/la/ch10/theorem/" class="">
         theorem</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
     </label>
@@ -591,8 +1226,280 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-eb1b8013fa9b08402e62c42feebb67ce" class="toggle" checked />
-    <label for="section-eb1b8013fa9b08402e62c42feebb67ce" class="flex">
+    <input type="checkbox" id="section-af5f24f7ea343745d3308f7b02249857" class="toggle" checked />
+    <label for="section-af5f24f7ea343745d3308f7b02249857" class="flex">
+      <a href="/my_book/docs/physics/" class="">
+        物理</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-80a413dfb7ccb4957b7087ca8a5551bd" class="toggle"  />
+    <label for="section-80a413dfb7ccb4957b7087ca8a5551bd" class="flex">
+      <a href="/my_book/docs/physics/am/" class="">
+        分析力学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ee4d2df8ada2ebc6b2618d5fcbf61289" class="toggle"  />
+    <label for="section-ee4d2df8ada2ebc6b2618d5fcbf61289" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/" class="">
+        ch07-分析力学的变分原理</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-74ec16f28023c23aff237bab823da58b" class="toggle"  />
+    <label for="section-74ec16f28023c23aff237bab823da58b" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4a378a0ff19f9a4c9c6a2f3385d3bc1b" class="toggle"  />
+    <label for="section-4a378a0ff19f9a4c9c6a2f3385d3bc1b" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-503d02e19826cfda15931aa988bb527c" class="toggle"  />
+    <label for="section-503d02e19826cfda15931aa988bb527c" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b4f80ca19e797955d6641051a8620329" class="toggle"  />
+    <label for="section-b4f80ca19e797955d6641051a8620329" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/" class="">
+        ch08-拉格朗日动力学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-93929d0b0406cc706ddcbcd028725494" class="toggle"  />
+    <label for="section-93929d0b0406cc706ddcbcd028725494" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-12a68b338ca96f8a72293da021d3d89c" class="toggle"  />
+    <label for="section-12a68b338ca96f8a72293da021d3d89c" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d34e749654eb8e517a5e285656572590" class="toggle"  />
+    <label for="section-d34e749654eb8e517a5e285656572590" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e1d88db8053c00ffea2eafa97c17bb80" class="toggle"  />
+    <label for="section-e1d88db8053c00ffea2eafa97c17bb80" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/" class="">
+        ch09-正则方程</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-161b76531dddbcaa34780d1a0c821bc0" class="toggle"  />
+    <label for="section-161b76531dddbcaa34780d1a0c821bc0" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-131af9c9d810df6c06a78f645cdde43f" class="toggle"  />
+    <label for="section-131af9c9d810df6c06a78f645cdde43f" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1231aed5d9c426ac37a787673d1e0ab7" class="toggle"  />
+    <label for="section-1231aed5d9c426ac37a787673d1e0ab7" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3d28bd9e2366e4053084ce10512b9f68" class="toggle" checked />
+    <label for="section-3d28bd9e2366e4053084ce10512b9f68" class="flex">
       <a href="/my_book/docs/physics/methods/" class="">
         数学物理方法</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -609,8 +1516,30 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/my_book/docs/physics/methods/ch1/" class="active">
-      ch1_复数和复变函数</a>
+    <input type="checkbox" id="section-e771b93f2555f51a2540074f81b14115" class="toggle" checked />
+    <label for="section-e771b93f2555f51a2540074f81b14115" class="flex">
+      <a href="/my_book/docs/physics/methods/ch1/" class="active">
+        ch01_复数和复变函数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d84671e3d1d6139f3bd24e77ce8a616b" class="toggle"  />
+    <label for="section-d84671e3d1d6139f3bd24e77ce8a616b" class="flex">
+      <a href="/my_book/docs/physics/methods/ch1/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
   
 
         </li>
@@ -623,8 +1552,12 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/my_book/docs/physics/methods/ch2/" class="">
-      ch2_解析函数</a>
+    <input type="checkbox" id="section-7d8cc830cc40d7dd0d387b71aa4f1689" class="toggle"  />
+    <label for="section-7d8cc830cc40d7dd0d387b71aa4f1689" class="flex">
+      <a href="/my_book/docs/physics/methods/ch1/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
   
 
         </li>
@@ -637,8 +1570,12 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/my_book/docs/physics/methods/ch3/" class="">
-      ch3_复变积分</a>
+    <input type="checkbox" id="section-079401616d1156fa3ff83abb11eb71ca" class="toggle"  />
+    <label for="section-079401616d1156fa3ff83abb11eb71ca" class="flex">
+      <a href="/my_book/docs/physics/methods/ch1/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
   
 
         </li>
@@ -656,8 +1593,172 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a4c05c4c7f61d9acfc9290c981d785fd" class="toggle"  />
-    <label for="section-a4c05c4c7f61d9acfc9290c981d785fd" class="flex">
+    <input type="checkbox" id="section-f261a99b56a42f2e8e692b7a6760b5eb" class="toggle"  />
+    <label for="section-f261a99b56a42f2e8e692b7a6760b5eb" class="flex">
+      <a href="/my_book/docs/physics/methods/ch2/" class="">
+        ch02_解析函数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e7017d55db177da759eace842977b9f" class="toggle"  />
+    <label for="section-9e7017d55db177da759eace842977b9f" class="flex">
+      <a href="/my_book/docs/physics/methods/ch2/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c2864d1ed395559d9a6b82640cc3a5a5" class="toggle"  />
+    <label for="section-c2864d1ed395559d9a6b82640cc3a5a5" class="flex">
+      <a href="/my_book/docs/physics/methods/ch2/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-936c344cc788277d6abc6219e2090b13" class="toggle"  />
+    <label for="section-936c344cc788277d6abc6219e2090b13" class="flex">
+      <a href="/my_book/docs/physics/methods/ch2/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1cbb48b9c85998f5666f16a24520357c" class="toggle"  />
+    <label for="section-1cbb48b9c85998f5666f16a24520357c" class="flex">
+      <a href="/my_book/docs/physics/methods/ch3/" class="">
+        ch03_复变积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-35211bd616f66c99ec87b9d0bd1b5302" class="toggle"  />
+    <label for="section-35211bd616f66c99ec87b9d0bd1b5302" class="flex">
+      <a href="/my_book/docs/physics/methods/ch3/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-51a87eca6d293f78d8e535136eac29b9" class="toggle"  />
+    <label for="section-51a87eca6d293f78d8e535136eac29b9" class="flex">
+      <a href="/my_book/docs/physics/methods/ch3/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-15f403d5dc3b69b0d153c618b6090442" class="toggle"  />
+    <label for="section-15f403d5dc3b69b0d153c618b6090442" class="flex">
+      <a href="/my_book/docs/physics/methods/ch3/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5eb26766587a11013a6eba77b5e5d636" class="toggle"  />
+    <label for="section-5eb26766587a11013a6eba77b5e5d636" class="flex">
       <a role="button" class="">
         英文学习</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -674,8 +1775,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="toggle"  />
-    <label for="section-5ddd0ed76fadfa7f173ea0ecc5782f4d" class="flex">
+    <input type="checkbox" id="section-fdd26b761c105af4be4377fa5b58ac88" class="toggle"  />
+    <label for="section-fdd26b761c105af4be4377fa5b58ac88" class="flex">
       <a href="/my_book/docs/english/vocab/" class="">
         词汇学习</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -692,8 +1793,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
-      ch21 身心健康</a>
+    <a href="/my_book/docs/english/vocab/ch05_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch05 学校教育</a>
   
 
         </li>
@@ -706,8 +1807,36 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/my_book/docs/english/vocab/ch5_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
-      ch5 学校教育</a>
+    <a href="/my_book/docs/english/vocab/ch16_%E7%A4%BE%E4%BC%9A%E7%BB%8F%E6%B5%8E/" class="">
+      ch16 社会经济</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch20_%E8%A1%8C%E4%B8%BA%E5%8A%A8%E4%BD%9C/" class="">
+      ch20 行为动作</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
   
 
         </li>
@@ -725,8 +1854,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-2f3519d86cb74822101db5b835bc7e72" class="toggle"  />
-    <label for="section-2f3519d86cb74822101db5b835bc7e72" class="flex">
+    <input type="checkbox" id="section-8c3aca59a8015cfe8174d699bde68514" class="toggle"  />
+    <label for="section-8c3aca59a8015cfe8174d699bde68514" class="flex">
       <a href="/my_book/docs/english/grammar/" class="">
         语法学习</a>
       <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
@@ -781,7 +1910,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>ch1_复数和复变函数</h3>
+  <h3>ch01_复数和复变函数</h3>
 
   <label for="toc-control">
     
@@ -797,22 +1926,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden">
     
   
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#一-复数及其运算">一、 复数及其运算</a></li>
-        <li><a href="#二-复数的表示形式">二、 复数的表示形式</a></li>
-        <li><a href="#三-复数序列与极限">三、 复数序列与极限</a></li>
-        <li><a href="#11-预备知识复数与复数运算">§1.1 预备知识：复数与复数运算</a></li>
-        <li><a href="#12-复数序列">§1.2 复数序列</a></li>
-        <li><a href="#13-复变函数">§1.3 复变函数</a></li>
-        <li><a href="#14-无穷远点">§1.4 无穷远点</a></li>
-        <li><a href="#15-正十七边形的尺规作图问题">§1.5 正十七边形的尺规作图问题</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
 
@@ -825,67 +1939,10 @@ https://github.com/alex-shpak/hugo-book
       
   <article class="markdown book-article"><div class="book-katex" >\[ 
  \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
-<p>根据您提供的《数学物理方法（第三版）》第一章“复数和复变函数”的内容，按照原文公式序号整理的主要内容如下：</p>
-<h3 id="一-复数及其运算">一、 复数及其运算<a class="anchor" href="#%e4%b8%80-%e5%a4%8d%e6%95%b0%e5%8f%8a%e5%85%b6%e8%bf%90%e7%ae%97">#</a></h3>
 <ul>
-<li><strong>(1.1) 复数加法</strong>：$(x_{1},y_{1})+(x_{2},y_{2})=(x_{1}+x_{2},y_{1}+y_{2})$。</li>
-<li><strong>(1.2) 复数乘法</strong>：$(x_{1},y_{1})(x_{2},y_{2})=(x_{1}x_{2}-y_{1}y_{2},x_{1}y_{2}+y_{1}x_{2})$。</li>
-<li><strong>(1.3) 复数定义</strong>：$z=(x,y)=x(1,0)+y(0,1)$，其中 $x$ 为实部，$y$ 为虚部。</li>
-<li><strong>(1.4) 虚单位</strong>：$i\equiv(0,1)$，并满足 $i^2 = -1$。</li>
-<li><strong>(1.5) 代数表示</strong>：$z=x+iy$。</li>
-<li><strong>(1.6) 复数减法</strong>：$z_{1}-z_{2}=(x_{1}-x_{2},y_{1}-y_{2})$。</li>
-<li><strong>(1.7) 复数除法</strong>：利用共轭复数将分母实数化：$\frac{x_1 + iy_1}{x_2+iy_2} = \frac{x_1x_2 + y_1y_2 + i(y_1x_2 - x_1y_2)}{x_2^2 + y_2^2}$。</li>
-</ul>
-<h3 id="二-复数的表示形式">二、 复数的表示形式<a class="anchor" href="#%e4%ba%8c-%e5%a4%8d%e6%95%b0%e7%9a%84%e8%a1%a8%e7%a4%ba%e5%bd%a2%e5%bc%8f">#</a></h3>
-<ul>
-<li><strong>(1.8) 极坐标表示</strong>：$z=x+iy=r(\cos\theta+i\sin\theta)$。</li>
-<li><strong>(1.9) 模与辐角</strong>：$r=|z|=\sqrt{x^{2}+y^{2}}$，$\theta=\arg z$。</li>
-<li><strong>(1.10a, b) 复数相等条件</strong>：模相等且辐角相差 $2\pi$ 的整数倍。</li>
-<li><strong>(1.11) 极坐标乘法</strong>：模相乘，辐角相加。</li>
-<li><strong>(1.12) 极坐标除法</strong>：模相除，辐角相减。</li>
-<li><strong>(1.13) Euler 公式</strong>：$e^{i\theta}=\cos\theta+i\sin\theta$。</li>
-<li><strong>(1.14) 指数函数性质</strong>：$e^{i\theta_{1}}\cdot e^{i\theta_{2}}=e^{i(\theta_{1}+\theta_{2})}$。</li>
-<li><strong>(1.15) 指数表示</strong>：$z=re^{i\theta}$。</li>
-<li><strong>(1.11&rsquo;) 指数乘法简写</strong>：$z_{1}\cdot z_{2}=r_{1}r_{2}e^{i(\theta_{1}+\theta_{2})}$。</li>
-<li><strong>(1.12&rsquo;) 指数除法简写</strong>：$\frac{z_{1}}{z_{2}}=\frac{r_{1}}{r_{2}}e^{i(\theta_{1}-\theta_{2})}$。</li>
-</ul>
-<h3 id="三-复数序列与极限">三、 复数序列与极限<a class="anchor" href="#%e4%b8%89-%e5%a4%8d%e6%95%b0%e5%ba%8f%e5%88%97%e4%b8%8e%e6%9e%81%e9%99%90">#</a></h3>
-<ul>
-<li><strong>(1.16) 聚点示例</strong>：序列 ${(-1)^{n+1}\frac{n}{n+1}}$ 有两个聚点 $\pm 1$。</li>
-<li><strong>(1.17a, b) 上、下极限不等式</strong>：关于非负实数序列乘积的上极限与下极限的性质。</li>
-</ul>
-<p>在第一章中，作者主要通过定义和性质来构建复数体系。虽然文中明确标注为“定理”的内容较少，但涵盖了数个核心的数学准则。</p>
-<p>以下是根据 <strong>§1.1 至 §1.5</strong> 各小节整理的定理及核心数学性质：</p>
-<h3 id="11-预备知识复数与复数运算">§1.1 预备知识：复数与复数运算<a class="anchor" href="#11-%e9%a2%84%e5%a4%87%e7%9f%a5%e8%af%86%e5%a4%8d%e6%95%b0%e4%b8%8e%e5%a4%8d%e6%95%b0%e8%bf%90%e7%ae%97">#</a></h3>
-<p>本节侧重于基本定义，并未出现冠以“定理”字样的命题，但确立了复数域的核心运算法则：</p>
-<ul>
-<li><strong>复数相等准则</strong>：两个复数相等的充分必要条件是它们的实部和虚部分别相等。</li>
-<li><strong>乘法交换律与结合律</strong>：复数域 $C$ 构成一个域，满足加法和乘法的交换律、结合律及分配律。</li>
-<li><strong>几何加法准则</strong>：复数加法满足平行四边形法则（或三角形法则）。</li>
-<li><strong>复数除法准则</strong>：借助共轭复数将分母实数化来完成运算。</li>
-<li><strong>Euler 公式</strong>：$e^{i\theta} = \cos\theta + i\sin\theta$，该公式定义了纯虚数指数函数并保留了实指数函数的性质。</li>
-</ul>
-<h3 id="12-复数序列">§1.2 复数序列<a class="anchor" href="#12-%e5%a4%8d%e6%95%b0%e5%ba%8f%e5%88%97">#</a></h3>
-<p>本节包含了本章最重要的两个形式化定理：</p>
-<ul>
-<li><strong>Bolzano - Weierstrass 定理</strong>：一个有界序列至少有一个聚点。</li>
-<li><strong>序列收敛的 Cauchy 充要条件</strong>：序列 ${z_n}$ 收敛的充分必要条件是：$\forall\epsilon&gt;0$，$\exists$ 正整数 $N(\epsilon)$，使对于 $\forall$ 正整数 $p$，恒有 $|z_{N+p}-z_N|&lt;\epsilon$。</li>
-<li><strong>极限唯一性性质</strong>：如果一个序列是收敛的，其极限必然是唯一的聚点。</li>
-</ul>
-<h3 id="13-复变函数">§1.3 复变函数<a class="anchor" href="#13-%e5%a4%8d%e5%8f%98%e5%87%bd%e6%95%b0">#</a></h3>
-<p>本节主要定义了点集、区域及其性质，作为后续微积分讨论的准备：</p>
-<ul>
-<li><strong>连通性准则</strong>：区域必须满足全部由内点组成且具有连通性（任意两点可用折线连接且折线在集内）。</li>
-<li><strong>单连通区域判定</strong>：在区域内作任何简单闭合围道，若围道内部的点全部属于该区域，则为单连通区域。</li>
-</ul>
-<h3 id="14-无穷远点">§1.4 无穷远点<a class="anchor" href="#14-%e6%97%a0%e7%a9%b7%e8%bf%9c%e7%82%b9">#</a></h3>
-<ul>
-<li><strong>Riemann 球面映射</strong>：通过复数球面（Riemann 球面）建立扩充复平面与球面上点之间的一一对应关系，使无穷远点有了直观的几何表示。</li>
-<li><strong>无穷远点转换法则</strong>：利用映射 $z=1/t$，可以将 $z=\infty$ 的性质研究转化为 $t=0$ 点的性质研究。</li>
-</ul>
-<h3 id="15-正十七边形的尺规作图问题">§1.5 正十七边形的尺规作图问题<a class="anchor" href="#15-%e6%ad%a3%e5%8d%81%e4%b8%83%e8%be%b9%e5%bd%a2%e7%9a%84%e5%b0%ba%e8%a7%84%e4%bd%9c%e5%9b%be%e9%97%ae%e9%a2%98">#</a></h3>
-<ul>
-<li><strong>代数可作图性</strong>：该节证明了正十七边形的边长可以通过有限次加、减、乘、除和开平方运算（平方根）得出，从而证明其可以由圆规和直尺作出。</li>
+<li>definition</li>
+<li>formula</li>
+<li>theorem</li>
 </ul>
 </article>
  
@@ -916,8 +1973,8 @@ https://github.com/alex-shpak/hugo-book
     </span>
     <span>
     
-      <a href="/my_book/docs/physics/methods/ch2/" class="flex align-center">
-        <span>ch2_解析函数</span>
+      <a href="/my_book/docs/physics/methods/ch1/definition/" class="flex align-center">
+        <span>definition</span>
         <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
       </a>
     
@@ -952,22 +2009,7 @@ https://github.com/alex-shpak/hugo-book
     <div class="book-toc-content">
       
   
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#一-复数及其运算">一、 复数及其运算</a></li>
-        <li><a href="#二-复数的表示形式">二、 复数的表示形式</a></li>
-        <li><a href="#三-复数序列与极限">三、 复数序列与极限</a></li>
-        <li><a href="#11-预备知识复数与复数运算">§1.1 预备知识：复数与复数运算</a></li>
-        <li><a href="#12-复数序列">§1.2 复数序列</a></li>
-        <li><a href="#13-复变函数">§1.3 复变函数</a></li>
-        <li><a href="#14-无穷远点">§1.4 无穷远点</a></li>
-        <li><a href="#15-正十七边形的尺规作图问题">§1.5 正十七边形的尺规作图问题</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
 

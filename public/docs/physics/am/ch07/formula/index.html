@@ -1,0 +1,2136 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据第七章“分析力学的变分原理”的内容，现将其主要内容、定义（按 7.1.1 形式）及公式（按原文序号）整理如下：
+一、 主要内容概述#本章主要介绍分析力学的两个基本变分原理：微分变分原理（虚功原理）和积分变分原理（哈密顿原理）。内容从约束的分类和广义坐标开始，引入虚位移、虚功及理想约束的概念，随后导出平衡问题的虚功原理及动力学问题的哈密顿原理，并介绍了变分法的基本工具（欧拉方程）。
+二、 定义整理#定义 7.1.1 约束：由约束物体预先给定的对力学系统运动的限制。 定义 7.1.2 约束方程：表示约束条件的数学方程。 定义 7.1.3 完整约束：约束方程仅含质点坐标和时间的约束。 定义 7.1.4 非完整约束：包含速度项且不能通过积分转化为完整约束的约束。 定义 7.1.5 定常约束：约束方程中不显含时间的约束。 定义 7.1.6 非定常约束：约束方程中显含时间的约束。 定义 7.1.7 双侧约束：用等式表示的约束。 定义 7.1.8 单侧约束：用不等式表示的约束。 定义 7.1.9 自由度：确定完整系系统位置所需的独立坐标数目，常用 \( s \) 表示。 定义 7.1.10 广义坐标：在给定约束条件下用来确定力学系统的一组独立变量。 定义 7.1.11 广义速度：广义坐标对时间的导数 \( \dot{q}_\alpha \)。 定义 7.2.1 实位移：质点在时间 \( dt \) 内真实发生的、由真实运动产生的位移。 定义 7.2.2 虚位移：质点在满足当时约束条件下一切可能的无限小位移。 定义 7.2.3 虚功：作用在质点上的力 \( \mathbf{F} \) 与质点任一虚位移 \( \delta\mathbf{r} \) 的标积。 定义 7.2.4 广义力：与广义坐标 \( q_\alpha \) 对应的物理量 \( Q_\alpha \)，表征主动力在虚位移上的功。 定义 7.2.5 理想约束：作用于力学系统的所有约束力在任意虚位移上的虚功之和为零的约束。 定义 7.3.1 虚功原理：受有理想约束、定常约束的力学系统保持静止平衡的必要充分条件是作用于系统的全部主动力的虚功之和为零。 定义 7.3.2 不定乘子：在解决带约束平衡问题时引入的待定常数 \( \lambda_\mu \)。 定义 7.4.1 函数的变分：由函数形式变化引起的函数的微变量，记作 \( \delta y \)。 定义 7.4.2 等时变分：在时间不变的情况下进行的变分运算。 定义 7.4.3 泛函：由一个或一组函数确定的量，其值取决于函数的整个形式。 定义 7.4.4 位形空间：由 \( s \) 个广义坐标组成的 \( s \) 维空间。 定义 7.4.5 作用量：拉格朗日函数在时间区间上的积分 \( S = \int_{t_0}^{t_1} L dt \)。 定义 7.4.6 拉格朗日函数：力学系统的动能与势能之差 \( L = T - V \)。 定义 7.4.7 哈密顿原理：受完整约束的有势系，在位形空间中，真实运动使作用量取极值。 三、 公式整理#§7-1 约束与广义坐标#(7.1.1) 约束方程：\( f(x_i, y_i, z_i, \dot{x}_i, \dot{y}_i, \dot{z}_i, t) = 0 \) (7.1.8) 完整约束：\( f(x_i, y_i, z_i, t) = 0 \) (7.1.15) 自由度计算：\( s = 3n - k \) (7.1.16) 坐标变换方程：\( x_i = x_i(q_1, q_2, \dots, q_s, t) \) 等 §7-2 虚位移与虚功#(7.2.6) 虚位移矢量：\( \delta \mathbf{r} = \delta x \mathbf{i} &#43; \delta y \mathbf{j} &#43; \delta z \mathbf{k} \) (7.2.9) 虚位移约束条件：\( \nabla f \cdot \delta \mathbf{r} = 0 \) (7.2.11) 虚功定义：\( \delta W = \mathbf{F} \cdot \delta \mathbf{r} \) (7.2.16) 广义力定义：\( Q_\alpha = \sum_{i=1}^n \mathbf{F}_i \cdot \frac {\partial \mathbf{r}_i} {\partial q_a}\) (7.2.17) 虚功的广义力表示：\( \delta W = \sum_{\alpha=1}^s Q_\alpha \delta q_\alpha \) (7.2.22) 有势系广义力：\( Q_\alpha = -\frac{\partial V}{\partial q_\alpha} \) (7.2.23) 理想约束条件：\( \sum_{i=1}^n \mathbf{F}_{Ri} \cdot \delta \mathbf{r}_i = 0 \) §7-3 虚功原理#(7.3.1) 虚功原理数学形式：\( \sum_{i=1}^n \mathbf{F}_i \cdot \delta \mathbf{r}_i = 0 \) (7.3.15) 广义平衡方程：\( Q_\alpha = 0, \alpha = 1, 2, \dots, s \) (7.3.18) 有势系平衡条件：\( \delta V = 0 \) (7.3.24) 带约束的平衡方程（不定乘子法）：\( F_{ix} &#43; \sum_{\mu=1}^k \lambda_\mu \frac{\partial f_\mu}{\partial x_i} = 0 \) 等 (7.3.27) 约束力的乘子表示：\( F_{Rix} = \sum_{\mu=1}^k \lambda_\mu \frac{\partial f_\mu}{\partial x_i} \) (7.3.29) 约束力方向：\( \mathbf{F}_R = \lambda \nabla f \) §7-4 哈密顿原理与变分法#(7.4.2) 函数变分：\( \delta y = \epsilon \eta(x) \) (7.4.10) 变分与微分交换：\( \delta(dq) = d(\delta q) \) (7.4.11) 变分与求导交换：\( \delta(\frac{dq}{dt}) = \frac{d}{dt}(\delta q) \) (7.4.14) 泛函形式：\( J = \int_{x_0}^{x_1} F[y(x), y’(x), x] dx \) (7.4.26) 欧拉方程：\( \frac{\partial F}{\partial y} - \frac{d}{dx} \frac{\partial F}{\partial y’} = 0 \) (7.4.28) 作用量定义：\( S = \int_{t_0}^{t_1} L(q_\alpha, \dot{q}_\alpha, t) dt \) (7.4.30) 哈密顿原理：\( \delta S = \delta \int_{t_0}^{t_1} L(q_\alpha, \dot{q}_\alpha, t) dt = 0 \) (7.4.31) 一般完整系的哈密顿原理：\( \int_{t_0}^{t_1} (\delta T &#43; \sum_{\alpha=1}^s Q_\alpha \delta q_\alpha) dt = 0 \) ">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/physics/am/ch07/formula/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="formula">
+	<meta property="og:description" content="\[ \] 根据第七章“分析力学的变分原理”的内容，现将其主要内容、定义（按 7.1.1 形式）及公式（按原文序号）整理如下：
+一、 主要内容概述#本章主要介绍分析力学的两个基本变分原理：微分变分原理（虚功原理）和积分变分原理（哈密顿原理）。内容从约束的分类和广义坐标开始，引入虚位移、虚功及理想约束的概念，随后导出平衡问题的虚功原理及动力学问题的哈密顿原理，并介绍了变分法的基本工具（欧拉方程）。
+二、 定义整理#定义 7.1.1 约束：由约束物体预先给定的对力学系统运动的限制。 定义 7.1.2 约束方程：表示约束条件的数学方程。 定义 7.1.3 完整约束：约束方程仅含质点坐标和时间的约束。 定义 7.1.4 非完整约束：包含速度项且不能通过积分转化为完整约束的约束。 定义 7.1.5 定常约束：约束方程中不显含时间的约束。 定义 7.1.6 非定常约束：约束方程中显含时间的约束。 定义 7.1.7 双侧约束：用等式表示的约束。 定义 7.1.8 单侧约束：用不等式表示的约束。 定义 7.1.9 自由度：确定完整系系统位置所需的独立坐标数目，常用 \( s \) 表示。 定义 7.1.10 广义坐标：在给定约束条件下用来确定力学系统的一组独立变量。 定义 7.1.11 广义速度：广义坐标对时间的导数 \( \dot{q}_\alpha \)。 定义 7.2.1 实位移：质点在时间 \( dt \) 内真实发生的、由真实运动产生的位移。 定义 7.2.2 虚位移：质点在满足当时约束条件下一切可能的无限小位移。 定义 7.2.3 虚功：作用在质点上的力 \( \mathbf{F} \) 与质点任一虚位移 \( \delta\mathbf{r} \) 的标积。 定义 7.2.4 广义力：与广义坐标 \( q_\alpha \) 对应的物理量 \( Q_\alpha \)，表征主动力在虚位移上的功。 定义 7.2.5 理想约束：作用于力学系统的所有约束力在任意虚位移上的虚功之和为零的约束。 定义 7.3.1 虚功原理：受有理想约束、定常约束的力学系统保持静止平衡的必要充分条件是作用于系统的全部主动力的虚功之和为零。 定义 7.3.2 不定乘子：在解决带约束平衡问题时引入的待定常数 \( \lambda_\mu \)。 定义 7.4.1 函数的变分：由函数形式变化引起的函数的微变量，记作 \( \delta y \)。 定义 7.4.2 等时变分：在时间不变的情况下进行的变分运算。 定义 7.4.3 泛函：由一个或一组函数确定的量，其值取决于函数的整个形式。 定义 7.4.4 位形空间：由 \( s \) 个广义坐标组成的 \( s \) 维空间。 定义 7.4.5 作用量：拉格朗日函数在时间区间上的积分 \( S = \int_{t_0}^{t_1} L dt \)。 定义 7.4.6 拉格朗日函数：力学系统的动能与势能之差 \( L = T - V \)。 定义 7.4.7 哈密顿原理：受完整约束的有势系，在位形空间中，真实运动使作用量取极值。 三、 公式整理#§7-1 约束与广义坐标#(7.1.1) 约束方程：\( f(x_i, y_i, z_i, \dot{x}_i, \dot{y}_i, \dot{z}_i, t) = 0 \) (7.1.8) 完整约束：\( f(x_i, y_i, z_i, t) = 0 \) (7.1.15) 自由度计算：\( s = 3n - k \) (7.1.16) 坐标变换方程：\( x_i = x_i(q_1, q_2, \dots, q_s, t) \) 等 §7-2 虚位移与虚功#(7.2.6) 虚位移矢量：\( \delta \mathbf{r} = \delta x \mathbf{i} &#43; \delta y \mathbf{j} &#43; \delta z \mathbf{k} \) (7.2.9) 虚位移约束条件：\( \nabla f \cdot \delta \mathbf{r} = 0 \) (7.2.11) 虚功定义：\( \delta W = \mathbf{F} \cdot \delta \mathbf{r} \) (7.2.16) 广义力定义：\( Q_\alpha = \sum_{i=1}^n \mathbf{F}_i \cdot \frac {\partial \mathbf{r}_i} {\partial q_a}\) (7.2.17) 虚功的广义力表示：\( \delta W = \sum_{\alpha=1}^s Q_\alpha \delta q_\alpha \) (7.2.22) 有势系广义力：\( Q_\alpha = -\frac{\partial V}{\partial q_\alpha} \) (7.2.23) 理想约束条件：\( \sum_{i=1}^n \mathbf{F}_{Ri} \cdot \delta \mathbf{r}_i = 0 \) §7-3 虚功原理#(7.3.1) 虚功原理数学形式：\( \sum_{i=1}^n \mathbf{F}_i \cdot \delta \mathbf{r}_i = 0 \) (7.3.15) 广义平衡方程：\( Q_\alpha = 0, \alpha = 1, 2, \dots, s \) (7.3.18) 有势系平衡条件：\( \delta V = 0 \) (7.3.24) 带约束的平衡方程（不定乘子法）：\( F_{ix} &#43; \sum_{\mu=1}^k \lambda_\mu \frac{\partial f_\mu}{\partial x_i} = 0 \) 等 (7.3.27) 约束力的乘子表示：\( F_{Rix} = \sum_{\mu=1}^k \lambda_\mu \frac{\partial f_\mu}{\partial x_i} \) (7.3.29) 约束力方向：\( \mathbf{F}_R = \lambda \nabla f \) §7-4 哈密顿原理与变分法#(7.4.2) 函数变分：\( \delta y = \epsilon \eta(x) \) (7.4.10) 变分与微分交换：\( \delta(dq) = d(\delta q) \) (7.4.11) 变分与求导交换：\( \delta(\frac{dq}{dt}) = \frac{d}{dt}(\delta q) \) (7.4.14) 泛函形式：\( J = \int_{x_0}^{x_1} F[y(x), y’(x), x] dx \) (7.4.26) 欧拉方程：\( \frac{\partial F}{\partial y} - \frac{d}{dx} \frac{\partial F}{\partial y’} = 0 \) (7.4.28) 作用量定义：\( S = \int_{t_0}^{t_1} L(q_\alpha, \dot{q}_\alpha, t) dt \) (7.4.30) 哈密顿原理：\( \delta S = \delta \int_{t_0}^{t_1} L(q_\alpha, \dot{q}_\alpha, t) dt = 0 \) (7.4.31) 一般完整系的哈密顿原理：\( \int_{t_0}^{t_1} (\delta T &#43; \sum_{\alpha=1}^s Q_\alpha \delta q_\alpha) dt = 0 \)">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="formula">
+	<meta itemprop="description" content="\[ \] 根据第七章“分析力学的变分原理”的内容，现将其主要内容、定义（按 7.1.1 形式）及公式（按原文序号）整理如下：
+一、 主要内容概述#本章主要介绍分析力学的两个基本变分原理：微分变分原理（虚功原理）和积分变分原理（哈密顿原理）。内容从约束的分类和广义坐标开始，引入虚位移、虚功及理想约束的概念，随后导出平衡问题的虚功原理及动力学问题的哈密顿原理，并介绍了变分法的基本工具（欧拉方程）。
+二、 定义整理#定义 7.1.1 约束：由约束物体预先给定的对力学系统运动的限制。 定义 7.1.2 约束方程：表示约束条件的数学方程。 定义 7.1.3 完整约束：约束方程仅含质点坐标和时间的约束。 定义 7.1.4 非完整约束：包含速度项且不能通过积分转化为完整约束的约束。 定义 7.1.5 定常约束：约束方程中不显含时间的约束。 定义 7.1.6 非定常约束：约束方程中显含时间的约束。 定义 7.1.7 双侧约束：用等式表示的约束。 定义 7.1.8 单侧约束：用不等式表示的约束。 定义 7.1.9 自由度：确定完整系系统位置所需的独立坐标数目，常用 \( s \) 表示。 定义 7.1.10 广义坐标：在给定约束条件下用来确定力学系统的一组独立变量。 定义 7.1.11 广义速度：广义坐标对时间的导数 \( \dot{q}_\alpha \)。 定义 7.2.1 实位移：质点在时间 \( dt \) 内真实发生的、由真实运动产生的位移。 定义 7.2.2 虚位移：质点在满足当时约束条件下一切可能的无限小位移。 定义 7.2.3 虚功：作用在质点上的力 \( \mathbf{F} \) 与质点任一虚位移 \( \delta\mathbf{r} \) 的标积。 定义 7.2.4 广义力：与广义坐标 \( q_\alpha \) 对应的物理量 \( Q_\alpha \)，表征主动力在虚位移上的功。 定义 7.2.5 理想约束：作用于力学系统的所有约束力在任意虚位移上的虚功之和为零的约束。 定义 7.3.1 虚功原理：受有理想约束、定常约束的力学系统保持静止平衡的必要充分条件是作用于系统的全部主动力的虚功之和为零。 定义 7.3.2 不定乘子：在解决带约束平衡问题时引入的待定常数 \( \lambda_\mu \)。 定义 7.4.1 函数的变分：由函数形式变化引起的函数的微变量，记作 \( \delta y \)。 定义 7.4.2 等时变分：在时间不变的情况下进行的变分运算。 定义 7.4.3 泛函：由一个或一组函数确定的量，其值取决于函数的整个形式。 定义 7.4.4 位形空间：由 \( s \) 个广义坐标组成的 \( s \) 维空间。 定义 7.4.5 作用量：拉格朗日函数在时间区间上的积分 \( S = \int_{t_0}^{t_1} L dt \)。 定义 7.4.6 拉格朗日函数：力学系统的动能与势能之差 \( L = T - V \)。 定义 7.4.7 哈密顿原理：受完整约束的有势系，在位形空间中，真实运动使作用量取极值。 三、 公式整理#§7-1 约束与广义坐标#(7.1.1) 约束方程：\( f(x_i, y_i, z_i, \dot{x}_i, \dot{y}_i, \dot{z}_i, t) = 0 \) (7.1.8) 完整约束：\( f(x_i, y_i, z_i, t) = 0 \) (7.1.15) 自由度计算：\( s = 3n - k \) (7.1.16) 坐标变换方程：\( x_i = x_i(q_1, q_2, \dots, q_s, t) \) 等 §7-2 虚位移与虚功#(7.2.6) 虚位移矢量：\( \delta \mathbf{r} = \delta x \mathbf{i} &#43; \delta y \mathbf{j} &#43; \delta z \mathbf{k} \) (7.2.9) 虚位移约束条件：\( \nabla f \cdot \delta \mathbf{r} = 0 \) (7.2.11) 虚功定义：\( \delta W = \mathbf{F} \cdot \delta \mathbf{r} \) (7.2.16) 广义力定义：\( Q_\alpha = \sum_{i=1}^n \mathbf{F}_i \cdot \frac {\partial \mathbf{r}_i} {\partial q_a}\) (7.2.17) 虚功的广义力表示：\( \delta W = \sum_{\alpha=1}^s Q_\alpha \delta q_\alpha \) (7.2.22) 有势系广义力：\( Q_\alpha = -\frac{\partial V}{\partial q_\alpha} \) (7.2.23) 理想约束条件：\( \sum_{i=1}^n \mathbf{F}_{Ri} \cdot \delta \mathbf{r}_i = 0 \) §7-3 虚功原理#(7.3.1) 虚功原理数学形式：\( \sum_{i=1}^n \mathbf{F}_i \cdot \delta \mathbf{r}_i = 0 \) (7.3.15) 广义平衡方程：\( Q_\alpha = 0, \alpha = 1, 2, \dots, s \) (7.3.18) 有势系平衡条件：\( \delta V = 0 \) (7.3.24) 带约束的平衡方程（不定乘子法）：\( F_{ix} &#43; \sum_{\mu=1}^k \lambda_\mu \frac{\partial f_\mu}{\partial x_i} = 0 \) 等 (7.3.27) 约束力的乘子表示：\( F_{Rix} = \sum_{\mu=1}^k \lambda_\mu \frac{\partial f_\mu}{\partial x_i} \) (7.3.29) 约束力方向：\( \mathbf{F}_R = \lambda \nabla f \) §7-4 哈密顿原理与变分法#(7.4.2) 函数变分：\( \delta y = \epsilon \eta(x) \) (7.4.10) 变分与微分交换：\( \delta(dq) = d(\delta q) \) (7.4.11) 变分与求导交换：\( \delta(\frac{dq}{dt}) = \frac{d}{dt}(\delta q) \) (7.4.14) 泛函形式：\( J = \int_{x_0}^{x_1} F[y(x), y’(x), x] dx \) (7.4.26) 欧拉方程：\( \frac{\partial F}{\partial y} - \frac{d}{dx} \frac{\partial F}{\partial y’} = 0 \) (7.4.28) 作用量定义：\( S = \int_{t_0}^{t_1} L(q_\alpha, \dot{q}_\alpha, t) dt \) (7.4.30) 哈密顿原理：\( \delta S = \delta \int_{t_0}^{t_1} L(q_\alpha, \dot{q}_\alpha, t) dt = 0 \) (7.4.31) 一般完整系的哈密顿原理：\( \int_{t_0}^{t_1} (\delta T &#43; \sum_{\alpha=1}^s Q_\alpha \delta q_\alpha) dt = 0 \)">
+	<meta itemprop="wordCount" content="410">
+
+<title>formula • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/physics/am/ch07/formula/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.7e9558efe8aad80d522f1298b7d0c413e863d7ce15ab4e52f38aba3dc55849c8.js" integrity="sha256-fpVY7&#43;iq2A1SLxKYt9DEE&#43;hj184Vq05S84q6PcVYScg=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-abba9f480fc1b6dc0f169df3792fa60b" class="toggle"  />
+    <label for="section-abba9f480fc1b6dc0f169df3792fa60b" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3eadb64dade55467a37e3d8684debcbe" class="toggle"  />
+    <label for="section-3eadb64dade55467a37e3d8684debcbe" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-65eae293ed0098a0a36bdb2eb03d0d66" class="toggle"  />
+    <label for="section-65eae293ed0098a0a36bdb2eb03d0d66" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/" class="">
+        ch07 数项级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e326582fcb1d25ace94559825e37e78a" class="toggle"  />
+    <label for="section-e326582fcb1d25ace94559825e37e78a" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-092bf523737bea57e903ccfe2bcbceb0" class="toggle"  />
+    <label for="section-092bf523737bea57e903ccfe2bcbceb0" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0a8d861cd4176c22af4abdab3e8393f3" class="toggle"  />
+    <label for="section-0a8d861cd4176c22af4abdab3e8393f3" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-701bbb3362074de7a18b4e5941c35e80" class="toggle"  />
+    <label for="section-701bbb3362074de7a18b4e5941c35e80" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/" class="">
+        ch08 函数项级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f7eac4a4ad148c1436105f796711db23" class="toggle"  />
+    <label for="section-f7eac4a4ad148c1436105f796711db23" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6612181ffbe56683ffb0c6c8eb9e30e2" class="toggle"  />
+    <label for="section-6612181ffbe56683ffb0c6c8eb9e30e2" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ff6dbf3ba8565fbb1c2728f0c81dfd15" class="toggle"  />
+    <label for="section-ff6dbf3ba8565fbb1c2728f0c81dfd15" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-86b3f804a71bdd5c9dbdaa65cff2c870" class="toggle"  />
+    <label for="section-86b3f804a71bdd5c9dbdaa65cff2c870" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/" class="">
+        ch09 Fourier 分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1d04d935e6074b1669499d56fdc09e12" class="toggle"  />
+    <label for="section-1d04d935e6074b1669499d56fdc09e12" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a20297977a1e58717a639ae306c6c693" class="toggle"  />
+    <label for="section-a20297977a1e58717a639ae306c6c693" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-13c09c9bc58e29a8a78b87dac121f479" class="toggle"  />
+    <label for="section-13c09c9bc58e29a8a78b87dac121f479" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b3c49a81b4ab9113a87657d137048e67" class="toggle"  />
+    <label for="section-b3c49a81b4ab9113a87657d137048e67" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/" class="">
+        ch10_度量空间和连续映射</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-26d0aec27328b83fb6f555a46a562ae1" class="toggle"  />
+    <label for="section-26d0aec27328b83fb6f555a46a562ae1" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-73bd758025cc0077778e966e1a69e66c" class="toggle"  />
+    <label for="section-73bd758025cc0077778e966e1a69e66c" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9f38fb7284cc7aa1fe9bfecc70455df7" class="toggle"  />
+    <label for="section-9f38fb7284cc7aa1fe9bfecc70455df7" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f53ea5b7f823f7c2adc420f276ae16ce" class="toggle"  />
+    <label for="section-f53ea5b7f823f7c2adc420f276ae16ce" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a48432f5aa3322a4d27d98a4bb888c94" class="toggle"  />
+    <label for="section-a48432f5aa3322a4d27d98a4bb888c94" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4cfa8f007098347bcead24699e734134" class="toggle"  />
+    <label for="section-4cfa8f007098347bcead24699e734134" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-755e8b1e80b5b232c4bcd14fb421bb36" class="toggle"  />
+    <label for="section-755e8b1e80b5b232c4bcd14fb421bb36" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c1ffeeb174102a68430b2e84c0806fed" class="toggle"  />
+    <label for="section-c1ffeeb174102a68430b2e84c0806fed" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b185b95fdb22770a6fa3ad4a714fc998" class="toggle"  />
+    <label for="section-b185b95fdb22770a6fa3ad4a714fc998" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e79cab41e3509b0dcb9d784a5a57b73a" class="toggle"  />
+    <label for="section-e79cab41e3509b0dcb9d784a5a57b73a" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0bedb42fbccdbbbfd30b0fa271a78366" class="toggle"  />
+    <label for="section-0bedb42fbccdbbbfd30b0fa271a78366" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-267008b386e6253c3596df6bcf8c1117" class="toggle"  />
+    <label for="section-267008b386e6253c3596df6bcf8c1117" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-487fcbc3efa9888c2fb2aef2ce9d6613" class="toggle"  />
+    <label for="section-487fcbc3efa9888c2fb2aef2ce9d6613" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-27c6a9a766be819b9f395648a0fe57a2" class="toggle"  />
+    <label for="section-27c6a9a766be819b9f395648a0fe57a2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-aec0fd22078e90437f3d050d671214b8" class="toggle"  />
+    <label for="section-aec0fd22078e90437f3d050d671214b8" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7b12739449f11ae0771259ae3c8cb893" class="toggle"  />
+    <label for="section-7b12739449f11ae0771259ae3c8cb893" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/" class="">
+        ch14_微分形式的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3347a10040f7435f706abd75013db5c1" class="toggle"  />
+    <label for="section-3347a10040f7435f706abd75013db5c1" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c77249cdb1eb6ab99cb7e97696a9a575" class="toggle"  />
+    <label for="section-c77249cdb1eb6ab99cb7e97696a9a575" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-695007eb17d3fefd4381d35030bc67e3" class="toggle"  />
+    <label for="section-695007eb17d3fefd4381d35030bc67e3" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d4e07a5c17e48144aaef57dcb8380aea" class="toggle"  />
+    <label for="section-d4e07a5c17e48144aaef57dcb8380aea" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/" class="">
+        ch15_含参变量的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-29fe5c5c1a392acf5228ab94e6ec41eb" class="toggle"  />
+    <label for="section-29fe5c5c1a392acf5228ab94e6ec41eb" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0d086c59106e09f7712f77b04265f298" class="toggle"  />
+    <label for="section-0d086c59106e09f7712f77b04265f298" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-84b8b9cf32f30aaf6b31ff2413a2d250" class="toggle"  />
+    <label for="section-84b8b9cf32f30aaf6b31ff2413a2d250" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-334223b3b68ccc51d5b9d492351e42d4" class="toggle"  />
+    <label for="section-334223b3b68ccc51d5b9d492351e42d4" class="flex">
+      <a href="/my_book/docs/math/la/" class="">
+        高等代数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-370e196551ce18290adc72b6d9799f60" class="toggle"  />
+    <label for="section-370e196551ce18290adc72b6d9799f60" class="flex">
+      <a href="/my_book/docs/math/la/ch6/" class="">
+        ch06 线性空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0e0d25242591f8571fe404d8bcff5874" class="toggle"  />
+    <label for="section-0e0d25242591f8571fe404d8bcff5874" class="flex">
+      <a href="/my_book/docs/math/la/ch6/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9c4046dbe8cad9f987545b7dab44642f" class="toggle"  />
+    <label for="section-9c4046dbe8cad9f987545b7dab44642f" class="flex">
+      <a href="/my_book/docs/math/la/ch6/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b56ccd2781b1a8ad929731229b5b73af" class="toggle"  />
+    <label for="section-b56ccd2781b1a8ad929731229b5b73af" class="flex">
+      <a href="/my_book/docs/math/la/ch6/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cb17bb85ffcb66078f56805cf1c637b0" class="toggle"  />
+    <label for="section-cb17bb85ffcb66078f56805cf1c637b0" class="flex">
+      <a href="/my_book/docs/math/la/ch7/" class="">
+        ch07 线性变换</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cc024f6232304022ca1bf992cd31edfb" class="toggle"  />
+    <label for="section-cc024f6232304022ca1bf992cd31edfb" class="flex">
+      <a href="/my_book/docs/math/la/ch7/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-434edec3941553c6aef7031ec74ddf28" class="toggle"  />
+    <label for="section-434edec3941553c6aef7031ec74ddf28" class="flex">
+      <a href="/my_book/docs/math/la/ch7/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-12fcacd2c1ef0c8ab71838e6b58580ee" class="toggle"  />
+    <label for="section-12fcacd2c1ef0c8ab71838e6b58580ee" class="flex">
+      <a href="/my_book/docs/math/la/ch7/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-65593a2601be6e9beb9bbb22d4430ee9" class="toggle"  />
+    <label for="section-65593a2601be6e9beb9bbb22d4430ee9" class="flex">
+      <a href="/my_book/docs/math/la/ch8/" class="">
+        ch08 lambda-矩阵</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-56fcf46c4f0e8360adc34c9ad62dc8a7" class="toggle"  />
+    <label for="section-56fcf46c4f0e8360adc34c9ad62dc8a7" class="flex">
+      <a href="/my_book/docs/math/la/ch8/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b072e4f88ca20eff52acac16fd801d90" class="toggle"  />
+    <label for="section-b072e4f88ca20eff52acac16fd801d90" class="flex">
+      <a href="/my_book/docs/math/la/ch8/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c70d0989350bdbca830f36d94b03bc92" class="toggle"  />
+    <label for="section-c70d0989350bdbca830f36d94b03bc92" class="flex">
+      <a href="/my_book/docs/math/la/ch8/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e36dc7c48581b2c180b5c52d3914af26" class="toggle"  />
+    <label for="section-e36dc7c48581b2c180b5c52d3914af26" class="flex">
+      <a href="/my_book/docs/math/la/ch9/" class="">
+        ch09 欧几里得空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-489b83891f8cc3e65faa81af65044b0d" class="toggle"  />
+    <label for="section-489b83891f8cc3e65faa81af65044b0d" class="flex">
+      <a href="/my_book/docs/math/la/ch9/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-042e2f17a7db91c58191ee50972e0728" class="toggle"  />
+    <label for="section-042e2f17a7db91c58191ee50972e0728" class="flex">
+      <a href="/my_book/docs/math/la/ch9/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5b44f217aa3c6bf82186723ce6122ad0" class="toggle"  />
+    <label for="section-5b44f217aa3c6bf82186723ce6122ad0" class="flex">
+      <a href="/my_book/docs/math/la/ch9/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f9978e2571c1ce834e2f5d46ebf5e5c0" class="toggle"  />
+    <label for="section-f9978e2571c1ce834e2f5d46ebf5e5c0" class="flex">
+      <a href="/my_book/docs/math/la/ch10/" class="">
+        ch10 双线性函数与辛空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cfe65af68c1d99a1b8c8b2d7c49abf45" class="toggle"  />
+    <label for="section-cfe65af68c1d99a1b8c8b2d7c49abf45" class="flex">
+      <a href="/my_book/docs/math/la/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-61c5621f7059acbc1549d88eefb5ba5f" class="toggle"  />
+    <label for="section-61c5621f7059acbc1549d88eefb5ba5f" class="flex">
+      <a href="/my_book/docs/math/la/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0ca318ed2599c788ab3bf697d64a21c" class="toggle"  />
+    <label for="section-e0ca318ed2599c788ab3bf697d64a21c" class="flex">
+      <a href="/my_book/docs/math/la/ch10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-af5f24f7ea343745d3308f7b02249857" class="toggle" checked />
+    <label for="section-af5f24f7ea343745d3308f7b02249857" class="flex">
+      <a href="/my_book/docs/physics/" class="">
+        物理</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-80a413dfb7ccb4957b7087ca8a5551bd" class="toggle" checked />
+    <label for="section-80a413dfb7ccb4957b7087ca8a5551bd" class="flex">
+      <a href="/my_book/docs/physics/am/" class="">
+        分析力学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ee4d2df8ada2ebc6b2618d5fcbf61289" class="toggle" checked />
+    <label for="section-ee4d2df8ada2ebc6b2618d5fcbf61289" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/" class="">
+        ch07-分析力学的变分原理</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-74ec16f28023c23aff237bab823da58b" class="toggle"  />
+    <label for="section-74ec16f28023c23aff237bab823da58b" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4a378a0ff19f9a4c9c6a2f3385d3bc1b" class="toggle" checked />
+    <label for="section-4a378a0ff19f9a4c9c6a2f3385d3bc1b" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/formula/" class="active">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-503d02e19826cfda15931aa988bb527c" class="toggle"  />
+    <label for="section-503d02e19826cfda15931aa988bb527c" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b4f80ca19e797955d6641051a8620329" class="toggle"  />
+    <label for="section-b4f80ca19e797955d6641051a8620329" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/" class="">
+        ch08-拉格朗日动力学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-93929d0b0406cc706ddcbcd028725494" class="toggle"  />
+    <label for="section-93929d0b0406cc706ddcbcd028725494" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-12a68b338ca96f8a72293da021d3d89c" class="toggle"  />
+    <label for="section-12a68b338ca96f8a72293da021d3d89c" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d34e749654eb8e517a5e285656572590" class="toggle"  />
+    <label for="section-d34e749654eb8e517a5e285656572590" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e1d88db8053c00ffea2eafa97c17bb80" class="toggle"  />
+    <label for="section-e1d88db8053c00ffea2eafa97c17bb80" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/" class="">
+        ch09-正则方程</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-161b76531dddbcaa34780d1a0c821bc0" class="toggle"  />
+    <label for="section-161b76531dddbcaa34780d1a0c821bc0" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-131af9c9d810df6c06a78f645cdde43f" class="toggle"  />
+    <label for="section-131af9c9d810df6c06a78f645cdde43f" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1231aed5d9c426ac37a787673d1e0ab7" class="toggle"  />
+    <label for="section-1231aed5d9c426ac37a787673d1e0ab7" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3d28bd9e2366e4053084ce10512b9f68" class="toggle"  />
+    <label for="section-3d28bd9e2366e4053084ce10512b9f68" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e771b93f2555f51a2540074f81b14115" class="toggle"  />
+    <label for="section-e771b93f2555f51a2540074f81b14115" class="flex">
+      <a href="/my_book/docs/physics/methods/ch1/" class="">
+        ch01_复数和复变函数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d84671e3d1d6139f3bd24e77ce8a616b" class="toggle"  />
+    <label for="section-d84671e3d1d6139f3bd24e77ce8a616b" class="flex">
+      <a href="/my_book/docs/physics/methods/ch1/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7d8cc830cc40d7dd0d387b71aa4f1689" class="toggle"  />
+    <label for="section-7d8cc830cc40d7dd0d387b71aa4f1689" class="flex">
+      <a href="/my_book/docs/physics/methods/ch1/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-079401616d1156fa3ff83abb11eb71ca" class="toggle"  />
+    <label for="section-079401616d1156fa3ff83abb11eb71ca" class="flex">
+      <a href="/my_book/docs/physics/methods/ch1/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f261a99b56a42f2e8e692b7a6760b5eb" class="toggle"  />
+    <label for="section-f261a99b56a42f2e8e692b7a6760b5eb" class="flex">
+      <a href="/my_book/docs/physics/methods/ch2/" class="">
+        ch02_解析函数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e7017d55db177da759eace842977b9f" class="toggle"  />
+    <label for="section-9e7017d55db177da759eace842977b9f" class="flex">
+      <a href="/my_book/docs/physics/methods/ch2/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c2864d1ed395559d9a6b82640cc3a5a5" class="toggle"  />
+    <label for="section-c2864d1ed395559d9a6b82640cc3a5a5" class="flex">
+      <a href="/my_book/docs/physics/methods/ch2/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-936c344cc788277d6abc6219e2090b13" class="toggle"  />
+    <label for="section-936c344cc788277d6abc6219e2090b13" class="flex">
+      <a href="/my_book/docs/physics/methods/ch2/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1cbb48b9c85998f5666f16a24520357c" class="toggle"  />
+    <label for="section-1cbb48b9c85998f5666f16a24520357c" class="flex">
+      <a href="/my_book/docs/physics/methods/ch3/" class="">
+        ch03_复变积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-35211bd616f66c99ec87b9d0bd1b5302" class="toggle"  />
+    <label for="section-35211bd616f66c99ec87b9d0bd1b5302" class="flex">
+      <a href="/my_book/docs/physics/methods/ch3/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-51a87eca6d293f78d8e535136eac29b9" class="toggle"  />
+    <label for="section-51a87eca6d293f78d8e535136eac29b9" class="flex">
+      <a href="/my_book/docs/physics/methods/ch3/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-15f403d5dc3b69b0d153c618b6090442" class="toggle"  />
+    <label for="section-15f403d5dc3b69b0d153c618b6090442" class="flex">
+      <a href="/my_book/docs/physics/methods/ch3/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5eb26766587a11013a6eba77b5e5d636" class="toggle"  />
+    <label for="section-5eb26766587a11013a6eba77b5e5d636" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fdd26b761c105af4be4377fa5b58ac88" class="toggle"  />
+    <label for="section-fdd26b761c105af4be4377fa5b58ac88" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch05_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch05 学校教育</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch16_%E7%A4%BE%E4%BC%9A%E7%BB%8F%E6%B5%8E/" class="">
+      ch16 社会经济</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch20_%E8%A1%8C%E4%B8%BA%E5%8A%A8%E4%BD%9C/" class="">
+      ch20 行为动作</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8c3aca59a8015cfe8174d699bde68514" class="toggle"  />
+    <label for="section-8c3aca59a8015cfe8174d699bde68514" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>formula</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-主要内容概述">一、 主要内容概述</a></li>
+        <li><a href="#二-定义整理">二、 定义整理</a></li>
+        <li><a href="#三-公式整理">三、 公式整理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><p><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+根据第七章“分析力学的变分原理”的内容，现将其主要内容、定义（按 7.1.1 形式）及公式（按原文序号）整理如下：</p>
+<h3 id="一-主要内容概述">一、 主要内容概述<a class="anchor" href="#%e4%b8%80-%e4%b8%bb%e8%a6%81%e5%86%85%e5%ae%b9%e6%a6%82%e8%bf%b0">#</a></h3>
+<p>本章主要介绍分析力学的两个基本变分原理：<strong>微分变分原理（虚功原理）<strong>和</strong>积分变分原理（哈密顿原理）</strong>。内容从约束的分类和广义坐标开始，引入虚位移、虚功及理想约束的概念，随后导出平衡问题的虚功原理及动力学问题的哈密顿原理，并介绍了变分法的基本工具（欧拉方程）。</p>
+<hr>
+<h3 id="二-定义整理">二、 定义整理<a class="anchor" href="#%e4%ba%8c-%e5%ae%9a%e4%b9%89%e6%95%b4%e7%90%86">#</a></h3>
+<ul>
+<li><strong>定义 7.1.1 约束</strong>：由约束物体预先给定的对力学系统运动的限制。</li>
+<li><strong>定义 7.1.2 约束方程</strong>：表示约束条件的数学方程。</li>
+<li><strong>定义 7.1.3 完整约束</strong>：约束方程仅含质点坐标和时间的约束。</li>
+<li><strong>定义 7.1.4 非完整约束</strong>：包含速度项且不能通过积分转化为完整约束的约束。</li>
+<li><strong>定义 7.1.5 定常约束</strong>：约束方程中不显含时间的约束。</li>
+<li><strong>定义 7.1.6 非定常约束</strong>：约束方程中显含时间的约束。</li>
+<li><strong>定义 7.1.7 双侧约束</strong>：用等式表示的约束。</li>
+<li><strong>定义 7.1.8 单侧约束</strong>：用不等式表示的约束。</li>
+<li><strong>定义 7.1.9 自由度</strong>：确定完整系系统位置所需的独立坐标数目，常用 \( s \) 表示。</li>
+<li><strong>定义 7.1.10 广义坐标</strong>：在给定约束条件下用来确定力学系统的一组独立变量。</li>
+<li><strong>定义 7.1.11 广义速度</strong>：广义坐标对时间的导数 \( \dot{q}_\alpha \)。</li>
+<li><strong>定义 7.2.1 实位移</strong>：质点在时间 \( dt \) 内真实发生的、由真实运动产生的位移。</li>
+<li><strong>定义 7.2.2 虚位移</strong>：质点在满足当时约束条件下一切可能的无限小位移。</li>
+<li><strong>定义 7.2.3 虚功</strong>：作用在质点上的力 \( \mathbf{F} \) 与质点任一虚位移 \( \delta\mathbf{r} \) 的标积。</li>
+<li><strong>定义 7.2.4 广义力</strong>：与广义坐标 \( q_\alpha \) 对应的物理量 \( Q_\alpha \)，表征主动力在虚位移上的功。</li>
+<li><strong>定义 7.2.5 理想约束</strong>：作用于力学系统的所有约束力在任意虚位移上的虚功之和为零的约束。</li>
+<li><strong>定义 7.3.1 虚功原理</strong>：受有理想约束、定常约束的力学系统保持静止平衡的必要充分条件是作用于系统的全部主动力的虚功之和为零。</li>
+<li><strong>定义 7.3.2 不定乘子</strong>：在解决带约束平衡问题时引入的待定常数 \( \lambda_\mu \)。</li>
+<li><strong>定义 7.4.1 函数的变分</strong>：由函数形式变化引起的函数的微变量，记作 \( \delta y \)。</li>
+<li><strong>定义 7.4.2 等时变分</strong>：在时间不变的情况下进行的变分运算。</li>
+<li><strong>定义 7.4.3 泛函</strong>：由一个或一组函数确定的量，其值取决于函数的整个形式。</li>
+<li><strong>定义 7.4.4 位形空间</strong>：由 \( s \) 个广义坐标组成的 \( s \) 维空间。</li>
+<li><strong>定义 7.4.5 作用量</strong>：拉格朗日函数在时间区间上的积分 \( S = \int_{t_0}^{t_1} L dt \)。</li>
+<li><strong>定义 7.4.6 拉格朗日函数</strong>：力学系统的动能与势能之差 \( L = T - V \)。</li>
+<li><strong>定义 7.4.7 哈密顿原理</strong>：受完整约束的有势系，在位形空间中，真实运动使作用量取极值。</li>
+</ul>
+<hr>
+<h3 id="三-公式整理">三、 公式整理<a class="anchor" href="#%e4%b8%89-%e5%85%ac%e5%bc%8f%e6%95%b4%e7%90%86">#</a></h3>
+<h4 id="7-1-约束与广义坐标">§7-1 约束与广义坐标<a class="anchor" href="#7-1-%e7%ba%a6%e6%9d%9f%e4%b8%8e%e5%b9%bf%e4%b9%89%e5%9d%90%e6%a0%87">#</a></h4>
+<ul>
+<li><strong>(7.1.1)</strong> 约束方程：\( f(x_i, y_i, z_i, \dot{x}_i, \dot{y}_i, \dot{z}_i, t) = 0 \)</li>
+<li><strong>(7.1.8)</strong> 完整约束：\( f(x_i, y_i, z_i, t) = 0 \)</li>
+<li><strong>(7.1.15)</strong> 自由度计算：\( s = 3n - k \)</li>
+<li><strong>(7.1.16)</strong> 坐标变换方程：\( x_i = x_i(q_1, q_2, \dots, q_s, t) \) 等</li>
+</ul>
+<h4 id="7-2-虚位移与虚功">§7-2 虚位移与虚功<a class="anchor" href="#7-2-%e8%99%9a%e4%bd%8d%e7%a7%bb%e4%b8%8e%e8%99%9a%e5%8a%9f">#</a></h4>
+<ul>
+<li><strong>(7.2.6)</strong> 虚位移矢量：\( \delta \mathbf{r} = \delta x \mathbf{i} + \delta y \mathbf{j} + \delta z \mathbf{k} \)</li>
+<li><strong>(7.2.9)</strong> 虚位移约束条件：\( \nabla f \cdot \delta \mathbf{r} = 0 \)</li>
+<li><strong>(7.2.11)</strong> 虚功定义：\( \delta W = \mathbf{F} \cdot \delta \mathbf{r} \)</li>
+<li><strong>(7.2.16)</strong>  广义力定义：\( Q_\alpha = \sum_{i=1}^n \mathbf{F}_i \cdot \frac {\partial \mathbf{r}_i} {\partial q_a}\)</li>
+<li><strong>(7.2.17)</strong> 虚功的广义力表示：\( \delta W = \sum_{\alpha=1}^s Q_\alpha \delta q_\alpha \)</li>
+<li><strong>(7.2.22)</strong> 有势系广义力：\( Q_\alpha = -\frac{\partial V}{\partial q_\alpha} \)</li>
+<li><strong>(7.2.23)</strong> 理想约束条件：\( \sum_{i=1}^n \mathbf{F}_{Ri} \cdot \delta \mathbf{r}_i = 0 \)</li>
+</ul>
+<h4 id="7-3-虚功原理">§7-3 虚功原理<a class="anchor" href="#7-3-%e8%99%9a%e5%8a%9f%e5%8e%9f%e7%90%86">#</a></h4>
+<ul>
+<li><strong>(7.3.1)</strong> 虚功原理数学形式：\( \sum_{i=1}^n \mathbf{F}_i \cdot \delta \mathbf{r}_i = 0 \)</li>
+<li><strong>(7.3.15)</strong> 广义平衡方程：\( Q_\alpha = 0, \alpha = 1, 2, \dots, s \)</li>
+<li><strong>(7.3.18)</strong> 有势系平衡条件：\( \delta V = 0 \)</li>
+<li><strong>(7.3.24)</strong> 带约束的平衡方程（不定乘子法）：\( F_{ix} + \sum_{\mu=1}^k \lambda_\mu \frac{\partial f_\mu}{\partial x_i} = 0 \) 等</li>
+<li><strong>(7.3.27)</strong> 约束力的乘子表示：\( F_{Rix} = \sum_{\mu=1}^k \lambda_\mu \frac{\partial f_\mu}{\partial x_i} \)</li>
+<li><strong>(7.3.29)</strong> 约束力方向：\( \mathbf{F}_R = \lambda \nabla f \)</li>
+</ul>
+<h4 id="7-4-哈密顿原理与变分法">§7-4 哈密顿原理与变分法<a class="anchor" href="#7-4-%e5%93%88%e5%af%86%e9%a1%bf%e5%8e%9f%e7%90%86%e4%b8%8e%e5%8f%98%e5%88%86%e6%b3%95">#</a></h4>
+<ul>
+<li><strong>(7.4.2)</strong> 函数变分：\( \delta y = \epsilon \eta(x) \)</li>
+<li><strong>(7.4.10)</strong> 变分与微分交换：\( \delta(dq) = d(\delta q) \)</li>
+<li><strong>(7.4.11)</strong> 变分与求导交换：\( \delta(\frac{dq}{dt}) = \frac{d}{dt}(\delta q) \)</li>
+<li><strong>(7.4.14)</strong> 泛函形式：\( J = \int_{x_0}^{x_1} F[y(x), y&rsquo;(x), x] dx \)</li>
+<li><strong>(7.4.26)</strong> 欧拉方程：\( \frac{\partial F}{\partial y} - \frac{d}{dx} \frac{\partial F}{\partial y&rsquo;} = 0 \)</li>
+<li><strong>(7.4.28)</strong> 作用量定义：\( S = \int_{t_0}^{t_1} L(q_\alpha, \dot{q}_\alpha, t) dt \)</li>
+<li><strong>(7.4.30)</strong> 哈密顿原理：\( \delta S = \delta \int_{t_0}^{t_1} L(q_\alpha, \dot{q}_\alpha, t) dt = 0 \)</li>
+<li><strong>(7.4.31)</strong> 一般完整系的哈密顿原理：\( \int_{t_0}^{t_1} (\delta T + \sum_{\alpha=1}^s Q_\alpha \delta q_\alpha) dt = 0 \)</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/physics/am/ch07/definition/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>definition</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/physics/am/ch07/theorem/" class="flex align-center">
+        <span>theorem</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-主要内容概述">一、 主要内容概述</a></li>
+        <li><a href="#二-定义整理">二、 定义整理</a></li>
+        <li><a href="#三-公式整理">三、 公式整理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
