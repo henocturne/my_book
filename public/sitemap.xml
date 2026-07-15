@@ -8,7 +8,13 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch3/</loc>
   </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch04/</loc>
+  </url><url>
     <loc>http://localhost:1313/my_book/docs/english/vocab/ch05_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch05/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch06/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/la/ch6/</loc>
   </url><url>
@@ -84,6 +90,12 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/am/ch09/definition/</loc>
   </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch04/definition/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch05/definition/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch06/definition/</loc>
+  </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch1/definition/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch2/definition/</loc>
@@ -124,6 +136,12 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/am/ch09/formula/</loc>
   </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch04/formula/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch05/formula/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch06/formula/</loc>
+  </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch1/formula/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch2/formula/</loc>
@@ -163,6 +181,12 @@
     <loc>http://localhost:1313/my_book/docs/physics/am/ch08/theorem/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/am/ch09/theorem/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch04/theorem/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch05/theorem/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch06/theorem/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch1/theorem/</loc>
   </url><url>

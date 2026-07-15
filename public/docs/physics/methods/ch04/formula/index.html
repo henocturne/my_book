@@ -1,0 +1,2184 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 一、 主要内容总结#第四章《无穷级数》系统地讨论了复平面上级数与渐近展开的基础理论。
+复数级数：引入了复数项级数的收敛和绝对收敛概念。展示了如何将复级数转化为两个实级数，并介绍了正项级数的常用判别法（如比较、比值、Cauchy 及 Gauss 判别法）在复域中的应用。 二重级数：定义了方阵形式的二重级数及其部分和收敛性。深入讨论了求和顺序（逐行、逐列或按对角线求和）对级数最终和值及收敛性的重要影响。 函数级数与一致收敛：阐述了函数项级数的一致收敛性，给出了判定一致收敛的 Weierstrass M 判别法。重点讨论了一致收敛级数关于和函数的连续性、逐项积分和逐项求导（Weierstrass 定理）等性质。 幂级数：证明了 Abel 第一定理和第二定理。引入了收敛圆和收敛半径的概念，给出了确定收敛半径的 Cauchy-Hadamard 公式和 d’Alembert 公式。 含参量反常积分的解析性：将级数的解析性质推广至含参量无穷积分，给出了积分一致收敛条件下函数解析且可与求导交换次序的定理。 发散级数与渐近级数：探讨了发散级数（如 Stirling 级数）的计算价值，引入了“大 O”与“小 o”渐近数量级记号，给出了渐近级数的定义，并讨论了渐近幂级数的代数与微积分运算性质。 二、 定义整理（按照 4.x.x 形式）#定义 4.1.1（复数级数及其收敛性）：给定复数级数 \( \sum u_n = u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n &#43; \cdots \)。如果它的部分和序列 \( S_n = u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n \) 收敛，则称该级数收敛，极限值 \( S \) 称为级数的和；否则称级数发散。 定义 4.1.2（绝对收敛）：如果复数级数的各项取模后构成的正项级数 \( \sum |u_n| \) 收敛，则称级数 \( \sum u_n \) 绝对收敛。 定义 4.2.1（二重级数）：将项排列成右端和下端都是无限的方阵形式 \( \sum a_{kl} \)，其中第一个指标 \( k \) 表示行，第二个指标 \( l \) 表示列，称为二重级数。 定义 4.2.2（二重级数收敛）：若二重级数前 \( m \) 行 \( n \) 列共 \( m \times n \) 项之部分和 \( S_{mn} \) 当 \( m, n \to \infty \) 时的双重极限存在且为 \( S \)，则称此二重级数收敛，并称 \( S \) 为其和。 定义 4.3.1（函数级数逐点收敛与收敛域）：若函数项级数 \( \sum u_k(z) \) 在区域 \( G \) 内的每一点都收敛，则称其在 \( G \) 内（逐点）收敛，其和 \( S(z) \) 称为级数的和函数。 定义 4.3.2（一致收敛）：若对于任意给定的 \( \epsilon &gt; 0 \)，存在一个与 \( z \) 无关的正整数 \( N(\epsilon) \)，使得当 \( n &gt; N \) 时，对区域 \( G \) 内的一切 \( z \)，恒有 \( |S(z) - S_n(z)| &lt; \epsilon \) 成立，则称该函数级数在 \( G \) 内一致收敛。 定义 4.4.1（幂级数与收敛圆）：通项为幂函数的函数项级数 \( \sum c_n(z-\alpha)^n \) 称为幂级数。幂级数在其中绝对收敛而在其外处处发散的圆区域 \( |z-\alpha| &lt; R \) 称为其收敛圆，其半径 \( R \) 称为收敛半径。 定义 4.6.1（大 O 与小 o 数量级记号）：设 \( f(z) \) 和 \( \phi(z) \) 在 \( z_0 \) 点的邻域内有定义且 \( \phi(z) \neq 0 \)： 若 \( z \to z_0 \) 时 \( \frac{f(z)}{\phi(z)} \) 有界，则记为 \( f(z) = O(\phi(z)) \)； 若 \( \lim_{z \to z_0} \frac{f(z)}{\phi(z)} = 0 \)，则记为 \( f(z) = o(\phi(z)) \)。 定义 4.6.2（渐近级数与渐近展开）：设 \( f(z) \) 和 \( {\phi_n(z)} \) 在 \( z \to z_0 \) 时有定义。若对每一个有限项 \( m \)，当 \( z \to z_0 \) 时均有： \( f(z) - \sum_{n=0}^m a_n \phi_n(z) = o(\phi_m(z)) \) 则称级数 \( \sum a_n \phi_n(z) \) 为 \( f(z) \) 相对于 \( {\phi_n(z)} \) 的渐近级数（或渐近展开），记作 \( f(z) \sim \sum a_n \phi_n(z) \)。 三、 公式整理（按原文序号）#(4.1) 复数级数： \( u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n &#43; \cdots = \sum u_n \) (4.2) 级数的部分和： \( S_n = u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n \) (4.3) 级数收敛的 Cauchy 充要条件： \( |u_{n&#43;1} &#43; u_{n&#43;2} &#43; \cdots &#43; u_{n&#43;p}| &lt; \epsilon \quad (\forall p \ge 1) \) (4.4) 级数收敛的必要条件： \( \lim_{n \to \infty} |u_n| = 0 \) (4.5) 收敛级数的并项（加括号）： \( (u_1 &#43; u_2) &#43; (u_3 &#43; u_4) &#43; \cdots \) (4.6) 绝对收敛级数的项可以任意改换次序： \( u_0 &#43; u_1 &#43; u_2 &#43; u_3 &#43; u_4 &#43; \cdots = u_0 &#43; u_1 &#43; u_2 &#43; u_4 &#43; u_3 &#43; u_6 &#43; u_8 &#43; u_5 &#43; \cdots \) (4.7) 绝对收敛级数拆分为子级数之和： \( \sum_{n=0}^\infty u_n = \sum_{n=0}^\infty u_{2n} &#43; \sum_{n=0}^\infty u_{2n&#43;1} \) (4.8) 两个绝对收敛级数乘积的二重级数表示： \( \sum_k u_k \cdot \sum_l v_l = \sum_{k,l} u_k v_l \) (4.9) 级数乘积按对角线求和（Cauchy 乘积）： \( \sum_k u_k \cdot \sum_l v_l = \sum w_n, \quad w_n = \sum_{k=0}^n u_k v_{n-k} \) (4.10) 无限方阵（二重级数项的排列）： \( \begin{aligned} a_{11} &#43; a_{12} &#43; a_{13} &#43; \cdots \ &#43; a_{21} &#43; a_{22} &#43; a_{23} &#43; \cdots \ &#43; \cdots \end{aligned} \) (4.11) 二重级数的 \( m \times n \) 项部分和： \( S_{mn} = \sum_{\substack{1 \le k \le m \ 1 \le l \le n}} a_{kl} \) (4.12) 二重部分和序列极限： \( \lim_{\substack{m \to \infty \ n \to \infty}} S_{mn} = S \) (4.13) 二重级数的和： \( S = \sum a_{kl} \) (4.14) 二重级数极限收敛判别式： \( |S_{mn} - S| &lt; \epsilon \) (4.15) 列级数与行级数均发散、但双重极限部分和收敛的二重级数反例： \( \begin{aligned} 1 &amp;&#43; 1 &#43; 1 &#43; 1 &#43; \cdots \ &#43; 1 &amp;- 1 - 1 - 1 - \cdots \ &#43; 1 &amp;- 1 &#43; 0 &#43; 0 &#43; \cdots \ &#43; 1 &amp;- 1 &#43; 0 &#43; 0 &#43; \cdots \ &amp;&#43; \cdots \end{aligned} \) (4.16) 几何级数在复数域的收敛与发散条件： \( \sum_{n=0}^\infty z^n = \begin{cases} \frac{1}{1-z} &amp; |z| &lt; 1 \ \text{发散} &amp; |z| \ge 1 \end{cases} \) (4.17) 一致收敛级数的逐项极限性质： \( \lim_{z \to z_0} \sum_{k=1}^\infty u_k(z) = \sum_{k=1}^\infty \lim_{z \to z_0} u_k(z) \) (4.18) 一致收敛级数的逐项求积分性质： \( \int_C \sum u_k(z) dz = \sum \int_C u_k(z) dz \) (4.19) 一致收敛级数逐项求导性质： \( f^{(p)}(z) = \sum_{k=1}^\infty u_k^{(p)}(z) \) (4.20) 幂级数展开形式： \( \sum_{n=0}^\infty c_n(z-\alpha)^n = c_0 &#43; c_1(z-\alpha) &#43; c_2(z-\alpha)^2 &#43; \cdots &#43; c_n(z-\alpha)^n &#43; \cdots \) (4.21) Abel 第一定理中的绝对收敛圆区域： \( \sum_{n=0}^\infty c_n(z-\alpha)^n \quad \text{在圆 } |z-\alpha| &lt; |z_0-\alpha| \text{ 内绝对收敛} \) (4.22) Abel 第一定理中的一致收敛闭圆区域： \( \sum_{n=0}^\infty c_n(z-\alpha)^n \quad \text{在圆 } |z-\alpha| \le r’ &lt; |z_0-\alpha| \text{ 中一致收敛} \) (4.23) Cauchy-Hadamard 收敛半径公式： \( R = \frac{1}{\varlimsup_{n \to \infty} \sqrt[n]{|c_n|}} \) (4.24) d’Alembert 收敛半径公式： \( R = \lim_{n \to \infty} \left| \frac{c_n}{c_{n&#43;1}} \right| \) (4.27) 解析含参量无穷积分的导数表达式： \( F’(z) = \int_a^\infty \frac{\partial f(t, z)}{\partial z} dt \) (4.28) 含参量无穷积分分析实例： \( F(z) = \int_0^\infty e^{-t^2} \cos 2zt , dt \) (4.29) 实例积分运算结果： \( \int_0^\infty e^{-t^2} \cos 2zt , dt = \frac{\sqrt{\pi}}{2} e^{-z^2} \) (4.30) Stirling 渐近展开级数： \( \ln m! \sim \left(m&#43;\frac{1}{2}\right)\ln\left(m&#43;\frac{1}{2}\right) - \left(m&#43;\frac{1}{2}\right) &#43; \sum_{n=1}^\infty \frac{B_{2n}(t)}{(2n-1)2n(m&#43;1)^{2n-1}} \) (4.31) Bernoulli 多项式 \( B_n(t) \) 的母函数定义式： \( \frac{z e^{tz}}{e^z - 1} = \sum_{n=0}^\infty \frac{B_n(t)}{n!} z^n \) (4.32) 典型的 Euler 探讨发散级数 (1)： \( 1 - 1 &#43; 1 - 1 &#43; 1 - 1 &#43; \cdots \) (4.33) 典型的 Euler 探讨发散级数 (2)： \( 1 - 2 &#43; 3 - 4 &#43; 5 - 6 &#43; \cdots \) (4.34) 典型的 Euler 探讨发散级数 (3)： \( 1 - 2 &#43; 2^2 - 2^3 &#43; 2^4 - 2^5 &#43; 2^6 &#43; \cdots \) (4.35) 典型的 Euler 探讨发散级数 (4)： \( 1 - 2! &#43; 3! - 4! &#43; 5! - 6! &#43; \cdots \) (4.36) 对应的极限定限幂级数： \( \sum (-1)^n z^n \) (4.37) 发散级数反例 (5)： \( 1 &#43; 0 - 1 &#43; 1 &#43; 0 - 1 &#43; 1 &#43; 0 - 1 &#43; \cdots \) (4.38) 渐近项数量级控制关系： \( f(z) - \sum_{n=0}^m a_n \phi_n(z) = o(\phi_m(z)) \) (4.39) 函数渐近级数记号： \( f(z) \sim \sum_{n=0}^\infty a_n \phi_n(z) \) (4.40) 指数积分函数定义形式： \( -Ei(-x) = \int_x^\infty \frac{e^{-t}}{t} dt \quad (x &gt; 0) \) (4.41) 指数积分的分部积分渐近展开式（包含余项）： \( -Ei(-x) = \frac{e^{-x}}{x} \left[ 1 - \frac{1!}{x} &#43; \frac{2!}{x^2} - \frac{3!}{x^3} &#43; \cdots &#43; \frac{(-1)^n n!}{x^n} \right] &#43; (-1)^{n&#43;1} (n&#43;1)! \int_x^\infty \frac{e^{-t}}{t^{n&#43;2}} dt \) (4.42) 唯一渐近级数展开系数计算式： \( a_n = \lim_{z \to z_0} \frac{f(z) - \sum_{k=0}^{n-1} a_k \phi_k(z)}{\phi_n(z)} \) (4.43) 极坐标扇形区域上的渐近级数： \( f(z) \sim \phi(z) \sum_{n=0}^\infty a_n z^{-n} \) (4.44) 渐近幂级数表示法： \( f(z) \sim \sum_{n=0}^\infty a_n z^{-n} \) (注：公式编号 (4.25) 与 (4.26) 在原文所提供段落中未以带编号的独立公式形式展现，因此本表予以略过。)
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/physics/methods/ch04/formula/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="formula">
+	<meta property="og:description" content="\[ \] 一、 主要内容总结#第四章《无穷级数》系统地讨论了复平面上级数与渐近展开的基础理论。
+复数级数：引入了复数项级数的收敛和绝对收敛概念。展示了如何将复级数转化为两个实级数，并介绍了正项级数的常用判别法（如比较、比值、Cauchy 及 Gauss 判别法）在复域中的应用。 二重级数：定义了方阵形式的二重级数及其部分和收敛性。深入讨论了求和顺序（逐行、逐列或按对角线求和）对级数最终和值及收敛性的重要影响。 函数级数与一致收敛：阐述了函数项级数的一致收敛性，给出了判定一致收敛的 Weierstrass M 判别法。重点讨论了一致收敛级数关于和函数的连续性、逐项积分和逐项求导（Weierstrass 定理）等性质。 幂级数：证明了 Abel 第一定理和第二定理。引入了收敛圆和收敛半径的概念，给出了确定收敛半径的 Cauchy-Hadamard 公式和 d’Alembert 公式。 含参量反常积分的解析性：将级数的解析性质推广至含参量无穷积分，给出了积分一致收敛条件下函数解析且可与求导交换次序的定理。 发散级数与渐近级数：探讨了发散级数（如 Stirling 级数）的计算价值，引入了“大 O”与“小 o”渐近数量级记号，给出了渐近级数的定义，并讨论了渐近幂级数的代数与微积分运算性质。 二、 定义整理（按照 4.x.x 形式）#定义 4.1.1（复数级数及其收敛性）：给定复数级数 \( \sum u_n = u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n &#43; \cdots \)。如果它的部分和序列 \( S_n = u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n \) 收敛，则称该级数收敛，极限值 \( S \) 称为级数的和；否则称级数发散。 定义 4.1.2（绝对收敛）：如果复数级数的各项取模后构成的正项级数 \( \sum |u_n| \) 收敛，则称级数 \( \sum u_n \) 绝对收敛。 定义 4.2.1（二重级数）：将项排列成右端和下端都是无限的方阵形式 \( \sum a_{kl} \)，其中第一个指标 \( k \) 表示行，第二个指标 \( l \) 表示列，称为二重级数。 定义 4.2.2（二重级数收敛）：若二重级数前 \( m \) 行 \( n \) 列共 \( m \times n \) 项之部分和 \( S_{mn} \) 当 \( m, n \to \infty \) 时的双重极限存在且为 \( S \)，则称此二重级数收敛，并称 \( S \) 为其和。 定义 4.3.1（函数级数逐点收敛与收敛域）：若函数项级数 \( \sum u_k(z) \) 在区域 \( G \) 内的每一点都收敛，则称其在 \( G \) 内（逐点）收敛，其和 \( S(z) \) 称为级数的和函数。 定义 4.3.2（一致收敛）：若对于任意给定的 \( \epsilon &gt; 0 \)，存在一个与 \( z \) 无关的正整数 \( N(\epsilon) \)，使得当 \( n &gt; N \) 时，对区域 \( G \) 内的一切 \( z \)，恒有 \( |S(z) - S_n(z)| &lt; \epsilon \) 成立，则称该函数级数在 \( G \) 内一致收敛。 定义 4.4.1（幂级数与收敛圆）：通项为幂函数的函数项级数 \( \sum c_n(z-\alpha)^n \) 称为幂级数。幂级数在其中绝对收敛而在其外处处发散的圆区域 \( |z-\alpha| &lt; R \) 称为其收敛圆，其半径 \( R \) 称为收敛半径。 定义 4.6.1（大 O 与小 o 数量级记号）：设 \( f(z) \) 和 \( \phi(z) \) 在 \( z_0 \) 点的邻域内有定义且 \( \phi(z) \neq 0 \)： 若 \( z \to z_0 \) 时 \( \frac{f(z)}{\phi(z)} \) 有界，则记为 \( f(z) = O(\phi(z)) \)； 若 \( \lim_{z \to z_0} \frac{f(z)}{\phi(z)} = 0 \)，则记为 \( f(z) = o(\phi(z)) \)。 定义 4.6.2（渐近级数与渐近展开）：设 \( f(z) \) 和 \( {\phi_n(z)} \) 在 \( z \to z_0 \) 时有定义。若对每一个有限项 \( m \)，当 \( z \to z_0 \) 时均有： \( f(z) - \sum_{n=0}^m a_n \phi_n(z) = o(\phi_m(z)) \) 则称级数 \( \sum a_n \phi_n(z) \) 为 \( f(z) \) 相对于 \( {\phi_n(z)} \) 的渐近级数（或渐近展开），记作 \( f(z) \sim \sum a_n \phi_n(z) \)。 三、 公式整理（按原文序号）#(4.1) 复数级数： \( u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n &#43; \cdots = \sum u_n \) (4.2) 级数的部分和： \( S_n = u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n \) (4.3) 级数收敛的 Cauchy 充要条件： \( |u_{n&#43;1} &#43; u_{n&#43;2} &#43; \cdots &#43; u_{n&#43;p}| &lt; \epsilon \quad (\forall p \ge 1) \) (4.4) 级数收敛的必要条件： \( \lim_{n \to \infty} |u_n| = 0 \) (4.5) 收敛级数的并项（加括号）： \( (u_1 &#43; u_2) &#43; (u_3 &#43; u_4) &#43; \cdots \) (4.6) 绝对收敛级数的项可以任意改换次序： \( u_0 &#43; u_1 &#43; u_2 &#43; u_3 &#43; u_4 &#43; \cdots = u_0 &#43; u_1 &#43; u_2 &#43; u_4 &#43; u_3 &#43; u_6 &#43; u_8 &#43; u_5 &#43; \cdots \) (4.7) 绝对收敛级数拆分为子级数之和： \( \sum_{n=0}^\infty u_n = \sum_{n=0}^\infty u_{2n} &#43; \sum_{n=0}^\infty u_{2n&#43;1} \) (4.8) 两个绝对收敛级数乘积的二重级数表示： \( \sum_k u_k \cdot \sum_l v_l = \sum_{k,l} u_k v_l \) (4.9) 级数乘积按对角线求和（Cauchy 乘积）： \( \sum_k u_k \cdot \sum_l v_l = \sum w_n, \quad w_n = \sum_{k=0}^n u_k v_{n-k} \) (4.10) 无限方阵（二重级数项的排列）： \( \begin{aligned} a_{11} &#43; a_{12} &#43; a_{13} &#43; \cdots \ &#43; a_{21} &#43; a_{22} &#43; a_{23} &#43; \cdots \ &#43; \cdots \end{aligned} \) (4.11) 二重级数的 \( m \times n \) 项部分和： \( S_{mn} = \sum_{\substack{1 \le k \le m \ 1 \le l \le n}} a_{kl} \) (4.12) 二重部分和序列极限： \( \lim_{\substack{m \to \infty \ n \to \infty}} S_{mn} = S \) (4.13) 二重级数的和： \( S = \sum a_{kl} \) (4.14) 二重级数极限收敛判别式： \( |S_{mn} - S| &lt; \epsilon \) (4.15) 列级数与行级数均发散、但双重极限部分和收敛的二重级数反例： \( \begin{aligned} 1 &amp;&#43; 1 &#43; 1 &#43; 1 &#43; \cdots \ &#43; 1 &amp;- 1 - 1 - 1 - \cdots \ &#43; 1 &amp;- 1 &#43; 0 &#43; 0 &#43; \cdots \ &#43; 1 &amp;- 1 &#43; 0 &#43; 0 &#43; \cdots \ &amp;&#43; \cdots \end{aligned} \) (4.16) 几何级数在复数域的收敛与发散条件： \( \sum_{n=0}^\infty z^n = \begin{cases} \frac{1}{1-z} &amp; |z| &lt; 1 \ \text{发散} &amp; |z| \ge 1 \end{cases} \) (4.17) 一致收敛级数的逐项极限性质： \( \lim_{z \to z_0} \sum_{k=1}^\infty u_k(z) = \sum_{k=1}^\infty \lim_{z \to z_0} u_k(z) \) (4.18) 一致收敛级数的逐项求积分性质： \( \int_C \sum u_k(z) dz = \sum \int_C u_k(z) dz \) (4.19) 一致收敛级数逐项求导性质： \( f^{(p)}(z) = \sum_{k=1}^\infty u_k^{(p)}(z) \) (4.20) 幂级数展开形式： \( \sum_{n=0}^\infty c_n(z-\alpha)^n = c_0 &#43; c_1(z-\alpha) &#43; c_2(z-\alpha)^2 &#43; \cdots &#43; c_n(z-\alpha)^n &#43; \cdots \) (4.21) Abel 第一定理中的绝对收敛圆区域： \( \sum_{n=0}^\infty c_n(z-\alpha)^n \quad \text{在圆 } |z-\alpha| &lt; |z_0-\alpha| \text{ 内绝对收敛} \) (4.22) Abel 第一定理中的一致收敛闭圆区域： \( \sum_{n=0}^\infty c_n(z-\alpha)^n \quad \text{在圆 } |z-\alpha| \le r’ &lt; |z_0-\alpha| \text{ 中一致收敛} \) (4.23) Cauchy-Hadamard 收敛半径公式： \( R = \frac{1}{\varlimsup_{n \to \infty} \sqrt[n]{|c_n|}} \) (4.24) d’Alembert 收敛半径公式： \( R = \lim_{n \to \infty} \left| \frac{c_n}{c_{n&#43;1}} \right| \) (4.27) 解析含参量无穷积分的导数表达式： \( F’(z) = \int_a^\infty \frac{\partial f(t, z)}{\partial z} dt \) (4.28) 含参量无穷积分分析实例： \( F(z) = \int_0^\infty e^{-t^2} \cos 2zt , dt \) (4.29) 实例积分运算结果： \( \int_0^\infty e^{-t^2} \cos 2zt , dt = \frac{\sqrt{\pi}}{2} e^{-z^2} \) (4.30) Stirling 渐近展开级数： \( \ln m! \sim \left(m&#43;\frac{1}{2}\right)\ln\left(m&#43;\frac{1}{2}\right) - \left(m&#43;\frac{1}{2}\right) &#43; \sum_{n=1}^\infty \frac{B_{2n}(t)}{(2n-1)2n(m&#43;1)^{2n-1}} \) (4.31) Bernoulli 多项式 \( B_n(t) \) 的母函数定义式： \( \frac{z e^{tz}}{e^z - 1} = \sum_{n=0}^\infty \frac{B_n(t)}{n!} z^n \) (4.32) 典型的 Euler 探讨发散级数 (1)： \( 1 - 1 &#43; 1 - 1 &#43; 1 - 1 &#43; \cdots \) (4.33) 典型的 Euler 探讨发散级数 (2)： \( 1 - 2 &#43; 3 - 4 &#43; 5 - 6 &#43; \cdots \) (4.34) 典型的 Euler 探讨发散级数 (3)： \( 1 - 2 &#43; 2^2 - 2^3 &#43; 2^4 - 2^5 &#43; 2^6 &#43; \cdots \) (4.35) 典型的 Euler 探讨发散级数 (4)： \( 1 - 2! &#43; 3! - 4! &#43; 5! - 6! &#43; \cdots \) (4.36) 对应的极限定限幂级数： \( \sum (-1)^n z^n \) (4.37) 发散级数反例 (5)： \( 1 &#43; 0 - 1 &#43; 1 &#43; 0 - 1 &#43; 1 &#43; 0 - 1 &#43; \cdots \) (4.38) 渐近项数量级控制关系： \( f(z) - \sum_{n=0}^m a_n \phi_n(z) = o(\phi_m(z)) \) (4.39) 函数渐近级数记号： \( f(z) \sim \sum_{n=0}^\infty a_n \phi_n(z) \) (4.40) 指数积分函数定义形式： \( -Ei(-x) = \int_x^\infty \frac{e^{-t}}{t} dt \quad (x &gt; 0) \) (4.41) 指数积分的分部积分渐近展开式（包含余项）： \( -Ei(-x) = \frac{e^{-x}}{x} \left[ 1 - \frac{1!}{x} &#43; \frac{2!}{x^2} - \frac{3!}{x^3} &#43; \cdots &#43; \frac{(-1)^n n!}{x^n} \right] &#43; (-1)^{n&#43;1} (n&#43;1)! \int_x^\infty \frac{e^{-t}}{t^{n&#43;2}} dt \) (4.42) 唯一渐近级数展开系数计算式： \( a_n = \lim_{z \to z_0} \frac{f(z) - \sum_{k=0}^{n-1} a_k \phi_k(z)}{\phi_n(z)} \) (4.43) 极坐标扇形区域上的渐近级数： \( f(z) \sim \phi(z) \sum_{n=0}^\infty a_n z^{-n} \) (4.44) 渐近幂级数表示法： \( f(z) \sim \sum_{n=0}^\infty a_n z^{-n} \) (注：公式编号 (4.25) 与 (4.26) 在原文所提供段落中未以带编号的独立公式形式展现，因此本表予以略过。)">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="formula">
+	<meta itemprop="description" content="\[ \] 一、 主要内容总结#第四章《无穷级数》系统地讨论了复平面上级数与渐近展开的基础理论。
+复数级数：引入了复数项级数的收敛和绝对收敛概念。展示了如何将复级数转化为两个实级数，并介绍了正项级数的常用判别法（如比较、比值、Cauchy 及 Gauss 判别法）在复域中的应用。 二重级数：定义了方阵形式的二重级数及其部分和收敛性。深入讨论了求和顺序（逐行、逐列或按对角线求和）对级数最终和值及收敛性的重要影响。 函数级数与一致收敛：阐述了函数项级数的一致收敛性，给出了判定一致收敛的 Weierstrass M 判别法。重点讨论了一致收敛级数关于和函数的连续性、逐项积分和逐项求导（Weierstrass 定理）等性质。 幂级数：证明了 Abel 第一定理和第二定理。引入了收敛圆和收敛半径的概念，给出了确定收敛半径的 Cauchy-Hadamard 公式和 d’Alembert 公式。 含参量反常积分的解析性：将级数的解析性质推广至含参量无穷积分，给出了积分一致收敛条件下函数解析且可与求导交换次序的定理。 发散级数与渐近级数：探讨了发散级数（如 Stirling 级数）的计算价值，引入了“大 O”与“小 o”渐近数量级记号，给出了渐近级数的定义，并讨论了渐近幂级数的代数与微积分运算性质。 二、 定义整理（按照 4.x.x 形式）#定义 4.1.1（复数级数及其收敛性）：给定复数级数 \( \sum u_n = u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n &#43; \cdots \)。如果它的部分和序列 \( S_n = u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n \) 收敛，则称该级数收敛，极限值 \( S \) 称为级数的和；否则称级数发散。 定义 4.1.2（绝对收敛）：如果复数级数的各项取模后构成的正项级数 \( \sum |u_n| \) 收敛，则称级数 \( \sum u_n \) 绝对收敛。 定义 4.2.1（二重级数）：将项排列成右端和下端都是无限的方阵形式 \( \sum a_{kl} \)，其中第一个指标 \( k \) 表示行，第二个指标 \( l \) 表示列，称为二重级数。 定义 4.2.2（二重级数收敛）：若二重级数前 \( m \) 行 \( n \) 列共 \( m \times n \) 项之部分和 \( S_{mn} \) 当 \( m, n \to \infty \) 时的双重极限存在且为 \( S \)，则称此二重级数收敛，并称 \( S \) 为其和。 定义 4.3.1（函数级数逐点收敛与收敛域）：若函数项级数 \( \sum u_k(z) \) 在区域 \( G \) 内的每一点都收敛，则称其在 \( G \) 内（逐点）收敛，其和 \( S(z) \) 称为级数的和函数。 定义 4.3.2（一致收敛）：若对于任意给定的 \( \epsilon &gt; 0 \)，存在一个与 \( z \) 无关的正整数 \( N(\epsilon) \)，使得当 \( n &gt; N \) 时，对区域 \( G \) 内的一切 \( z \)，恒有 \( |S(z) - S_n(z)| &lt; \epsilon \) 成立，则称该函数级数在 \( G \) 内一致收敛。 定义 4.4.1（幂级数与收敛圆）：通项为幂函数的函数项级数 \( \sum c_n(z-\alpha)^n \) 称为幂级数。幂级数在其中绝对收敛而在其外处处发散的圆区域 \( |z-\alpha| &lt; R \) 称为其收敛圆，其半径 \( R \) 称为收敛半径。 定义 4.6.1（大 O 与小 o 数量级记号）：设 \( f(z) \) 和 \( \phi(z) \) 在 \( z_0 \) 点的邻域内有定义且 \( \phi(z) \neq 0 \)： 若 \( z \to z_0 \) 时 \( \frac{f(z)}{\phi(z)} \) 有界，则记为 \( f(z) = O(\phi(z)) \)； 若 \( \lim_{z \to z_0} \frac{f(z)}{\phi(z)} = 0 \)，则记为 \( f(z) = o(\phi(z)) \)。 定义 4.6.2（渐近级数与渐近展开）：设 \( f(z) \) 和 \( {\phi_n(z)} \) 在 \( z \to z_0 \) 时有定义。若对每一个有限项 \( m \)，当 \( z \to z_0 \) 时均有： \( f(z) - \sum_{n=0}^m a_n \phi_n(z) = o(\phi_m(z)) \) 则称级数 \( \sum a_n \phi_n(z) \) 为 \( f(z) \) 相对于 \( {\phi_n(z)} \) 的渐近级数（或渐近展开），记作 \( f(z) \sim \sum a_n \phi_n(z) \)。 三、 公式整理（按原文序号）#(4.1) 复数级数： \( u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n &#43; \cdots = \sum u_n \) (4.2) 级数的部分和： \( S_n = u_0 &#43; u_1 &#43; u_2 &#43; \cdots &#43; u_n \) (4.3) 级数收敛的 Cauchy 充要条件： \( |u_{n&#43;1} &#43; u_{n&#43;2} &#43; \cdots &#43; u_{n&#43;p}| &lt; \epsilon \quad (\forall p \ge 1) \) (4.4) 级数收敛的必要条件： \( \lim_{n \to \infty} |u_n| = 0 \) (4.5) 收敛级数的并项（加括号）： \( (u_1 &#43; u_2) &#43; (u_3 &#43; u_4) &#43; \cdots \) (4.6) 绝对收敛级数的项可以任意改换次序： \( u_0 &#43; u_1 &#43; u_2 &#43; u_3 &#43; u_4 &#43; \cdots = u_0 &#43; u_1 &#43; u_2 &#43; u_4 &#43; u_3 &#43; u_6 &#43; u_8 &#43; u_5 &#43; \cdots \) (4.7) 绝对收敛级数拆分为子级数之和： \( \sum_{n=0}^\infty u_n = \sum_{n=0}^\infty u_{2n} &#43; \sum_{n=0}^\infty u_{2n&#43;1} \) (4.8) 两个绝对收敛级数乘积的二重级数表示： \( \sum_k u_k \cdot \sum_l v_l = \sum_{k,l} u_k v_l \) (4.9) 级数乘积按对角线求和（Cauchy 乘积）： \( \sum_k u_k \cdot \sum_l v_l = \sum w_n, \quad w_n = \sum_{k=0}^n u_k v_{n-k} \) (4.10) 无限方阵（二重级数项的排列）： \( \begin{aligned} a_{11} &#43; a_{12} &#43; a_{13} &#43; \cdots \ &#43; a_{21} &#43; a_{22} &#43; a_{23} &#43; \cdots \ &#43; \cdots \end{aligned} \) (4.11) 二重级数的 \( m \times n \) 项部分和： \( S_{mn} = \sum_{\substack{1 \le k \le m \ 1 \le l \le n}} a_{kl} \) (4.12) 二重部分和序列极限： \( \lim_{\substack{m \to \infty \ n \to \infty}} S_{mn} = S \) (4.13) 二重级数的和： \( S = \sum a_{kl} \) (4.14) 二重级数极限收敛判别式： \( |S_{mn} - S| &lt; \epsilon \) (4.15) 列级数与行级数均发散、但双重极限部分和收敛的二重级数反例： \( \begin{aligned} 1 &amp;&#43; 1 &#43; 1 &#43; 1 &#43; \cdots \ &#43; 1 &amp;- 1 - 1 - 1 - \cdots \ &#43; 1 &amp;- 1 &#43; 0 &#43; 0 &#43; \cdots \ &#43; 1 &amp;- 1 &#43; 0 &#43; 0 &#43; \cdots \ &amp;&#43; \cdots \end{aligned} \) (4.16) 几何级数在复数域的收敛与发散条件： \( \sum_{n=0}^\infty z^n = \begin{cases} \frac{1}{1-z} &amp; |z| &lt; 1 \ \text{发散} &amp; |z| \ge 1 \end{cases} \) (4.17) 一致收敛级数的逐项极限性质： \( \lim_{z \to z_0} \sum_{k=1}^\infty u_k(z) = \sum_{k=1}^\infty \lim_{z \to z_0} u_k(z) \) (4.18) 一致收敛级数的逐项求积分性质： \( \int_C \sum u_k(z) dz = \sum \int_C u_k(z) dz \) (4.19) 一致收敛级数逐项求导性质： \( f^{(p)}(z) = \sum_{k=1}^\infty u_k^{(p)}(z) \) (4.20) 幂级数展开形式： \( \sum_{n=0}^\infty c_n(z-\alpha)^n = c_0 &#43; c_1(z-\alpha) &#43; c_2(z-\alpha)^2 &#43; \cdots &#43; c_n(z-\alpha)^n &#43; \cdots \) (4.21) Abel 第一定理中的绝对收敛圆区域： \( \sum_{n=0}^\infty c_n(z-\alpha)^n \quad \text{在圆 } |z-\alpha| &lt; |z_0-\alpha| \text{ 内绝对收敛} \) (4.22) Abel 第一定理中的一致收敛闭圆区域： \( \sum_{n=0}^\infty c_n(z-\alpha)^n \quad \text{在圆 } |z-\alpha| \le r’ &lt; |z_0-\alpha| \text{ 中一致收敛} \) (4.23) Cauchy-Hadamard 收敛半径公式： \( R = \frac{1}{\varlimsup_{n \to \infty} \sqrt[n]{|c_n|}} \) (4.24) d’Alembert 收敛半径公式： \( R = \lim_{n \to \infty} \left| \frac{c_n}{c_{n&#43;1}} \right| \) (4.27) 解析含参量无穷积分的导数表达式： \( F’(z) = \int_a^\infty \frac{\partial f(t, z)}{\partial z} dt \) (4.28) 含参量无穷积分分析实例： \( F(z) = \int_0^\infty e^{-t^2} \cos 2zt , dt \) (4.29) 实例积分运算结果： \( \int_0^\infty e^{-t^2} \cos 2zt , dt = \frac{\sqrt{\pi}}{2} e^{-z^2} \) (4.30) Stirling 渐近展开级数： \( \ln m! \sim \left(m&#43;\frac{1}{2}\right)\ln\left(m&#43;\frac{1}{2}\right) - \left(m&#43;\frac{1}{2}\right) &#43; \sum_{n=1}^\infty \frac{B_{2n}(t)}{(2n-1)2n(m&#43;1)^{2n-1}} \) (4.31) Bernoulli 多项式 \( B_n(t) \) 的母函数定义式： \( \frac{z e^{tz}}{e^z - 1} = \sum_{n=0}^\infty \frac{B_n(t)}{n!} z^n \) (4.32) 典型的 Euler 探讨发散级数 (1)： \( 1 - 1 &#43; 1 - 1 &#43; 1 - 1 &#43; \cdots \) (4.33) 典型的 Euler 探讨发散级数 (2)： \( 1 - 2 &#43; 3 - 4 &#43; 5 - 6 &#43; \cdots \) (4.34) 典型的 Euler 探讨发散级数 (3)： \( 1 - 2 &#43; 2^2 - 2^3 &#43; 2^4 - 2^5 &#43; 2^6 &#43; \cdots \) (4.35) 典型的 Euler 探讨发散级数 (4)： \( 1 - 2! &#43; 3! - 4! &#43; 5! - 6! &#43; \cdots \) (4.36) 对应的极限定限幂级数： \( \sum (-1)^n z^n \) (4.37) 发散级数反例 (5)： \( 1 &#43; 0 - 1 &#43; 1 &#43; 0 - 1 &#43; 1 &#43; 0 - 1 &#43; \cdots \) (4.38) 渐近项数量级控制关系： \( f(z) - \sum_{n=0}^m a_n \phi_n(z) = o(\phi_m(z)) \) (4.39) 函数渐近级数记号： \( f(z) \sim \sum_{n=0}^\infty a_n \phi_n(z) \) (4.40) 指数积分函数定义形式： \( -Ei(-x) = \int_x^\infty \frac{e^{-t}}{t} dt \quad (x &gt; 0) \) (4.41) 指数积分的分部积分渐近展开式（包含余项）： \( -Ei(-x) = \frac{e^{-x}}{x} \left[ 1 - \frac{1!}{x} &#43; \frac{2!}{x^2} - \frac{3!}{x^3} &#43; \cdots &#43; \frac{(-1)^n n!}{x^n} \right] &#43; (-1)^{n&#43;1} (n&#43;1)! \int_x^\infty \frac{e^{-t}}{t^{n&#43;2}} dt \) (4.42) 唯一渐近级数展开系数计算式： \( a_n = \lim_{z \to z_0} \frac{f(z) - \sum_{k=0}^{n-1} a_k \phi_k(z)}{\phi_n(z)} \) (4.43) 极坐标扇形区域上的渐近级数： \( f(z) \sim \phi(z) \sum_{n=0}^\infty a_n z^{-n} \) (4.44) 渐近幂级数表示法： \( f(z) \sim \sum_{n=0}^\infty a_n z^{-n} \) (注：公式编号 (4.25) 与 (4.26) 在原文所提供段落中未以带编号的独立公式形式展现，因此本表予以略过。)">
+	<meta itemprop="wordCount" content="1013">
+
+<title>formula • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/physics/methods/ch04/formula/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.e5b3a5e7f40bcfb63817fcd3b18fe484ca0d495a376064cdfa17fe9463fba947.js" integrity="sha256-5bOl5/QLz7Y4F/zTsY/khMoNSVo3YGTN&#43;hf&#43;lGP7qUc=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-abba9f480fc1b6dc0f169df3792fa60b" class="toggle"  />
+    <label for="section-abba9f480fc1b6dc0f169df3792fa60b" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3eadb64dade55467a37e3d8684debcbe" class="toggle"  />
+    <label for="section-3eadb64dade55467a37e3d8684debcbe" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-65eae293ed0098a0a36bdb2eb03d0d66" class="toggle"  />
+    <label for="section-65eae293ed0098a0a36bdb2eb03d0d66" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/" class="">
+        ch07 数项级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e326582fcb1d25ace94559825e37e78a" class="toggle"  />
+    <label for="section-e326582fcb1d25ace94559825e37e78a" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-092bf523737bea57e903ccfe2bcbceb0" class="toggle"  />
+    <label for="section-092bf523737bea57e903ccfe2bcbceb0" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0a8d861cd4176c22af4abdab3e8393f3" class="toggle"  />
+    <label for="section-0a8d861cd4176c22af4abdab3e8393f3" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-701bbb3362074de7a18b4e5941c35e80" class="toggle"  />
+    <label for="section-701bbb3362074de7a18b4e5941c35e80" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/" class="">
+        ch08 函数项级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f7eac4a4ad148c1436105f796711db23" class="toggle"  />
+    <label for="section-f7eac4a4ad148c1436105f796711db23" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6612181ffbe56683ffb0c6c8eb9e30e2" class="toggle"  />
+    <label for="section-6612181ffbe56683ffb0c6c8eb9e30e2" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ff6dbf3ba8565fbb1c2728f0c81dfd15" class="toggle"  />
+    <label for="section-ff6dbf3ba8565fbb1c2728f0c81dfd15" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-86b3f804a71bdd5c9dbdaa65cff2c870" class="toggle"  />
+    <label for="section-86b3f804a71bdd5c9dbdaa65cff2c870" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/" class="">
+        ch09 Fourier 分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1d04d935e6074b1669499d56fdc09e12" class="toggle"  />
+    <label for="section-1d04d935e6074b1669499d56fdc09e12" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a20297977a1e58717a639ae306c6c693" class="toggle"  />
+    <label for="section-a20297977a1e58717a639ae306c6c693" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-13c09c9bc58e29a8a78b87dac121f479" class="toggle"  />
+    <label for="section-13c09c9bc58e29a8a78b87dac121f479" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b3c49a81b4ab9113a87657d137048e67" class="toggle"  />
+    <label for="section-b3c49a81b4ab9113a87657d137048e67" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/" class="">
+        ch10_度量空间和连续映射</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-26d0aec27328b83fb6f555a46a562ae1" class="toggle"  />
+    <label for="section-26d0aec27328b83fb6f555a46a562ae1" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-73bd758025cc0077778e966e1a69e66c" class="toggle"  />
+    <label for="section-73bd758025cc0077778e966e1a69e66c" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9f38fb7284cc7aa1fe9bfecc70455df7" class="toggle"  />
+    <label for="section-9f38fb7284cc7aa1fe9bfecc70455df7" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f53ea5b7f823f7c2adc420f276ae16ce" class="toggle"  />
+    <label for="section-f53ea5b7f823f7c2adc420f276ae16ce" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a48432f5aa3322a4d27d98a4bb888c94" class="toggle"  />
+    <label for="section-a48432f5aa3322a4d27d98a4bb888c94" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4cfa8f007098347bcead24699e734134" class="toggle"  />
+    <label for="section-4cfa8f007098347bcead24699e734134" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-755e8b1e80b5b232c4bcd14fb421bb36" class="toggle"  />
+    <label for="section-755e8b1e80b5b232c4bcd14fb421bb36" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c1ffeeb174102a68430b2e84c0806fed" class="toggle"  />
+    <label for="section-c1ffeeb174102a68430b2e84c0806fed" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b185b95fdb22770a6fa3ad4a714fc998" class="toggle"  />
+    <label for="section-b185b95fdb22770a6fa3ad4a714fc998" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e79cab41e3509b0dcb9d784a5a57b73a" class="toggle"  />
+    <label for="section-e79cab41e3509b0dcb9d784a5a57b73a" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0bedb42fbccdbbbfd30b0fa271a78366" class="toggle"  />
+    <label for="section-0bedb42fbccdbbbfd30b0fa271a78366" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-267008b386e6253c3596df6bcf8c1117" class="toggle"  />
+    <label for="section-267008b386e6253c3596df6bcf8c1117" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-487fcbc3efa9888c2fb2aef2ce9d6613" class="toggle"  />
+    <label for="section-487fcbc3efa9888c2fb2aef2ce9d6613" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-27c6a9a766be819b9f395648a0fe57a2" class="toggle"  />
+    <label for="section-27c6a9a766be819b9f395648a0fe57a2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-aec0fd22078e90437f3d050d671214b8" class="toggle"  />
+    <label for="section-aec0fd22078e90437f3d050d671214b8" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7b12739449f11ae0771259ae3c8cb893" class="toggle"  />
+    <label for="section-7b12739449f11ae0771259ae3c8cb893" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/" class="">
+        ch14_微分形式的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3347a10040f7435f706abd75013db5c1" class="toggle"  />
+    <label for="section-3347a10040f7435f706abd75013db5c1" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c77249cdb1eb6ab99cb7e97696a9a575" class="toggle"  />
+    <label for="section-c77249cdb1eb6ab99cb7e97696a9a575" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-695007eb17d3fefd4381d35030bc67e3" class="toggle"  />
+    <label for="section-695007eb17d3fefd4381d35030bc67e3" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d4e07a5c17e48144aaef57dcb8380aea" class="toggle"  />
+    <label for="section-d4e07a5c17e48144aaef57dcb8380aea" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/" class="">
+        ch15_含参变量的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-29fe5c5c1a392acf5228ab94e6ec41eb" class="toggle"  />
+    <label for="section-29fe5c5c1a392acf5228ab94e6ec41eb" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0d086c59106e09f7712f77b04265f298" class="toggle"  />
+    <label for="section-0d086c59106e09f7712f77b04265f298" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-84b8b9cf32f30aaf6b31ff2413a2d250" class="toggle"  />
+    <label for="section-84b8b9cf32f30aaf6b31ff2413a2d250" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-334223b3b68ccc51d5b9d492351e42d4" class="toggle"  />
+    <label for="section-334223b3b68ccc51d5b9d492351e42d4" class="flex">
+      <a href="/my_book/docs/math/la/" class="">
+        高等代数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-370e196551ce18290adc72b6d9799f60" class="toggle"  />
+    <label for="section-370e196551ce18290adc72b6d9799f60" class="flex">
+      <a href="/my_book/docs/math/la/ch6/" class="">
+        ch06 线性空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0e0d25242591f8571fe404d8bcff5874" class="toggle"  />
+    <label for="section-0e0d25242591f8571fe404d8bcff5874" class="flex">
+      <a href="/my_book/docs/math/la/ch6/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9c4046dbe8cad9f987545b7dab44642f" class="toggle"  />
+    <label for="section-9c4046dbe8cad9f987545b7dab44642f" class="flex">
+      <a href="/my_book/docs/math/la/ch6/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b56ccd2781b1a8ad929731229b5b73af" class="toggle"  />
+    <label for="section-b56ccd2781b1a8ad929731229b5b73af" class="flex">
+      <a href="/my_book/docs/math/la/ch6/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cb17bb85ffcb66078f56805cf1c637b0" class="toggle"  />
+    <label for="section-cb17bb85ffcb66078f56805cf1c637b0" class="flex">
+      <a href="/my_book/docs/math/la/ch7/" class="">
+        ch07 线性变换</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cc024f6232304022ca1bf992cd31edfb" class="toggle"  />
+    <label for="section-cc024f6232304022ca1bf992cd31edfb" class="flex">
+      <a href="/my_book/docs/math/la/ch7/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-434edec3941553c6aef7031ec74ddf28" class="toggle"  />
+    <label for="section-434edec3941553c6aef7031ec74ddf28" class="flex">
+      <a href="/my_book/docs/math/la/ch7/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-12fcacd2c1ef0c8ab71838e6b58580ee" class="toggle"  />
+    <label for="section-12fcacd2c1ef0c8ab71838e6b58580ee" class="flex">
+      <a href="/my_book/docs/math/la/ch7/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-65593a2601be6e9beb9bbb22d4430ee9" class="toggle"  />
+    <label for="section-65593a2601be6e9beb9bbb22d4430ee9" class="flex">
+      <a href="/my_book/docs/math/la/ch8/" class="">
+        ch08 lambda-矩阵</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-56fcf46c4f0e8360adc34c9ad62dc8a7" class="toggle"  />
+    <label for="section-56fcf46c4f0e8360adc34c9ad62dc8a7" class="flex">
+      <a href="/my_book/docs/math/la/ch8/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b072e4f88ca20eff52acac16fd801d90" class="toggle"  />
+    <label for="section-b072e4f88ca20eff52acac16fd801d90" class="flex">
+      <a href="/my_book/docs/math/la/ch8/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c70d0989350bdbca830f36d94b03bc92" class="toggle"  />
+    <label for="section-c70d0989350bdbca830f36d94b03bc92" class="flex">
+      <a href="/my_book/docs/math/la/ch8/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e36dc7c48581b2c180b5c52d3914af26" class="toggle"  />
+    <label for="section-e36dc7c48581b2c180b5c52d3914af26" class="flex">
+      <a href="/my_book/docs/math/la/ch9/" class="">
+        ch09 欧几里得空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-489b83891f8cc3e65faa81af65044b0d" class="toggle"  />
+    <label for="section-489b83891f8cc3e65faa81af65044b0d" class="flex">
+      <a href="/my_book/docs/math/la/ch9/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-042e2f17a7db91c58191ee50972e0728" class="toggle"  />
+    <label for="section-042e2f17a7db91c58191ee50972e0728" class="flex">
+      <a href="/my_book/docs/math/la/ch9/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5b44f217aa3c6bf82186723ce6122ad0" class="toggle"  />
+    <label for="section-5b44f217aa3c6bf82186723ce6122ad0" class="flex">
+      <a href="/my_book/docs/math/la/ch9/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f9978e2571c1ce834e2f5d46ebf5e5c0" class="toggle"  />
+    <label for="section-f9978e2571c1ce834e2f5d46ebf5e5c0" class="flex">
+      <a href="/my_book/docs/math/la/ch10/" class="">
+        ch10 双线性函数与辛空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cfe65af68c1d99a1b8c8b2d7c49abf45" class="toggle"  />
+    <label for="section-cfe65af68c1d99a1b8c8b2d7c49abf45" class="flex">
+      <a href="/my_book/docs/math/la/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-61c5621f7059acbc1549d88eefb5ba5f" class="toggle"  />
+    <label for="section-61c5621f7059acbc1549d88eefb5ba5f" class="flex">
+      <a href="/my_book/docs/math/la/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0ca318ed2599c788ab3bf697d64a21c" class="toggle"  />
+    <label for="section-e0ca318ed2599c788ab3bf697d64a21c" class="flex">
+      <a href="/my_book/docs/math/la/ch10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-af5f24f7ea343745d3308f7b02249857" class="toggle" checked />
+    <label for="section-af5f24f7ea343745d3308f7b02249857" class="flex">
+      <a href="/my_book/docs/physics/" class="">
+        物理</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-80a413dfb7ccb4957b7087ca8a5551bd" class="toggle"  />
+    <label for="section-80a413dfb7ccb4957b7087ca8a5551bd" class="flex">
+      <a href="/my_book/docs/physics/am/" class="">
+        分析力学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ee4d2df8ada2ebc6b2618d5fcbf61289" class="toggle"  />
+    <label for="section-ee4d2df8ada2ebc6b2618d5fcbf61289" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/" class="">
+        ch07-分析力学的变分原理</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-74ec16f28023c23aff237bab823da58b" class="toggle"  />
+    <label for="section-74ec16f28023c23aff237bab823da58b" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4a378a0ff19f9a4c9c6a2f3385d3bc1b" class="toggle"  />
+    <label for="section-4a378a0ff19f9a4c9c6a2f3385d3bc1b" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-503d02e19826cfda15931aa988bb527c" class="toggle"  />
+    <label for="section-503d02e19826cfda15931aa988bb527c" class="flex">
+      <a href="/my_book/docs/physics/am/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b4f80ca19e797955d6641051a8620329" class="toggle"  />
+    <label for="section-b4f80ca19e797955d6641051a8620329" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/" class="">
+        ch08-拉格朗日动力学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-93929d0b0406cc706ddcbcd028725494" class="toggle"  />
+    <label for="section-93929d0b0406cc706ddcbcd028725494" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-12a68b338ca96f8a72293da021d3d89c" class="toggle"  />
+    <label for="section-12a68b338ca96f8a72293da021d3d89c" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d34e749654eb8e517a5e285656572590" class="toggle"  />
+    <label for="section-d34e749654eb8e517a5e285656572590" class="flex">
+      <a href="/my_book/docs/physics/am/ch08/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e1d88db8053c00ffea2eafa97c17bb80" class="toggle"  />
+    <label for="section-e1d88db8053c00ffea2eafa97c17bb80" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/" class="">
+        ch09-正则方程</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-161b76531dddbcaa34780d1a0c821bc0" class="toggle"  />
+    <label for="section-161b76531dddbcaa34780d1a0c821bc0" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-131af9c9d810df6c06a78f645cdde43f" class="toggle"  />
+    <label for="section-131af9c9d810df6c06a78f645cdde43f" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1231aed5d9c426ac37a787673d1e0ab7" class="toggle"  />
+    <label for="section-1231aed5d9c426ac37a787673d1e0ab7" class="flex">
+      <a href="/my_book/docs/physics/am/ch09/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3d28bd9e2366e4053084ce10512b9f68" class="toggle" checked />
+    <label for="section-3d28bd9e2366e4053084ce10512b9f68" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bc471f87f970ffe9119e52a587557053" class="toggle" checked />
+    <label for="section-bc471f87f970ffe9119e52a587557053" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/" class="">
+        ch04 无穷级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e61e94e7ff2f7070b53e2582eb2cf28" class="toggle"  />
+    <label for="section-9e61e94e7ff2f7070b53e2582eb2cf28" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3c3b20989fe2261fca0c693b00d48441" class="toggle" checked />
+    <label for="section-3c3b20989fe2261fca0c693b00d48441" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/formula/" class="active">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5006ee5466e0279b54ae78f0d670a43f" class="toggle"  />
+    <label for="section-5006ee5466e0279b54ae78f0d670a43f" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fd2fd8986f401de8db7dd51212ecc97f" class="toggle"  />
+    <label for="section-fd2fd8986f401de8db7dd51212ecc97f" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/" class="">
+        ch05 解析函数的局域性展开</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-50076f6fde930eeebbf16e250a19fdae" class="toggle"  />
+    <label for="section-50076f6fde930eeebbf16e250a19fdae" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e32eb641a96f409e7bdf394901bbfea3" class="toggle"  />
+    <label for="section-e32eb641a96f409e7bdf394901bbfea3" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-503da5ae6c51ba64037171ec5491eecc" class="toggle"  />
+    <label for="section-503da5ae6c51ba64037171ec5491eecc" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a34c1ef4f2d9068fef0b86dc36d95dc8" class="toggle"  />
+    <label for="section-a34c1ef4f2d9068fef0b86dc36d95dc8" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/" class="">
+        ch06 留数定理及其应用</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-28d1d8243c73b14fcfdf783a3a444e6f" class="toggle"  />
+    <label for="section-28d1d8243c73b14fcfdf783a3a444e6f" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-88577f8aa714592dd33bb3d786bb7383" class="toggle"  />
+    <label for="section-88577f8aa714592dd33bb3d786bb7383" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c5c1351ae0877b9f8c373723f2287cca" class="toggle"  />
+    <label for="section-c5c1351ae0877b9f8c373723f2287cca" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5eb26766587a11013a6eba77b5e5d636" class="toggle"  />
+    <label for="section-5eb26766587a11013a6eba77b5e5d636" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fdd26b761c105af4be4377fa5b58ac88" class="toggle"  />
+    <label for="section-fdd26b761c105af4be4377fa5b58ac88" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch05_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch05 学校教育</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch16_%E7%A4%BE%E4%BC%9A%E7%BB%8F%E6%B5%8E/" class="">
+      ch16 社会经济</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch20_%E8%A1%8C%E4%B8%BA%E5%8A%A8%E4%BD%9C/" class="">
+      ch20 行为动作</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8c3aca59a8015cfe8174d699bde68514" class="toggle"  />
+    <label for="section-8c3aca59a8015cfe8174d699bde68514" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>formula</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-主要内容总结"><strong>一、 主要内容总结</strong></a></li>
+        <li><a href="#二-定义整理按照-4xx-形式"><strong>二、 定义整理（按照 4.x.x 形式）</strong></a></li>
+        <li><a href="#三-公式整理按原文序号"><strong>三、 公式整理（按原文序号）</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+<h3 id="一-主要内容总结"><strong>一、 主要内容总结</strong><a class="anchor" href="#%e4%b8%80-%e4%b8%bb%e8%a6%81%e5%86%85%e5%ae%b9%e6%80%bb%e7%bb%93">#</a></h3>
+<p>第四章《无穷级数》系统地讨论了复平面上级数与渐近展开的基础理论。</p>
+<ol>
+<li><strong>复数级数</strong>：引入了复数项级数的收敛和绝对收敛概念。展示了如何将复级数转化为两个实级数，并介绍了正项级数的常用判别法（如比较、比值、Cauchy 及 <strong>Gauss 判别法</strong>）在复域中的应用。</li>
+<li><strong>二重级数</strong>：定义了方阵形式的二重级数及其部分和收敛性。深入讨论了求和顺序（逐行、逐列或按对角线求和）对级数最终和值及收敛性的重要影响。</li>
+<li><strong>函数级数与一致收敛</strong>：阐述了函数项级数的一致收敛性，给出了判定一致收敛的 <strong>Weierstrass M 判别法</strong>。重点讨论了一致收敛级数关于和函数的连续性、逐项积分和逐项求导（Weierstrass 定理）等性质。</li>
+<li><strong>幂级数</strong>：证明了 <strong>Abel 第一定理和第二定理</strong>。引入了收敛圆和收敛半径的概念，给出了确定收敛半径的 <strong>Cauchy-Hadamard 公式</strong>和 <strong>d&rsquo;Alembert 公式</strong>。</li>
+<li><strong>含参量反常积分的解析性</strong>：将级数的解析性质推广至含参量无穷积分，给出了积分一致收敛条件下函数解析且可与求导交换次序的定理。</li>
+<li><strong>发散级数与渐近级数</strong>：探讨了发散级数（如 Stirling 级数）的计算价值，引入了“大 O”与“小 o”渐近数量级记号，给出了渐近级数的定义，并讨论了渐近幂级数的代数与微积分运算性质。</li>
+</ol>
+<hr>
+<h3 id="二-定义整理按照-4xx-形式"><strong>二、 定义整理（按照 4.x.x 形式）</strong><a class="anchor" href="#%e4%ba%8c-%e5%ae%9a%e4%b9%89%e6%95%b4%e7%90%86%e6%8c%89%e7%85%a7-4xx-%e5%bd%a2%e5%bc%8f">#</a></h3>
+<ul>
+<li><strong>定义 4.1.1（复数级数及其收敛性）</strong>：给定复数级数 \( \sum u_n = u_0 + u_1 + u_2 + \cdots + u_n + \cdots \)。如果它的部分和序列 \( S_n = u_0 + u_1 + u_2 + \cdots + u_n \) 收敛，则称该级数收敛，极限值 \( S \) 称为级数的和；否则称级数发散。</li>
+<li><strong>定义 4.1.2（绝对收敛）</strong>：如果复数级数的各项取模后构成的正项级数 \( \sum |u_n| \) 收敛，则称级数 \( \sum u_n \) 绝对收敛。</li>
+<li><strong>定义 4.2.1（二重级数）</strong>：将项排列成右端和下端都是无限的方阵形式 \( \sum a_{kl} \)，其中第一个指标 \( k \) 表示行，第二个指标 \( l \) 表示列，称为二重级数。</li>
+<li><strong>定义 4.2.2（二重级数收敛）</strong>：若二重级数前 \( m \) 行 \( n \) 列共 \( m \times n \) 项之部分和 \( S_{mn} \) 当 \( m, n \to \infty \) 时的双重极限存在且为 \( S \)，则称此二重级数收敛，并称 \( S \) 为其和。</li>
+<li><strong>定义 4.3.1（函数级数逐点收敛与收敛域）</strong>：若函数项级数 \( \sum u_k(z) \) 在区域 \( G \) 内的每一点都收敛，则称其在 \( G \) 内（逐点）收敛，其和 \( S(z) \) 称为级数的和函数。</li>
+<li><strong>定义 4.3.2（一致收敛）</strong>：若对于任意给定的 \( \epsilon &gt; 0 \)，存在一个与 \( z \) 无关的正整数 \( N(\epsilon) \)，使得当 \( n &gt; N \) 时，对区域 \( G \) 内的一切 \( z \)，恒有 \( |S(z) - S_n(z)| &lt; \epsilon \) 成立，则称该函数级数在 \( G \) 内一致收敛。</li>
+<li><strong>定义 4.4.1（幂级数与收敛圆）</strong>：通项为幂函数的函数项级数 \( \sum c_n(z-\alpha)^n \) 称为幂级数。幂级数在其中绝对收敛而在其外处处发散的圆区域 \( |z-\alpha| &lt; R \) 称为其收敛圆，其半径 \( R \) 称为收敛半径。</li>
+<li><strong>定义 4.6.1（大 O 与小 o 数量级记号）</strong>：设 \( f(z) \) 和 \( \phi(z) \) 在 \( z_0 \) 点的邻域内有定义且 \( \phi(z) \neq 0 \)：
+<ol>
+<li>若 \( z \to z_0 \) 时 \( \frac{f(z)}{\phi(z)} \) 有界，则记为 \( f(z) = O(\phi(z)) \)；</li>
+<li>若 \( \lim_{z \to z_0} \frac{f(z)}{\phi(z)} = 0 \)，则记为 \( f(z) = o(\phi(z)) \)。</li>
+</ol>
+</li>
+<li><strong>定义 4.6.2（渐近级数与渐近展开）</strong>：设 \( f(z) \) 和 \( {\phi_n(z)} \) 在 \( z \to z_0 \) 时有定义。若对每一个有限项 \( m \)，当 \( z \to z_0 \) 时均有：
+\(  f(z) - \sum_{n=0}^m a_n \phi_n(z) = o(\phi_m(z))  \)
+则称级数 \( \sum a_n \phi_n(z) \) 为 \( f(z) \) 相对于 \( {\phi_n(z)} \) 的渐近级数（或渐近展开），记作 \( f(z) \sim \sum a_n \phi_n(z) \)。</li>
+</ul>
+<hr>
+<h3 id="三-公式整理按原文序号"><strong>三、 公式整理（按原文序号）</strong><a class="anchor" href="#%e4%b8%89-%e5%85%ac%e5%bc%8f%e6%95%b4%e7%90%86%e6%8c%89%e5%8e%9f%e6%96%87%e5%ba%8f%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>(4.1)</strong> 复数级数：
+\(  u_0 + u_1 + u_2 + \cdots + u_n + \cdots = \sum u_n  \)</li>
+<li><strong>(4.2)</strong> 级数的部分和：
+\(  S_n = u_0 + u_1 + u_2 + \cdots + u_n  \)</li>
+<li><strong>(4.3)</strong> 级数收敛的 Cauchy 充要条件：
+\(  |u_{n+1} + u_{n+2} + \cdots + u_{n+p}| &lt; \epsilon \quad (\forall p \ge 1)  \)</li>
+<li><strong>(4.4)</strong> 级数收敛的必要条件：
+\(  \lim_{n \to \infty} |u_n| = 0  \)</li>
+<li><strong>(4.5)</strong> 收敛级数的并项（加括号）：
+\(  (u_1 + u_2) + (u_3 + u_4) + \cdots  \)</li>
+<li><strong>(4.6)</strong> 绝对收敛级数的项可以任意改换次序：
+\(  u_0 + u_1 + u_2 + u_3 + u_4 + \cdots = u_0 + u_1 + u_2 + u_4 + u_3 + u_6 + u_8 + u_5 + \cdots  \)</li>
+<li><strong>(4.7)</strong> 绝对收敛级数拆分为子级数之和：
+\(  \sum_{n=0}^\infty u_n = \sum_{n=0}^\infty u_{2n} + \sum_{n=0}^\infty u_{2n+1}  \)</li>
+<li><strong>(4.8)</strong> 两个绝对收敛级数乘积的二重级数表示：
+\(  \sum_k u_k \cdot \sum_l v_l = \sum_{k,l} u_k v_l  \)</li>
+<li><strong>(4.9)</strong> 级数乘积按对角线求和（Cauchy 乘积）：
+\(  \sum_k u_k \cdot \sum_l v_l = \sum w_n, \quad w_n = \sum_{k=0}^n u_k v_{n-k}  \)</li>
+<li><strong>(4.10)</strong> 无限方阵（二重级数项的排列）：
+\(  \begin{aligned} a_{11} + a_{12} + a_{13} + \cdots \ + a_{21} + a_{22} + a_{23} + \cdots \ + \cdots \end{aligned}  \)</li>
+<li><strong>(4.11)</strong> 二重级数的 \( m \times n \) 项部分和：
+\(  S_{mn} = \sum_{\substack{1 \le k \le m \ 1 \le l \le n}} a_{kl}  \)</li>
+<li><strong>(4.12)</strong> 二重部分和序列极限：
+\(  \lim_{\substack{m \to \infty \ n \to \infty}} S_{mn} = S  \)</li>
+<li><strong>(4.13)</strong> 二重级数的和：
+\(  S = \sum a_{kl}  \)</li>
+<li><strong>(4.14)</strong> 二重级数极限收敛判别式：
+\(  |S_{mn} - S| &lt; \epsilon  \)</li>
+<li><strong>(4.15)</strong> 列级数与行级数均发散、但双重极限部分和收敛的二重级数反例：
+\(  \begin{aligned} 1 &amp;+ 1 + 1 + 1 + \cdots \ + 1 &amp;- 1 - 1 - 1 - \cdots \ + 1 &amp;- 1 + 0 + 0 + \cdots \ + 1 &amp;- 1 + 0 + 0 + \cdots \ &amp;+ \cdots \end{aligned}  \)</li>
+<li><strong>(4.16)</strong> 几何级数在复数域的收敛与发散条件：
+\(  \sum_{n=0}^\infty z^n = \begin{cases} \frac{1}{1-z} &amp; |z| &lt; 1 \ \text{发散} &amp; |z| \ge 1 \end{cases}  \)</li>
+<li><strong>(4.17)</strong> 一致收敛级数的逐项极限性质：
+\(  \lim_{z \to z_0} \sum_{k=1}^\infty u_k(z) = \sum_{k=1}^\infty \lim_{z \to z_0} u_k(z)  \)</li>
+<li><strong>(4.18)</strong> 一致收敛级数的逐项求积分性质：
+\(  \int_C \sum u_k(z) dz = \sum \int_C u_k(z) dz  \)</li>
+<li><strong>(4.19)</strong> 一致收敛级数逐项求导性质：
+\(  f^{(p)}(z) = \sum_{k=1}^\infty u_k^{(p)}(z)  \)</li>
+<li><strong>(4.20)</strong> 幂级数展开形式：
+\(  \sum_{n=0}^\infty c_n(z-\alpha)^n = c_0 + c_1(z-\alpha) + c_2(z-\alpha)^2 + \cdots + c_n(z-\alpha)^n + \cdots  \)</li>
+<li><strong>(4.21)</strong> Abel 第一定理中的绝对收敛圆区域：
+\(  \sum_{n=0}^\infty c_n(z-\alpha)^n \quad \text{在圆 } |z-\alpha| &lt; |z_0-\alpha| \text{ 内绝对收敛}  \)</li>
+<li><strong>(4.22)</strong> Abel 第一定理中的一致收敛闭圆区域：
+\(  \sum_{n=0}^\infty c_n(z-\alpha)^n \quad \text{在圆 } |z-\alpha| \le r&rsquo; &lt; |z_0-\alpha| \text{ 中一致收敛}  \)</li>
+<li><strong>(4.23)</strong> <strong>Cauchy-Hadamard 收敛半径公式</strong>：
+\(  R = \frac{1}{\varlimsup_{n \to \infty} \sqrt[n]{|c_n|}}  \)</li>
+<li><strong>(4.24)</strong> <strong>d&rsquo;Alembert 收敛半径公式</strong>：
+\(  R = \lim_{n \to \infty} \left| \frac{c_n}{c_{n+1}} \right|  \)</li>
+<li><strong>(4.27)</strong> 解析含参量无穷积分的导数表达式：
+\(  F&rsquo;(z) = \int_a^\infty \frac{\partial f(t, z)}{\partial z} dt  \)</li>
+<li><strong>(4.28)</strong> 含参量无穷积分分析实例：
+\(  F(z) = \int_0^\infty e^{-t^2} \cos 2zt , dt  \)</li>
+<li><strong>(4.29)</strong> 实例积分运算结果：
+\(  \int_0^\infty e^{-t^2} \cos 2zt , dt = \frac{\sqrt{\pi}}{2} e^{-z^2}  \)</li>
+<li><strong>(4.30)</strong> Stirling 渐近展开级数：
+\(  \ln m! \sim \left(m+\frac{1}{2}\right)\ln\left(m+\frac{1}{2}\right) - \left(m+\frac{1}{2}\right) + \sum_{n=1}^\infty \frac{B_{2n}(t)}{(2n-1)2n(m+1)^{2n-1}}  \)</li>
+<li><strong>(4.31)</strong> Bernoulli 多项式 \( B_n(t) \) 的母函数定义式：
+\(  \frac{z e^{tz}}{e^z - 1} = \sum_{n=0}^\infty \frac{B_n(t)}{n!} z^n  \)</li>
+<li><strong>(4.32)</strong> 典型的 Euler 探讨发散级数 (1)：
+\(  1 - 1 + 1 - 1 + 1 - 1 + \cdots  \)</li>
+<li><strong>(4.33)</strong> 典型的 Euler 探讨发散级数 (2)：
+\(  1 - 2 + 3 - 4 + 5 - 6 + \cdots  \)</li>
+<li><strong>(4.34)</strong> 典型的 Euler 探讨发散级数 (3)：
+\(  1 - 2 + 2^2 - 2^3 + 2^4 - 2^5 + 2^6 + \cdots  \)</li>
+<li><strong>(4.35)</strong> 典型的 Euler 探讨发散级数 (4)：
+\(  1 - 2! + 3! - 4! + 5! - 6! + \cdots  \)</li>
+<li><strong>(4.36)</strong> 对应的极限定限幂级数：
+\(  \sum (-1)^n z^n  \)</li>
+<li><strong>(4.37)</strong> 发散级数反例 (5)：
+\(  1 + 0 - 1 + 1 + 0 - 1 + 1 + 0 - 1 + \cdots  \)</li>
+<li><strong>(4.38)</strong> 渐近项数量级控制关系：
+\(  f(z) - \sum_{n=0}^m a_n \phi_n(z) = o(\phi_m(z))  \)</li>
+<li><strong>(4.39)</strong> 函数渐近级数记号：
+\(  f(z) \sim \sum_{n=0}^\infty a_n \phi_n(z)  \)</li>
+<li><strong>(4.40)</strong> 指数积分函数定义形式：
+\(  -Ei(-x) = \int_x^\infty \frac{e^{-t}}{t} dt \quad (x &gt; 0)  \)</li>
+<li><strong>(4.41)</strong> 指数积分的分部积分渐近展开式（包含余项）：
+\(  -Ei(-x) = \frac{e^{-x}}{x} \left[ 1 - \frac{1!}{x} + \frac{2!}{x^2} - \frac{3!}{x^3} + \cdots + \frac{(-1)^n n!}{x^n} \right] + (-1)^{n+1} (n+1)! \int_x^\infty \frac{e^{-t}}{t^{n+2}} dt  \)</li>
+<li><strong>(4.42)</strong> 唯一渐近级数展开系数计算式：
+\(  a_n = \lim_{z \to z_0} \frac{f(z) - \sum_{k=0}^{n-1} a_k \phi_k(z)}{\phi_n(z)}  \)</li>
+<li><strong>(4.43)</strong> 极坐标扇形区域上的渐近级数：
+\(  f(z) \sim \phi(z) \sum_{n=0}^\infty a_n z^{-n}  \)</li>
+<li><strong>(4.44)</strong> 渐近幂级数表示法：
+\(  f(z) \sim \sum_{n=0}^\infty a_n z^{-n}  \)</li>
+</ul>
+<p><em>(注：公式编号 (4.25) 与 (4.26) 在原文所提供段落中未以带编号的独立公式形式展现，因此本表予以略过。)</em></p>
+<hr>
+<p>📊 我可以为您把本章中涉及的所有级数收敛性判别法（如 Gauss 判别法、Weierstrass M 判别法等）及其成立条件整理成一个直观的对比表格，方便您复习时快速查阅。</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/physics/methods/ch04/definition/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>definition</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/physics/methods/ch04/theorem/" class="flex align-center">
+        <span>theorem</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-主要内容总结"><strong>一、 主要内容总结</strong></a></li>
+        <li><a href="#二-定义整理按照-4xx-形式"><strong>二、 定义整理（按照 4.x.x 形式）</strong></a></li>
+        <li><a href="#三-公式整理按原文序号"><strong>三、 公式整理（按原文序号）</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
