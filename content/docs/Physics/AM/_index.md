@@ -1,7 +1,7 @@
 ---
 title: "分析力学"
 weight: 1
-bookCollapseSection: true
+bookCollapseSection: False
 ---
 {{< katex display=true >}}
 {{< /katex >}}

@@ -1,0 +1,2662 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 一、 主要内容总结#第八章《Laplace 变换》系统地讨论了复平面上最核心的积分变换之一——Laplace 变换（拉氏变换）的定义、性质、反演技术及定解应用：
+Laplace 变换的定义及其存在条件：定义了将正实轴实变函数 \( f(t) \) 变换为复平面复变函数 \( F(p) \) 的积分变换。给出了拉氏变换存在的充分条件（分段连续且具有有限的增长指数），并引入了收敛横标的概念。 Laplace 变换的基本性质：包括线性性质、像函数的解析性、像函数在无穷远处的极限行为、原函数导数的 Laplace 变换、原函数积分的 Laplace 变换。展示了这些性质如何将微积分运算转化为代数运算，从而为求解常微分方程初值问题及电路定解问题提供了强有力的工具。 Laplace 变换的反演方法：探讨了反演的唯一性。给出了像函数导数与积分的反演公式。针对像函数在 \( \infty \) 点解析的特殊情形，介绍了级数逐项反演的方法。证明了卷积定理。 普遍反演公式：论述了 Mellin 反演公式，并探讨了多值像函数（含有分支点）在复平面上通过构造割线和围道进行留数计算的反演步骤。 利用 Laplace 变换计算级数和：展示了如何通过将级数通项表示为像函数积分，并交换求和与积分次序，将离散的无穷级数求和问题转化为连续的定积分计算（如 Basel 问题 \( \sum \frac{1}{n^2} \) 等）。 二、 定义整理（按照 8.x.x 形式）#定义 8.1.1（Laplace 变换 / 拉氏变换）：设 \( f(t) \) 是定义在正实轴（\( t &gt; 0 \) ）上的非负实数函数，则由积分： \( F(p) = \int_0^\infty e^{-pt} f(t) dt \quad (8.1) \) 定义的复变函数 \( F(p) \) 称为 \( f(t) \) 的 Laplace 变换式（或拉氏换式），其中 \( p = s &#43; i\sigma \) 为复自变量，\( e^{-pt} \) 称为 Laplace 变换的核。 定义 8.1.2（原函数、像函数与反演）：在 Laplace 变换关系中，称 \( f(t) \) 为 原函数，\( F(p) \) 为 像函数。已知像函数 \( F(p) \) 求原函数 \( f(t) \) 的运算称为 反演。 定义 8.1.3（Heaviside 单位阶跃函数）：定义在实数域上的函数： \( \eta(t) = \begin{cases} 1, &amp; t &gt; 0 \ 0, &amp; t &lt; 0 \end{cases} \quad (8.4) \) 称为 Heaviside 单位阶跃函数。在拉氏变换中，常约定当 \( t &lt; 0 \) 时原函数 \( f(t) = 0 \) ，即等价地将 \( f(t) \) 理解为 \( f(t)\eta(t) \) 。 定义 8.1.4（收敛横标）：设存在正数 \( M &gt; 0, t_0 &gt; 0 \) 及 \( \beta’ \ge 0 \) ，使得当 \( t &gt; t_0 \) 时恒有 \( |f(t)| &lt; M e^{\beta’ t} \) 。符合该指数增长限制条件的参数 \( \beta’ \) 的下界称为 收敛横标，记为 \( s_0 \) （或 \( \beta_0 \) ），它决定了像函数 \( F(p) \) 的解析半平面（\( \text{Re } p &gt; s_0 \) ）。 定义 8.3.1（卷积）：对于两个定义在正实轴上的函数 \( f_1(t) \) 和 \( f_2(t) \) ，其 卷积（记作 \( f_1(t) * f_2(t) \) ）定义为积分形式： \( f_1(t) * f_2(t) = \int_0^t f_1(\tau) f_2(t-\tau) d\tau \quad (8.36) \) 定义 8.4.1（误差函数与余误差函数）： 满足积分形式： \( \text{erf } x = \frac{2}{\sqrt{\pi}} \int_0^x e^{-\xi^2} d\xi \quad (8.44) \) 的函数称为 误差函数。 满足积分形式： \( \text{erfc } x = 1 - \text{erf } x = \frac{2}{\sqrt{\pi}} \int_x^\infty e^{-\xi^2} d\xi \quad (8.43) \) 的函数称为 余误差函数。 三、 公式整理（按原文序号）#(8.1) Laplace 变换（拉氏变换）积分定义式： \( F(p) = \int_0^\infty e^{-pt} f(t) dt \) (8.2) 像函数（拉氏换式）的算符表示： \( F(p) = \mathcal{L} {f(t)} \quad \text{或} \quad F(p) \risingdotseq f(t) \) (8.3) 原函数（反演）的算符表示： \( f(t) = \mathcal{L}^{-1} {F(p)} \quad \text{或} \quad f(t) \fallingdotseq F(p) \) (8.4) Heaviside 单位阶跃函数定义： \( \eta (t) = \begin{cases} 1, &amp; t &gt; 0 \ 0, &amp; t &lt; 0 \end{cases} \) (8.5) 常数 1 的拉氏变换： \( \mathcal{L} {1} = \int_0^\infty e^{-pt} dt = \frac{1}{p} \quad (\text{Re } p &gt; 0) \) (8.6) 指数函数的拉氏变换： \( \mathcal{L} {e^{at}} = \int_0^\infty e^{-pt} e^{at} dt = \frac{1}{p-a} \quad (\text{Re } p &gt; \text{Re } a) \) (8.7) 原函数指数增长的充分条件估计： \( |f(t)| &lt; M e^{\beta’ t} \) (8.8) Laplace 变换的线性性质： \( \mathcal{L} {\alpha_1 f_1(t) &#43; \alpha_2 f_2(t)} = \alpha_1 F_1(p) &#43; \alpha_2 F_2(p) \) (8.9) 正弦与余弦函数的拉氏变换： \( \mathcal{L} {\sin \omega t} = \frac{\omega}{p^2&#43;\omega^2}, \quad \mathcal{L} {\cos \omega t} = \frac{p}{p^2&#43;\omega^2} \) (8.10) 收敛半平面内的绝对收敛积分估计： \( \left| \int_0^\infty e^{-pt} f(t) dt \right| \le \int_0^\infty M e^{-\delta t} dt &lt; \infty \quad (\text{其中 } \text{Re } p - s_0 \ge \delta &gt; 0) \) (8.11) 像函数在无穷远处的极限性质： \( \lim_{\text{Re } p \to &#43;\infty} F(p) = 0 \) (8.12) 一阶导数的拉氏变换： \( \mathcal{L} {f’(t)} = p F(p) - f(0) \) (8.13a) 二阶导数的拉氏变换： \( \mathcal{L} {f’’(t)} = p^2 F(p) - p f(0) - f’(0) \) (8.13b) 三阶导数的拉氏变换： \( \mathcal{L} {f^{(3)}(t)} = p^3 F(p) - p^2 f(0) - p f’(0) - f’’(0) \) (8.13c) \( n \) 阶导数的拉氏变换： \( \mathcal{L} {f^{(n)}(t)} = p^n F(p) - p^{n-1} f(0) - p^{n-2} f’(0) - \dots - f^{(n-1)}(0) \) (8.14a, b) LR 串联电路的微分方程定解问题： \( L \frac{di}{dt} &#43; R i = E, \quad i(0) = 0 \) (8.15) 电路方程变换后的代数方程： \( L p I(p) &#43; R I(p) = \frac{E}{p} \) (8.16) 电流的反演解析解： \( i(t) = \frac{E}{R} [1 - e^{-(R/L)t}] \) (8.17a, b) 常微分方程边值定解问题： \( y’’(t) - y’(t) - 2y(t) = 0, \quad y(0) = 1, \quad y(t)|_{t \to \infty} \text{ 有界} \) (8.18) 原函数积分的拉氏变换： \( \mathcal{L} \int_0^t f(\tau) d\tau = \frac{F(p)}{p} \) (8.18’) 积分与导数的恒等关系式： \( \int_0^\infty f(t) e^{-pt} dt = p \int_0^\infty g(t) e^{-pt} dt \quad \left( \text{其中 } g(t) = \int_0^t f(\tau) d\tau \right) \) (8.19a, b) LC 串联电路的微分积分方程定解问题： \( q(t) = C v_C(t), \quad q(t) = -\int_0^t i(\tau) d\tau &#43; q(0) \) (8.20) 并联电路电流像函数代数式： \( I(p) = \frac{v_0/L}{p^2 &#43; \frac{1}{LC}} \) (8.21) 原函数多值反演的非唯一性对抗形式： \( h_1(t) \risingdotseq F(p), \quad h_2(t) \risingdotseq F(p) \) (8.22) 零函数积分等式： \( g(t) = h_1(t) - h_2(t) \not\equiv 0, \quad g(t) \risingdotseq 0 \) (8.23) 像函数导数的反演公式： \( F^{(n)}(p) \risingdotseq (-t)^n f(t) \) (8.24) 二阶倒数幂的反演： \( \mathcal{L}^{-1}\frac{1}{p^2}= t \) (8.25) 三阶倒数幂的反演： \( \mathcal{L}^{-1} \frac{1}{p^3} = \frac{1}{2} t^2 \) (8.26) 有理分式部分分式展开式： \( \frac{1}{p^3(p&#43;a)} = \frac{1}{a p^3} - \frac{1}{a^2 p^2} &#43; \frac{1}{a^3 p} - \frac{1}{a^3(p&#43;a)} \) (8.27) 像函数积分的反演公式： \( \mathcal{L}^{-1} \int_p^\infty F(q) dq = \frac{f(t)}{t} \) (8.28) 典型三角分式的拉氏变换： \( \mathcal{L} \frac{\sin \omega t}{t} = \arctan \frac{\omega}{p} \) (8.29) 像函数定积分与原函数的关系： \( \int_0^\infty F(p) dp = \int_0^\infty \frac{f(t)}{t} dt \) (8.30) 典型狄利克雷积分公式： \( \int_0^\infty \frac{\sin \omega t}{t} dt = \frac{\pi}{2} \) (8.31) 典型对数型积分计算公式： \( \int_0^\infty \frac{e^{-at} - e^{-bt}}{t} dt = \ln \frac{b}{a} \) (8.32) 像函数在 \( p = \infty \) 点的 Taylor 级数展开： \( F(p) = \sum_{n=1}^\infty c_n p^{-n} \) (8.33) 原函数的级数反演式： \( f(t) = \sum_{n=1}^\infty \frac{c_n}{(n-1)!} t^{n-1} \) (8.34) 零阶 Bessel 函数的拉氏变换反演关系： \( \mathcal{L}^{-1} \frac{1}{\sqrt{p^2&#43;1}} = J_0(t) = \sum_{k=0}^\infty \frac{(-1)^k}{(k!)^2} \left(\frac{t}{2}\right)^{2k} \) (8.35) 零阶自变量 Bessel 变形反演： \( \mathcal{L}^{-1} \frac{1}{p} e^{-1/p} = J_0(2\sqrt{t}) \) (8.36) 卷积定理： \( \mathcal{L}{f_1(t) * f_2(t)} = F_1(p) F_2(p) \quad \left( \text{其中 } f_1(t) * f_2(t) = \int_0^t f_1(\tau) f_2(t-\tau) d\tau \right) \) (8.37) 方形脉冲电压函数定义： \( f_s(t) = \begin{cases} E_0, &amp; 0 \le t \le T \ 0, &amp; t &gt; T \end{cases} \) (8.38) 普遍反演公式（Mellin 反演积分公式）： \( f(t) = \frac{1}{2\pi i} \int_{s-i\infty}^{s&#43;i\infty} F(p) e^{pt} dp \quad (s &gt; s_0) \) (8.39) 像函数高阶分式反演积分示例： \( \mathcal{L}^{-1} \frac{1}{(p^2&#43;\omega^2)^2} = \frac{1}{2\pi i} \int_{s-i\infty}^{s&#43;i\infty} \frac{e^{pt}}{(p^2&#43;\omega^2)^2} dp = \frac{1}{2\omega^2} \left( \frac{\sin \omega t}{\omega} - t \cos \omega t \right) \) (8.40) 多值函数的反演公式（例 8.8）： \( \mathcal{L}^{-1} \frac{1}{\sqrt{p}} e^{-a\sqrt{p}} = \frac{1}{\sqrt{\pi t}} e^{-a^2/4t} \quad (a &gt; 0) \) (8.41) 原、像自变量开方变换公式： \( \frac{1}{\sqrt{\pi t}} \int_0^\infty f(\tau) e^{-\tau^2/4t} d\tau \risingdotseq \frac{1}{\sqrt{p}} F(\sqrt{p}) \) (8.42) 阶跃余误差变换对： \( \mathcal{L}^{-1} \frac{1}{p} e^{-a\sqrt{p}} = \text{erfc}\left( \frac{a}{2\sqrt{t}} \right) \) (8.43) 余误差函数（Complementary Error Function）定义： \( \text{erfc } x = \frac{2}{\sqrt{\pi}} \int_x^\infty e^{-\xi^2} d\xi \) (8.44) 误差函数（Error Function）定义： \( \text{erf } x = \frac{2}{\sqrt{\pi}} \int_0^x e^{-\xi^2} d\xi \) (8.45) 级数求和积分转换模型： \( \sum_{n=1}^\infty F(n) = \int_0^\infty f(t) \left( \sum_{n=1}^\infty e^{-nt} \right) dt = \int_0^\infty \frac{f(t)}{e^t-1} dt \) (8.46) 典型平方倒数和级数积分式（例 8.10）： \( \sum_{n=1}^\infty \frac{1}{n^2} = \int_0^\infty \frac{x}{e^x-1} dx = \frac{\pi^2}{6} \) (8.47) 四次方倒数和级数积分式（例 8.11）： \( \sum_{n=1}^\infty \frac{1}{n^4} = \frac{1}{6}\int_0^\infty \frac{x^3}{e^x-1} dx = \frac{\pi^4}{90} \) (8.48) 有理级数求和公式（例 8.12）： \( \sum_{n=1}^\infty \frac{1}{n^2-a^2} = \frac{1}{2a^2} - \frac{\pi}{2a} \cot \pi a \) (8.48’) 级数的变形余切求和式： \( \sum_{n=1}^\infty \frac{1}{n^2-a^2} = \frac{1}{2a^2} - \frac{\pi}{2a} \cot \pi a \) (8.49) 双曲余切求和公式（纯虚数代换一）： \( \sum_{n=1}^\infty \frac{1}{n^2&#43;a^2} = -\frac{1}{2a^2} &#43; \frac{\pi}{2a} \coth \pi a \) (8.49’) 双曲余切求和公式（纯虚数代换二）： \( \sum_{n=1}^\infty \frac{1}{n^2&#43;a^2} = -\frac{1}{2a^2} &#43; \frac{\pi}{2a} \coth \pi a \) (8.50) 含有对数的无穷级数求和式： \( \sum_{n=1}^\infty \ln \left( 1 &#43; \frac{a^2}{n^2} \right) = \ln \left( \frac{\sinh \pi a}{\pi a} \right) \) ⚡ 既然我们已经系统完成了第八章 Laplace 变换的公式、定义和内容总结，我们可以针对该章的核心，比如利用拉氏变换求解经典微分方程或电路定解问题（如 LR、LC 串联电路初值问题）的完整手写计算步骤进行一次深度拆解，您想看看吗？
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/physics/methods/ch08/formula/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="formula">
+	<meta property="og:description" content="\[ \] 一、 主要内容总结#第八章《Laplace 变换》系统地讨论了复平面上最核心的积分变换之一——Laplace 变换（拉氏变换）的定义、性质、反演技术及定解应用：
+Laplace 变换的定义及其存在条件：定义了将正实轴实变函数 \( f(t) \) 变换为复平面复变函数 \( F(p) \) 的积分变换。给出了拉氏变换存在的充分条件（分段连续且具有有限的增长指数），并引入了收敛横标的概念。 Laplace 变换的基本性质：包括线性性质、像函数的解析性、像函数在无穷远处的极限行为、原函数导数的 Laplace 变换、原函数积分的 Laplace 变换。展示了这些性质如何将微积分运算转化为代数运算，从而为求解常微分方程初值问题及电路定解问题提供了强有力的工具。 Laplace 变换的反演方法：探讨了反演的唯一性。给出了像函数导数与积分的反演公式。针对像函数在 \( \infty \) 点解析的特殊情形，介绍了级数逐项反演的方法。证明了卷积定理。 普遍反演公式：论述了 Mellin 反演公式，并探讨了多值像函数（含有分支点）在复平面上通过构造割线和围道进行留数计算的反演步骤。 利用 Laplace 变换计算级数和：展示了如何通过将级数通项表示为像函数积分，并交换求和与积分次序，将离散的无穷级数求和问题转化为连续的定积分计算（如 Basel 问题 \( \sum \frac{1}{n^2} \) 等）。 二、 定义整理（按照 8.x.x 形式）#定义 8.1.1（Laplace 变换 / 拉氏变换）：设 \( f(t) \) 是定义在正实轴（\( t &gt; 0 \) ）上的非负实数函数，则由积分： \( F(p) = \int_0^\infty e^{-pt} f(t) dt \quad (8.1) \) 定义的复变函数 \( F(p) \) 称为 \( f(t) \) 的 Laplace 变换式（或拉氏换式），其中 \( p = s &#43; i\sigma \) 为复自变量，\( e^{-pt} \) 称为 Laplace 变换的核。 定义 8.1.2（原函数、像函数与反演）：在 Laplace 变换关系中，称 \( f(t) \) 为 原函数，\( F(p) \) 为 像函数。已知像函数 \( F(p) \) 求原函数 \( f(t) \) 的运算称为 反演。 定义 8.1.3（Heaviside 单位阶跃函数）：定义在实数域上的函数： \( \eta(t) = \begin{cases} 1, &amp; t &gt; 0 \ 0, &amp; t &lt; 0 \end{cases} \quad (8.4) \) 称为 Heaviside 单位阶跃函数。在拉氏变换中，常约定当 \( t &lt; 0 \) 时原函数 \( f(t) = 0 \) ，即等价地将 \( f(t) \) 理解为 \( f(t)\eta(t) \) 。 定义 8.1.4（收敛横标）：设存在正数 \( M &gt; 0, t_0 &gt; 0 \) 及 \( \beta’ \ge 0 \) ，使得当 \( t &gt; t_0 \) 时恒有 \( |f(t)| &lt; M e^{\beta’ t} \) 。符合该指数增长限制条件的参数 \( \beta’ \) 的下界称为 收敛横标，记为 \( s_0 \) （或 \( \beta_0 \) ），它决定了像函数 \( F(p) \) 的解析半平面（\( \text{Re } p &gt; s_0 \) ）。 定义 8.3.1（卷积）：对于两个定义在正实轴上的函数 \( f_1(t) \) 和 \( f_2(t) \) ，其 卷积（记作 \( f_1(t) * f_2(t) \) ）定义为积分形式： \( f_1(t) * f_2(t) = \int_0^t f_1(\tau) f_2(t-\tau) d\tau \quad (8.36) \) 定义 8.4.1（误差函数与余误差函数）： 满足积分形式： \( \text{erf } x = \frac{2}{\sqrt{\pi}} \int_0^x e^{-\xi^2} d\xi \quad (8.44) \) 的函数称为 误差函数。 满足积分形式： \( \text{erfc } x = 1 - \text{erf } x = \frac{2}{\sqrt{\pi}} \int_x^\infty e^{-\xi^2} d\xi \quad (8.43) \) 的函数称为 余误差函数。 三、 公式整理（按原文序号）#(8.1) Laplace 变换（拉氏变换）积分定义式： \( F(p) = \int_0^\infty e^{-pt} f(t) dt \) (8.2) 像函数（拉氏换式）的算符表示： \( F(p) = \mathcal{L} {f(t)} \quad \text{或} \quad F(p) \risingdotseq f(t) \) (8.3) 原函数（反演）的算符表示： \( f(t) = \mathcal{L}^{-1} {F(p)} \quad \text{或} \quad f(t) \fallingdotseq F(p) \) (8.4) Heaviside 单位阶跃函数定义： \( \eta (t) = \begin{cases} 1, &amp; t &gt; 0 \ 0, &amp; t &lt; 0 \end{cases} \) (8.5) 常数 1 的拉氏变换： \( \mathcal{L} {1} = \int_0^\infty e^{-pt} dt = \frac{1}{p} \quad (\text{Re } p &gt; 0) \) (8.6) 指数函数的拉氏变换： \( \mathcal{L} {e^{at}} = \int_0^\infty e^{-pt} e^{at} dt = \frac{1}{p-a} \quad (\text{Re } p &gt; \text{Re } a) \) (8.7) 原函数指数增长的充分条件估计： \( |f(t)| &lt; M e^{\beta’ t} \) (8.8) Laplace 变换的线性性质： \( \mathcal{L} {\alpha_1 f_1(t) &#43; \alpha_2 f_2(t)} = \alpha_1 F_1(p) &#43; \alpha_2 F_2(p) \) (8.9) 正弦与余弦函数的拉氏变换： \( \mathcal{L} {\sin \omega t} = \frac{\omega}{p^2&#43;\omega^2}, \quad \mathcal{L} {\cos \omega t} = \frac{p}{p^2&#43;\omega^2} \) (8.10) 收敛半平面内的绝对收敛积分估计： \( \left| \int_0^\infty e^{-pt} f(t) dt \right| \le \int_0^\infty M e^{-\delta t} dt &lt; \infty \quad (\text{其中 } \text{Re } p - s_0 \ge \delta &gt; 0) \) (8.11) 像函数在无穷远处的极限性质： \( \lim_{\text{Re } p \to &#43;\infty} F(p) = 0 \) (8.12) 一阶导数的拉氏变换： \( \mathcal{L} {f’(t)} = p F(p) - f(0) \) (8.13a) 二阶导数的拉氏变换： \( \mathcal{L} {f’’(t)} = p^2 F(p) - p f(0) - f’(0) \) (8.13b) 三阶导数的拉氏变换： \( \mathcal{L} {f^{(3)}(t)} = p^3 F(p) - p^2 f(0) - p f’(0) - f’’(0) \) (8.13c) \( n \) 阶导数的拉氏变换： \( \mathcal{L} {f^{(n)}(t)} = p^n F(p) - p^{n-1} f(0) - p^{n-2} f’(0) - \dots - f^{(n-1)}(0) \) (8.14a, b) LR 串联电路的微分方程定解问题： \( L \frac{di}{dt} &#43; R i = E, \quad i(0) = 0 \) (8.15) 电路方程变换后的代数方程： \( L p I(p) &#43; R I(p) = \frac{E}{p} \) (8.16) 电流的反演解析解： \( i(t) = \frac{E}{R} [1 - e^{-(R/L)t}] \) (8.17a, b) 常微分方程边值定解问题： \( y’’(t) - y’(t) - 2y(t) = 0, \quad y(0) = 1, \quad y(t)|_{t \to \infty} \text{ 有界} \) (8.18) 原函数积分的拉氏变换： \( \mathcal{L} \int_0^t f(\tau) d\tau = \frac{F(p)}{p} \) (8.18’) 积分与导数的恒等关系式： \( \int_0^\infty f(t) e^{-pt} dt = p \int_0^\infty g(t) e^{-pt} dt \quad \left( \text{其中 } g(t) = \int_0^t f(\tau) d\tau \right) \) (8.19a, b) LC 串联电路的微分积分方程定解问题： \( q(t) = C v_C(t), \quad q(t) = -\int_0^t i(\tau) d\tau &#43; q(0) \) (8.20) 并联电路电流像函数代数式： \( I(p) = \frac{v_0/L}{p^2 &#43; \frac{1}{LC}} \) (8.21) 原函数多值反演的非唯一性对抗形式： \( h_1(t) \risingdotseq F(p), \quad h_2(t) \risingdotseq F(p) \) (8.22) 零函数积分等式： \( g(t) = h_1(t) - h_2(t) \not\equiv 0, \quad g(t) \risingdotseq 0 \) (8.23) 像函数导数的反演公式： \( F^{(n)}(p) \risingdotseq (-t)^n f(t) \) (8.24) 二阶倒数幂的反演： \( \mathcal{L}^{-1}\frac{1}{p^2}= t \) (8.25) 三阶倒数幂的反演： \( \mathcal{L}^{-1} \frac{1}{p^3} = \frac{1}{2} t^2 \) (8.26) 有理分式部分分式展开式： \( \frac{1}{p^3(p&#43;a)} = \frac{1}{a p^3} - \frac{1}{a^2 p^2} &#43; \frac{1}{a^3 p} - \frac{1}{a^3(p&#43;a)} \) (8.27) 像函数积分的反演公式： \( \mathcal{L}^{-1} \int_p^\infty F(q) dq = \frac{f(t)}{t} \) (8.28) 典型三角分式的拉氏变换： \( \mathcal{L} \frac{\sin \omega t}{t} = \arctan \frac{\omega}{p} \) (8.29) 像函数定积分与原函数的关系： \( \int_0^\infty F(p) dp = \int_0^\infty \frac{f(t)}{t} dt \) (8.30) 典型狄利克雷积分公式： \( \int_0^\infty \frac{\sin \omega t}{t} dt = \frac{\pi}{2} \) (8.31) 典型对数型积分计算公式： \( \int_0^\infty \frac{e^{-at} - e^{-bt}}{t} dt = \ln \frac{b}{a} \) (8.32) 像函数在 \( p = \infty \) 点的 Taylor 级数展开： \( F(p) = \sum_{n=1}^\infty c_n p^{-n} \) (8.33) 原函数的级数反演式： \( f(t) = \sum_{n=1}^\infty \frac{c_n}{(n-1)!} t^{n-1} \) (8.34) 零阶 Bessel 函数的拉氏变换反演关系： \( \mathcal{L}^{-1} \frac{1}{\sqrt{p^2&#43;1}} = J_0(t) = \sum_{k=0}^\infty \frac{(-1)^k}{(k!)^2} \left(\frac{t}{2}\right)^{2k} \) (8.35) 零阶自变量 Bessel 变形反演： \( \mathcal{L}^{-1} \frac{1}{p} e^{-1/p} = J_0(2\sqrt{t}) \) (8.36) 卷积定理： \( \mathcal{L}{f_1(t) * f_2(t)} = F_1(p) F_2(p) \quad \left( \text{其中 } f_1(t) * f_2(t) = \int_0^t f_1(\tau) f_2(t-\tau) d\tau \right) \) (8.37) 方形脉冲电压函数定义： \( f_s(t) = \begin{cases} E_0, &amp; 0 \le t \le T \ 0, &amp; t &gt; T \end{cases} \) (8.38) 普遍反演公式（Mellin 反演积分公式）： \( f(t) = \frac{1}{2\pi i} \int_{s-i\infty}^{s&#43;i\infty} F(p) e^{pt} dp \quad (s &gt; s_0) \) (8.39) 像函数高阶分式反演积分示例： \( \mathcal{L}^{-1} \frac{1}{(p^2&#43;\omega^2)^2} = \frac{1}{2\pi i} \int_{s-i\infty}^{s&#43;i\infty} \frac{e^{pt}}{(p^2&#43;\omega^2)^2} dp = \frac{1}{2\omega^2} \left( \frac{\sin \omega t}{\omega} - t \cos \omega t \right) \) (8.40) 多值函数的反演公式（例 8.8）： \( \mathcal{L}^{-1} \frac{1}{\sqrt{p}} e^{-a\sqrt{p}} = \frac{1}{\sqrt{\pi t}} e^{-a^2/4t} \quad (a &gt; 0) \) (8.41) 原、像自变量开方变换公式： \( \frac{1}{\sqrt{\pi t}} \int_0^\infty f(\tau) e^{-\tau^2/4t} d\tau \risingdotseq \frac{1}{\sqrt{p}} F(\sqrt{p}) \) (8.42) 阶跃余误差变换对： \( \mathcal{L}^{-1} \frac{1}{p} e^{-a\sqrt{p}} = \text{erfc}\left( \frac{a}{2\sqrt{t}} \right) \) (8.43) 余误差函数（Complementary Error Function）定义： \( \text{erfc } x = \frac{2}{\sqrt{\pi}} \int_x^\infty e^{-\xi^2} d\xi \) (8.44) 误差函数（Error Function）定义： \( \text{erf } x = \frac{2}{\sqrt{\pi}} \int_0^x e^{-\xi^2} d\xi \) (8.45) 级数求和积分转换模型： \( \sum_{n=1}^\infty F(n) = \int_0^\infty f(t) \left( \sum_{n=1}^\infty e^{-nt} \right) dt = \int_0^\infty \frac{f(t)}{e^t-1} dt \) (8.46) 典型平方倒数和级数积分式（例 8.10）： \( \sum_{n=1}^\infty \frac{1}{n^2} = \int_0^\infty \frac{x}{e^x-1} dx = \frac{\pi^2}{6} \) (8.47) 四次方倒数和级数积分式（例 8.11）： \( \sum_{n=1}^\infty \frac{1}{n^4} = \frac{1}{6}\int_0^\infty \frac{x^3}{e^x-1} dx = \frac{\pi^4}{90} \) (8.48) 有理级数求和公式（例 8.12）： \( \sum_{n=1}^\infty \frac{1}{n^2-a^2} = \frac{1}{2a^2} - \frac{\pi}{2a} \cot \pi a \) (8.48’) 级数的变形余切求和式： \( \sum_{n=1}^\infty \frac{1}{n^2-a^2} = \frac{1}{2a^2} - \frac{\pi}{2a} \cot \pi a \) (8.49) 双曲余切求和公式（纯虚数代换一）： \( \sum_{n=1}^\infty \frac{1}{n^2&#43;a^2} = -\frac{1}{2a^2} &#43; \frac{\pi}{2a} \coth \pi a \) (8.49’) 双曲余切求和公式（纯虚数代换二）： \( \sum_{n=1}^\infty \frac{1}{n^2&#43;a^2} = -\frac{1}{2a^2} &#43; \frac{\pi}{2a} \coth \pi a \) (8.50) 含有对数的无穷级数求和式： \( \sum_{n=1}^\infty \ln \left( 1 &#43; \frac{a^2}{n^2} \right) = \ln \left( \frac{\sinh \pi a}{\pi a} \right) \) ⚡ 既然我们已经系统完成了第八章 Laplace 变换的公式、定义和内容总结，我们可以针对该章的核心，比如利用拉氏变换求解经典微分方程或电路定解问题（如 LR、LC 串联电路初值问题）的完整手写计算步骤进行一次深度拆解，您想看看吗？">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="formula">
+	<meta itemprop="description" content="\[ \] 一、 主要内容总结#第八章《Laplace 变换》系统地讨论了复平面上最核心的积分变换之一——Laplace 变换（拉氏变换）的定义、性质、反演技术及定解应用：
+Laplace 变换的定义及其存在条件：定义了将正实轴实变函数 \( f(t) \) 变换为复平面复变函数 \( F(p) \) 的积分变换。给出了拉氏变换存在的充分条件（分段连续且具有有限的增长指数），并引入了收敛横标的概念。 Laplace 变换的基本性质：包括线性性质、像函数的解析性、像函数在无穷远处的极限行为、原函数导数的 Laplace 变换、原函数积分的 Laplace 变换。展示了这些性质如何将微积分运算转化为代数运算，从而为求解常微分方程初值问题及电路定解问题提供了强有力的工具。 Laplace 变换的反演方法：探讨了反演的唯一性。给出了像函数导数与积分的反演公式。针对像函数在 \( \infty \) 点解析的特殊情形，介绍了级数逐项反演的方法。证明了卷积定理。 普遍反演公式：论述了 Mellin 反演公式，并探讨了多值像函数（含有分支点）在复平面上通过构造割线和围道进行留数计算的反演步骤。 利用 Laplace 变换计算级数和：展示了如何通过将级数通项表示为像函数积分，并交换求和与积分次序，将离散的无穷级数求和问题转化为连续的定积分计算（如 Basel 问题 \( \sum \frac{1}{n^2} \) 等）。 二、 定义整理（按照 8.x.x 形式）#定义 8.1.1（Laplace 变换 / 拉氏变换）：设 \( f(t) \) 是定义在正实轴（\( t &gt; 0 \) ）上的非负实数函数，则由积分： \( F(p) = \int_0^\infty e^{-pt} f(t) dt \quad (8.1) \) 定义的复变函数 \( F(p) \) 称为 \( f(t) \) 的 Laplace 变换式（或拉氏换式），其中 \( p = s &#43; i\sigma \) 为复自变量，\( e^{-pt} \) 称为 Laplace 变换的核。 定义 8.1.2（原函数、像函数与反演）：在 Laplace 变换关系中，称 \( f(t) \) 为 原函数，\( F(p) \) 为 像函数。已知像函数 \( F(p) \) 求原函数 \( f(t) \) 的运算称为 反演。 定义 8.1.3（Heaviside 单位阶跃函数）：定义在实数域上的函数： \( \eta(t) = \begin{cases} 1, &amp; t &gt; 0 \ 0, &amp; t &lt; 0 \end{cases} \quad (8.4) \) 称为 Heaviside 单位阶跃函数。在拉氏变换中，常约定当 \( t &lt; 0 \) 时原函数 \( f(t) = 0 \) ，即等价地将 \( f(t) \) 理解为 \( f(t)\eta(t) \) 。 定义 8.1.4（收敛横标）：设存在正数 \( M &gt; 0, t_0 &gt; 0 \) 及 \( \beta’ \ge 0 \) ，使得当 \( t &gt; t_0 \) 时恒有 \( |f(t)| &lt; M e^{\beta’ t} \) 。符合该指数增长限制条件的参数 \( \beta’ \) 的下界称为 收敛横标，记为 \( s_0 \) （或 \( \beta_0 \) ），它决定了像函数 \( F(p) \) 的解析半平面（\( \text{Re } p &gt; s_0 \) ）。 定义 8.3.1（卷积）：对于两个定义在正实轴上的函数 \( f_1(t) \) 和 \( f_2(t) \) ，其 卷积（记作 \( f_1(t) * f_2(t) \) ）定义为积分形式： \( f_1(t) * f_2(t) = \int_0^t f_1(\tau) f_2(t-\tau) d\tau \quad (8.36) \) 定义 8.4.1（误差函数与余误差函数）： 满足积分形式： \( \text{erf } x = \frac{2}{\sqrt{\pi}} \int_0^x e^{-\xi^2} d\xi \quad (8.44) \) 的函数称为 误差函数。 满足积分形式： \( \text{erfc } x = 1 - \text{erf } x = \frac{2}{\sqrt{\pi}} \int_x^\infty e^{-\xi^2} d\xi \quad (8.43) \) 的函数称为 余误差函数。 三、 公式整理（按原文序号）#(8.1) Laplace 变换（拉氏变换）积分定义式： \( F(p) = \int_0^\infty e^{-pt} f(t) dt \) (8.2) 像函数（拉氏换式）的算符表示： \( F(p) = \mathcal{L} {f(t)} \quad \text{或} \quad F(p) \risingdotseq f(t) \) (8.3) 原函数（反演）的算符表示： \( f(t) = \mathcal{L}^{-1} {F(p)} \quad \text{或} \quad f(t) \fallingdotseq F(p) \) (8.4) Heaviside 单位阶跃函数定义： \( \eta (t) = \begin{cases} 1, &amp; t &gt; 0 \ 0, &amp; t &lt; 0 \end{cases} \) (8.5) 常数 1 的拉氏变换： \( \mathcal{L} {1} = \int_0^\infty e^{-pt} dt = \frac{1}{p} \quad (\text{Re } p &gt; 0) \) (8.6) 指数函数的拉氏变换： \( \mathcal{L} {e^{at}} = \int_0^\infty e^{-pt} e^{at} dt = \frac{1}{p-a} \quad (\text{Re } p &gt; \text{Re } a) \) (8.7) 原函数指数增长的充分条件估计： \( |f(t)| &lt; M e^{\beta’ t} \) (8.8) Laplace 变换的线性性质： \( \mathcal{L} {\alpha_1 f_1(t) &#43; \alpha_2 f_2(t)} = \alpha_1 F_1(p) &#43; \alpha_2 F_2(p) \) (8.9) 正弦与余弦函数的拉氏变换： \( \mathcal{L} {\sin \omega t} = \frac{\omega}{p^2&#43;\omega^2}, \quad \mathcal{L} {\cos \omega t} = \frac{p}{p^2&#43;\omega^2} \) (8.10) 收敛半平面内的绝对收敛积分估计： \( \left| \int_0^\infty e^{-pt} f(t) dt \right| \le \int_0^\infty M e^{-\delta t} dt &lt; \infty \quad (\text{其中 } \text{Re } p - s_0 \ge \delta &gt; 0) \) (8.11) 像函数在无穷远处的极限性质： \( \lim_{\text{Re } p \to &#43;\infty} F(p) = 0 \) (8.12) 一阶导数的拉氏变换： \( \mathcal{L} {f’(t)} = p F(p) - f(0) \) (8.13a) 二阶导数的拉氏变换： \( \mathcal{L} {f’’(t)} = p^2 F(p) - p f(0) - f’(0) \) (8.13b) 三阶导数的拉氏变换： \( \mathcal{L} {f^{(3)}(t)} = p^3 F(p) - p^2 f(0) - p f’(0) - f’’(0) \) (8.13c) \( n \) 阶导数的拉氏变换： \( \mathcal{L} {f^{(n)}(t)} = p^n F(p) - p^{n-1} f(0) - p^{n-2} f’(0) - \dots - f^{(n-1)}(0) \) (8.14a, b) LR 串联电路的微分方程定解问题： \( L \frac{di}{dt} &#43; R i = E, \quad i(0) = 0 \) (8.15) 电路方程变换后的代数方程： \( L p I(p) &#43; R I(p) = \frac{E}{p} \) (8.16) 电流的反演解析解： \( i(t) = \frac{E}{R} [1 - e^{-(R/L)t}] \) (8.17a, b) 常微分方程边值定解问题： \( y’’(t) - y’(t) - 2y(t) = 0, \quad y(0) = 1, \quad y(t)|_{t \to \infty} \text{ 有界} \) (8.18) 原函数积分的拉氏变换： \( \mathcal{L} \int_0^t f(\tau) d\tau = \frac{F(p)}{p} \) (8.18’) 积分与导数的恒等关系式： \( \int_0^\infty f(t) e^{-pt} dt = p \int_0^\infty g(t) e^{-pt} dt \quad \left( \text{其中 } g(t) = \int_0^t f(\tau) d\tau \right) \) (8.19a, b) LC 串联电路的微分积分方程定解问题： \( q(t) = C v_C(t), \quad q(t) = -\int_0^t i(\tau) d\tau &#43; q(0) \) (8.20) 并联电路电流像函数代数式： \( I(p) = \frac{v_0/L}{p^2 &#43; \frac{1}{LC}} \) (8.21) 原函数多值反演的非唯一性对抗形式： \( h_1(t) \risingdotseq F(p), \quad h_2(t) \risingdotseq F(p) \) (8.22) 零函数积分等式： \( g(t) = h_1(t) - h_2(t) \not\equiv 0, \quad g(t) \risingdotseq 0 \) (8.23) 像函数导数的反演公式： \( F^{(n)}(p) \risingdotseq (-t)^n f(t) \) (8.24) 二阶倒数幂的反演： \( \mathcal{L}^{-1}\frac{1}{p^2}= t \) (8.25) 三阶倒数幂的反演： \( \mathcal{L}^{-1} \frac{1}{p^3} = \frac{1}{2} t^2 \) (8.26) 有理分式部分分式展开式： \( \frac{1}{p^3(p&#43;a)} = \frac{1}{a p^3} - \frac{1}{a^2 p^2} &#43; \frac{1}{a^3 p} - \frac{1}{a^3(p&#43;a)} \) (8.27) 像函数积分的反演公式： \( \mathcal{L}^{-1} \int_p^\infty F(q) dq = \frac{f(t)}{t} \) (8.28) 典型三角分式的拉氏变换： \( \mathcal{L} \frac{\sin \omega t}{t} = \arctan \frac{\omega}{p} \) (8.29) 像函数定积分与原函数的关系： \( \int_0^\infty F(p) dp = \int_0^\infty \frac{f(t)}{t} dt \) (8.30) 典型狄利克雷积分公式： \( \int_0^\infty \frac{\sin \omega t}{t} dt = \frac{\pi}{2} \) (8.31) 典型对数型积分计算公式： \( \int_0^\infty \frac{e^{-at} - e^{-bt}}{t} dt = \ln \frac{b}{a} \) (8.32) 像函数在 \( p = \infty \) 点的 Taylor 级数展开： \( F(p) = \sum_{n=1}^\infty c_n p^{-n} \) (8.33) 原函数的级数反演式： \( f(t) = \sum_{n=1}^\infty \frac{c_n}{(n-1)!} t^{n-1} \) (8.34) 零阶 Bessel 函数的拉氏变换反演关系： \( \mathcal{L}^{-1} \frac{1}{\sqrt{p^2&#43;1}} = J_0(t) = \sum_{k=0}^\infty \frac{(-1)^k}{(k!)^2} \left(\frac{t}{2}\right)^{2k} \) (8.35) 零阶自变量 Bessel 变形反演： \( \mathcal{L}^{-1} \frac{1}{p} e^{-1/p} = J_0(2\sqrt{t}) \) (8.36) 卷积定理： \( \mathcal{L}{f_1(t) * f_2(t)} = F_1(p) F_2(p) \quad \left( \text{其中 } f_1(t) * f_2(t) = \int_0^t f_1(\tau) f_2(t-\tau) d\tau \right) \) (8.37) 方形脉冲电压函数定义： \( f_s(t) = \begin{cases} E_0, &amp; 0 \le t \le T \ 0, &amp; t &gt; T \end{cases} \) (8.38) 普遍反演公式（Mellin 反演积分公式）： \( f(t) = \frac{1}{2\pi i} \int_{s-i\infty}^{s&#43;i\infty} F(p) e^{pt} dp \quad (s &gt; s_0) \) (8.39) 像函数高阶分式反演积分示例： \( \mathcal{L}^{-1} \frac{1}{(p^2&#43;\omega^2)^2} = \frac{1}{2\pi i} \int_{s-i\infty}^{s&#43;i\infty} \frac{e^{pt}}{(p^2&#43;\omega^2)^2} dp = \frac{1}{2\omega^2} \left( \frac{\sin \omega t}{\omega} - t \cos \omega t \right) \) (8.40) 多值函数的反演公式（例 8.8）： \( \mathcal{L}^{-1} \frac{1}{\sqrt{p}} e^{-a\sqrt{p}} = \frac{1}{\sqrt{\pi t}} e^{-a^2/4t} \quad (a &gt; 0) \) (8.41) 原、像自变量开方变换公式： \( \frac{1}{\sqrt{\pi t}} \int_0^\infty f(\tau) e^{-\tau^2/4t} d\tau \risingdotseq \frac{1}{\sqrt{p}} F(\sqrt{p}) \) (8.42) 阶跃余误差变换对： \( \mathcal{L}^{-1} \frac{1}{p} e^{-a\sqrt{p}} = \text{erfc}\left( \frac{a}{2\sqrt{t}} \right) \) (8.43) 余误差函数（Complementary Error Function）定义： \( \text{erfc } x = \frac{2}{\sqrt{\pi}} \int_x^\infty e^{-\xi^2} d\xi \) (8.44) 误差函数（Error Function）定义： \( \text{erf } x = \frac{2}{\sqrt{\pi}} \int_0^x e^{-\xi^2} d\xi \) (8.45) 级数求和积分转换模型： \( \sum_{n=1}^\infty F(n) = \int_0^\infty f(t) \left( \sum_{n=1}^\infty e^{-nt} \right) dt = \int_0^\infty \frac{f(t)}{e^t-1} dt \) (8.46) 典型平方倒数和级数积分式（例 8.10）： \( \sum_{n=1}^\infty \frac{1}{n^2} = \int_0^\infty \frac{x}{e^x-1} dx = \frac{\pi^2}{6} \) (8.47) 四次方倒数和级数积分式（例 8.11）： \( \sum_{n=1}^\infty \frac{1}{n^4} = \frac{1}{6}\int_0^\infty \frac{x^3}{e^x-1} dx = \frac{\pi^4}{90} \) (8.48) 有理级数求和公式（例 8.12）： \( \sum_{n=1}^\infty \frac{1}{n^2-a^2} = \frac{1}{2a^2} - \frac{\pi}{2a} \cot \pi a \) (8.48’) 级数的变形余切求和式： \( \sum_{n=1}^\infty \frac{1}{n^2-a^2} = \frac{1}{2a^2} - \frac{\pi}{2a} \cot \pi a \) (8.49) 双曲余切求和公式（纯虚数代换一）： \( \sum_{n=1}^\infty \frac{1}{n^2&#43;a^2} = -\frac{1}{2a^2} &#43; \frac{\pi}{2a} \coth \pi a \) (8.49’) 双曲余切求和公式（纯虚数代换二）： \( \sum_{n=1}^\infty \frac{1}{n^2&#43;a^2} = -\frac{1}{2a^2} &#43; \frac{\pi}{2a} \coth \pi a \) (8.50) 含有对数的无穷级数求和式： \( \sum_{n=1}^\infty \ln \left( 1 &#43; \frac{a^2}{n^2} \right) = \ln \left( \frac{\sinh \pi a}{\pi a} \right) \) ⚡ 既然我们已经系统完成了第八章 Laplace 变换的公式、定义和内容总结，我们可以针对该章的核心，比如利用拉氏变换求解经典微分方程或电路定解问题（如 LR、LC 串联电路初值问题）的完整手写计算步骤进行一次深度拆解，您想看看吗？">
+	<meta itemprop="wordCount" content="1102">
+
+<title>formula • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/physics/methods/ch08/formula/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.cdd8043259d4c121c464bf82421b1b8ec24ddcfd3913423fc773e1adc6214018.js" integrity="sha256-zdgEMlnUwSHEZL&#43;CQhsbjsJN3P05E0I/x3PhrcYhQBg=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-abba9f480fc1b6dc0f169df3792fa60b" class="toggle"  />
+    <label for="section-abba9f480fc1b6dc0f169df3792fa60b" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3eadb64dade55467a37e3d8684debcbe" class="toggle"  />
+    <label for="section-3eadb64dade55467a37e3d8684debcbe" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-65eae293ed0098a0a36bdb2eb03d0d66" class="toggle"  />
+    <label for="section-65eae293ed0098a0a36bdb2eb03d0d66" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/" class="">
+        ch07 数项级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e326582fcb1d25ace94559825e37e78a" class="toggle"  />
+    <label for="section-e326582fcb1d25ace94559825e37e78a" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-092bf523737bea57e903ccfe2bcbceb0" class="toggle"  />
+    <label for="section-092bf523737bea57e903ccfe2bcbceb0" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0a8d861cd4176c22af4abdab3e8393f3" class="toggle"  />
+    <label for="section-0a8d861cd4176c22af4abdab3e8393f3" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-701bbb3362074de7a18b4e5941c35e80" class="toggle"  />
+    <label for="section-701bbb3362074de7a18b4e5941c35e80" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/" class="">
+        ch08 函数项级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f7eac4a4ad148c1436105f796711db23" class="toggle"  />
+    <label for="section-f7eac4a4ad148c1436105f796711db23" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6612181ffbe56683ffb0c6c8eb9e30e2" class="toggle"  />
+    <label for="section-6612181ffbe56683ffb0c6c8eb9e30e2" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ff6dbf3ba8565fbb1c2728f0c81dfd15" class="toggle"  />
+    <label for="section-ff6dbf3ba8565fbb1c2728f0c81dfd15" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-86b3f804a71bdd5c9dbdaa65cff2c870" class="toggle"  />
+    <label for="section-86b3f804a71bdd5c9dbdaa65cff2c870" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/" class="">
+        ch09 Fourier 分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1d04d935e6074b1669499d56fdc09e12" class="toggle"  />
+    <label for="section-1d04d935e6074b1669499d56fdc09e12" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a20297977a1e58717a639ae306c6c693" class="toggle"  />
+    <label for="section-a20297977a1e58717a639ae306c6c693" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-13c09c9bc58e29a8a78b87dac121f479" class="toggle"  />
+    <label for="section-13c09c9bc58e29a8a78b87dac121f479" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b3c49a81b4ab9113a87657d137048e67" class="toggle"  />
+    <label for="section-b3c49a81b4ab9113a87657d137048e67" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/" class="">
+        ch10_度量空间和连续映射</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-26d0aec27328b83fb6f555a46a562ae1" class="toggle"  />
+    <label for="section-26d0aec27328b83fb6f555a46a562ae1" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-73bd758025cc0077778e966e1a69e66c" class="toggle"  />
+    <label for="section-73bd758025cc0077778e966e1a69e66c" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9f38fb7284cc7aa1fe9bfecc70455df7" class="toggle"  />
+    <label for="section-9f38fb7284cc7aa1fe9bfecc70455df7" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f53ea5b7f823f7c2adc420f276ae16ce" class="toggle"  />
+    <label for="section-f53ea5b7f823f7c2adc420f276ae16ce" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a48432f5aa3322a4d27d98a4bb888c94" class="toggle"  />
+    <label for="section-a48432f5aa3322a4d27d98a4bb888c94" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4cfa8f007098347bcead24699e734134" class="toggle"  />
+    <label for="section-4cfa8f007098347bcead24699e734134" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-755e8b1e80b5b232c4bcd14fb421bb36" class="toggle"  />
+    <label for="section-755e8b1e80b5b232c4bcd14fb421bb36" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c1ffeeb174102a68430b2e84c0806fed" class="toggle"  />
+    <label for="section-c1ffeeb174102a68430b2e84c0806fed" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b185b95fdb22770a6fa3ad4a714fc998" class="toggle"  />
+    <label for="section-b185b95fdb22770a6fa3ad4a714fc998" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e79cab41e3509b0dcb9d784a5a57b73a" class="toggle"  />
+    <label for="section-e79cab41e3509b0dcb9d784a5a57b73a" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0bedb42fbccdbbbfd30b0fa271a78366" class="toggle"  />
+    <label for="section-0bedb42fbccdbbbfd30b0fa271a78366" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-267008b386e6253c3596df6bcf8c1117" class="toggle"  />
+    <label for="section-267008b386e6253c3596df6bcf8c1117" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-487fcbc3efa9888c2fb2aef2ce9d6613" class="toggle"  />
+    <label for="section-487fcbc3efa9888c2fb2aef2ce9d6613" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-27c6a9a766be819b9f395648a0fe57a2" class="toggle"  />
+    <label for="section-27c6a9a766be819b9f395648a0fe57a2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-aec0fd22078e90437f3d050d671214b8" class="toggle"  />
+    <label for="section-aec0fd22078e90437f3d050d671214b8" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7b12739449f11ae0771259ae3c8cb893" class="toggle"  />
+    <label for="section-7b12739449f11ae0771259ae3c8cb893" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/" class="">
+        ch14_微分形式的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3347a10040f7435f706abd75013db5c1" class="toggle"  />
+    <label for="section-3347a10040f7435f706abd75013db5c1" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c77249cdb1eb6ab99cb7e97696a9a575" class="toggle"  />
+    <label for="section-c77249cdb1eb6ab99cb7e97696a9a575" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-695007eb17d3fefd4381d35030bc67e3" class="toggle"  />
+    <label for="section-695007eb17d3fefd4381d35030bc67e3" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d4e07a5c17e48144aaef57dcb8380aea" class="toggle"  />
+    <label for="section-d4e07a5c17e48144aaef57dcb8380aea" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/" class="">
+        ch15_含参变量的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-29fe5c5c1a392acf5228ab94e6ec41eb" class="toggle"  />
+    <label for="section-29fe5c5c1a392acf5228ab94e6ec41eb" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0d086c59106e09f7712f77b04265f298" class="toggle"  />
+    <label for="section-0d086c59106e09f7712f77b04265f298" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-84b8b9cf32f30aaf6b31ff2413a2d250" class="toggle"  />
+    <label for="section-84b8b9cf32f30aaf6b31ff2413a2d250" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2314e8a4c471624c55933b887307854d" class="toggle"  />
+    <label for="section-2314e8a4c471624c55933b887307854d" class="flex">
+      <a href="/my_book/docs/math/ma/%E8%A1%A5%E5%85%85/" class="">
+        补充资料</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-334223b3b68ccc51d5b9d492351e42d4" class="toggle"  />
+    <label for="section-334223b3b68ccc51d5b9d492351e42d4" class="flex">
+      <a href="/my_book/docs/math/la/" class="">
+        高等代数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-370e196551ce18290adc72b6d9799f60" class="toggle"  />
+    <label for="section-370e196551ce18290adc72b6d9799f60" class="flex">
+      <a href="/my_book/docs/math/la/ch6/" class="">
+        ch06 线性空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0e0d25242591f8571fe404d8bcff5874" class="toggle"  />
+    <label for="section-0e0d25242591f8571fe404d8bcff5874" class="flex">
+      <a href="/my_book/docs/math/la/ch6/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9c4046dbe8cad9f987545b7dab44642f" class="toggle"  />
+    <label for="section-9c4046dbe8cad9f987545b7dab44642f" class="flex">
+      <a href="/my_book/docs/math/la/ch6/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b56ccd2781b1a8ad929731229b5b73af" class="toggle"  />
+    <label for="section-b56ccd2781b1a8ad929731229b5b73af" class="flex">
+      <a href="/my_book/docs/math/la/ch6/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cb17bb85ffcb66078f56805cf1c637b0" class="toggle"  />
+    <label for="section-cb17bb85ffcb66078f56805cf1c637b0" class="flex">
+      <a href="/my_book/docs/math/la/ch7/" class="">
+        ch07 线性变换</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cc024f6232304022ca1bf992cd31edfb" class="toggle"  />
+    <label for="section-cc024f6232304022ca1bf992cd31edfb" class="flex">
+      <a href="/my_book/docs/math/la/ch7/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-434edec3941553c6aef7031ec74ddf28" class="toggle"  />
+    <label for="section-434edec3941553c6aef7031ec74ddf28" class="flex">
+      <a href="/my_book/docs/math/la/ch7/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-12fcacd2c1ef0c8ab71838e6b58580ee" class="toggle"  />
+    <label for="section-12fcacd2c1ef0c8ab71838e6b58580ee" class="flex">
+      <a href="/my_book/docs/math/la/ch7/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-65593a2601be6e9beb9bbb22d4430ee9" class="toggle"  />
+    <label for="section-65593a2601be6e9beb9bbb22d4430ee9" class="flex">
+      <a href="/my_book/docs/math/la/ch8/" class="">
+        ch08 lambda-矩阵</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-56fcf46c4f0e8360adc34c9ad62dc8a7" class="toggle"  />
+    <label for="section-56fcf46c4f0e8360adc34c9ad62dc8a7" class="flex">
+      <a href="/my_book/docs/math/la/ch8/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b072e4f88ca20eff52acac16fd801d90" class="toggle"  />
+    <label for="section-b072e4f88ca20eff52acac16fd801d90" class="flex">
+      <a href="/my_book/docs/math/la/ch8/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c70d0989350bdbca830f36d94b03bc92" class="toggle"  />
+    <label for="section-c70d0989350bdbca830f36d94b03bc92" class="flex">
+      <a href="/my_book/docs/math/la/ch8/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e36dc7c48581b2c180b5c52d3914af26" class="toggle"  />
+    <label for="section-e36dc7c48581b2c180b5c52d3914af26" class="flex">
+      <a href="/my_book/docs/math/la/ch9/" class="">
+        ch09 欧几里得空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-489b83891f8cc3e65faa81af65044b0d" class="toggle"  />
+    <label for="section-489b83891f8cc3e65faa81af65044b0d" class="flex">
+      <a href="/my_book/docs/math/la/ch9/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-042e2f17a7db91c58191ee50972e0728" class="toggle"  />
+    <label for="section-042e2f17a7db91c58191ee50972e0728" class="flex">
+      <a href="/my_book/docs/math/la/ch9/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5b44f217aa3c6bf82186723ce6122ad0" class="toggle"  />
+    <label for="section-5b44f217aa3c6bf82186723ce6122ad0" class="flex">
+      <a href="/my_book/docs/math/la/ch9/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f9978e2571c1ce834e2f5d46ebf5e5c0" class="toggle"  />
+    <label for="section-f9978e2571c1ce834e2f5d46ebf5e5c0" class="flex">
+      <a href="/my_book/docs/math/la/ch10/" class="">
+        ch10 双线性函数与辛空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cfe65af68c1d99a1b8c8b2d7c49abf45" class="toggle"  />
+    <label for="section-cfe65af68c1d99a1b8c8b2d7c49abf45" class="flex">
+      <a href="/my_book/docs/math/la/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-61c5621f7059acbc1549d88eefb5ba5f" class="toggle"  />
+    <label for="section-61c5621f7059acbc1549d88eefb5ba5f" class="flex">
+      <a href="/my_book/docs/math/la/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0ca318ed2599c788ab3bf697d64a21c" class="toggle"  />
+    <label for="section-e0ca318ed2599c788ab3bf697d64a21c" class="flex">
+      <a href="/my_book/docs/math/la/ch10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-af5f24f7ea343745d3308f7b02249857" class="toggle" checked />
+    <label for="section-af5f24f7ea343745d3308f7b02249857" class="flex">
+      <a href="/my_book/docs/physics/" class="">
+        物理</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/am/" class="">
+      分析力学</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2a2b764615d93d170f2849ce835d52e5" class="toggle"  />
+    <label for="section-2a2b764615d93d170f2849ce835d52e5" class="flex">
+      <a href="/my_book/docs/physics/am/%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/" class="">
+        力学与理论力学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3e3a43e94d3247f305bdf984c7f26ed2" class="toggle"  />
+    <label for="section-3e3a43e94d3247f305bdf984c7f26ed2" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/" class="">
+        理论力学基本教程</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae3f99dfaf2a73fc8c2f52a4f28e5868" class="toggle"  />
+    <label for="section-ae3f99dfaf2a73fc8c2f52a4f28e5868" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/" class="">
+        ch07-分析力学的变分原理</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fff21f12e6f8fbd4b26c36a384916e2e" class="toggle"  />
+    <label for="section-fff21f12e6f8fbd4b26c36a384916e2e" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fd1dfa9d54bbf2c716849a7c55e147db" class="toggle"  />
+    <label for="section-fd1dfa9d54bbf2c716849a7c55e147db" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5bdfcc6743d94c73fcb3f31b450bed7d" class="toggle"  />
+    <label for="section-5bdfcc6743d94c73fcb3f31b450bed7d" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6b5a526e24e0f29293622e36bf9a580a" class="toggle"  />
+    <label for="section-6b5a526e24e0f29293622e36bf9a580a" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/" class="">
+        ch08-拉格朗日动力学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-81d5a59c2ab2e874f90c38d6a3879643" class="toggle"  />
+    <label for="section-81d5a59c2ab2e874f90c38d6a3879643" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-073ac697f31a147a2a6fa663c49ce413" class="toggle"  />
+    <label for="section-073ac697f31a147a2a6fa663c49ce413" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8b022b8785fc214dec84a28c938bc6fb" class="toggle"  />
+    <label for="section-8b022b8785fc214dec84a28c938bc6fb" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c946a05d8db4ff377ffca2c0ca8341cb" class="toggle"  />
+    <label for="section-c946a05d8db4ff377ffca2c0ca8341cb" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/" class="">
+        ch09-正则方程</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f1285a5c81a8365e70b2a82fc7ceb992" class="toggle"  />
+    <label for="section-f1285a5c81a8365e70b2a82fc7ceb992" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3596358916a35b494a6462e4d3509449" class="toggle"  />
+    <label for="section-3596358916a35b494a6462e4d3509449" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1a7ce653704160694f34f140a40094f3" class="toggle"  />
+    <label for="section-1a7ce653704160694f34f140a40094f3" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3d28bd9e2366e4053084ce10512b9f68" class="toggle" checked />
+    <label for="section-3d28bd9e2366e4053084ce10512b9f68" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-829bf1480fbb4bc882a49413b3f5a600" class="toggle"  />
+    <label for="section-829bf1480fbb4bc882a49413b3f5a600" class="flex">
+      <a href="/my_book/docs/physics/methods/ch01/" class="">
+        ch01_复数和复变函数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6300ab02630b6b1dafce51d0b61394be" class="toggle"  />
+    <label for="section-6300ab02630b6b1dafce51d0b61394be" class="flex">
+      <a href="/my_book/docs/physics/methods/ch01/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-746cdfd31f02cbfb53d400b19d59da58" class="toggle"  />
+    <label for="section-746cdfd31f02cbfb53d400b19d59da58" class="flex">
+      <a href="/my_book/docs/physics/methods/ch01/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-867623d107f090356731ca2f1bc60ec9" class="toggle"  />
+    <label for="section-867623d107f090356731ca2f1bc60ec9" class="flex">
+      <a href="/my_book/docs/physics/methods/ch01/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-39ffee264e699506470ebf65b4499b94" class="toggle"  />
+    <label for="section-39ffee264e699506470ebf65b4499b94" class="flex">
+      <a href="/my_book/docs/physics/methods/ch02/" class="">
+        ch02_解析函数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-56d42e2e846b01af8695b32e238039cc" class="toggle"  />
+    <label for="section-56d42e2e846b01af8695b32e238039cc" class="flex">
+      <a href="/my_book/docs/physics/methods/ch02/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-240f43d9ab7498566e9f72eea75c08e4" class="toggle"  />
+    <label for="section-240f43d9ab7498566e9f72eea75c08e4" class="flex">
+      <a href="/my_book/docs/physics/methods/ch02/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-047be3c3ff1029c1e1668e5f3f91c7d3" class="toggle"  />
+    <label for="section-047be3c3ff1029c1e1668e5f3f91c7d3" class="flex">
+      <a href="/my_book/docs/physics/methods/ch02/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-caf9158a8e54993542b9f459fee83e30" class="toggle"  />
+    <label for="section-caf9158a8e54993542b9f459fee83e30" class="flex">
+      <a href="/my_book/docs/physics/methods/ch03/" class="">
+        ch03_复变积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6af28327adbaf05ed3974ca66d4bba8d" class="toggle"  />
+    <label for="section-6af28327adbaf05ed3974ca66d4bba8d" class="flex">
+      <a href="/my_book/docs/physics/methods/ch03/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a076c9b9241ae52b282b9b4fe3c14aa3" class="toggle"  />
+    <label for="section-a076c9b9241ae52b282b9b4fe3c14aa3" class="flex">
+      <a href="/my_book/docs/physics/methods/ch03/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-df01cd7d038d6f4d38b68dfa676fbbc5" class="toggle"  />
+    <label for="section-df01cd7d038d6f4d38b68dfa676fbbc5" class="flex">
+      <a href="/my_book/docs/physics/methods/ch03/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bc471f87f970ffe9119e52a587557053" class="toggle"  />
+    <label for="section-bc471f87f970ffe9119e52a587557053" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/" class="">
+        ch04 无穷级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e61e94e7ff2f7070b53e2582eb2cf28" class="toggle"  />
+    <label for="section-9e61e94e7ff2f7070b53e2582eb2cf28" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3c3b20989fe2261fca0c693b00d48441" class="toggle"  />
+    <label for="section-3c3b20989fe2261fca0c693b00d48441" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5006ee5466e0279b54ae78f0d670a43f" class="toggle"  />
+    <label for="section-5006ee5466e0279b54ae78f0d670a43f" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fd2fd8986f401de8db7dd51212ecc97f" class="toggle"  />
+    <label for="section-fd2fd8986f401de8db7dd51212ecc97f" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/" class="">
+        ch05 解析函数的局域性展开</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-50076f6fde930eeebbf16e250a19fdae" class="toggle"  />
+    <label for="section-50076f6fde930eeebbf16e250a19fdae" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e32eb641a96f409e7bdf394901bbfea3" class="toggle"  />
+    <label for="section-e32eb641a96f409e7bdf394901bbfea3" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-503da5ae6c51ba64037171ec5491eecc" class="toggle"  />
+    <label for="section-503da5ae6c51ba64037171ec5491eecc" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a34c1ef4f2d9068fef0b86dc36d95dc8" class="toggle"  />
+    <label for="section-a34c1ef4f2d9068fef0b86dc36d95dc8" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/" class="">
+        ch06 留数定理及其应用</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-28d1d8243c73b14fcfdf783a3a444e6f" class="toggle"  />
+    <label for="section-28d1d8243c73b14fcfdf783a3a444e6f" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-88577f8aa714592dd33bb3d786bb7383" class="toggle"  />
+    <label for="section-88577f8aa714592dd33bb3d786bb7383" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c5c1351ae0877b9f8c373723f2287cca" class="toggle"  />
+    <label for="section-c5c1351ae0877b9f8c373723f2287cca" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-12a201aa9ddc87b7e08ecd7b06bafb29" class="toggle"  />
+    <label for="section-12a201aa9ddc87b7e08ecd7b06bafb29" class="flex">
+      <a href="/my_book/docs/physics/methods/ch07/" class="">
+        ch07 Γ 函数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8f05b1d5a7ed4a99492f13cc41c7256c" class="toggle"  />
+    <label for="section-8f05b1d5a7ed4a99492f13cc41c7256c" class="flex">
+      <a href="/my_book/docs/physics/methods/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d8122849ded3f0c6c4c10736675881b5" class="toggle"  />
+    <label for="section-d8122849ded3f0c6c4c10736675881b5" class="flex">
+      <a href="/my_book/docs/physics/methods/ch07/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d7619a3530e8f492ba7b958f21ab5588" class="toggle"  />
+    <label for="section-d7619a3530e8f492ba7b958f21ab5588" class="flex">
+      <a href="/my_book/docs/physics/methods/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4b179543d27812b93d7fb8acdc4696f8" class="toggle" checked />
+    <label for="section-4b179543d27812b93d7fb8acdc4696f8" class="flex">
+      <a href="/my_book/docs/physics/methods/ch08/" class="">
+        ch08 Laplace 变换</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2bda7a66865639414690c59e0c387781" class="toggle"  />
+    <label for="section-2bda7a66865639414690c59e0c387781" class="flex">
+      <a href="/my_book/docs/physics/methods/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4cd0828d3b19cff70fc79b127b5415bf" class="toggle" checked />
+    <label for="section-4cd0828d3b19cff70fc79b127b5415bf" class="flex">
+      <a href="/my_book/docs/physics/methods/ch08/formula/" class="active">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cd80186f4740dcb1db5ded3945fcebe1" class="toggle"  />
+    <label for="section-cd80186f4740dcb1db5ded3945fcebe1" class="flex">
+      <a href="/my_book/docs/physics/methods/ch08/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5eb26766587a11013a6eba77b5e5d636" class="toggle"  />
+    <label for="section-5eb26766587a11013a6eba77b5e5d636" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fdd26b761c105af4be4377fa5b58ac88" class="toggle"  />
+    <label for="section-fdd26b761c105af4be4377fa5b58ac88" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch05_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch05 学校教育</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch16_%E7%A4%BE%E4%BC%9A%E7%BB%8F%E6%B5%8E/" class="">
+      ch16 社会经济</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch20_%E8%A1%8C%E4%B8%BA%E5%8A%A8%E4%BD%9C/" class="">
+      ch20 行为动作</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8c3aca59a8015cfe8174d699bde68514" class="toggle"  />
+    <label for="section-8c3aca59a8015cfe8174d699bde68514" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>formula</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-主要内容总结"><strong>一、 主要内容总结</strong></a></li>
+        <li><a href="#二-定义整理按照-8xx-形式"><strong>二、 定义整理（按照 8.x.x 形式）</strong></a></li>
+        <li><a href="#三-公式整理按原文序号"><strong>三、 公式整理（按原文序号）</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+<h3 id="一-主要内容总结"><strong>一、 主要内容总结</strong><a class="anchor" href="#%e4%b8%80-%e4%b8%bb%e8%a6%81%e5%86%85%e5%ae%b9%e6%80%bb%e7%bb%93">#</a></h3>
+<p>第八章《Laplace 变换》系统地讨论了复平面上最核心的积分变换之一——Laplace 变换（拉氏变换）的定义、性质、反演技术及定解应用：</p>
+<ol>
+<li><strong>Laplace 变换的定义及其存在条件</strong>：定义了将正实轴实变函数 \( f(t) \)  变换为复平面复变函数 \( F(p) \)  的积分变换。给出了拉氏变换存在的充分条件（分段连续且具有有限的增长指数），并引入了收敛横标的概念。</li>
+<li><strong>Laplace 变换的基本性质</strong>：包括线性性质、像函数的解析性、像函数在无穷远处的极限行为、原函数导数的 Laplace 变换、原函数积分的 Laplace 变换。展示了这些性质如何将微积分运算转化为代数运算，从而为求解常微分方程初值问题及电路定解问题提供了强有力的工具。</li>
+<li><strong>Laplace 变换的反演方法</strong>：探讨了反演的唯一性。给出了像函数导数与积分的反演公式。针对像函数在 \( \infty \)  点解析的特殊情形，介绍了级数逐项反演的方法。证明了<strong>卷积定理</strong>。</li>
+<li><strong>普遍反演公式</strong>：论述了 <strong>Mellin 反演公式</strong>，并探讨了多值像函数（含有分支点）在复平面上通过构造割线和围道进行留数计算的反演步骤。</li>
+<li><strong>利用 Laplace 变换计算级数和</strong>：展示了如何通过将级数通项表示为像函数积分，并交换求和与积分次序，将离散的无穷级数求和问题转化为连续的定积分计算（如 Basel 问题 \( \sum \frac{1}{n^2} \)  等）。</li>
+</ol>
+<hr>
+<h3 id="二-定义整理按照-8xx-形式"><strong>二、 定义整理（按照 8.x.x 形式）</strong><a class="anchor" href="#%e4%ba%8c-%e5%ae%9a%e4%b9%89%e6%95%b4%e7%90%86%e6%8c%89%e7%85%a7-8xx-%e5%bd%a2%e5%bc%8f">#</a></h3>
+<ul>
+<li><strong>定义 8.1.1（Laplace 变换 / 拉氏变换）</strong>：设 \( f(t) \)  是定义在正实轴（\( t &gt; 0 \) ）上的非负实数函数，则由积分：
+\( F(p) = \int_0^\infty e^{-pt} f(t) dt \quad (8.1) \)
+定义的复变函数 \( F(p) \)  称为 \( f(t) \)  的 <strong>Laplace 变换式</strong>（或拉氏换式），其中 \( p = s + i\sigma \)  为复自变量，\( e^{-pt} \)  称为 Laplace 变换的核。</li>
+<li><strong>定义 8.1.2（原函数、像函数与反演）</strong>：在 Laplace 变换关系中，称 \( f(t) \)  为 <strong>原函数</strong>，\( F(p) \)  为 <strong>像函数</strong>。已知像函数 \( F(p) \)  求原函数 \( f(t) \)  的运算称为 <strong>反演</strong>。</li>
+<li><strong>定义 8.1.3（Heaviside 单位阶跃函数）</strong>：定义在实数域上的函数：
+\( \eta(t) = \begin{cases} 1, &amp; t &gt; 0 \ 0, &amp; t &lt; 0 \end{cases} \quad (8.4) \)
+称为 <strong>Heaviside 单位阶跃函数</strong>。在拉氏变换中，常约定当 \( t &lt; 0 \)  时原函数 \( f(t) = 0 \) ，即等价地将 \( f(t) \)  理解为 \( f(t)\eta(t) \) 。</li>
+<li><strong>定义 8.1.4（收敛横标）</strong>：设存在正数 \( M &gt; 0, t_0 &gt; 0 \)  及 \( \beta&rsquo; \ge 0 \) ，使得当 \( t &gt; t_0 \)  时恒有 \( |f(t)| &lt; M e^{\beta&rsquo; t} \) 。符合该指数增长限制条件的参数 \( \beta&rsquo; \)  的下界称为 <strong>收敛横标</strong>，记为 \( s_0 \) （或 \( \beta_0 \) ），它决定了像函数 \( F(p) \)  的解析半平面（\( \text{Re } p &gt; s_0 \) ）。</li>
+<li><strong>定义 8.3.1（卷积）</strong>：对于两个定义在正实轴上的函数 \( f_1(t) \)  和 \( f_2(t) \) ，其 <strong>卷积</strong>（记作 \( f_1(t) * f_2(t) \) ）定义为积分形式：
+\( f_1(t) * f_2(t) = \int_0^t f_1(\tau) f_2(t-\tau) d\tau \quad (8.36) \)</li>
+<li><strong>定义 8.4.1（误差函数与余误差函数）</strong>：
+<ol>
+<li>满足积分形式：
+\( \text{erf } x = \frac{2}{\sqrt{\pi}} \int_0^x e^{-\xi^2} d\xi \quad (8.44) \)
+的函数称为 <strong>误差函数</strong>。</li>
+<li>满足积分形式：
+\( \text{erfc } x = 1 - \text{erf } x = \frac{2}{\sqrt{\pi}} \int_x^\infty e^{-\xi^2} d\xi \quad (8.43) \)
+的函数称为 <strong>余误差函数</strong>。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="三-公式整理按原文序号"><strong>三、 公式整理（按原文序号）</strong><a class="anchor" href="#%e4%b8%89-%e5%85%ac%e5%bc%8f%e6%95%b4%e7%90%86%e6%8c%89%e5%8e%9f%e6%96%87%e5%ba%8f%e5%8f%b7">#</a></h3>
+<ul>
+<li><strong>(8.1)</strong> Laplace 变换（拉氏变换）积分定义式：
+\( F(p) = \int_0^\infty e^{-pt} f(t) dt \)</li>
+<li><strong>(8.2)</strong> 像函数（拉氏换式）的算符表示：
+\( F(p) = \mathcal{L} {f(t)} \quad \text{或} \quad F(p) \risingdotseq f(t) \)</li>
+<li><strong>(8.3)</strong> 原函数（反演）的算符表示：
+\( f(t) = \mathcal{L}^{-1} {F(p)} \quad \text{或} \quad f(t) \fallingdotseq F(p) \)</li>
+<li><strong>(8.4)</strong> Heaviside 单位阶跃函数定义：
+\( \eta (t) = \begin{cases} 1, &amp; t &gt; 0 \ 0, &amp; t &lt; 0 \end{cases} \)</li>
+<li><strong>(8.5)</strong> 常数 1 的拉氏变换：
+\( \mathcal{L} {1} = \int_0^\infty e^{-pt} dt = \frac{1}{p} \quad (\text{Re } p &gt; 0) \)</li>
+<li><strong>(8.6)</strong> 指数函数的拉氏变换：
+\( \mathcal{L} {e^{at}} = \int_0^\infty e^{-pt} e^{at} dt = \frac{1}{p-a} \quad (\text{Re } p &gt; \text{Re } a) \)</li>
+<li><strong>(8.7)</strong> 原函数指数增长的充分条件估计：
+\( |f(t)| &lt; M e^{\beta&rsquo; t} \)</li>
+<li><strong>(8.8)</strong> Laplace 变换的线性性质：
+\( \mathcal{L} {\alpha_1 f_1(t) + \alpha_2 f_2(t)} = \alpha_1 F_1(p) + \alpha_2 F_2(p) \)</li>
+<li><strong>(8.9)</strong> 正弦与余弦函数的拉氏变换：
+\( \mathcal{L} {\sin \omega t} = \frac{\omega}{p^2+\omega^2}, \quad \mathcal{L} {\cos \omega t} = \frac{p}{p^2+\omega^2} \)</li>
+<li><strong>(8.10)</strong> 收敛半平面内的绝对收敛积分估计：
+\( \left| \int_0^\infty e^{-pt} f(t) dt \right| \le \int_0^\infty M e^{-\delta t} dt &lt; \infty \quad (\text{其中 } \text{Re } p - s_0 \ge \delta &gt; 0) \)</li>
+<li><strong>(8.11)</strong> 像函数在无穷远处的极限性质：
+\( \lim_{\text{Re } p \to +\infty} F(p) = 0 \)</li>
+<li><strong>(8.12)</strong> 一阶导数的拉氏变换：
+\( \mathcal{L} {f&rsquo;(t)} = p F(p) - f(0) \)</li>
+<li><strong>(8.13a)</strong> 二阶导数的拉氏变换：
+\( \mathcal{L} {f&rsquo;&rsquo;(t)} = p^2 F(p) - p f(0) - f&rsquo;(0) \)</li>
+<li><strong>(8.13b)</strong> 三阶导数的拉氏变换：
+\( \mathcal{L} {f^{(3)}(t)} = p^3 F(p) - p^2 f(0) - p f&rsquo;(0) - f&rsquo;&rsquo;(0) \)</li>
+<li><strong>(8.13c)</strong> \( n \)  阶导数的拉氏变换：
+\( \mathcal{L} {f^{(n)}(t)} = p^n F(p) - p^{n-1} f(0) - p^{n-2} f&rsquo;(0) - \dots - f^{(n-1)}(0) \)</li>
+<li><strong>(8.14a, b)</strong> LR 串联电路的微分方程定解问题：
+\( L \frac{di}{dt} + R i = E, \quad i(0) = 0 \)</li>
+<li><strong>(8.15)</strong> 电路方程变换后的代数方程：
+\( L p I(p) + R I(p) = \frac{E}{p} \)</li>
+<li><strong>(8.16)</strong> 电流的反演解析解：
+\( i(t) = \frac{E}{R} [1 - e^{-(R/L)t}] \)</li>
+<li><strong>(8.17a, b)</strong> 常微分方程边值定解问题：
+\( y&rsquo;&rsquo;(t) - y&rsquo;(t) - 2y(t) = 0, \quad y(0) = 1, \quad y(t)|_{t \to \infty} \text{ 有界} \)</li>
+<li><strong>(8.18)</strong> 原函数积分的拉氏变换：
+\( \mathcal{L}   \int_0^t f(\tau) d\tau   = \frac{F(p)}{p} \)</li>
+<li><strong>(8.18&rsquo;)</strong> 积分与导数的恒等关系式：
+\( \int_0^\infty f(t) e^{-pt} dt = p \int_0^\infty g(t) e^{-pt} dt \quad \left( \text{其中 } g(t) = \int_0^t f(\tau) d\tau \right) \)</li>
+<li><strong>(8.19a, b)</strong> LC 串联电路的微分积分方程定解问题：
+\( q(t) = C v_C(t), \quad q(t) = -\int_0^t i(\tau) d\tau + q(0) \)</li>
+<li><strong>(8.20)</strong> 并联电路电流像函数代数式：
+\( I(p) = \frac{v_0/L}{p^2 + \frac{1}{LC}} \)</li>
+<li><strong>(8.21)</strong> 原函数多值反演的非唯一性对抗形式：
+\( h_1(t) \risingdotseq F(p), \quad h_2(t) \risingdotseq F(p) \)</li>
+<li><strong>(8.22)</strong> 零函数积分等式：
+\( g(t) = h_1(t) - h_2(t) \not\equiv 0, \quad g(t) \risingdotseq 0 \)</li>
+<li><strong>(8.23)</strong> 像函数导数的反演公式：
+\( F^{(n)}(p) \risingdotseq (-t)^n f(t) \)</li>
+<li><strong>(8.24)</strong> 二阶倒数幂的反演：
+\( \mathcal{L}^{-1}\frac{1}{p^2}= t \)</li>
+<li><strong>(8.25)</strong> 三阶倒数幂的反演：
+\( \mathcal{L}^{-1} \frac{1}{p^3}  = \frac{1}{2} t^2 \)</li>
+<li><strong>(8.26)</strong> 有理分式部分分式展开式：
+\( \frac{1}{p^3(p+a)} = \frac{1}{a p^3} - \frac{1}{a^2 p^2} + \frac{1}{a^3 p} - \frac{1}{a^3(p+a)} \)</li>
+<li><strong>(8.27)</strong> 像函数积分的反演公式：
+\( \mathcal{L}^{-1}   \int_p^\infty F(q) dq   = \frac{f(t)}{t} \)</li>
+<li><strong>(8.28)</strong> 典型三角分式的拉氏变换：
+\( \mathcal{L}  \frac{\sin \omega t}{t}  = \arctan \frac{\omega}{p} \)</li>
+<li><strong>(8.29)</strong> 像函数定积分与原函数的关系：
+\( \int_0^\infty F(p) dp = \int_0^\infty \frac{f(t)}{t} dt \)</li>
+<li><strong>(8.30)</strong> 典型狄利克雷积分公式：
+\( \int_0^\infty \frac{\sin \omega t}{t} dt = \frac{\pi}{2} \)</li>
+<li><strong>(8.31)</strong> 典型对数型积分计算公式：
+\( \int_0^\infty \frac{e^{-at} - e^{-bt}}{t} dt = \ln \frac{b}{a} \)</li>
+<li><strong>(8.32)</strong> 像函数在 \( p = \infty \)  点的 Taylor 级数展开：
+\( F(p) = \sum_{n=1}^\infty c_n p^{-n} \)</li>
+<li><strong>(8.33)</strong> 原函数的级数反演式：
+\( f(t) = \sum_{n=1}^\infty \frac{c_n}{(n-1)!} t^{n-1} \)</li>
+<li><strong>(8.34)</strong> 零阶 Bessel 函数的拉氏变换反演关系：
+\( \mathcal{L}^{-1}   \frac{1}{\sqrt{p^2+1}}   = J_0(t) = \sum_{k=0}^\infty \frac{(-1)^k}{(k!)^2} \left(\frac{t}{2}\right)^{2k} \)</li>
+<li><strong>(8.35)</strong> 零阶自变量 Bessel 变形反演：
+\( \mathcal{L}^{-1}   \frac{1}{p} e^{-1/p}   = J_0(2\sqrt{t}) \)</li>
+<li><strong>(8.36)</strong> <strong>卷积定理</strong>：
+\( \mathcal{L}{f_1(t) * f_2(t)} = F_1(p) F_2(p) \quad \left( \text{其中 } f_1(t) * f_2(t) = \int_0^t f_1(\tau) f_2(t-\tau) d\tau \right) \)</li>
+<li><strong>(8.37)</strong> 方形脉冲电压函数定义：
+\( f_s(t) = \begin{cases} E_0, &amp; 0 \le t \le T \ 0, &amp; t &gt; T \end{cases} \)</li>
+<li><strong>(8.38)</strong> <strong>普遍反演公式（Mellin 反演积分公式）</strong>：
+\( f(t) = \frac{1}{2\pi i} \int_{s-i\infty}^{s+i\infty} F(p) e^{pt} dp \quad (s &gt; s_0) \)</li>
+<li><strong>(8.39)</strong> 像函数高阶分式反演积分示例：
+\( \mathcal{L}^{-1}  \frac{1}{(p^2+\omega^2)^2}   = \frac{1}{2\pi i} \int_{s-i\infty}^{s+i\infty} \frac{e^{pt}}{(p^2+\omega^2)^2} dp = \frac{1}{2\omega^2} \left( \frac{\sin \omega t}{\omega} - t \cos \omega t \right) \)</li>
+<li><strong>(8.40)</strong> 多值函数的反演公式（例 8.8）：
+\( \mathcal{L}^{-1}  \frac{1}{\sqrt{p}} e^{-a\sqrt{p}}   = \frac{1}{\sqrt{\pi t}} e^{-a^2/4t} \quad (a &gt; 0) \)</li>
+<li><strong>(8.41)</strong> 原、像自变量开方变换公式：
+\( \frac{1}{\sqrt{\pi t}} \int_0^\infty f(\tau) e^{-\tau^2/4t} d\tau \risingdotseq \frac{1}{\sqrt{p}} F(\sqrt{p}) \)</li>
+<li><strong>(8.42)</strong> 阶跃余误差变换对：
+\( \mathcal{L}^{-1}  \frac{1}{p} e^{-a\sqrt{p}}   = \text{erfc}\left( \frac{a}{2\sqrt{t}} \right) \)</li>
+<li><strong>(8.43)</strong> 余误差函数（Complementary Error Function）定义：
+\( \text{erfc } x = \frac{2}{\sqrt{\pi}} \int_x^\infty e^{-\xi^2} d\xi \)</li>
+<li><strong>(8.44)</strong> 误差函数（Error Function）定义：
+\( \text{erf } x = \frac{2}{\sqrt{\pi}} \int_0^x e^{-\xi^2} d\xi \)</li>
+<li><strong>(8.45)</strong> 级数求和积分转换模型：
+\( \sum_{n=1}^\infty F(n) = \int_0^\infty f(t) \left( \sum_{n=1}^\infty e^{-nt} \right) dt = \int_0^\infty \frac{f(t)}{e^t-1} dt \)</li>
+<li><strong>(8.46)</strong> 典型平方倒数和级数积分式（例 8.10）：
+\( \sum_{n=1}^\infty \frac{1}{n^2} = \int_0^\infty \frac{x}{e^x-1} dx = \frac{\pi^2}{6} \)</li>
+<li><strong>(8.47)</strong> 四次方倒数和级数积分式（例 8.11）：
+\( \sum_{n=1}^\infty \frac{1}{n^4} = \frac{1}{6}\int_0^\infty \frac{x^3}{e^x-1} dx = \frac{\pi^4}{90} \)</li>
+<li><strong>(8.48)</strong> 有理级数求和公式（例 8.12）：
+\( \sum_{n=1}^\infty \frac{1}{n^2-a^2} = \frac{1}{2a^2} - \frac{\pi}{2a} \cot \pi a \)</li>
+<li><strong>(8.48&rsquo;)</strong> 级数的变形余切求和式：
+\( \sum_{n=1}^\infty \frac{1}{n^2-a^2} = \frac{1}{2a^2} - \frac{\pi}{2a} \cot \pi a \)</li>
+<li><strong>(8.49)</strong> 双曲余切求和公式（纯虚数代换一）：
+\( \sum_{n=1}^\infty \frac{1}{n^2+a^2} = -\frac{1}{2a^2} + \frac{\pi}{2a} \coth \pi a \)</li>
+<li><strong>(8.49&rsquo;)</strong> 双曲余切求和公式（纯虚数代换二）：
+\( \sum_{n=1}^\infty \frac{1}{n^2+a^2} = -\frac{1}{2a^2} + \frac{\pi}{2a} \coth \pi a \)</li>
+<li><strong>(8.50)</strong> 含有对数的无穷级数求和式：
+\( \sum_{n=1}^\infty \ln \left( 1 + \frac{a^2}{n^2} \right) = \ln \left( \frac{\sinh \pi a}{\pi a} \right) \)</li>
+</ul>
+<hr>
+<p>⚡ 既然我们已经系统完成了第八章 Laplace 变换的公式、定义和内容总结，我们可以针对该章的核心，比如利用拉氏变换求解经典微分方程或电路定解问题（如 LR、LC 串联电路初值问题）的完整手写计算步骤进行一次深度拆解，您想看看吗？</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/physics/methods/ch08/definition/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>definition</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/physics/methods/ch08/theorem/" class="flex align-center">
+        <span>theorem</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-主要内容总结"><strong>一、 主要内容总结</strong></a></li>
+        <li><a href="#二-定义整理按照-8xx-形式"><strong>二、 定义整理（按照 8.x.x 形式）</strong></a></li>
+        <li><a href="#三-公式整理按原文序号"><strong>三、 公式整理（按原文序号）</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

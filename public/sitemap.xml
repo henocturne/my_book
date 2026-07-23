@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch1/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch01/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch2/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch02/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch3/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch03/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch04/</loc>
   </url><url>
@@ -18,23 +18,27 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/la/ch6/</loc>
   </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch07/</loc>
+  </url><url>
     <loc>http://localhost:1313/my_book/docs/math/ma/ch07/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/la/ch7/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch07/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/la/ch8/</loc>
   </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch08/</loc>
+  </url><url>
     <loc>http://localhost:1313/my_book/docs/math/ma/ch08/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch08/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/ma/ch09/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/la/ch9/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch09/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/la/ch10/</loc>
   </url><url>
@@ -84,11 +88,17 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/ma/ch15/definition/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch07/definition/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/definition/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch08/definition/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/definition/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch09/definition/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/definition/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch01/definition/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch02/definition/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch03/definition/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch04/definition/</loc>
   </url><url>
@@ -96,11 +106,9 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch06/definition/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch1/definition/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch07/definition/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch2/definition/</loc>
-  </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch3/definition/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch08/definition/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/la/ch10/formula/</loc>
   </url><url>
@@ -130,11 +138,17 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/ma/ch15/formula/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch07/formula/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/formula/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch08/formula/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/formula/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch09/formula/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/formula/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch01/formula/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch02/formula/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch03/formula/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch04/formula/</loc>
   </url><url>
@@ -142,11 +156,9 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch06/formula/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch1/formula/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch07/formula/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch2/formula/</loc>
-  </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch3/formula/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch08/formula/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/la/ch10/theorem/</loc>
   </url><url>
@@ -176,11 +188,17 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/ma/ch15/theorem/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch07/theorem/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/theorem/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch08/theorem/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/theorem/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/am/ch09/theorem/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/theorem/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch01/theorem/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch02/theorem/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch03/theorem/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch04/theorem/</loc>
   </url><url>
@@ -188,13 +206,13 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/methods/ch06/theorem/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch1/theorem/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch07/theorem/</loc>
   </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch2/theorem/</loc>
-  </url><url>
-    <loc>http://localhost:1313/my_book/docs/physics/methods/ch3/theorem/</loc>
+    <loc>http://localhost:1313/my_book/docs/physics/methods/ch08/theorem/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/am/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/math/</loc>
   </url><url>
@@ -204,7 +222,11 @@
   </url><url>
     <loc>http://localhost:1313/my_book/docs/physics/</loc>
   </url><url>
+    <loc>http://localhost:1313/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/</loc>
+  </url><url>
     <loc>http://localhost:1313/my_book/docs/english/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my_book/docs/math/ma/%E8%A1%A5%E5%85%85/</loc>
   </url><url>
     <loc>http://localhost:1313/my_book/docs/english/vocab/</loc>
   </url><url>

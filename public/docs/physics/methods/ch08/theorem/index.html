@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head><script src="/my_book/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my_book/livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="\[ \] 根据第八章《Laplace 变换》（源文件 ch_8.pdf）的内容，现将各小节中出现的定理、引理以及具有定理或引理性质的核心性质、判定条件系统整理如下：
+§ 8.1 Laplace 变换的定义#本节主要给出拉氏变换的数学定义，并确立了变换存在性的核心判定依据：
+Laplace 变换存在的充分条件（定理性质） ： 若函数 \( f(t) \) 在正实轴上满足以下两个条件，则其 Laplace 变换一定存在： 分段连续性：\( f(t) \) 在区间 \( 0 \le t &lt; \infty \) 上除第一类间断点外都是连续的，且有连续导数，在任何有限区间内这种间断点的数目是有限的 ； 有限增长性：\( f(t) \) 具有有限的增长指数，即存在正数 \( M &gt; 0, t_0 &gt; 0 \) 及 \( \beta’ \ge 0 \) ，使对于任何 \( t &gt; t_0 \) ，恒有： \( |f(t)| &lt; M e^{\beta’ t} \quad (8.7) \quad \text{ } \) § 8.2 Laplace 变换的基本性质#本节阐述了像函数与原函数在复数域运算中的五大基本性质，这些性质在数学上均具有定理的地位：
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/my_book/docs/physics/methods/ch08/theorem/">
+	<meta property="og:site_name" content="知识库">
+	<meta property="og:title" content="theorem">
+	<meta property="og:description" content="\[ \] 根据第八章《Laplace 变换》（源文件 ch_8.pdf）的内容，现将各小节中出现的定理、引理以及具有定理或引理性质的核心性质、判定条件系统整理如下：
+§ 8.1 Laplace 变换的定义#本节主要给出拉氏变换的数学定义，并确立了变换存在性的核心判定依据：
+Laplace 变换存在的充分条件（定理性质） ： 若函数 \( f(t) \) 在正实轴上满足以下两个条件，则其 Laplace 变换一定存在： 分段连续性：\( f(t) \) 在区间 \( 0 \le t &lt; \infty \) 上除第一类间断点外都是连续的，且有连续导数，在任何有限区间内这种间断点的数目是有限的 ； 有限增长性：\( f(t) \) 具有有限的增长指数，即存在正数 \( M &gt; 0, t_0 &gt; 0 \) 及 \( \beta’ \ge 0 \) ，使对于任何 \( t &gt; t_0 \) ，恒有： \( |f(t)| &lt; M e^{\beta’ t} \quad (8.7) \quad \text{ } \) § 8.2 Laplace 变换的基本性质#本节阐述了像函数与原函数在复数域运算中的五大基本性质，这些性质在数学上均具有定理的地位：">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+
+	<meta itemprop="name" content="theorem">
+	<meta itemprop="description" content="\[ \] 根据第八章《Laplace 变换》（源文件 ch_8.pdf）的内容，现将各小节中出现的定理、引理以及具有定理或引理性质的核心性质、判定条件系统整理如下：
+§ 8.1 Laplace 变换的定义#本节主要给出拉氏变换的数学定义，并确立了变换存在性的核心判定依据：
+Laplace 变换存在的充分条件（定理性质） ： 若函数 \( f(t) \) 在正实轴上满足以下两个条件，则其 Laplace 变换一定存在： 分段连续性：\( f(t) \) 在区间 \( 0 \le t &lt; \infty \) 上除第一类间断点外都是连续的，且有连续导数，在任何有限区间内这种间断点的数目是有限的 ； 有限增长性：\( f(t) \) 具有有限的增长指数，即存在正数 \( M &gt; 0, t_0 &gt; 0 \) 及 \( \beta’ \ge 0 \) ，使对于任何 \( t &gt; t_0 \) ，恒有： \( |f(t)| &lt; M e^{\beta’ t} \quad (8.7) \quad \text{ } \) § 8.2 Laplace 变换的基本性质#本节阐述了像函数与原函数在复数域运算中的五大基本性质，这些性质在数学上均具有定理的地位：">
+	<meta itemprop="wordCount" content="574">
+
+<title>theorem • 知识库</title>
+<link rel="icon" href="/my_book/favicon.png" >
+<link rel="manifest" href="/my_book/manifest.json">
+<link rel="canonical" href="http://localhost:1313/my_book/docs/physics/methods/ch08/theorem/">
+<link rel="stylesheet" href="/my_book/book.min.bc143c103c035bae1a91d5aad87760f96748dd2dc55ba27e2e60aa8ece39e869.css" integrity="sha256-vBQ8EDwDW64akdWq2Hdg&#43;WdI3S3FW6J&#43;LmCqjs456Gk=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/my_book/en.search.min.cdd8043259d4c121c464bf82421b1b8ec24ddcfd3913423fc773e1adc6214018.js" integrity="sha256-zdgEMlnUwSHEZL&#43;CQhsbjsJN3P05E0I/x3PhrcYhQBg=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/my_book/"><span>知识库</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-abba9f480fc1b6dc0f169df3792fa60b" class="toggle"  />
+    <label for="section-abba9f480fc1b6dc0f169df3792fa60b" class="flex">
+      <a href="/my_book/docs/math/" class="">
+        数学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3eadb64dade55467a37e3d8684debcbe" class="toggle"  />
+    <label for="section-3eadb64dade55467a37e3d8684debcbe" class="flex">
+      <a href="/my_book/docs/math/ma/" class="">
+        数学分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-65eae293ed0098a0a36bdb2eb03d0d66" class="toggle"  />
+    <label for="section-65eae293ed0098a0a36bdb2eb03d0d66" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/" class="">
+        ch07 数项级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e326582fcb1d25ace94559825e37e78a" class="toggle"  />
+    <label for="section-e326582fcb1d25ace94559825e37e78a" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-092bf523737bea57e903ccfe2bcbceb0" class="toggle"  />
+    <label for="section-092bf523737bea57e903ccfe2bcbceb0" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0a8d861cd4176c22af4abdab3e8393f3" class="toggle"  />
+    <label for="section-0a8d861cd4176c22af4abdab3e8393f3" class="flex">
+      <a href="/my_book/docs/math/ma/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-701bbb3362074de7a18b4e5941c35e80" class="toggle"  />
+    <label for="section-701bbb3362074de7a18b4e5941c35e80" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/" class="">
+        ch08 函数项级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f7eac4a4ad148c1436105f796711db23" class="toggle"  />
+    <label for="section-f7eac4a4ad148c1436105f796711db23" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6612181ffbe56683ffb0c6c8eb9e30e2" class="toggle"  />
+    <label for="section-6612181ffbe56683ffb0c6c8eb9e30e2" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ff6dbf3ba8565fbb1c2728f0c81dfd15" class="toggle"  />
+    <label for="section-ff6dbf3ba8565fbb1c2728f0c81dfd15" class="flex">
+      <a href="/my_book/docs/math/ma/ch08/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-86b3f804a71bdd5c9dbdaa65cff2c870" class="toggle"  />
+    <label for="section-86b3f804a71bdd5c9dbdaa65cff2c870" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/" class="">
+        ch09 Fourier 分析</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1d04d935e6074b1669499d56fdc09e12" class="toggle"  />
+    <label for="section-1d04d935e6074b1669499d56fdc09e12" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a20297977a1e58717a639ae306c6c693" class="toggle"  />
+    <label for="section-a20297977a1e58717a639ae306c6c693" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-13c09c9bc58e29a8a78b87dac121f479" class="toggle"  />
+    <label for="section-13c09c9bc58e29a8a78b87dac121f479" class="flex">
+      <a href="/my_book/docs/math/ma/ch09/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b3c49a81b4ab9113a87657d137048e67" class="toggle"  />
+    <label for="section-b3c49a81b4ab9113a87657d137048e67" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/" class="">
+        ch10_度量空间和连续映射</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-26d0aec27328b83fb6f555a46a562ae1" class="toggle"  />
+    <label for="section-26d0aec27328b83fb6f555a46a562ae1" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-73bd758025cc0077778e966e1a69e66c" class="toggle"  />
+    <label for="section-73bd758025cc0077778e966e1a69e66c" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9f38fb7284cc7aa1fe9bfecc70455df7" class="toggle"  />
+    <label for="section-9f38fb7284cc7aa1fe9bfecc70455df7" class="flex">
+      <a href="/my_book/docs/math/ma/ch10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f53ea5b7f823f7c2adc420f276ae16ce" class="toggle"  />
+    <label for="section-f53ea5b7f823f7c2adc420f276ae16ce" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/" class="">
+        ch11_多元函数的微分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a48432f5aa3322a4d27d98a4bb888c94" class="toggle"  />
+    <label for="section-a48432f5aa3322a4d27d98a4bb888c94" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4cfa8f007098347bcead24699e734134" class="toggle"  />
+    <label for="section-4cfa8f007098347bcead24699e734134" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-755e8b1e80b5b232c4bcd14fb421bb36" class="toggle"  />
+    <label for="section-755e8b1e80b5b232c4bcd14fb421bb36" class="flex">
+      <a href="/my_book/docs/math/ma/ch11/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c1ffeeb174102a68430b2e84c0806fed" class="toggle"  />
+    <label for="section-c1ffeeb174102a68430b2e84c0806fed" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/" class="">
+        ch12_多元函数的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b185b95fdb22770a6fa3ad4a714fc998" class="toggle"  />
+    <label for="section-b185b95fdb22770a6fa3ad4a714fc998" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e79cab41e3509b0dcb9d784a5a57b73a" class="toggle"  />
+    <label for="section-e79cab41e3509b0dcb9d784a5a57b73a" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0bedb42fbccdbbbfd30b0fa271a78366" class="toggle"  />
+    <label for="section-0bedb42fbccdbbbfd30b0fa271a78366" class="flex">
+      <a href="/my_book/docs/math/ma/ch12/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-267008b386e6253c3596df6bcf8c1117" class="toggle"  />
+    <label for="section-267008b386e6253c3596df6bcf8c1117" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/" class="">
+        ch13_曲线积分与曲面积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-487fcbc3efa9888c2fb2aef2ce9d6613" class="toggle"  />
+    <label for="section-487fcbc3efa9888c2fb2aef2ce9d6613" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-27c6a9a766be819b9f395648a0fe57a2" class="toggle"  />
+    <label for="section-27c6a9a766be819b9f395648a0fe57a2" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-aec0fd22078e90437f3d050d671214b8" class="toggle"  />
+    <label for="section-aec0fd22078e90437f3d050d671214b8" class="flex">
+      <a href="/my_book/docs/math/ma/ch13/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7b12739449f11ae0771259ae3c8cb893" class="toggle"  />
+    <label for="section-7b12739449f11ae0771259ae3c8cb893" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/" class="">
+        ch14_微分形式的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3347a10040f7435f706abd75013db5c1" class="toggle"  />
+    <label for="section-3347a10040f7435f706abd75013db5c1" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c77249cdb1eb6ab99cb7e97696a9a575" class="toggle"  />
+    <label for="section-c77249cdb1eb6ab99cb7e97696a9a575" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-695007eb17d3fefd4381d35030bc67e3" class="toggle"  />
+    <label for="section-695007eb17d3fefd4381d35030bc67e3" class="flex">
+      <a href="/my_book/docs/math/ma/ch14/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d4e07a5c17e48144aaef57dcb8380aea" class="toggle"  />
+    <label for="section-d4e07a5c17e48144aaef57dcb8380aea" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/" class="">
+        ch15_含参变量的积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-29fe5c5c1a392acf5228ab94e6ec41eb" class="toggle"  />
+    <label for="section-29fe5c5c1a392acf5228ab94e6ec41eb" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0d086c59106e09f7712f77b04265f298" class="toggle"  />
+    <label for="section-0d086c59106e09f7712f77b04265f298" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-84b8b9cf32f30aaf6b31ff2413a2d250" class="toggle"  />
+    <label for="section-84b8b9cf32f30aaf6b31ff2413a2d250" class="flex">
+      <a href="/my_book/docs/math/ma/ch15/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2314e8a4c471624c55933b887307854d" class="toggle"  />
+    <label for="section-2314e8a4c471624c55933b887307854d" class="flex">
+      <a href="/my_book/docs/math/ma/%E8%A1%A5%E5%85%85/" class="">
+        补充资料</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-334223b3b68ccc51d5b9d492351e42d4" class="toggle"  />
+    <label for="section-334223b3b68ccc51d5b9d492351e42d4" class="flex">
+      <a href="/my_book/docs/math/la/" class="">
+        高等代数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-370e196551ce18290adc72b6d9799f60" class="toggle"  />
+    <label for="section-370e196551ce18290adc72b6d9799f60" class="flex">
+      <a href="/my_book/docs/math/la/ch6/" class="">
+        ch06 线性空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0e0d25242591f8571fe404d8bcff5874" class="toggle"  />
+    <label for="section-0e0d25242591f8571fe404d8bcff5874" class="flex">
+      <a href="/my_book/docs/math/la/ch6/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9c4046dbe8cad9f987545b7dab44642f" class="toggle"  />
+    <label for="section-9c4046dbe8cad9f987545b7dab44642f" class="flex">
+      <a href="/my_book/docs/math/la/ch6/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b56ccd2781b1a8ad929731229b5b73af" class="toggle"  />
+    <label for="section-b56ccd2781b1a8ad929731229b5b73af" class="flex">
+      <a href="/my_book/docs/math/la/ch6/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cb17bb85ffcb66078f56805cf1c637b0" class="toggle"  />
+    <label for="section-cb17bb85ffcb66078f56805cf1c637b0" class="flex">
+      <a href="/my_book/docs/math/la/ch7/" class="">
+        ch07 线性变换</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cc024f6232304022ca1bf992cd31edfb" class="toggle"  />
+    <label for="section-cc024f6232304022ca1bf992cd31edfb" class="flex">
+      <a href="/my_book/docs/math/la/ch7/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-434edec3941553c6aef7031ec74ddf28" class="toggle"  />
+    <label for="section-434edec3941553c6aef7031ec74ddf28" class="flex">
+      <a href="/my_book/docs/math/la/ch7/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-12fcacd2c1ef0c8ab71838e6b58580ee" class="toggle"  />
+    <label for="section-12fcacd2c1ef0c8ab71838e6b58580ee" class="flex">
+      <a href="/my_book/docs/math/la/ch7/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-65593a2601be6e9beb9bbb22d4430ee9" class="toggle"  />
+    <label for="section-65593a2601be6e9beb9bbb22d4430ee9" class="flex">
+      <a href="/my_book/docs/math/la/ch8/" class="">
+        ch08 lambda-矩阵</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-56fcf46c4f0e8360adc34c9ad62dc8a7" class="toggle"  />
+    <label for="section-56fcf46c4f0e8360adc34c9ad62dc8a7" class="flex">
+      <a href="/my_book/docs/math/la/ch8/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b072e4f88ca20eff52acac16fd801d90" class="toggle"  />
+    <label for="section-b072e4f88ca20eff52acac16fd801d90" class="flex">
+      <a href="/my_book/docs/math/la/ch8/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c70d0989350bdbca830f36d94b03bc92" class="toggle"  />
+    <label for="section-c70d0989350bdbca830f36d94b03bc92" class="flex">
+      <a href="/my_book/docs/math/la/ch8/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e36dc7c48581b2c180b5c52d3914af26" class="toggle"  />
+    <label for="section-e36dc7c48581b2c180b5c52d3914af26" class="flex">
+      <a href="/my_book/docs/math/la/ch9/" class="">
+        ch09 欧几里得空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-489b83891f8cc3e65faa81af65044b0d" class="toggle"  />
+    <label for="section-489b83891f8cc3e65faa81af65044b0d" class="flex">
+      <a href="/my_book/docs/math/la/ch9/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-042e2f17a7db91c58191ee50972e0728" class="toggle"  />
+    <label for="section-042e2f17a7db91c58191ee50972e0728" class="flex">
+      <a href="/my_book/docs/math/la/ch9/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5b44f217aa3c6bf82186723ce6122ad0" class="toggle"  />
+    <label for="section-5b44f217aa3c6bf82186723ce6122ad0" class="flex">
+      <a href="/my_book/docs/math/la/ch9/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f9978e2571c1ce834e2f5d46ebf5e5c0" class="toggle"  />
+    <label for="section-f9978e2571c1ce834e2f5d46ebf5e5c0" class="flex">
+      <a href="/my_book/docs/math/la/ch10/" class="">
+        ch10 双线性函数与辛空间</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cfe65af68c1d99a1b8c8b2d7c49abf45" class="toggle"  />
+    <label for="section-cfe65af68c1d99a1b8c8b2d7c49abf45" class="flex">
+      <a href="/my_book/docs/math/la/ch10/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-61c5621f7059acbc1549d88eefb5ba5f" class="toggle"  />
+    <label for="section-61c5621f7059acbc1549d88eefb5ba5f" class="flex">
+      <a href="/my_book/docs/math/la/ch10/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0ca318ed2599c788ab3bf697d64a21c" class="toggle"  />
+    <label for="section-e0ca318ed2599c788ab3bf697d64a21c" class="flex">
+      <a href="/my_book/docs/math/la/ch10/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-af5f24f7ea343745d3308f7b02249857" class="toggle" checked />
+    <label for="section-af5f24f7ea343745d3308f7b02249857" class="flex">
+      <a href="/my_book/docs/physics/" class="">
+        物理</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/physics/am/" class="">
+      分析力学</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2a2b764615d93d170f2849ce835d52e5" class="toggle"  />
+    <label for="section-2a2b764615d93d170f2849ce835d52e5" class="flex">
+      <a href="/my_book/docs/physics/am/%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/" class="">
+        力学与理论力学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3e3a43e94d3247f305bdf984c7f26ed2" class="toggle"  />
+    <label for="section-3e3a43e94d3247f305bdf984c7f26ed2" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/" class="">
+        理论力学基本教程</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae3f99dfaf2a73fc8c2f52a4f28e5868" class="toggle"  />
+    <label for="section-ae3f99dfaf2a73fc8c2f52a4f28e5868" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/" class="">
+        ch07-分析力学的变分原理</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fff21f12e6f8fbd4b26c36a384916e2e" class="toggle"  />
+    <label for="section-fff21f12e6f8fbd4b26c36a384916e2e" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fd1dfa9d54bbf2c716849a7c55e147db" class="toggle"  />
+    <label for="section-fd1dfa9d54bbf2c716849a7c55e147db" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5bdfcc6743d94c73fcb3f31b450bed7d" class="toggle"  />
+    <label for="section-5bdfcc6743d94c73fcb3f31b450bed7d" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6b5a526e24e0f29293622e36bf9a580a" class="toggle"  />
+    <label for="section-6b5a526e24e0f29293622e36bf9a580a" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/" class="">
+        ch08-拉格朗日动力学</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-81d5a59c2ab2e874f90c38d6a3879643" class="toggle"  />
+    <label for="section-81d5a59c2ab2e874f90c38d6a3879643" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-073ac697f31a147a2a6fa663c49ce413" class="toggle"  />
+    <label for="section-073ac697f31a147a2a6fa663c49ce413" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8b022b8785fc214dec84a28c938bc6fb" class="toggle"  />
+    <label for="section-8b022b8785fc214dec84a28c938bc6fb" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch08/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c946a05d8db4ff377ffca2c0ca8341cb" class="toggle"  />
+    <label for="section-c946a05d8db4ff377ffca2c0ca8341cb" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/" class="">
+        ch09-正则方程</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f1285a5c81a8365e70b2a82fc7ceb992" class="toggle"  />
+    <label for="section-f1285a5c81a8365e70b2a82fc7ceb992" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3596358916a35b494a6462e4d3509449" class="toggle"  />
+    <label for="section-3596358916a35b494a6462e4d3509449" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1a7ce653704160694f34f140a40094f3" class="toggle"  />
+    <label for="section-1a7ce653704160694f34f140a40094f3" class="flex">
+      <a href="/my_book/docs/physics/am/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/ch09/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3d28bd9e2366e4053084ce10512b9f68" class="toggle" checked />
+    <label for="section-3d28bd9e2366e4053084ce10512b9f68" class="flex">
+      <a href="/my_book/docs/physics/methods/" class="">
+        数学物理方法</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-829bf1480fbb4bc882a49413b3f5a600" class="toggle"  />
+    <label for="section-829bf1480fbb4bc882a49413b3f5a600" class="flex">
+      <a href="/my_book/docs/physics/methods/ch01/" class="">
+        ch01_复数和复变函数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6300ab02630b6b1dafce51d0b61394be" class="toggle"  />
+    <label for="section-6300ab02630b6b1dafce51d0b61394be" class="flex">
+      <a href="/my_book/docs/physics/methods/ch01/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-746cdfd31f02cbfb53d400b19d59da58" class="toggle"  />
+    <label for="section-746cdfd31f02cbfb53d400b19d59da58" class="flex">
+      <a href="/my_book/docs/physics/methods/ch01/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-867623d107f090356731ca2f1bc60ec9" class="toggle"  />
+    <label for="section-867623d107f090356731ca2f1bc60ec9" class="flex">
+      <a href="/my_book/docs/physics/methods/ch01/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-39ffee264e699506470ebf65b4499b94" class="toggle"  />
+    <label for="section-39ffee264e699506470ebf65b4499b94" class="flex">
+      <a href="/my_book/docs/physics/methods/ch02/" class="">
+        ch02_解析函数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-56d42e2e846b01af8695b32e238039cc" class="toggle"  />
+    <label for="section-56d42e2e846b01af8695b32e238039cc" class="flex">
+      <a href="/my_book/docs/physics/methods/ch02/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-240f43d9ab7498566e9f72eea75c08e4" class="toggle"  />
+    <label for="section-240f43d9ab7498566e9f72eea75c08e4" class="flex">
+      <a href="/my_book/docs/physics/methods/ch02/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-047be3c3ff1029c1e1668e5f3f91c7d3" class="toggle"  />
+    <label for="section-047be3c3ff1029c1e1668e5f3f91c7d3" class="flex">
+      <a href="/my_book/docs/physics/methods/ch02/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-caf9158a8e54993542b9f459fee83e30" class="toggle"  />
+    <label for="section-caf9158a8e54993542b9f459fee83e30" class="flex">
+      <a href="/my_book/docs/physics/methods/ch03/" class="">
+        ch03_复变积分</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6af28327adbaf05ed3974ca66d4bba8d" class="toggle"  />
+    <label for="section-6af28327adbaf05ed3974ca66d4bba8d" class="flex">
+      <a href="/my_book/docs/physics/methods/ch03/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a076c9b9241ae52b282b9b4fe3c14aa3" class="toggle"  />
+    <label for="section-a076c9b9241ae52b282b9b4fe3c14aa3" class="flex">
+      <a href="/my_book/docs/physics/methods/ch03/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-df01cd7d038d6f4d38b68dfa676fbbc5" class="toggle"  />
+    <label for="section-df01cd7d038d6f4d38b68dfa676fbbc5" class="flex">
+      <a href="/my_book/docs/physics/methods/ch03/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bc471f87f970ffe9119e52a587557053" class="toggle"  />
+    <label for="section-bc471f87f970ffe9119e52a587557053" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/" class="">
+        ch04 无穷级数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e61e94e7ff2f7070b53e2582eb2cf28" class="toggle"  />
+    <label for="section-9e61e94e7ff2f7070b53e2582eb2cf28" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3c3b20989fe2261fca0c693b00d48441" class="toggle"  />
+    <label for="section-3c3b20989fe2261fca0c693b00d48441" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5006ee5466e0279b54ae78f0d670a43f" class="toggle"  />
+    <label for="section-5006ee5466e0279b54ae78f0d670a43f" class="flex">
+      <a href="/my_book/docs/physics/methods/ch04/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fd2fd8986f401de8db7dd51212ecc97f" class="toggle"  />
+    <label for="section-fd2fd8986f401de8db7dd51212ecc97f" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/" class="">
+        ch05 解析函数的局域性展开</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-50076f6fde930eeebbf16e250a19fdae" class="toggle"  />
+    <label for="section-50076f6fde930eeebbf16e250a19fdae" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e32eb641a96f409e7bdf394901bbfea3" class="toggle"  />
+    <label for="section-e32eb641a96f409e7bdf394901bbfea3" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-503da5ae6c51ba64037171ec5491eecc" class="toggle"  />
+    <label for="section-503da5ae6c51ba64037171ec5491eecc" class="flex">
+      <a href="/my_book/docs/physics/methods/ch05/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a34c1ef4f2d9068fef0b86dc36d95dc8" class="toggle"  />
+    <label for="section-a34c1ef4f2d9068fef0b86dc36d95dc8" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/" class="">
+        ch06 留数定理及其应用</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-28d1d8243c73b14fcfdf783a3a444e6f" class="toggle"  />
+    <label for="section-28d1d8243c73b14fcfdf783a3a444e6f" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-88577f8aa714592dd33bb3d786bb7383" class="toggle"  />
+    <label for="section-88577f8aa714592dd33bb3d786bb7383" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c5c1351ae0877b9f8c373723f2287cca" class="toggle"  />
+    <label for="section-c5c1351ae0877b9f8c373723f2287cca" class="flex">
+      <a href="/my_book/docs/physics/methods/ch06/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-12a201aa9ddc87b7e08ecd7b06bafb29" class="toggle"  />
+    <label for="section-12a201aa9ddc87b7e08ecd7b06bafb29" class="flex">
+      <a href="/my_book/docs/physics/methods/ch07/" class="">
+        ch07 Γ 函数</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8f05b1d5a7ed4a99492f13cc41c7256c" class="toggle"  />
+    <label for="section-8f05b1d5a7ed4a99492f13cc41c7256c" class="flex">
+      <a href="/my_book/docs/physics/methods/ch07/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d8122849ded3f0c6c4c10736675881b5" class="toggle"  />
+    <label for="section-d8122849ded3f0c6c4c10736675881b5" class="flex">
+      <a href="/my_book/docs/physics/methods/ch07/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d7619a3530e8f492ba7b958f21ab5588" class="toggle"  />
+    <label for="section-d7619a3530e8f492ba7b958f21ab5588" class="flex">
+      <a href="/my_book/docs/physics/methods/ch07/theorem/" class="">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4b179543d27812b93d7fb8acdc4696f8" class="toggle" checked />
+    <label for="section-4b179543d27812b93d7fb8acdc4696f8" class="flex">
+      <a href="/my_book/docs/physics/methods/ch08/" class="">
+        ch08 Laplace 变换</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2bda7a66865639414690c59e0c387781" class="toggle"  />
+    <label for="section-2bda7a66865639414690c59e0c387781" class="flex">
+      <a href="/my_book/docs/physics/methods/ch08/definition/" class="">
+        definition</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4cd0828d3b19cff70fc79b127b5415bf" class="toggle"  />
+    <label for="section-4cd0828d3b19cff70fc79b127b5415bf" class="flex">
+      <a href="/my_book/docs/physics/methods/ch08/formula/" class="">
+        formula</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cd80186f4740dcb1db5ded3945fcebe1" class="toggle" checked />
+    <label for="section-cd80186f4740dcb1db5ded3945fcebe1" class="flex">
+      <a href="/my_book/docs/physics/methods/ch08/theorem/" class="active">
+        theorem</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5eb26766587a11013a6eba77b5e5d636" class="toggle"  />
+    <label for="section-5eb26766587a11013a6eba77b5e5d636" class="flex">
+      <a role="button" class="">
+        英文学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fdd26b761c105af4be4377fa5b58ac88" class="toggle"  />
+    <label for="section-fdd26b761c105af4be4377fa5b58ac88" class="flex">
+      <a href="/my_book/docs/english/vocab/" class="">
+        词汇学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch05_%E5%AD%A6%E6%A0%A1%E6%95%99%E8%82%B2/" class="">
+      ch05 学校教育</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch16_%E7%A4%BE%E4%BC%9A%E7%BB%8F%E6%B5%8E/" class="">
+      ch16 社会经济</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch20_%E8%A1%8C%E4%B8%BA%E5%8A%A8%E4%BD%9C/" class="">
+      ch20 行为动作</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/my_book/docs/english/vocab/ch21_%E8%BA%AB%E5%BF%83%E5%81%A5%E5%BA%B7/" class="">
+      ch21 身心健康</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8c3aca59a8015cfe8174d699bde68514" class="toggle"  />
+    <label for="section-8c3aca59a8015cfe8174d699bde68514" class="flex">
+      <a href="/my_book/docs/english/grammar/" class="">
+        语法学习</a>
+      <img src="/my_book/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/my_book/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>theorem</h3>
+
+  <label for="toc-control">
+    
+    <img src="/my_book/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-81-laplace-变换的定义"><strong>§ 8.1 Laplace 变换的定义</strong></a></li>
+        <li><a href="#-82-laplace-变换的基本性质"><strong>§ 8.2 Laplace 变换的基本性质</strong></a></li>
+        <li><a href="#-83-laplace-变换的反演"><strong>§ 8.3 Laplace 变换的反演</strong></a></li>
+        <li><a href="#-84-普遍反演公式"><strong>§ 8.4 普遍反演公式</strong></a></li>
+        <li><a href="#-85-利用-laplace-变换计算级数和"><strong>§ 8.5 利用 Laplace 变换计算级数和</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><p><div class="book-katex" >\[ 
+ \]</div><link rel="stylesheet" href="/my_book/katex/katex.min.css" /><script defer src="/my_book/katex/katex.min.js"></script><script defer src="/my_book/katex/auto-render.min.js" onload="renderMathInElement(document.body, {&#34;delimiters&#34;:[{&#34;left&#34;:&#34;$$&#34;,&#34;right&#34;:&#34;$$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;$&#34;,&#34;right&#34;:&#34;$&#34;,&#34;display&#34;:true},{&#34;left&#34;:&#34;\\(&#34;,&#34;right&#34;:&#34;\\)&#34;,&#34;display&#34;:false},{&#34;left&#34;:&#34;\\[&#34;,&#34;right&#34;:&#34;\\]&#34;,&#34;display&#34;:true}]});"></script>
+根据第八章《Laplace 变换》（源文件 <code>ch_8.pdf</code>）的内容，现将各小节中出现的<strong>定理、引理</strong>以及具有定理或引理性质的<strong>核心性质、判定条件</strong>系统整理如下：</p>
+<hr>
+<h3 id="-81-laplace-变换的定义"><strong>§ 8.1 Laplace 变换的定义</strong><a class="anchor" href="#-81-laplace-%e5%8f%98%e6%8d%a2%e7%9a%84%e5%ae%9a%e4%b9%89">#</a></h3>
+<p>本节主要给出拉氏变换的数学定义，并确立了变换存在性的核心判定依据：</p>
+<ul>
+<li><strong>Laplace 变换存在的充分条件（定理性质）</strong>  ：
+若函数 \( f(t) \)  在正实轴上满足以下两个条件，则其 Laplace 变换一定存在：
+<ol>
+<li><strong>分段连续性</strong>：\( f(t) \)  在区间 \( 0 \le t &lt; \infty \)  上除第一类间断点外都是连续的，且有连续导数，在任何有限区间内这种间断点的数目是有限的  ；</li>
+<li><strong>有限增长性</strong>：\( f(t) \)  具有有限的增长指数，即存在正数 \( M &gt; 0, t_0 &gt; 0 \)  及 \( \beta&rsquo; \ge 0 \) ，使对于任何 \( t &gt; t_0 \) ，恒有：
+\( |f(t)| &lt; M e^{\beta&rsquo; t} \quad (8.7) \quad \text{ } \)</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="-82-laplace-变换的基本性质"><strong>§ 8.2 Laplace 变换的基本性质</strong><a class="anchor" href="#-82-laplace-%e5%8f%98%e6%8d%a2%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%80%a7%e8%b4%a8">#</a></h3>
+<p>本节阐述了像函数与原函数在复数域运算中的五大基本性质，这些性质在数学上均具有定理的地位：</p>
+<ul>
+<li><strong>性质 1（线性变换定理）</strong>  ：
+Laplace 变换是一个线性变换。对任意复常数 \( \alpha_1 \)  和 \( \alpha_2 \) ，恒有：
+\( \mathcal{L} {\alpha_1 f_1(t) + \alpha_2 f_2(t)} = \alpha_1 F_1(p) + \alpha_2 F_2(p) \quad (8.8) \quad \text{ } \)</li>
+<li><strong>性质 2（像函数的解析性定理）</strong>  ：
+若函数 \( f(t) \)  满足 Laplace 变换存在的充分条件，则其像函数 \( F(p) \)  在半平面 \( \text{Re } p &gt; s_0 \) （\( s_0 \)  为收敛横标）内是一个<strong>解析函数</strong>  。</li>
+<li><strong>性质 3（像函数无穷远处极限性质）</strong>  ：
+若 \( f(t) \)  满足 Laplace 变换存在的充分条件，则当 \( \text{Re } p = s \to +\infty \)  时，其像函数极限为零，即：
+\( \lim_{\text{Re } p \to +\infty} F(p) = 0 \quad (8.11) \quad \text{ } \)
+此外，根据 <strong>Riemann-Lebesgue 定理</strong>，当 \( \text{Re } p = s &gt; s_0 \)  时，亦满足  ：
+\( \lim_{\text{Im } p \to \infty} F(p) = 0 \quad \text{ } \)</li>
+<li><strong>性质 4（原函数导数的 Laplace 变换定理）</strong>  ：
+设 \( f(t) \)  及其各阶导数的 Laplace 变换均存在，且 \( f(t) \risingdotseq F(p) \) ，则导数的变换自动包含初值项：
+<ul>
+<li><strong>一阶导数</strong>：\( \mathcal{L} {f&rsquo;(t)} = p F(p) - f(0) \quad (8.12) \quad \text{ } \)</li>
+<li><strong>\( n \)  阶导数</strong>：\( \mathcal{L} {f^{(n)}(t)} = p^n F(p) - p^{n-1} f(0) - p^{n-2} f&rsquo;(0) - \dots - f^{(n-1)}(0) \quad (8.13\text{c}) \quad \text{ } \)</li>
+</ul>
+</li>
+<li><strong>性质 5（原函数积分的 Laplace 变换定理）</strong>  ：
+设 \( f(t) \)  满足 Laplace 变换存在的充分条件，其积分的 Laplace 变换为：
+\( \mathcal{L}   \int_0^t f(\tau) d\tau   = \frac{F(p)}{p} \quad (8.18) \quad \text{ } \)</li>
+</ul>
+<hr>
+<h3 id="-83-laplace-变换的反演"><strong>§ 8.3 Laplace 变换的反演</strong><a class="anchor" href="#-83-laplace-%e5%8f%98%e6%8d%a2%e7%9a%84%e5%8f%8d%e6%bc%94">#</a></h3>
+<p>本节探讨了如何由像函数还原为原函数，并给出了著名的卷积定理：</p>
+<ul>
+<li><strong>反演的唯一性定理</strong>  ：
+如果限定原函数为<strong>连续函数</strong>，则 Laplace 变换的反演具有<strong>唯一性</strong>  。若允许原函数不连续，对应于同一个像函数，其原函数可相差一个几乎处处为零的“零函数”  。</li>
+<li><strong>像函数导数的反演定理</strong>  ：
+设 \( f(t) \)  满足 Laplace 变换存在的充分条件，且 \( f(t) \risingdotseq F(p) \) ，则：
+\( F^{(n)}(p) \risingdotseq (-t)^n f(t) \quad (8.23) \quad \text{ } \)</li>
+<li><strong>像函数积分的反演定理</strong>  ：
+若像函数的积分存在，则其反演公式为：
+\( \mathcal{L}^{-1}   \int_p^\infty F(q) dq   = \frac{f(t)}{t} \quad (8.27) \quad \text{ } \)</li>
+<li><strong>定理 8.1（卷积定理）</strong>  ：
+设 \( F_1(p) \risingdotseq f_1(t) \)  且 \( F_2(p) \risingdotseq f_2(t) \) ，则两个像函数乘积的反演等于对应原函数的<strong>卷积</strong>：
+\( \mathcal{L}{f_1(t) * f_2(t)} = F_1(p) F_2(p) \quad (8.36) \quad \text{ } \)
+其中卷积定义为：\( f_1(t) * f_2(t) = \int_0^t f_1(\tau) f_2(t-\tau) d\tau \)   。</li>
+</ul>
+<hr>
+<h3 id="-84-普遍反演公式"><strong>§ 8.4 普遍反演公式</strong><a class="anchor" href="#-84-%e6%99%ae%e9%81%8d%e5%8f%8d%e6%bc%94%e5%85%ac%e5%bc%8f">#</a></h3>
+<p>本节将反演推广到复平面上的复变积分，并给出了计算所需的重要引理：</p>
+<ul>
+<li><strong>普遍反演定理（Mellin 反演公式）</strong>  ：
+若复变函数 \( F(p) \)  在区域 \( \text{Re } p &gt; s_0 \)  内满足：
+<ol>
+<li>\( F(p) \)  解析  ；</li>
+<li>当 \( |p| \to \infty \)  时 \( F(p) \)  趋于 \( 0 \)   ；</li>
+<li>沿直线 \( L: \text{Re } p = s &gt; s_0 \)  的无穷积分 \( \int_{-\infty}^{\infty} |F(s+i\sigma)| d\sigma \)  收敛  ；
+则 \( F(p) \)  的原函数可通过复平面上的围道积分（<strong>Mellin 反演积分</strong>）确定：
+\( f(t) = \frac{1}{2\pi i} \int_{s-i\infty}^{s+i\infty} F(p) e^{pt} dp \quad (s &gt; s_0) \quad (8.38) \quad \text{ } \)</li>
+</ol>
+</li>
+<li><strong>推广的 Jordan 引理</strong>  ：
+为了在复反演积分中估算大圆弧的积分极限，将原始的 Jordan 引理作了如下扩充：
+将 Jordan 引理所讨论的圆弧**旋转了 \( 90^\circ \) **  ，使半圆弧与直线 \( \text{Re } p = s &gt; 0 \)  相交（略大于半圆弧）  。在圆弧与虚轴的距离 \( s \)  固定时，当半径 \( R \to \infty \) ，虚轴右方圆弧的张角趋于 \( 0 \)   。在此条件下，若代数项在大圆弧上一致趋于 0，则沿该大圆弧的积分极限为 0  。</li>
+<li><strong>引理 3.4（在多值函数反演中的应用）</strong>  ：
+在计算含分支点（如 \( p=0 \) ）的多值函数反演时，围绕分支点的极小半圆弧 \( C_\delta \)  的积分，当半径 \( \delta \to 0 \)  时极限为零  ：
+\( \lim_{\delta \to 0} \int_{C_\delta} \dots dp = 0 \quad \text{ } \)</li>
+</ul>
+<hr>
+<h3 id="-85-利用-laplace-变换计算级数和"><strong>§ 8.5 利用 Laplace 变换计算级数和</strong><a class="anchor" href="#-85-%e5%88%a9%e7%94%a8-laplace-%e5%8f%98%e6%8d%a2%e8%ae%a1%e7%ae%97%e7%ba%a7%e6%95%b0%e5%92%8c">#</a></h3>
+<ul>
+<li><strong>级数和与积分转换定理</strong>  ：
+利用 Laplace 变换，可以通过交换积分与级数求和的次序，将离散的无穷级数求和问题转化为定积分计算：
+\( \sum_{n=1}^\infty F(n) = \int_0^\infty f(t) \left( \sum_{n=1}^\infty e^{-nt} \right) dt = \int_0^\infty \frac{f(t)}{e^t-1} dt \quad (8.45) \quad \text{ } \)
+（由于指数项 \( e^{-nt} \)  的存在，在一般情况下常能保证交换积分与求和次序的合法性  ）。</li>
+</ul>
+<hr>
+<p>📊 我可以为您梳理一下如何利用导数性质（<strong>性质 4</strong>）与<strong>卷积定理</strong>来完整求解一个包含方形脉冲电压的电路微分方程定解问题（如例 8.6 的具体步骤），您想看看吗？</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/my_book/docs/physics/methods/ch08/formula/" class="flex align-center">
+        <img src="/my_book/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>formula</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/my_book/docs/english/vocab/" class="flex align-center">
+        <span>词汇学习</span>
+        <img src="/my_book/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-81-laplace-变换的定义"><strong>§ 8.1 Laplace 变换的定义</strong></a></li>
+        <li><a href="#-82-laplace-变换的基本性质"><strong>§ 8.2 Laplace 变换的基本性质</strong></a></li>
+        <li><a href="#-83-laplace-变换的反演"><strong>§ 8.3 Laplace 变换的反演</strong></a></li>
+        <li><a href="#-84-普遍反演公式"><strong>§ 8.4 普遍反演公式</strong></a></li>
+        <li><a href="#-85-利用-laplace-变换计算级数和"><strong>§ 8.5 利用 Laplace 变换计算级数和</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
