@@ -1,5 +1,5 @@
 ---
-title: "英文学习"
+title: "英语"
 weight: 1
 bookCollapseSection: true
 ---

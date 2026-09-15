@@ -17,13 +17,9 @@ bookCollapseSection: true
 *   **\\( z \\)
 **：复平面 \\( \mathbb{C} \\)
  上的**复自变量**。
-*   **\\( t \\)
-**：第二类 Euler 积分中的**积分变量**，通常满足 \\( \arg t = 0 \\)
+*   **\\( t \\)**：第二类 Euler 积分中的**积分变量**，通常满足 \\( \arg t = 0 \\)
 。在修改路径时，也可延拓为复变量。
-*   **\\( \Gamma(z, a) \\)
- 和 \\( \gamma(z, a) \\)
-**：**不完全 \\( \Gamma \\)
- 函数**，定义分别为 \\( \Gamma(z, a) = \int_a^\infty e^{-t} t^{z-1} dt \\)
+*   **\\( \Gamma(z, a) \\) 和 \\( \gamma(z, a) \\)**：**不完全 \\( \Gamma \\)函数**，定义分别为 \\( \Gamma(z, a) = \int_a^\infty e^{-t} t^{z-1} dt \\)
  和 \\( \gamma(z, a) = \int_0^a e^{-t} t^{z-1} dt \\)
 （脚注）。
 *   **\\( L \\)
@@ -32,14 +28,12 @@ bookCollapseSection: true
  出发的**积分路径**（半射线或分段光滑曲线），满足 \\( \arg t = \alpha \\)
  且 \\( |\alpha| < \pi/2 \\)
 。
-*   **\\( \text{res }\Gamma(-n) \\)
-**：\\( \Gamma \\)
+*   **\\( \text{res }\Gamma(-n) \\)**：\\( \Gamma \\)
  函数在负整数和零点 \\( z = -n \\)
 （\\( n = 0, 1, 2, \dots \\)
  一阶极点）处的**留数**。
 *   **\\( B(p, q) \\)
-**：**\\( B \\)
- 函数**（Beta 函数），由第一类 Euler 积分定义，用于复平面上的解析延拓。
+**：**\\( B \\)函数**（Beta 函数），由第一类 Euler 积分定义，用于复平面上的解析延拓。
 *   **\\( p, q \\)
 **：\\( B \\)
  函数的**复自变量**。
@@ -53,8 +47,7 @@ bookCollapseSection: true
  函数的对数微商：  
     \\( \psi(z) = \frac{d \ln \Gamma(z)}{dz} = \frac{\Gamma'(z)}{\Gamma(z)} \quad \\)
 
-*   **\\( \gamma \\)
-**：**Euler 常数**（或称 Euler-Mascheroni 常数），是最基本的数学常数之一，满足 \\( \gamma = -\psi(1) \approx 0.577215... \\)
+*   **\\( \gamma \\)**：**Euler 常数**（或称 Euler-Mascheroni 常数），是最基本的数学常数之一，满足 \\( \gamma = -\psi(1) \approx 0.577215... \\)
 。
 
 ---

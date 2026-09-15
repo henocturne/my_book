@@ -1,5 +1,5 @@
 ---
-title: "词汇学习"
+title: "词汇"
 weight: 1
 bookCollapseSection: true
 ---

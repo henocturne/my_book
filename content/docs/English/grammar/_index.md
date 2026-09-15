@@ -1,5 +1,5 @@
 ---
-title: "语法学习"
+title: "语法"
 weight: 1
 bookCollapseSection: true
 ---
